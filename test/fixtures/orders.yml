@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  customerable_id: 1
+  customerable_type: MyString
+  payment_method_id: 1
+  category: MyString
+  date: 2023-08-25 13:35:15
+  amount: 9.99
+  status: MyString
+  comment: MyText
+  additional_information: MyText
+  created_at: 2023-08-25 13:35:15
+  updated_at: 2023-08-25 13:35:15
+  created_by: 1
+  updated_by: 1
+  organization_id: 1
+  paid_at: 2023-08-25 13:35:15
+  master_reference_id: 1
+  reference_id: 1
+  personal_data_consent: false
+  insurance_service_provider_id: 1
+
+two:
+  code: MyString
+  customerable_id: 1
+  customerable_type: MyString
+  payment_method_id: 1
+  category: MyString
+  date: 2023-08-25 13:35:15
+  amount: 9.99
+  status: MyString
+  comment: MyText
+  additional_information: MyText
+  created_at: 2023-08-25 13:35:15
+  updated_at: 2023-08-25 13:35:15
+  created_by: 1
+  updated_by: 1
+  organization_id: 1
+  paid_at: 2023-08-25 13:35:15
+  master_reference_id: 1
+  reference_id: 1
+  personal_data_consent: false
+  insurance_service_provider_id: 1

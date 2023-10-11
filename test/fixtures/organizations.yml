@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parent_id: 1
+  code: MyString
+  name: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  org_type: MyString
+  bank_code: MyString
+  bank_co: MyString
+  bank_acctno: MyString
+  created_at: 2023-08-25 13:35:16
+  updated_at: 2023-08-25 13:35:16
+  created_by: 1
+  updated_by: 1
+  zone_id: 1
+  status: MyString
+
+two:
+  parent_id: 1
+  code: MyString
+  name: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  org_type: MyString
+  bank_code: MyString
+  bank_co: MyString
+  bank_acctno: MyString
+  created_at: 2023-08-25 13:35:16
+  updated_at: 2023-08-25 13:35:16
+  created_by: 1
+  updated_by: 1
+  zone_id: 1
+  status: MyString

@@ -1,0 +1,47 @@
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ext/sqlite3
+/home/digital/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/digital/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 extconf.rb
+Building sqlite3-ruby using packaged sqlite3.
+Extracting sqlite-autoconf-3420000.tar.gz into tmp/x86_64-linux-gnu/ports/sqlite3/3.42.0... OK
+Running 'configure' for sqlite3 3.42.0... OK
+Running 'compile' for sqlite3 3.42.0... OK
+Running 'install' for sqlite3 3.42.0... OK
+Activating sqlite3 3.42.0 (from /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ports/x86_64-linux-gnu/sqlite3/3.42.0)...
+checking for whether -L/home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ports/x86_64-linux-gnu/sqlite3/3.42.0/lib is accepted as LDFLAGS... yes
+checking for whether -lsqlite3 is accepted as LDFLAGS... yes
+checking for whether -lz is accepted as LDFLAGS... yes
+checking for whether -lm is accepted as LDFLAGS... yes
+checking for whether -ldl is accepted as LDFLAGS... yes
+checking for whether -lpthread is accepted as LDFLAGS... yes
+checking for whether -DTAINTING_SUPPORT is accepted as CPPFLAGS... yes
+checking for whether -fvisibility=hidden is accepted as CFLAGS... yes
+checking for sqlite3.h... yes
+checking for sqlite3_libversion_number() in -lsqlite3... yes
+checking for rb_proc_arity()... yes
+checking for rb_integer_pack()... yes
+checking for sqlite3_initialize()... yes
+checking for sqlite3_backup_init()... yes
+checking for sqlite3_column_database_name()... no
+checking for sqlite3_enable_load_extension()... yes
+checking for sqlite3_load_extension()... yes
+checking for sqlite3_open_v2()... yes
+checking for sqlite3_prepare_v2()... yes
+checking for sqlite3_int64 in sqlite3.h... yes
+checking for sqlite3_uint64 in sqlite3.h... yes
+creating Makefile
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ext/sqlite3
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-ncxz0n sitelibdir\=./.gem.20230825-11755-ncxz0n clean
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ext/sqlite3
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-ncxz0n sitelibdir\=./.gem.20230825-11755-ncxz0n
+compiling aggregator.c
+compiling backup.c
+compiling database.c
+compiling exception.c
+compiling sqlite3.c
+compiling statement.c
+linking shared-object sqlite3/sqlite3_native.so
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.6.3/ext/sqlite3
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-ncxz0n sitelibdir\=./.gem.20230825-11755-ncxz0n install
+/usr/bin/install -m 0755 sqlite3_native.so ./.gem.20230825-11755-ncxz0n/sqlite3

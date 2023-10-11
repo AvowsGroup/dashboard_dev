@@ -1,0 +1,386 @@
+<div id="content">
+   <div class="dashboard-body my-2">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-12 col-sm-12 col-md-3 mb-3">
+               <div class="chard-card">
+                  <div class="card">
+                     <div class="card-header"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                     <div class="card-body p-0">
+                        <div class="card-scroll">
+                           <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle1"></div>
+                                 <div class="list-body">
+                                    <h6>FW Registration 
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @transactions.count %>
+                                 </div>
+                                 <div class="list-rate tx-success"> </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle2"></div>
+                                 <div class="list-body">
+                                    <h6>FW Went to Medical Examination</h6>
+                                 </div>
+                                 <div class="list-visit"><%= @passed_examination_count %>
+                                 </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle3"> </div>
+                                 <div class="list-body">
+                                    <h6>Certification</h6>
+                                 </div>
+                                 <div class="list-visit"><%= @certification_count%>
+                                 </div>
+                              </li>
+                              <li class="list-group-item">
+                                <div id = "fw_pending_view">
+                                <%= render 'side_bar_value'%>
+                                <div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle5"> </div>
+                                 <div class="list-body">
+                                    <h6>Final Result Released
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @final_result%>
+                                 </div>
+                                 <div class="list-rate tx-danger"> </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle6"> </div>
+                                 <div class="list-body">
+                                    <h6>Result Transmitted to Immigration
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @block_fw["SUCCESS"] rescue 0%></div>
+                                 <div class="list-rate tx-success"> </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle7"> </div>
+                                 <div class="list-body">
+                                    <h6>Blocked FW
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @block_fw["FOREIGN WORKER BLOCKED"] rescue 0   %>
+                                 </div>
+                                 <div class="list-rate tx-success"> </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle8"> </div>
+                                 <div class="list-body">
+                                    <h6>Appeal
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @side_bar_medical_appeals%>
+                                 </div>
+                                 <div class="list-rate tx-success"> </div>
+                              </li>
+                              <li class="list-group-item">
+                                 <div class="list-group-icon circle9"> </div>
+                                 <div class="list-body">
+                                    <h6>FW Insured
+                                    </h6>
+                                 </div>
+                                 <div class="list-visit"><%= @fw_insured%>
+                                 </div>
+                                 <div class="list-rate tx-success"> </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-9">
+               <div class="row">
+                  <div class="col-12 col-sm-6 col-md-4 mb-2">
+                     <div class="chard-card">
+                        <div class="card">
+                           <div class="card-header">
+                              FW Registration by States  <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                           </div>
+                           <div class="card-body p-1">
+                              <script type="text/javascript">
+                                 google.charts.load('current', {packages: ['corechart', 'bar']});
+                                 google.charts.setOnLoadCallback(drawStacked);
+                                 function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                                   var data = new google.visualization.DataTable();
+                                   data.addColumn('string', 'Total ');
+                                    data.addColumn('number', 'Total');
+                                   data.addRows(<%= @fw_reg_by_states.to_json.html_safe%>);
+                                   
+                                   var options = {
+                                     hAxis: {
+                                       title: 'States',
+                                       titleTextStyle: {
+                                         color: '#000000',
+                                       },
+                                       slantedText:true,
+                                       slantedTextAngle:45,
+                                     },
+                                     vAxis: {
+                                       title: 'Kits'
+                                     },
+                                      'chartArea': {'width': '100%'},
+                                      
+                                   };
+                                   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
+                                   chart.draw(data, options);
+                                 }
+                              </script>
+                              <div id="columnchart_values" style="width: 100%; height:100%;"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-4 mb-2">
+                     <div class="chard-card">
+                        <div class="card">
+                           <div class="card-header">
+                              FW Registration by Sectors <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                           </div>
+                           <div class="card-body p-1">
+                              <script type="text/javascript">
+                                 google.charts.load('current', {'packages':['corechart']});
+                                 google.charts.setOnLoadCallback(drawChart);
+                                 
+                                 function drawChart() {
+                                 
+                                   var data = google.visualization.arrayToDataTable(<%= @pi_chart_data.to_json.html_safe%>);
+                                 
+                                   var options = {
+                                 
+                                      legend: { position: 'right'},
+                                                    'chartArea':{'width':'100%','height':'80%'},
+                                       vAxis: {minValue: 0}
+                                   };
+                                 
+                                   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                 
+                                   chart.draw(data, options);
+                                 }
+                              </script>
+                              <div id="piechart" style="width: 100%; height:100%;"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-4 mb-2">
+                     <div class="chard-card">
+                        <div class="card">
+                           <div class="card-header">
+                              FW Registration by Countries <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                           </div>
+                           <div class="card-body p-1">
+                              <script type="text/javascript">
+                                 google.charts.load('current', {packages: ['corechart', 'bar']});
+                                 google.charts.setOnLoadCallback(drawStacked);
+                                 function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                                   var data = new google.visualization.DataTable();
+                                   data.addColumn('string', ' Total');
+                                    data.addColumn('number', 'Total');
+                                   data.addRows(<%= @fw_Reg_by_countries.to_json.html_safe%>);
+                                   
+                                   var options = {
+                                     hAxis: {
+                                       title: 'Countries',
+                                       titleTextStyle: {
+                                         color: '#000000',
+                                       },
+                                       slantedText:true,
+                                       slantedTextAngle:45,
+                                     },
+                                     vAxis: {
+                                       title: 'Kits'
+                                     },
+                                      'chartArea': {'width': '100%'},
+                                      
+                                   };
+                                   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values1'));
+                                   chart.draw(data, options);
+                                 }
+                              </script>
+                              <div id="columnchart_values1" style="width: 100%; height:100%;"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12">
+                     <div class="chard-card">
+                        <div class="card">
+                           <div class="card-header">Trend of Foreign Worker Registration
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                           </div>
+                           <div class="card-body p-0">
+                              <div class="row">
+                                 <div class="col-12 col-sm-10 pr-0">
+                                    <div class="chartjs-size-monitor">
+                                       <div class="chartjs-size-monitor-expand">
+                                          <div class=""></div>
+                                       </div>
+                                       <div class="chartjs-size-monitor-shrink">
+                                          <div class=""></div>
+                                       </div>
+                                    </div>
+                                    <canvas id="canvas" style="display: block; width: 100%; height: 198px;" class="chartjs-render-monitor"></canvas>
+                                 </div>
+                                 <div class="col-12 col-sm-2">
+                                    <div class="row no-gutters bg-gray">
+                                       <div class="col col-sm-12">
+                                          <div class="d-flex align-items-baseline">
+                                             <h4 class="tx-numeric">
+                                                <b><%= @transaction_line_cahrt[2019].sum rescue nil%></b><span>Year 2019
+                                                </span>
+                                             </h4>
+                                          </div>
+                                       </div> <div class="col col-sm-12">
+                                          <div class="d-flex align-items-baseline">
+                                             <h4 class="tx-numeric">
+                                                <b><%= @transaction_line_cahrt[2020].sum rescue nil%></b><span>Year 2020
+                                                </span>
+                                             </h4>
+                                          </div>
+                                       </div> <div class="col col-sm-12">
+                                          <div class="d-flex align-items-baseline">
+                                             <h4 class="tx-numeric">
+                                                <b><%= @transaction_line_cahrt[2021].sum rescue nil%></b><span>Year 2021
+                                                </span>
+                                             </h4>
+                                          </div>
+                                       </div> <div class="col col-sm-12">
+                                          <div class="d-flex align-items-baseline">
+                                             <h4 class="tx-numeric">
+                                                <b><%= @transaction_line_cahrt[2022].sum rescue nil%></b><span>Year 2022
+                                                </span>
+                                             </h4>
+                                          </div>
+                                       </div> <div class="col col-sm-12">
+                                          <div class="d-flex align-items-baseline">
+                                             <h4 class="tx-numeric">
+                                                <b><%= @transaction_line_cahrt[2023].sum rescue nil%></b><span>Year 2023
+                                                </span>
+                                             </h4>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- row -->
+                                 </div>
+                              </div>
+                              <script src="https://cdn2.hubspot.net/hubfs/476360/Chart.js"></script>
+                              <script src="https://cdn2.hubspot.net/hubfs/476360/utils.js"></script>
+                              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <canvas id="canvas"></canvas>
+    <!-- <button id="randomizeData">Randomize Data</button> -->
+   <script>
+var yearLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+var year2019Data = <%=  @transaction_line_cahrt[2019].to_json.html_safe%>;
+var year2020Data = <%=  @transaction_line_cahrt[2020].to_json.html_safe%>;
+var year2021Data = <%=  @transaction_line_cahrt[2021].to_json.html_safe%>;
+var year2022Data = <%=  @transaction_line_cahrt[2022].to_json.html_safe%>;
+var year2023Data = <%=  @transaction_line_cahrt[2023].to_json.html_safe%>;
+
+var yearData = {
+  2019: year2019Data,
+  2020: year2020Data,
+  2021: year2021Data,
+  2022: year2022Data,
+  2023: year2023Data
+};
+
+// Create a function to initialize the chart
+function initializeChart() {
+  // Define an array of fixed colors
+  var fixedColors = ['#FF5733', '#33FF57', '#5733FF', '#33FFFF', '#FFFF33'];
+
+  var datasets = Object.keys(yearData).map(function(year, index) {
+    return {
+      label: 'Year ' + year,
+      backgroundColor: fixedColors[index % fixedColors.length], // Use fixed colors
+      borderColor: fixedColors[index % fixedColors.length], // Use fixed colors
+      fill: false,
+      data: yearData[year]
+    };
+  });
+
+  var config = {
+    type: 'line',
+    data: {
+      labels: yearLabels,
+      datasets: datasets
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      title: {
+        display: false,
+        text: 'Chart.js Line Chart - Logarithmic'
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: false,
+            labelString: 'Date'
+          },
+        }],
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: false,
+            labelString: 'Index Returns'
+          },
+          ticks: {
+            min: 0,
+            max: 1000,
+            stepSize: 100
+          }
+        }]
+      }
+    }
+  };
+
+  var ctx = document.getElementById('canvas').getContext('2d');
+  window.myLine = new Chart(ctx, config);
+}
+
+// Call the initialization function
+initializeChart();
+
+    </script>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+       function excel_generate(){
+    let ids = <%= @transactions.ids%>
+    var jsonData = JSON.stringify(ids);
+    $.ajax({
+        type: 'POST',
+        url: '/first_dashboard/excel_generate',
+        data: jsonData,
+        success: function(data) {
+           var iframe = $('<iframe>', {
+                src: '/first_dashboard/excel_generate', // Use the same URL as the Ajax request
+                style: 'display: none'
+              });
+              $('body').append(iframe);
+          }
+    })};
+</script>

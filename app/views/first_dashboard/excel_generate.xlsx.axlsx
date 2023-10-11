@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: 'YourModel Data') do |sheet|
+  # Add headers
+  sheet.add_row [
+    'Transaction ID', 'Code', 'Doctor ID', 'Medical Exam Date', 'Certification Date', 'FW Gender', 'FW Country ID', 'FW Job Type ID',
+    'Created At', 'Updated At'
+  ]
+
+  # Add data
+  @data.each do |record|
+    sheet.add_row [
+      record.id, record.code, record.doctor_id, record.medical_examination_date,
+      record.certification_date, record.fw_gender, record.fw_country_id, record.fw_job_type_id,
+      record.created_at, record.updated_at
+    ]
+  end
+end

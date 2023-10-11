@@ -1,0 +1,11 @@
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+/home/digital/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/digital/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 extconf.rb
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-19ib70q sitelibdir\=./.gem.20230825-11755-19ib70q clean
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-19ib70q sitelibdir\=./.gem.20230825-11755-19ib70q
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-19ib70q sitelibdir\=./.gem.20230825-11755-19ib70q install

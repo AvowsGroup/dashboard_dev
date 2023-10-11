@@ -1,0 +1,2 @@
+class FwChangeEmployer < ApplicationRecord
+end

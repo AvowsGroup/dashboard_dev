@@ -1,0 +1,133 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  title_id: 1
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  email_payment: MyString
+  icno: MyString
+  mobile: MyString
+  qualification: MyString
+  district_health_office_id: 1
+  xray_license_number: MyString
+  xray_file_number: MyString
+  xray_fac_flag: false
+  xray_license_tujuan: MyString
+  xray_license_expiry_date: 2023-08-25
+  radiologist_operated: false
+  radiologist_name: MyString
+  apc_year: 1
+  apc_number: MyString
+  film_type: MyString
+  renewal_agreement_date: 2023-08-25
+  fp_device: false
+  comment: MyText
+  service_provider_group_id: 1
+  male_rate: 
+  male_rate: 
+  female_rate: 
+  female_rate: 
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: MyString
+  status: MyString
+  status_reason: MyText
+  registration_approved_at: 2023-08-25 13:37:28
+  activated_at: 2023-08-25 13:37:28
+  approval_status: 1
+  approval_remark: MyText
+  created_by: 1
+  updated_by: 1
+  payment_method_id: 1
+  license_holder_name: MyString
+  business_registration_number: MyString
+  status_comment: MyText
+  moh_license_status: false
+  has_doctor_association: false
+  name_of_association: MyString
+  gender: MyString
+  has_selected_re_medical: false
+  nationality_id: 1
+  race_id: 1
+  associations: MyText
+  xray_license_purposes_id: 1
+  digital_xray_provider_id: 1
+  paid_biometric_device: false
+
+two:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  title_id: 1
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  email_payment: MyString
+  icno: MyString
+  mobile: MyString
+  qualification: MyString
+  district_health_office_id: 1
+  xray_license_number: MyString
+  xray_file_number: MyString
+  xray_fac_flag: false
+  xray_license_tujuan: MyString
+  xray_license_expiry_date: 2023-08-25
+  radiologist_operated: false
+  radiologist_name: MyString
+  apc_year: 1
+  apc_number: MyString
+  film_type: MyString
+  renewal_agreement_date: 2023-08-25
+  fp_device: false
+  comment: MyText
+  service_provider_group_id: 1
+  male_rate: 
+  male_rate: 
+  female_rate: 
+  female_rate: 
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: MyString
+  status: MyString
+  status_reason: MyText
+  registration_approved_at: 2023-08-25 13:37:28
+  activated_at: 2023-08-25 13:37:28
+  approval_status: 1
+  approval_remark: MyText
+  created_by: 1
+  updated_by: 1
+  payment_method_id: 1
+  license_holder_name: MyString
+  business_registration_number: MyString
+  status_comment: MyText
+  moh_license_status: false
+  has_doctor_association: false
+  name_of_association: MyString
+  gender: MyString
+  has_selected_re_medical: false
+  nationality_id: 1
+  race_id: 1
+  associations: MyText
+  xray_license_purposes_id: 1
+  digital_xray_provider_id: 1
+  paid_biometric_device: false

@@ -1,0 +1,7 @@
+   <select  id="district-select" class="form-control" aria-label="Filter select">
+    <option> Select District</option>
+    <option>All</option>
+    <%= @towns.each do |town|%>
+      <option value=<%=town.second%>><%= town.first%></option> 
+    <% end %>
+  </select>

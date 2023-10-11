@@ -1,0 +1,1891 @@
+<script type="text/javascript" src="
+https://d3js.org/d3.v3.min.js"
+></script>
+<style type="text/css">
+ 
+
+.chart-first{fill:#0e7dc1}
+
+.chart-second{fill:#0e7dc1}
+
+.chart-third{fill:#0e7dc1}
+
+.needle,.needle-center{fill:#464A4F}
+
+.Name{
+
+display: none;
+
+}
+
+.chart-gauge>svg{
+
+padding: 10px;
+
+}
+.value,#Value {
+
+ 
+
+transform:translate(142px, 180px);
+
+ 
+
+}
+
+</style>
+                        <div class="container-fluid">
+                        <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 mb-2">
+                            <div class="chard-card">
+                              <div class="card">
+                  <div class="card-header p-0 tab-header">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active text-center" data-toggle="tab" href="#home"> Number of Respondents By Age Group</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#menu1"> Number Of Respondents  </a>
+                        </li>
+ 
+                      </ul>
+                      
+                      <!-- Tab panes -->
+                      
+                  </div>
+                  <div class="card-body p-1"  style="height: 305px;">
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane container fade px-0 py-2" id="menu1">
+                            <div class="p-0">
+                                <div>
+                                    <div class="chartjs-size-monitor">
+                                        <div class="chartjs-size-monitor-expand">
+                                            <div class=""></div>
+                                        </div>
+                                        <div class="chartjs-size-monitor-shrink">
+                                            <div class=""></div>
+                                        </div>
+                                    </div>
+                                    <canvas id="canvas" style="display: block; width: 100%; height: 200px!important;" class="chartjs-render-monitor"></canvas>
+                                </div>
+                              
+                                <script src="https://cdn2.hubspot.net/hubfs/476360/Chart.js"></script>
+                                <script src="https://cdn2.hubspot.net/hubfs/476360/utils.js"></script>
+                               
+                                <script>
+                                   
+        var config = {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','November','December'],
+            datasets: [
+               
+            {
+                label: 'Number of Respondents',
+                backgroundColor: window.chartColors.blue,
+                borderColor: window.chartColors.blue,
+                fill: false,
+                data: <%=@transaction_line_cahrt[@current_year].to_json.html_safe%>
+        
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: ''
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Date'
+          },
+            
+                }],
+                yAxes: [{
+                    display: true,
+                    //type: 'logarithmic',
+          scaleLabel: {
+                            display: true,
+                            labelString: ''
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 1000,
+
+                            // forces step size to be 5 units
+                            stepSize: 200
+                        }
+                }]
+            }
+        }
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        window.myLine = new Chart(ctx, config);
+    };
+ var ctx = document.getElementById('canvas').getContext('2d');
+        window.myLine = new Chart(ctx, config);
+  
+
+
+
+                                </script>
+                                </div> 
+                            
+                            </div>
+                            <div class="tab-pane container active p-3" id="home">  
+                            
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load('current', {'packages':['bar']});
+                              google.charts.setOnLoadCallback(drawChart);
+                        
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['', '', { role: "style" }],
+                                  ['65 +', <%=@respondentsagegroupmore65%>,"#0e7dc1"],
+                                  ['55-65', <%=@respondentsagegroup5565%>,"#0e7dc1"],
+                                  ['45-54', <%=@respondentsagegroup4554%>,"#0e7dc1"],
+                                  ['35-44', <%=@respondentsagegroup3544%>,"#0e7dc1"],
+                                  ['25-34', <%=@respondentsagegroup2534%>,"#0e7dc1"],
+                                  ['18-24', <%=@respondentsagegroup1824%>,"#0e7dc1"] 
+                                ]);
+                        
+                                var options = {
+                                    legend: { position: "none" },
+                                  bars: 'horizontal' // Required for Material Bar Charts.
+                                  
+                                };
+                        
+                                var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+                        
+                                chart.draw(data, google.charts.Bar.convertOptions(options));
+                              }
+                            </script>
+
+                            <div id="barchart_material" style="height: 270px;" ></div> </div>
+                       </div>
+                   
+                    </div>
+                    <div class="card-footer bg-gray p-0">
+                        <div class="card-fottertitle"></div>
+                        <div class="row no-gutters">
+                            <div class="col-3 col-sm">
+                                <div class="d-flex align-items-baselinecustomer mg-b-5">
+                                    <span class="span_customer" >
+                                        
+                                    Type of Customers
+                                </span>
+                                </div>
+                                 
+                              </div><!-- col -->
+                            <div class="col-3 col-sm">
+                            <div class="d-flex align-items-baselinecustomer mg-b-5">
+                              <h4 class="tx-numeric w-100">
+                                <b style="color: #3366cc;"><%=@individual%></b><span>Individual
+                               </span></h4>
+                               
+                            </div>
+                             
+                          </div><!-- col -->
+                          <div class="col-3 col-sm">
+                            <div class="d-flex align-items-baselinecustomer mg-b-5">
+                              <h4 class="tx-numeric w-100">
+                                <b style="color: #dc3912;"><%=@company%></b>
+                                <span>Company
+                                </span></h4>
+                              
+                            </div>
+                           </div><!-- col -->
+                          <div class="col-3 col-sm mg-t-15 mg-sm-t-0">
+                            <div class="d-flex align-items-baselinecustomer mg-b-5">
+                              <h4 class="tx-numeric w-100">
+                                <b style="color: #339501;"><%=@agent%></b><span>Agent 
+                                </span></h4>
+                             </div>
+                           </div><!-- col -->
+                           
+                        </div><!-- row -->
+                      </div>
+                  
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-6 mb-2">
+                            <div class="chard-card">
+                              <div class="card">
+                                <div class="card-header tab-header" style="padding:0.6rem 1.25rem!important;"> Sector</div>
+                                 <div class="card-body" style="height: 294px;">
+                                    <script type="text/javascript">
+                                      google.charts.load('current', {packages: ['corechart', 'bar']});
+                                      google.charts.setOnLoadCallback(drawStacked);
+                                      function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                                        var data = new google.visualization.DataTable();
+                                        data.addColumn('string', 'Total ');
+                                         data.addColumn('number', 'Total');
+                                        data.addRows(<%=@linechart_data.to_json.html_safe%>);
+                                        
+                                        var options = {
+                                          bar: { groupWidth: "40%" },
+                                          hAxis: {
+                                       title: 'Sectors',
+                                       titleTextStyle: {
+                                         color: '#000000',
+                                       },
+                                       slantedText:true,
+                                       slantedTextAngle:40,
+
+                                     },
+                                     vAxis: {
+                                       title: 'Kits'
+                                     },
+                                           'chartArea': {'width': '100%'},
+                                           
+                                        };
+                                        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
+                                        chart.draw(data, options);
+                                      }
+                                      </script>
+                                      <div id="columnchart_values" style="width: 100%; height:100%;"></div>
+                                    </div>
+                                    <div class="card-footer bg-gray p-0">
+                                        <div class="card-fottertitle"></div>
+                                        <div class="row no-gutters">
+                                             
+                                            <div class="col-6 col-sm">
+                                            <div class="d-flex align-items-baseline mg-b-5">
+                                                <div class="div_reg"><span>
+                                                    Gender</span>
+                                             <ul>
+                                                <li title="Male">
+                                                    <span> <i class="fa fa-mars" aria-hidden="true" style="color:#2a9dc9;"></i>
+                                                      
+                                                </span> 
+                                            <b> <%=@gendermale%></b></li>
+                                            <li title="Female">
+                                                <span> <i class="fa fa-venus" aria-hidden="true" style="color: #B13173;"></i>
+                                                  
+                                            </span> 
+                                        <b> <%=@genderfemale%></b></li>
+                                             </ul>
+                                               </div>
+                                            </div>
+                                             
+                                          </div><!-- col -->
+                                         
+                                          <div class="col-6 col-sm mg-t-15 mg-sm-t-0">
+                                            <div class="d-flex align-items-baseline mg-b-5">
+                                                <div class="div_reg">
+                                                    <span>
+                                                Registration</span>
+                                             <ul>
+                                                <li title="Web Portal">
+                                                    <span><i class="fa fa-laptop" aria-hidden="true" style="color:#20C4CB;"></i>
+                                                     </span> 
+                                            <b> <%=@webportal%></b></li>
+                                            <li title="Business">
+                                                <span> <i class="fa fa-building" aria-hidden="true" style="color: #DC3E15;"></i> </span> 
+                                        <b> <%=@Rooffice%></b></li>
+                                             </ul>
+                                            </div>
+                                            </div>
+                                           </div><!-- col -->
+                                           
+                                        </div><!-- row -->
+                                      </div>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                    <div class="chard-card">
+                                    <div class="card">
+                                        <div class="card-header"> Registration Rating </div>
+                                        
+                                        <div class="card-body">
+                                                 <script type="text/javascript">
+  google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Ro', 'Ro', 'WebPortal',],
+        ['Employers Registration', <%=@employeeregregsum%>,<%=@employeeregweballsum%>],
+        ['Workers Registration', <%=@workerregregsum%>,<%=@workerregweballsum%>],
+        ['choosing  Fomema Panel Clinic/ X - Ray', <%=@panelregregsum%>,<%=@panelregweballsum%>],
+        ['Overall Registration Process', <%=@overallregregsum%>,<%=@overallregweballsum%>]
+
+      ]);
+
+      var options = {
+        legend: 'bottom',
+        chartArea: {width: '90%'}
+      
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('dual_x_div'));
+
+      chart.draw(data, options);
+    }
+    </script>
+  
+    <div id="dual_x_div" ></div> 
+
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                        <div class="chard-card">
+                                            <div class="card">
+                                                <div class="card-header">Fomema Medical Examinations</div>
+                                                <div class="card-body">
+                                                    <div class="">
+                                                        <script type="text/javascript">
+                                                          google.charts.load('current', {packages: ['corechart', 'bar']});
+                                                          google.charts.setOnLoadCallback(drawStacked);
+                                                          function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                                                            var data = new google.visualization.DataTable();
+                                                            data.addColumn('string', ' Total');
+                                                             data.addColumn('number', 'Total');
+                                                            data.addRows([
+                                                            ["Location of Panel Clinic is Nearvy", <%=@panelclinics%>],
+                                                            ["Process of Medical Examination are under standable", <%=@understantable%>],
+                                                              ["Result of Medical Examination are Easily Obtainable", <%=@obtainable%>],
+                                                              ["Over Satisfaction Towards Fomema Examination",<%=@overallexp%>]
+                                                              
+                                                            ]);
+                                                            
+                                                            var options = {
+                                                              hAxis: {
+                                                                title: '',
+                                                                titleTextStyle: {
+                                                                  color: '#000000',
+                                                                },
+                                                                slantedText:true,
+                                                                slantedTextAngle:45,
+                                                              },
+                                                              bar: { groupWidth: "30%" },
+                                                              vAxis: {
+                                                                title: 'Kits'
+                                                              },
+                                                               'chartArea': {'width': '100%'},
+                                                               
+                                                            };
+                                                            var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values1'));
+                                                            chart.draw(data, options);
+                                                          }
+                                                          </script>
+                                                          <div id="columnchart_values1" style="width: 100%; height:100%;"></div>
+                                                       
+                                                       
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="col-12 col-sm-6 col-md-4 mb-4">
+                                        <div class="chard-card">
+                                            <div class="card">
+                                                <div class="card-header"> Appeal Process</div>
+                                                <div class="card-body">
+                                                    <div id="chart_div2"></div>
+                                                    <script>
+                                                        google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['', '','',],
+        ['Did you Undergo your Worker through appeal Process', <%=@appealworkerstatus%>,<%=@appealworkerstatusNo%>],
+        ['Did you know that you may apply for an appeal for your Worker?', <%=@appealundergostatus%>,<%=@appealundergostatusNo%>],
+        ['Over Appeal Process', <%=@appealoverallsum%>,0]
+      ]);
+
+      var options = {
+ 
+        chartArea: {width: '90%'},
+        hAxis: {
+          title: 'Appeal Process',
+          minValue: 0
+        } 
+      
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div2'));
+
+      chart.draw(data, options);
+    }
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+   </div>
+                                   
+   
+
+
+   <div class="row my-2">
+    <div class="col-12">
+      <div class="card-subtitle mb-3">
+        <div class="card">
+          <div class="card-header">Respondent's Social Media Preference</div>
+        </div>
+      
+    </div>
+    </div>
+       <div class="col-4 col-sm socialmedia-card"> 
+<div class="chard-card">
+<div class="card">
+
+<div class="card-body">
+<div class="div-socialmedia">
+
+<div class="social-mediaicon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"><path fill="#1976D2" d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z"></path><path fill="#FAFAFA" fill-rule="evenodd" d="M13.5 8H11V6c0-.552.448-.5 1-.5h1V3h-2a3 3 0 0 0-3 3v2H6v2.5h2V16h3v-5.5h1.5l1-2.5z" clip-rule="evenodd"></path></svg>
+
+</div>
+<div class="social-mediavalue"> 
+<span><%=@facebook%></span>
+<span> Facebook</span>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+
+</div>
+<div class="col-4 col-sm socialmedia-card"> 
+             <div class="chard-card">
+<div class="card">
+
+<div class="card-body">
+<div class="div-socialmedia">
+
+<div class="social-mediaicon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="instagram"><linearGradient id="a" x1="1.464" x2="14.536" y1="14.536" y2="1.464" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFC107"></stop><stop offset=".507" stop-color="#F44336"></stop><stop offset=".99" stop-color="#9C27B0"></stop></linearGradient><path fill="url(#a)" d="M11 0H5a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zm3.5 11c0 1.93-1.57 3.5-3.5 3.5H5c-1.93 0-3.5-1.57-3.5-3.5V5c0-1.93 1.57-3.5 3.5-3.5h6c1.93 0 3.5 1.57 3.5 3.5v6z"></path><linearGradient id="b" x1="5.172" x2="10.828" y1="10.828" y2="5.172" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFC107"></stop><stop offset=".507" stop-color="#F44336"></stop><stop offset=".99" stop-color="#9C27B0"></stop></linearGradient><path fill="url(#b)" d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5A2.503 2.503 0 0 1 5.5 8c0-1.379 1.122-2.5 2.5-2.5s2.5 1.121 2.5 2.5c0 1.378-1.122 2.5-2.5 2.5z"></path><linearGradient id="c" x1="11.923" x2="12.677" y1="4.077" y2="3.323" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFC107"></stop><stop offset=".507" stop-color="#F44336"></stop><stop offset=".99" stop-color="#9C27B0"></stop></linearGradient><circle cx="12.3" cy="3.7" r=".533" fill="url(#c)"></circle></svg>
+
+</div>
+<div class="social-mediavalue"> 
+<span><%=@instagram%></span>
+<span> Instagram</span>
+</div>
+</div>
+</div>
+</div>
+</div> 
+
+
+</div>
+<div class="col-4 col-sm socialmedia-card"> 
+             <div class="chard-card">
+<div class="card">
+
+<div class="card-body">
+<div class="div-socialmedia">
+
+<div class="social-mediaicon">
+    <svg fill="#03a9f4"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    viewBox="0 0 310 310" xml:space="preserve">
+<g id="XMLID_826_">
+   <path id="XMLID_827_" d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73
+       c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783
+       c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598
+       C101.163,99.244,58.83,76.863,29.76,41.204c-1.036-1.271-2.632-1.956-4.266-1.825c-1.635,0.128-3.104,1.05-3.93,2.467
+       c-5.896,10.117-9.013,21.688-9.013,33.461c0,16.035,5.725,31.249,15.838,43.137c-3.075-1.065-6.059-2.396-8.907-3.977
+       c-1.529-0.851-3.395-0.838-4.914,0.033c-1.52,0.871-2.473,2.473-2.513,4.224c-0.007,0.295-0.007,0.59-0.007,0.889
+       c0,23.935,12.882,45.484,32.577,57.229c-1.692-0.169-3.383-0.414-5.063-0.735c-1.732-0.331-3.513,0.276-4.681,1.597
+       c-1.17,1.32-1.557,3.16-1.018,4.84c7.29,22.76,26.059,39.501,48.749,44.605c-18.819,11.787-40.34,17.961-62.932,17.961
+       c-4.714,0-9.455-0.277-14.095-0.826c-2.305-0.274-4.509,1.087-5.294,3.279c-0.785,2.193,0.047,4.638,2.008,5.895
+       c29.023,18.609,62.582,28.445,97.047,28.445c67.754,0,110.139-31.95,133.764-58.753c29.46-33.421,46.356-77.658,46.356-121.367
+       c0-1.826-0.028-3.67-0.084-5.508c11.623-8.757,21.63-19.355,29.773-31.536c1.237-1.85,1.103-4.295-0.33-5.998
+       C307.394,57.037,305.009,56.486,302.973,57.388z"/>
+</g>
+</svg>
+</div>
+<div class="social-mediavalue"> <span><%=@twitter%></span><span>
+Twitter 
+</span>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+</div>
+<div class="col-4 col-sm  socialmedia-card"> 
+                <div class="chard-card">
+<div class="card">
+
+<div class="card-body">
+<div class="div-socialmedia">
+
+<div class="social-mediaicon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45"><path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path><path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z"></path><path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z"></path><path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z"></path></svg>
+</div>
+<div class="social-mediavalue"> <span><%=@telegram%></span><span>
+Telegram 
+</span>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+
+</div>
+<div class="col-4 col-sm  socialmedia-card"> 
+  <div class="chard-card">
+<div class="card">
+
+<div class="card-body">
+<div class="div-socialmedia">
+
+<div class="social-mediaicon">
+  <svg class="svg-icon" viewBox="0 0 20 20" style="fill:#29b6f6;">
+    <path d="M10,2.172c-4.324,0-7.828,3.504-7.828,7.828S5.676,17.828,10,17.828c4.324,0,7.828-3.504,7.828-7.828S14.324,2.172,10,2.172M10,17.004c-3.863,0-7.004-3.141-7.004-7.003S6.137,2.997,10,2.997c3.862,0,7.004,3.141,7.004,7.004S13.862,17.004,10,17.004M10,8.559c-0.795,0-1.442,0.646-1.442,1.442S9.205,11.443,10,11.443s1.441-0.647,1.441-1.443S10.795,8.559,10,8.559 M10,10.619c-0.34,0-0.618-0.278-0.618-0.618S9.66,9.382,10,9.382S10.618,9.661,10.618,10S10.34,10.619,10,10.619 M14.12,8.559c-0.795,0-1.442,0.646-1.442,1.442s0.647,1.443,1.442,1.443s1.442-0.647,1.442-1.443S14.915,8.559,14.12,8.559 M14.12,10.619c-0.34,0-0.618-0.278-0.618-0.618s0.278-0.618,0.618-0.618S14.738,9.661,14.738,10S14.46,10.619,14.12,10.619 M5.88,8.559c-0.795,0-1.442,0.646-1.442,1.442s0.646,1.443,1.442,1.443S7.322,10.796,7.322,10S6.675,8.559,5.88,8.559 M5.88,10.619c-0.34,0-0.618-0.278-0.618-0.618S5.54,9.382,5.88,9.382S6.498,9.661,6.498,10S6.22,10.619,5.88,10.619"></path>
+    </svg>
+</div>
+<div class="social-mediavalue"> <span><%=@OtherSM%></span><span>
+  Others 
+</span>
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+
+</div>
+ 
+  
+  </div>
+  <div class="row my-2">
+    <div class="col-12">
+        <div class="card-subtitle my-2">
+            <div class="card">
+              <div class="card-header">Respondent's Awareness on Fomema Updates on Social Media</div>
+            </div>
+            </div>
+            </div>
+          
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="chard-card">
+                    <div class="card">
+                        <div class="card-header full-title"> Announcement on Business Operating Activities on Soical Media</div>
+                        <div class="card-body">    
+  <div id="donutchart1"></div>
+                            <script type="text/javascript">
+                                google.charts.load("current", {packages:["corechart"]});
+                                google.charts.setOnLoadCallback(drawChart);
+                                function drawChart() {
+                                  var data = google.visualization.arrayToDataTable([
+                                    ['Task', 'Hours per Day'],
+                                    ['Yes', <%=@operatingsocial%>],
+                                    ['No',   <%=@operatingsocialNo%>]
+                                  ]);
+                          
+                                  var options = {
+                                     legend: 'bottom',
+                                        colors: ['#0e7dc1', '#99bed6'],
+                                    pieHole: 0.4,
+                                  };
+                          
+                                  var chart = new google.visualization.PieChart(document.getElementById('donutchart1'));
+                                  chart.draw(data, options);
+                                }
+                              </script>
+
+                           
+                          </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="chard-card">
+                            <div class="card">
+                                <div class="card-header  full-title">Delivering health awarness on Social Media</div>
+                                <div class="card-body">    
+                                    <div id="donutchart2"></div>
+                                                              <script type="text/javascript">
+                                                                  google.charts.load("current", {packages:["corechart"]});
+                                                                  google.charts.setOnLoadCallback(drawChart);
+                                                                  function drawChart() {
+                                                                    var data = google.visualization.arrayToDataTable([
+                                                                      ['Task', 'Hours per Day'],
+                                                                      ['Yes', <%=@health_awareness%>],
+                                                                      ['No',   <%=@health_awarenessNo%>]
+                                                                    ]);
+                                                            
+                                                                    var options = {
+                                                                       legend: 'bottom',
+                                                                          colors: ['#0e7dc1', '#99bed6'],
+                                                                      pieHole: 0.4,
+                                                                    };
+                                                            
+                                                                    var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                                                                    chart.draw(data, options);
+                                                                  }
+                                                                </script>
+                                  
+                                                             
+                                                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <div class="chard-card">
+                                    <div class="card">
+                                        <div class="card-header  full-title">Providing reminder or any undates aligned with information from MOH.Immigration & MOHA on Social Media
+                                        </div>
+                                        <div class="card-body">
+                                            <div>    
+                                                <div id="donutchart4"></div>
+                                                                          <script type="text/javascript">
+                                                                              google.charts.load("current", {packages:["corechart"]});
+                                                                              google.charts.setOnLoadCallback(drawChart);
+                                                                              function drawChart() {
+                                                                                var data = google.visualization.arrayToDataTable([
+                                                                                  ['Task', 'Hours per Day'],
+                                                                                  ['Yes', <%=@moh_moha%>],
+                                                                                  ['No',   <%=@moh_mohaNo%>]
+                                                                                ]);
+                                                                        
+                                                                                var options = {
+                                                                                   legend: 'bottom',
+                                                                                      colors: ['#0e7dc1', '#99bed6'],
+                                                                                  pieHole: 0.4,
+                                                                                };
+                                                                        
+                                                                                var chart = new google.visualization.PieChart(document.getElementById('donutchart4'));
+                                                                                chart.draw(data, options);
+                                                                              }
+                                                                            </script>
+                                              
+                                                                         
+                                                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+        </div>
+   
+  <div class="row">
+    <div class="col-12 my-2">
+        <div class="card-subtitle">
+            <div class="card">
+              <div class="card-header">NPS SCORE</div>
+            </div>
+          
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4  mb-2">
+        <div class="chard-card">
+        <div class="card">
+            <div class="card-header"> Registration Process:Web Portal <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="card-body">
+              <div class="chart-gaugeweb"></div>
+
+<script>
+/*---------------------
+// D3.js Gauge Chart //
+---------------------*/
+// Data which need to be fetched
+var name = "";
+var value = <%=@NPSoverallpercentage%>;                // My Desired Value To Show
+var gaugeMaxValue = 200;
+
+// Data of calculation
+var percentValue = value / gaugeMaxValue;
+var needleClient;
+(function () {
+var barWidth, chart, chartInset, degToRad, repaintGauge, height, margin, numSections, padRad, percToDeg, percToRad, percent, radius, sectionIndx, svg, totalPercent, width;
+
+percent = percentValue;
+
+numSections = 1;
+sectionPerc = 1 / numSections / 2;
+padRad = 0.025;
+chartInset = 10;
+
+// Orientation of Gauge:
+totalPercent = .75;
+
+el = d3.select('.chart-gaugeweb');
+
+margin = {
+top: 40,
+right: 40,
+bottom: 40,
+left: 40
+};
+
+width = el[0][0].offsetWidth - margin.left - margin.right;
+height = width;
+radius = Math.min(width, height) / 2;
+barWidth = 30 * width / 200;
+
+// Utility methods 
+percToDeg = function (perc) {
+return perc * 360;
+};
+
+percToRad = function (perc) {
+return degToRad(percToDeg(perc));
+};
+
+degToRad = function (deg) {
+return deg * Math.PI / 180;
+};
+
+// Create SVG element
+svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height / 2.2 + margin.top + margin.bottom);     // height/1.5 To Remove Extra Bottom Space
+
+// Add layer for the panel
+chart = svg.append('g').attr('transform', "translate(" + ((width + margin.left) / 2) + ", " + ((height + margin.top) / 2) + ")");
+
+chart.append('path').attr('class', "arc chart-first");
+chart.append('path').attr('class', "arc chart-second");
+chart.append('path').attr('class', "arc chart-third");
+
+arc3 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc2 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc1 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+
+repaintGauge = function () {
+perc = 0.5;
+var next_start = totalPercent;
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc1.startAngle(arcStartRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc2.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+
+arc3.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+chart.select(".chart-first").attr('d', arc1);
+chart.select(".chart-second").attr('d', arc2);
+chart.select(".chart-third").attr('d', arc3);
+
+}   
+
+var Needle = (function () {
+
+//Helper function that returns the `d` value for moving the needle
+var recalcPointerPos = function (perc) {
+var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
+thetaRad = percToRad(perc / 2);
+centerX = 0;
+centerY = 0;
+topX = centerX - this.len * Math.cos(thetaRad);
+topY = centerY - this.len * Math.sin(thetaRad);
+leftX = centerX - this.radius * Math.cos(thetaRad - Math.PI / 2);
+leftY = centerY - this.radius * Math.sin(thetaRad - Math.PI / 2);
+rightX = centerX - this.radius * Math.cos(thetaRad + Math.PI / 2);
+rightY = centerY - this.radius * Math.sin(thetaRad + Math.PI / 2);
+return "M " + leftX + " " + leftY + " L " + topX + " " + topY + " L " + rightX + " " + rightY;
+};
+
+function Needle(el) {
+this.el = el;
+this.len = width / 2.5;
+this.radius = this.len / 8;
+}
+
+Needle.prototype.render = function () {
+this.el.append('circle').attr('class', 'needle-center').attr('cx', 0).attr('cy', 0).attr('r', this.radius);
+return this.el.append('path').attr('class', 'needle').attr('id', 'client-needle').attr('d', recalcPointerPos.call(this, 0));
+};
+
+Needle.prototype.moveTo = function (perc) {
+var self,
+oldValue = this.perc || 0;
+this.perc = perc;
+self = this;
+
+// Reset pointer position
+this.el.transition().delay(100).ease('quad').duration(200).select('.needle').tween('reset-progress', function () {
+return function (percentOfPercent) {
+var progress = (1 - percentOfPercent) * oldValue;
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+this.el.transition().delay(300).ease('bounce').duration(1500).select('.needle').tween('progress', function () {
+return function (percentOfPercent) {
+var progress = percentOfPercent * perc;
+
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+};
+
+
+return Needle;
+
+})();
+
+var dataset = [{
+metric: name,
+value: value
+}]
+
+var texts = svg.selectAll("text")
+.data(dataset)
+.enter();
+
+texts.append("text")
+.text(function () {
+return dataset[0].metric;
+})
+.attr('class', "Name")
+.attr('transform', "translate(" + ((width + margin.left) / 6) + ", " + ((height + margin.top) / 1.5) + ")")
+.attr("font-size", 25)
+.style("fill", "#000000");
+
+
+var trX = 180 - 210 * Math.cos(percToRad(percent / 2));
+var trY = 195 - 210 * Math.sin(percToRad(percent / 2));
+// (180, 195) are the coordinates of the center of the gauge.
+
+displayValue = function () {
+texts.append("text")
+.text(function () {
+return dataset[0].value;
+})
+.attr('class', "value")
+.attr('transform', "translate(" + trX + ", " + trY + ")")
+.attr("font-size", 16)
+.style("fill", '#000000');
+}
+
+texts.append("text")
+.text(function () {
+return 0;
+})
+.attr('class', 'scale0')
+.attr('transform', "translate(" + ((width + margin.left) / 100) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue / 2;
+})
+.attr('class', 'scale10')
+.attr('transform', "translate(" + ((width + margin.left) / 2.15) + ", " + ((height + margin.top) / 30) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue;
+})
+.attr('class', 'scale20')
+.attr('transform', "translate(" + ((width + margin.left) / 1.03) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+needle = new Needle(chart);
+needle.render();
+needle.moveTo(percent);
+
+setTimeout(displayValue, 1350);
+
+})();
+</script>
+                   
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 mb-2">
+        <div class="chard-card">
+        <div class="card">
+            <div class="card-header"> Registration Porcess:Regional Offices <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="card-body">
+               
+                    <div class="chart-gauge3"></div>
+                   <script type="text/javascript">
+                         /*---------------------
+                // D3.js Gauge Chart //
+                ---------------------*/
+                // Data which need to be fetched
+                var name = "Server Response";
+                var value = <%=@NPSregoverallpercentage%>;             // My Desired Value To Show
+                var gaugeMaxValue = 200;
+                
+                // Data of calculation
+                var percentValue = value / gaugeMaxValue;
+                var needleClient;
+                (function () {
+                var barWidth, chart, chartInset, degToRad, repaintGauge, height, margin, numSections, padRad, percToDeg, percToRad, percent, radius, sectionIndx, svg, totalPercent, width;
+                
+                percent = percentValue;
+                
+                numSections = 1;
+                sectionPerc = 1 / numSections / 2;
+                padRad = 0.025;
+                chartInset = 10;
+                
+                // Orientation of Gauge:
+                totalPercent = .75;
+                
+                el = d3.select('.chart-gauge3');
+                
+                margin = {
+                top: 40,
+                right: 40,
+                bottom: 40,
+                left: 40
+                };
+                
+                width = el[0][0].offsetWidth - margin.left - margin.right;
+                height = width;
+                radius = Math.min(width, height) / 2;
+                barWidth = 30 * width / 200;
+                
+                // Utility methods 
+                percToDeg = function (perc) {
+                return perc * 360;
+                };
+                
+                percToRad = function (perc) {
+                return degToRad(percToDeg(perc));
+                };
+                
+                degToRad = function (deg) {
+                return deg * Math.PI / 180;
+                };
+                
+                // Create SVG element
+                svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height / 2.2 + margin.top + margin.bottom);     // height/1.5 To Remove Extra Bottom Space
+                
+                // Add layer for the panel
+                chart = svg.append('g').attr('transform', "translate(" + ((width + margin.left) / 2) + ", " + ((height + margin.top) / 2) + ")");
+                
+                chart.append('path').attr('class', "arc chart-first");
+                chart.append('path').attr('class', "arc chart-second");
+                chart.append('path').attr('class', "arc chart-third");
+                
+                arc3 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+                arc2 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+                arc1 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+                
+                repaintGauge = function () {
+                perc = 0.5;
+                var next_start = totalPercent;
+                arcStartRad = percToRad(next_start);
+                arcEndRad = arcStartRad + percToRad(perc / 3);
+                next_start += perc / 3;
+                
+                arc1.startAngle(arcStartRad).endAngle(arcEndRad);
+                
+                arcStartRad = percToRad(next_start);
+                arcEndRad = arcStartRad + percToRad(perc / 3);
+                next_start += perc / 3;
+                
+                arc2.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+                
+                arcStartRad = percToRad(next_start);
+                arcEndRad = arcStartRad + percToRad(perc / 3);
+                
+                arc3.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+                
+                chart.select(".chart-first").attr('d', arc1);
+                chart.select(".chart-second").attr('d', arc2);
+                chart.select(".chart-third").attr('d', arc3);
+                
+                }   
+                
+                var Needle = (function () {
+                
+                //Helper function that returns the `d` value for moving the needle
+                var recalcPointerPos = function (perc) {
+                var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
+                thetaRad = percToRad(perc / 2);
+                centerX = 0;
+                centerY = 0;
+                topX = centerX - this.len * Math.cos(thetaRad);
+                topY = centerY - this.len * Math.sin(thetaRad);
+                leftX = centerX - this.radius * Math.cos(thetaRad - Math.PI / 2);
+                leftY = centerY - this.radius * Math.sin(thetaRad - Math.PI / 2);
+                rightX = centerX - this.radius * Math.cos(thetaRad + Math.PI / 2);
+                rightY = centerY - this.radius * Math.sin(thetaRad + Math.PI / 2);
+                return "M " + leftX + " " + leftY + " L " + topX + " " + topY + " L " + rightX + " " + rightY;
+                };
+                
+                function Needle(el) {
+                this.el = el;
+                this.len = width / 2.5;
+                this.radius = this.len / 8;
+                }
+                
+                Needle.prototype.render = function () {
+                this.el.append('circle').attr('class', 'needle-center').attr('cx', 0).attr('cy', 0).attr('r', this.radius);
+                return this.el.append('path').attr('class', 'needle').attr('id', 'client-needle').attr('d', recalcPointerPos.call(this, 0));
+                };
+                
+                Needle.prototype.moveTo = function (perc) {
+                var self,
+                oldValue = this.perc || 0;
+                this.perc = perc;
+                self = this;
+                
+                // Reset pointer position
+                this.el.transition().delay(100).ease('quad').duration(200).select('.needle').tween('reset-progress', function () {
+                return function (percentOfPercent) {
+                var progress = (1 - percentOfPercent) * oldValue;
+                repaintGauge(progress);
+                return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+                };
+                });
+                
+                this.el.transition().delay(300).ease('bounce').duration(1500).select('.needle').tween('progress', function () {
+                return function (percentOfPercent) {
+                var progress = percentOfPercent * perc;
+                
+                repaintGauge(progress);
+                return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+                };
+                });
+                
+                };
+                
+                
+                return Needle;
+                
+                })();
+                
+                var dataset = [{
+                metric: name,
+                value: value
+                }]
+                
+                var texts = svg.selectAll("text")
+                .data(dataset)
+                .enter();
+                
+                texts.append("text")
+                .text(function () {
+                return dataset[0].metric;
+                })
+                .attr('class', "Name")
+                .attr('transform', "translate(" + ((width + margin.left) / 6) + ", " + ((height + margin.top) / 1.5) + ")")
+                .attr("font-size", 25)
+                .style("fill", "#000000");
+                
+                
+                var trX = 180 - 210 * Math.cos(percToRad(percent / 2));
+                var trY = 195 - 210 * Math.sin(percToRad(percent / 2));
+                // (180, 195) are the coordinates of the center of the gauge.
+                
+                displayValue = function () {
+                texts.append("text")
+                .text(function () {
+                return dataset[0].value;
+                })
+                .attr('class', "value")
+                .attr('transform', "translate(" + trX + ", " + trY + ")")
+                .attr("font-size", 16)
+                .style("fill", '#000000');
+                }
+                
+                texts.append("text")
+                .text(function () {
+                return 0;
+                })
+                .attr('class', 'scale0')
+                .attr('transform', "translate(" + ((width + margin.left) / 100) + ", " + ((height + margin.top) / 2) + ")")
+                .attr("font-size", 12)
+                .style("fill", "#000000");
+                
+                texts.append("text")
+                .text(function () {
+                return gaugeMaxValue / 2;
+                })
+                .attr('class', 'scale10')
+                .attr('transform', "translate(" + ((width + margin.left) / 2.15) + ", " + ((height + margin.top) / 30) + ")")
+                .attr("font-size", 12)
+                .style("fill", "#000000");
+                
+                
+                texts.append("text")
+                .text(function () {
+                return gaugeMaxValue;
+                })
+                .attr('class', 'scale20')
+                .attr('transform', "translate(" + ((width + margin.left) / 1.03) + ", " + ((height + margin.top) / 2) + ")")
+                .attr("font-size", 12)
+                .style("fill", "#000000");
+                
+                needle = new Needle(chart);
+                needle.render();
+                needle.moveTo(percent);
+                
+                setTimeout(displayValue, 1350);
+                
+                })();
+                   </script>
+                
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4  mb-2">
+        <div class="chard-card">
+        <div class="card">
+            <div class="card-header"> Medical Examination Services
+
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="card-body">
+               
+                    <div class="chart-exam"></div>
+<script>
+/*---------------------
+// D3.js Gauge Chart //
+---------------------*/
+// Data which need to be fetched
+var name = "";
+var value = <%=@NPSExsoverallpercentage%>;                // My Desired Value To Show
+var gaugeMaxValue = 200;
+
+// Data of calculation
+var percentValue = value / gaugeMaxValue;
+var needleClient;
+(function () {
+var barWidth, chart, chartInset, degToRad, repaintGauge, height, margin, numSections, padRad, percToDeg, percToRad, percent, radius, sectionIndx, svg, totalPercent, width;
+
+percent = percentValue;
+
+numSections = 1;
+sectionPerc = 1 / numSections / 2;
+padRad = 0.025;
+chartInset = 10;
+
+// Orientation of Gauge:
+totalPercent = .75;
+
+el = d3.select('.chart-exam');
+
+margin = {
+top: 40,
+right: 40,
+bottom: 40,
+left: 40
+};
+
+width = el[0][0].offsetWidth - margin.left - margin.right;
+height = width;
+radius = Math.min(width, height) / 2;
+barWidth = 30 * width / 200;
+
+// Utility methods 
+percToDeg = function (perc) {
+return perc * 360;
+};
+
+percToRad = function (perc) {
+return degToRad(percToDeg(perc));
+};
+
+degToRad = function (deg) {
+return deg * Math.PI / 180;
+};
+
+// Create SVG element
+svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height / 2.2 + margin.top + margin.bottom);     // height/1.5 To Remove Extra Bottom Space
+
+// Add layer for the panel
+chart = svg.append('g').attr('transform', "translate(" + ((width + margin.left) / 2) + ", " + ((height + margin.top) / 2) + ")");
+
+chart.append('path').attr('class', "arc chart-first");
+chart.append('path').attr('class', "arc chart-second");
+chart.append('path').attr('class', "arc chart-third");
+
+arc3 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc2 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc1 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+
+repaintGauge = function () {
+perc = 0.5;
+var next_start = totalPercent;
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc1.startAngle(arcStartRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc2.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+
+arc3.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+chart.select(".chart-first").attr('d', arc1);
+chart.select(".chart-second").attr('d', arc2);
+chart.select(".chart-third").attr('d', arc3);
+
+}   
+
+var Needle = (function () {
+
+//Helper function that returns the `d` value for moving the needle
+var recalcPointerPos = function (perc) {
+var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
+thetaRad = percToRad(perc / 2);
+centerX = 0;
+centerY = 0;
+topX = centerX - this.len * Math.cos(thetaRad);
+topY = centerY - this.len * Math.sin(thetaRad);
+leftX = centerX - this.radius * Math.cos(thetaRad - Math.PI / 2);
+leftY = centerY - this.radius * Math.sin(thetaRad - Math.PI / 2);
+rightX = centerX - this.radius * Math.cos(thetaRad + Math.PI / 2);
+rightY = centerY - this.radius * Math.sin(thetaRad + Math.PI / 2);
+return "M " + leftX + " " + leftY + " L " + topX + " " + topY + " L " + rightX + " " + rightY;
+};
+
+function Needle(el) {
+this.el = el;
+this.len = width / 2.5;
+this.radius = this.len / 8;
+}
+
+Needle.prototype.render = function () {
+this.el.append('circle').attr('class', 'needle-center').attr('cx', 0).attr('cy', 0).attr('r', this.radius);
+return this.el.append('path').attr('class', 'needle').attr('id', 'client-needle').attr('d', recalcPointerPos.call(this, 0));
+};
+
+Needle.prototype.moveTo = function (perc) {
+var self,
+oldValue = this.perc || 0;
+this.perc = perc;
+self = this;
+
+// Reset pointer position
+this.el.transition().delay(100).ease('quad').duration(200).select('.needle').tween('reset-progress', function () {
+return function (percentOfPercent) {
+var progress = (1 - percentOfPercent) * oldValue;
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+this.el.transition().delay(300).ease('bounce').duration(1500).select('.needle').tween('progress', function () {
+return function (percentOfPercent) {
+var progress = percentOfPercent * perc;
+
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+};
+
+
+return Needle;
+
+})();
+
+var dataset = [{
+metric: name,
+value: value
+}]
+
+var texts = svg.selectAll("text")
+.data(dataset)
+.enter();
+
+texts.append("text")
+.text(function () {
+return dataset[0].metric;
+})
+.attr('class', "Name")
+.attr('transform', "translate(" + ((width + margin.left) / 6) + ", " + ((height + margin.top) / 1.5) + ")")
+.attr("font-size", 25)
+.style("fill", "#000000");
+
+
+var trX = 180 - 210 * Math.cos(percToRad(percent / 2));
+var trY = 195 - 210 * Math.sin(percToRad(percent / 2));
+// (180, 195) are the coordinates of the center of the gauge.
+
+displayValue = function () {
+texts.append("text")
+.text(function () {
+return dataset[0].value;
+})
+.attr('class', "value")
+.attr('transform', "translate(" + trX + ", " + trY + ")")
+.attr("font-size", 16)
+.style("fill", '#000000');
+}
+
+texts.append("text")
+.text(function () {
+return 0;
+})
+.attr('class', 'scale0')
+.attr('transform', "translate(" + ((width + margin.left) / 100) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue / 2;
+})
+.attr('class', 'scale10')
+.attr('transform', "translate(" + ((width + margin.left) / 2.15) + ", " + ((height + margin.top) / 30) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue;
+})
+.attr('class', 'scale20')
+.attr('transform', "translate(" + ((width + margin.left) / 1.03) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+needle = new Needle(chart);
+needle.render();
+needle.moveTo(percent);
+
+setTimeout(displayValue, 1350);
+
+})();
+</script>
+               
+               
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4  mb-2">
+        <div class="chard-card">
+        <div class="card">
+            <div class="card-header"> Appeal Process
+
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="card-body">
+               
+
+                  <div class="chart-appeal"></div>
+<script>
+/*---------------------
+// D3.js Gauge Chart //
+---------------------*/
+// Data which need to be fetched
+var name = "";
+var value = <%=@NPSappealoverallpercentage%>;                // My Desired Value To Show
+var gaugeMaxValue = 200;
+
+// Data of calculation
+var percentValue = value / gaugeMaxValue;
+var needleClient;
+(function () {
+var barWidth, chart, chartInset, degToRad, repaintGauge, height, margin, numSections, padRad, percToDeg, percToRad, percent, radius, sectionIndx, svg, totalPercent, width;
+
+percent = percentValue;
+
+numSections = 1;
+sectionPerc = 1 / numSections / 2;
+padRad = 0.025;
+chartInset = 10;
+
+// Orientation of Gauge:
+totalPercent = .75;
+
+el = d3.select('.chart-appeal');
+
+margin = {
+top: 40,
+right: 40,
+bottom: 40,
+left: 40
+};
+
+width = el[0][0].offsetWidth - margin.left - margin.right;
+height = width;
+radius = Math.min(width, height) / 2;
+barWidth = 30 * width / 200;
+
+// Utility methods 
+percToDeg = function (perc) {
+return perc * 360;
+};
+
+percToRad = function (perc) {
+return degToRad(percToDeg(perc));
+};
+
+degToRad = function (deg) {
+return deg * Math.PI / 180;
+};
+
+// Create SVG element
+svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height / 2.2 + margin.top + margin.bottom);     // height/1.5 To Remove Extra Bottom Space
+
+// Add layer for the panel
+chart = svg.append('g').attr('transform', "translate(" + ((width + margin.left) / 2) + ", " + ((height + margin.top) / 2) + ")");
+
+chart.append('path').attr('class', "arc chart-first");
+chart.append('path').attr('class', "arc chart-second");
+chart.append('path').attr('class', "arc chart-third");
+
+arc3 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc2 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc1 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+
+repaintGauge = function () {
+perc = 0.5;
+var next_start = totalPercent;
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc1.startAngle(arcStartRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc2.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+
+arc3.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+chart.select(".chart-first").attr('d', arc1);
+chart.select(".chart-second").attr('d', arc2);
+chart.select(".chart-third").attr('d', arc3);
+
+}   
+
+var Needle = (function () {
+
+//Helper function that returns the `d` value for moving the needle
+var recalcPointerPos = function (perc) {
+var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
+thetaRad = percToRad(perc / 2);
+centerX = 0;
+centerY = 0;
+topX = centerX - this.len * Math.cos(thetaRad);
+topY = centerY - this.len * Math.sin(thetaRad);
+leftX = centerX - this.radius * Math.cos(thetaRad - Math.PI / 2);
+leftY = centerY - this.radius * Math.sin(thetaRad - Math.PI / 2);
+rightX = centerX - this.radius * Math.cos(thetaRad + Math.PI / 2);
+rightY = centerY - this.radius * Math.sin(thetaRad + Math.PI / 2);
+return "M " + leftX + " " + leftY + " L " + topX + " " + topY + " L " + rightX + " " + rightY;
+};
+
+function Needle(el) {
+this.el = el;
+this.len = width / 2.5;
+this.radius = this.len / 8;
+}
+
+Needle.prototype.render = function () {
+this.el.append('circle').attr('class', 'needle-center').attr('cx', 0).attr('cy', 0).attr('r', this.radius);
+return this.el.append('path').attr('class', 'needle').attr('id', 'client-needle').attr('d', recalcPointerPos.call(this, 0));
+};
+
+Needle.prototype.moveTo = function (perc) {
+var self,
+oldValue = this.perc || 0;
+this.perc = perc;
+self = this;
+
+// Reset pointer position
+this.el.transition().delay(100).ease('quad').duration(200).select('.needle').tween('reset-progress', function () {
+return function (percentOfPercent) {
+var progress = (1 - percentOfPercent) * oldValue;
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+this.el.transition().delay(300).ease('bounce').duration(1500).select('.needle').tween('progress', function () {
+return function (percentOfPercent) {
+var progress = percentOfPercent * perc;
+
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+};
+
+
+return Needle;
+
+})();
+
+var dataset = [{
+metric: name,
+value: value
+}]
+
+var texts = svg.selectAll("text")
+.data(dataset)
+.enter();
+
+texts.append("text")
+.text(function () {
+return dataset[0].metric;
+})
+.attr('class', "Name")
+.attr('transform', "translate(" + ((width + margin.left) / 6) + ", " + ((height + margin.top) / 1.5) + ")")
+.attr("font-size", 25)
+.style("fill", "#000000");
+
+
+var trX = 180 - 210 * Math.cos(percToRad(percent / 2));
+var trY = 195 - 210 * Math.sin(percToRad(percent / 2));
+// (180, 195) are the coordinates of the center of the gauge.
+
+displayValue = function () {
+texts.append("text")
+.text(function () {
+return dataset[0].value;
+})
+.attr('class', "value")
+.attr('transform', "translate(" + trX + ", " + trY + ")")
+.attr("font-size", 16)
+.style("fill", '#000000');
+}
+
+texts.append("text")
+.text(function () {
+return 0;
+})
+.attr('class', 'scale0')
+.attr('transform', "translate(" + ((width + margin.left) / 100) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue / 2;
+})
+.attr('class', 'scale10')
+.attr('transform', "translate(" + ((width + margin.left) / 2.15) + ", " + ((height + margin.top) / 30) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue;
+})
+.attr('class', 'scale20')
+.attr('transform', "translate(" + ((width + margin.left) / 1.03) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+needle = new Needle(chart);
+needle.render();
+needle.moveTo(percent);
+
+setTimeout(displayValue, 1350);
+
+})();
+</script>
+                
+               
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4  mb-2">
+        <div class="chard-card">
+        <div class="card">
+            <div class="card-header">Overall Average NPS 
+
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
+            <div class="card-body">
+               
+                     
+                    
+<div class="chart-gauge"></div>
+<script>
+/*---------------------
+// D3.js Gauge Chart //
+---------------------*/
+// Data which need to be fetched
+var name = "";
+var value = <%=@NPSavgscore%>;                // My Desired Value To Show
+var gaugeMaxValue = 200;
+
+// Data of calculation
+var percentValue = value / gaugeMaxValue;
+var needleClient;
+(function () {
+var barWidth, chart, chartInset, degToRad, repaintGauge, height, margin, numSections, padRad, percToDeg, percToRad, percent, radius, sectionIndx, svg, totalPercent, width;
+
+percent = percentValue;
+
+numSections = 1;
+sectionPerc = 1 / numSections / 2;
+padRad = 0.025;
+chartInset = 10;
+
+// Orientation of Gauge:
+totalPercent = .75;
+
+el = d3.select('.chart-gauge');
+
+margin = {
+top: 40,
+right: 40,
+bottom: 40,
+left: 40
+};
+
+width = el[0][0].offsetWidth - margin.left - margin.right;
+height = width;
+radius = Math.min(width, height) / 2;
+barWidth = 30 * width / 200;
+
+// Utility methods 
+percToDeg = function (perc) {
+return perc * 360;
+};
+
+percToRad = function (perc) {
+return degToRad(percToDeg(perc));
+};
+
+degToRad = function (deg) {
+return deg * Math.PI / 180;
+};
+
+// Create SVG element
+svg = el.append('svg').attr('width', width + margin.left + margin.right).attr('height', height / 2.2 + margin.top + margin.bottom);     // height/1.5 To Remove Extra Bottom Space
+
+// Add layer for the panel
+chart = svg.append('g').attr('transform', "translate(" + ((width + margin.left) / 2) + ", " + ((height + margin.top) / 2) + ")");
+
+chart.append('path').attr('class', "arc chart-first");
+chart.append('path').attr('class', "arc chart-second");
+chart.append('path').attr('class', "arc chart-third");
+
+arc3 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc2 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+arc1 = d3.svg.arc().outerRadius(radius - chartInset).innerRadius(radius - chartInset - barWidth)
+
+repaintGauge = function () {
+perc = 0.5;
+var next_start = totalPercent;
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc1.startAngle(arcStartRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+next_start += perc / 3;
+
+arc2.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+arcStartRad = percToRad(next_start);
+arcEndRad = arcStartRad + percToRad(perc / 3);
+
+arc3.startAngle(arcStartRad + padRad).endAngle(arcEndRad);
+
+chart.select(".chart-first").attr('d', arc1);
+chart.select(".chart-second").attr('d', arc2);
+chart.select(".chart-third").attr('d', arc3);
+
+}   
+
+var Needle = (function () {
+
+//Helper function that returns the `d` value for moving the needle
+var recalcPointerPos = function (perc) {
+var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
+thetaRad = percToRad(perc / 2);
+centerX = 0;
+centerY = 0;
+topX = centerX - this.len * Math.cos(thetaRad);
+topY = centerY - this.len * Math.sin(thetaRad);
+leftX = centerX - this.radius * Math.cos(thetaRad - Math.PI / 2);
+leftY = centerY - this.radius * Math.sin(thetaRad - Math.PI / 2);
+rightX = centerX - this.radius * Math.cos(thetaRad + Math.PI / 2);
+rightY = centerY - this.radius * Math.sin(thetaRad + Math.PI / 2);
+return "M " + leftX + " " + leftY + " L " + topX + " " + topY + " L " + rightX + " " + rightY;
+};
+
+function Needle(el) {
+this.el = el;
+this.len = width / 2.5;
+this.radius = this.len / 8;
+}
+
+Needle.prototype.render = function () {
+this.el.append('circle').attr('class', 'needle-center').attr('cx', 0).attr('cy', 0).attr('r', this.radius);
+return this.el.append('path').attr('class', 'needle').attr('id', 'client-needle').attr('d', recalcPointerPos.call(this, 0));
+};
+
+Needle.prototype.moveTo = function (perc) {
+var self,
+oldValue = this.perc || 0;
+this.perc = perc;
+self = this;
+
+// Reset pointer position
+this.el.transition().delay(100).ease('quad').duration(200).select('.needle').tween('reset-progress', function () {
+return function (percentOfPercent) {
+var progress = (1 - percentOfPercent) * oldValue;
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+this.el.transition().delay(300).ease('bounce').duration(1500).select('.needle').tween('progress', function () {
+return function (percentOfPercent) {
+var progress = percentOfPercent * perc;
+
+repaintGauge(progress);
+return d3.select(this).attr('d', recalcPointerPos.call(self, progress));
+};
+});
+
+};
+
+
+return Needle;
+
+})();
+
+var dataset = [{
+metric: name,
+value: value
+}]
+
+var texts = svg.selectAll("text")
+.data(dataset)
+.enter();
+
+texts.append("text")
+.text(function () {
+return dataset[0].metric;
+})
+.attr('class', "Name")
+.attr('transform', "translate(" + ((width + margin.left) / 6) + ", " + ((height + margin.top) / 1.5) + ")")
+.attr("font-size", 25)
+.style("fill", "#000000");
+
+
+var trX = 180 - 210 * Math.cos(percToRad(percent / 2));
+var trY = 195 - 210 * Math.sin(percToRad(percent / 2));
+// (180, 195) are the coordinates of the center of the gauge.
+
+displayValue = function () {
+texts.append("text")
+.text(function () {
+return dataset[0].value;
+})
+.attr('class', "value")
+.attr('transform', "translate(" + trX + ", " + trY + ")")
+.attr("font-size", 16)
+.style("fill", '#000000');
+}
+
+texts.append("text")
+.text(function () {
+return 0;
+})
+.attr('class', 'scale0')
+.attr('transform', "translate(" + ((width + margin.left) / 100) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue / 2;
+})
+.attr('class', 'scale10')
+.attr('transform', "translate(" + ((width + margin.left) / 2.15) + ", " + ((height + margin.top) / 30) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+
+texts.append("text")
+.text(function () {
+return gaugeMaxValue;
+})
+.attr('class', 'scale20')
+.attr('transform', "translate(" + ((width + margin.left) / 1.03) + ", " + ((height + margin.top) / 2) + ")")
+.attr("font-size", 12)
+.style("fill", "#000000");
+
+needle = new Needle(chart);
+needle.render();
+needle.moveTo(percent);
+
+setTimeout(displayValue, 1350);
+
+})();
+</script>
+<style>
+  .chart-gauge{}
+.chart-first{fill:#0e7dc1}
+.chart-second{fill:#0e7dc1}
+.chart-third{fill:#0e7dc1}
+.needle,.needle-center{fill:#464A4F}
+#Name{
+  display: none;
+}
+.chart-gauge>svg{
+  padding: 10px;
+}
+#Value {
+  transform: translate(150px, 180px);
+}
+</style>
+                
+               
+            </div>
+        </div>
+       </div>
+    </div>
+  </div>
+                  </div>
+          </div>
+        </div>
+    </div>

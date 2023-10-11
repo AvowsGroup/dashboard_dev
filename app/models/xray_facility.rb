@@ -1,0 +1,2 @@
+class XrayFacility < ApplicationRecord
+end

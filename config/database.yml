@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: Avows@2023
+  host: localhost
+
+development:
+  <<: *default
+  database: fomema_dashboard_development
+
+test:
+  <<: *default
+  database: fomema_dashboard_test_1
+
+production:
+  <<: *default
+  database: fomema_dashboard_production
+  username: postgres
+  password: postgres

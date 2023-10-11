@@ -1,0 +1,1125 @@
+<div class="dashboard-body">
+  <div class="chard-box">
+    <div class="modal" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Management of Service Provider</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable7"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable7"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable7">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable7">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:management].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="modal" id="myModal1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Human Capital Management</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable71"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable71"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable7">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable71">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:human_capital].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+          
+    <div class="modal" id="myModal2">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Inspectorate</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable72"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable72"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable72">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable72">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:inspectorate].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="modal" id="myModal3">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">X- Ray Quality Control Center </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable73"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable73"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable73">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable73">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:xray_quality].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+    
+    <div class="modal" id="myModal4">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Medical Review & Appeal</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable74"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable74"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable74">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable74">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:medical_review].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+    
+    
+
+
+    
+    <div class="modal" id="myModal5">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Finance & Administration</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable75"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable75"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable75">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable75">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:finance_admin].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+    <div class="modal" id="myModal6">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Regional Office</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable76"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable76"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable76">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable76">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:regional_office].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+    <div class="modal" id="myModal7">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Customer Service & Support</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable77"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable77"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable77">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable77">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:customer_service].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+    <div class="modal" id="myModal8">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Laboratory Quality Control Center</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable78"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable78"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable78">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable78">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:laboratory_quality].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+    <div class="modal" id="myModal9">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Support Service</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="tabs-data">
+              <ul class="nav nav-tabs sub-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#div_Stafftable79"> Staff Information</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#div_metrictable79"> Key Metric Details </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="div_Stafftable79">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th style="width:30%"> Staff Name</th>
+                          <th style="width:20%"> Designation</th>
+                          <th style="width:12%"> Grade</th>
+                          <th style="width:23%">
+                            <select class="form-control thselect">
+                              <option> Type of Leave </option>
+                              <option>Annual Leave</option>
+                              <option>Emergency Leave</option>
+                            </select>
+                          </th>
+                          <th style="width:20%"> Medical Leave </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@users.each_with_index do |user,index|%> 
+                          <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= user.name%></td>
+                            <td><%= user.designation%></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                      <tfooter>
+                        <%= will_paginate @users %>
+                      </tfooter>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="div_metrictable79">
+                  <div class="table-responsive" style="height:100%; overflow-y:auto;">
+                    <table class="table table-bordered table-data">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Task</th>
+                          <th>TAT</th>
+                          <th> Target</th>
+                          <th> KPI(%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@kpi_data[:support_service].each_with_index do |task,index|%>
+                          <tr>
+                            <td><%= index+1%></td>
+                            <td><%= task[:task]%></td>
+                            <td><%= task[:TAT]%></td>
+                            <td>><%= task[:target]%></td>
+                            <td><%= task[:KPI]%>%</td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+        </div>
+      </div>
+    </div>
+
+    <div class="svg-cards">
+      <ul>
+        <li>
+          <div class="svg-title">
+            <img class="management-img" src="/assets/svg2/1.svg">
+            <div class="svg-cardtitle">Management of Service Provider </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:management].map{|i| i[:KPI]}.sum)/3%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="capital-img" src="/assets/svg2/2.svg">
+            <div class="svg-cardtitle">Human Capital Management </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal1">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:human_capital].map{|i| i[:KPI]}.sum)/1%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="inspectorate-img" src="/assets/svg2/3.svg">
+            <div class="svg-cardtitle">Inspectorate </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal2">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:inspectorate].map{|i| i[:KPI]}.sum)/2%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="xray-img" src="/assets/svg2/4.svg">
+            <div class="svg-cardtitle">X- Ray Quality Control Center </div>
+            <div class="svg-count">
+              <div class="progress red" data-toggle="modal" data-target="#myModal3">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:xray_quality].map{|i| i[:KPI]}.sum)/3%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="medical-img" src="/assets/svg2/5.svg">
+            <div class="svg-cardtitle">Medical Review & Appeal </div>
+            <div class="svg-count">
+              <div class="progress red" data-toggle="modal" data-target="#myModal4">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:medical_review].map{|i| i[:KPI]}.sum)/4%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="finance-svg" src="/assets/svg2/6.svg">
+            <div class="svg-cardtitle">Finance & Administration </div>
+            <div class="svg-count">
+              <div class="progress red" data-toggle="modal" data-target="#myModal5">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:finance_admin].map{|i| i[:KPI]}.sum)/3%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="regiopnal-img" src="/assets/svg2/7.svg">
+            <div class="svg-cardtitle">Regional Office </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal6">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:regional_office].map{|i| i[:KPI]}.sum)/5%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="support-img" src="/assets/svg2/8.svg">
+            <div class="svg-cardtitle">Customer Service & Support </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal7">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:customer_service].map{|i| i[:KPI]}.sum)/2%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="laboratory-svg" src="/assets/svg2/9.svg">
+            <div class="svg-cardtitle">Laboratory Quality Control Center </div>
+            <div class="svg-count">
+              <div class="progress red" data-toggle="modal" data-target="#myModal8">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:laboratory_quality].map{|i| i[:KPI]}.sum)/1%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="svg-title">
+            <img class="supportservice-img" src="/assets/svg2/10.svg">
+            <div class="svg-cardtitle">Support Service </div>
+            <div class="svg-count">
+              <div class="progress blue" data-toggle="modal" data-target="#myModal9">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><%= (@kpi_data[:support_service].map{|i| i[:KPI]}.sum)/6%>% </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+

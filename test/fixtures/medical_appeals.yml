@@ -1,0 +1,69 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_id: 1
+  registered_by_type: MyString
+  created_by: 1
+  officer_in_charge_id: 1
+  doctor_id: 1
+  laboratory_id: 1
+  xray_facility_id: 1
+  doctor_reason: MyString
+  appeal_reason: MyString
+  status: MyString
+  result: MyString
+  officer_assigned_at: 2023-08-25 13:35:14
+  radiologist_id: 1
+  pcr_result: MyString
+  xray_result: MyString
+  xray_selected_at: 2023-08-25 13:35:14
+  doctor_done_at: 2023-08-25 13:35:14
+  laboratory_done_at: 2023-08-25 13:35:14
+  xray_facility_done_at: 2023-08-25 13:35:14
+  radiologist_done_at: 2023-08-25 13:35:14
+  updated_by: 1
+  deleted_at: 2023-08-25 13:35:14
+  completed_at: 2023-08-25 13:35:14
+  is_amendment: false
+  latest_appeal: false
+  employer_consented_at: 2023-08-25 13:35:14
+  doctor_document_uploaded: false
+  laboratory_document_uploaded: false
+  is_moh: false
+  employer_document_uploaded: false
+  is_specialist: false
+  employer_document_uploaded_date: 2023-08-25 13:35:14
+
+two:
+  transaction_id: 1
+  registered_by_type: MyString
+  created_by: 1
+  officer_in_charge_id: 1
+  doctor_id: 1
+  laboratory_id: 1
+  xray_facility_id: 1
+  doctor_reason: MyString
+  appeal_reason: MyString
+  status: MyString
+  result: MyString
+  officer_assigned_at: 2023-08-25 13:35:14
+  radiologist_id: 1
+  pcr_result: MyString
+  xray_result: MyString
+  xray_selected_at: 2023-08-25 13:35:14
+  doctor_done_at: 2023-08-25 13:35:14
+  laboratory_done_at: 2023-08-25 13:35:14
+  xray_facility_done_at: 2023-08-25 13:35:14
+  radiologist_done_at: 2023-08-25 13:35:14
+  updated_by: 1
+  deleted_at: 2023-08-25 13:35:14
+  completed_at: 2023-08-25 13:35:14
+  is_amendment: false
+  latest_appeal: false
+  employer_consented_at: 2023-08-25 13:35:14
+  doctor_document_uploaded: false
+  laboratory_document_uploaded: false
+  is_moh: false
+  employer_document_uploaded: false
+  is_specialist: false
+  employer_document_uploaded_date: 2023-08-25 13:35:14

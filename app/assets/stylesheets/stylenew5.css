@@ -1,0 +1,153 @@
+.cart { background-color: #CCC; }
+#sidebar1 {
+    display: none;
+    width: 100%;
+    position: absolute;
+    background: #dcdcdc;
+     margin-top: 28px;
+    left: 0;
+    height: 132px;
+    overflow-y: scroll;
+    padding: 6px;
+
+}
+ .listcard-ul>ul>li{
+    float: left;
+}
+.listcard-ul>ul>li>span{
+    float: left;
+}
+.listcard-ul>ul>li>span:first-child{
+    width: 75%;
+    padding: 0px 0px 0px 6px;
+}
+.listcard-ul>ul>li>span:last-child{
+    width: 20%;
+}
+.card-li:hover #sidebar1 {
+    display:block;
+}
+.docotrcard{
+    border: solid 1px #0032AB;
+}
+.laboratorycard>.card-header,.docotrcard>.card-header,.x-raycard>.card-header,.radiologistcard>.card-header{
+    font-weight: bold;
+}
+.docotrcard>.card-header{
+    background-color: #DDE7FF;
+    color: #0032AB;
+ }
+.laboratorycard{
+    border:solid 1px #3CD856;
+}
+.laboratorycard>.card-header{
+    background-color: #DCFCE7;
+    color: #24a63a;
+}
+.x-raycard{ 
+    border:solid 1px #9C65D6;
+ 
+}
+.x-raycard>.card-header{
+    background-color: #F3E8FF;
+    color: #9C65D6;
+}
+.radiologistcard{
+    border:solid 1px #FF947A;
+}
+.radiologistcard>.card-header{
+    background-color: #ECDACC;
+
+    color: #FF947A;
+}   
+
+ul.card-ul>li {
+    padding: 0px 10px;
+    line-height: 26px;
+    border-bottom: dotted 1px #c2c2c2;
+    font-size: 12px;
+    float: left;
+    width: 100%;
+
+}
+ul.card-ul>li>span{
+    float: left;
+}
+ul.card-ul>li>span:first-child{
+    width: 70%;
+    
+}
+ul.card-ul>li>span:last-child,
+ul.card-ul>li>span:last-child{
+    width: 30%;
+    font-weight: bold;
+}
+.listcard-ul>ul>li {
+    float: left;
+    width: 100%;
+    border-bottom: dotted 1px #E91E63;
+}
+.custompie-card>.card {
+    background: #e0e0e0;
+        margin: 6px;
+}
+.custompie-card>.card>.card-header {
+    background: transparent;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px;
+    background: #e0e0e0;
+}
+.custompie-card>.card>.card-header>i{
+    display: none;
+}
+.card-svg {
+    margin-left: 15px;
+    border-radius: 10px!important;
+    float: left;
+    width: 100%;
+    margin-bottom: 8px;
+    background: #fff;
+    border: solid 1px #c2c2c2;
+    padding: 2px;
+
+}
+
+    .filter {
+    margin-bottom: 14px;
+    width: 100%;
+    float: right;}
+.card-height{
+   height: 225px;
+   overflow-y:auto;
+   overflow-x: hidden;
+}
+.custompie-cardone{
+    margin-bottom: 10px;
+}
+.custompie-cardone>.card>.card-header {
+    
+        background-color: #c2c2c2;
+        font-size: 12px;
+        padding: 6px 13px;
+    }
+    .custompie-cardone>.card>.card-body>.card-title {
+        text-align: center;
+        line-height: 0;
+        font-size: 12px;
+        padding-top: 10px;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        margin: 0;
+    }
+.custompie-cardone>.card>.card-header>i {
+    display: none;
+}
+@media only screen and (max-width: 1024px) and (min-width: 320px)  { 
+    .card-height{
+        height: auto;
+        overflow-y: hidden;
+    }
+}
+ 

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_id: 
+  case_type: MyString
+  comment: MyText
+  status: MyString
+  result: MyString
+  transmitted_at: 2023-09-08 15:32:59
+  created_by_id: 
+  updated_by_id: 
+  pcr_id: 
+  poolable_type: MyString
+  poolable_id: 
+  is_legacy: false
+  trans_id: MyString
+  legacy_id: 
+  medical_appeal_id: 
+  belong: MyString
+  belong_comment: MyText
+
+two:
+  transaction_id: 
+  case_type: MyString
+  comment: MyText
+  status: MyString
+  result: MyString
+  transmitted_at: 2023-09-08 15:32:59
+  created_by_id: 
+  updated_by_id: 
+  pcr_id: 
+  poolable_type: MyString
+  poolable_id: 
+  is_legacy: false
+  trans_id: MyString
+  legacy_id: 
+  medical_appeal_id: 
+  belong: MyString
+  belong_comment: MyText

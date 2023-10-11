@@ -1,0 +1,139 @@
+.tx-numeric{
+    border-bottom: none;
+    padding: 6px 0px;
+}
+.div_reg>ul>li {
+display: inline-table;
+width: 49%;
+height: 36px;
+text-align: center;
+line-height: 36px;
+}
+.div_reg>ul>li>b{
+font-size: 16px;
+}
+.div_reg>span {
+font-size: 13px;
+text-align: center;
+width: 100%;
+float: left;
+background: #dedddd;
+line-height: 22px;
+font-weight: 500;
+}
+.div_reg {
+width: 100%;
+float: left;
+border-right: solid 1px #c2c2c2;
+padding: 0px;
+}
+.div-socialmedia {
+width: 100%;
+float: left;
+}
+.social-mediaicon {
+width: 30%;
+float: left;
+font-size: 38px;
+margin-top: -10px;
+text-align: center;
+}
+.social-mediavalue {
+width: 70%;
+float: right;
+}
+.social-mediavalue>span {
+width: 100%;
+float: left;
+font-size: 15px;
+text-align: center;
+font-weight: bold;
+}
+.social-mediavalue>span:last-child {
+width: 100%;
+float: left;
+font-weight: normal;
+font-size: 14px;
+}
+.nav-tabs>li>a:hover, .nav-tabs .nav-link.active {
+    color: #ffffff;
+background-color: #3c657e;
+border-color: transparent;
+border-radius: 5px;
+}
+.nav-tabs>li{
+margin: 0px 5px 0px 0px;
+}
+.nav-tabs>li {
+margin: 0px 3px 0px 0px;
+width: 49%;
+float: left;
+}
+.nav-tabs>li:last-child{
+margin:0px 3px 0px 3px;
+text-align: center;
+}
+.nav-tabs>li>a{
+font-size: 12px;
+}
+.nav-link {
+display: block;
+padding: 0.5rem 0.5rem;
+}
+.nav-tabs .nav-link {
+margin-bottom: -1px;
+background-color: transparent;
+border: 1px solid #5f5f5f;
+border-radius: 0.25rem;
+border-top-right-radius: 0.25rem;
+color: #545454;
+}
+.span_customer{background-color: #dedddd;
+                                        border-radius: 0px 0px 0px 5px;
+                                        padding: 0px 5px;
+                                        font-size: 12px;
+                                        font-weight: bold;
+                                        font-weight: bold;
+height: 45px;
+line-height: 45px;}
+.tx-numeric>b {
+font-size: 16px;
+float: left;
+width: 100%;
+text-align: center;
+} 
+.filter {
+margin-bottom: 14px;
+width: 100%;
+float: right;}
+@media only screen and (max-width: 1024px) and (min-width: 769px)  {
+    .nav-tabs>li{
+        width: 48%;
+    }
+    .nav-tabs>li>a {
+        font-size: 11px;}
+}
+@media (max-width: 768px) {
+    .nav-tabs>li{
+        width: 48%;
+    }
+    .div_reg>ul>li{
+        width: 48%;
+    }
+    .nav-tabs .nav-link {
+        height: 46px;
+    }
+    .social-mediaicon {
+        width: 100%;}
+        .social-mediaicon>svg{
+            width: 60%;
+    margin: 0 auto 10px auto;
+        }
+        .social-mediavalue{
+            width: 100%;
+        }
+        .socialmedia-card{
+            margin-bottom: 10px;
+        }
+}
+@media (max-width: 550px) {}

@@ -1,0 +1,2 @@
+module CustomerSatisfactionHelper
+end

@@ -1,0 +1,2 @@
+class ApprovalRequest < ApplicationRecord
+end

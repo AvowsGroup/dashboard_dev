@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction: 
+  case_type: MyString
+  status: MyString
+  source: MyString
+  sourceable_type: MyString
+  sourceable_id: 
+  picked_up_at: 2023-09-08 15:28:54
+  created_by: 
+  updated_by: 
+  picked_up_by: 
+  is_legacy: false
+  trans_id: MyString
+  legacy_id: 
+  medical_appeal_id: 
+  xray_retake_id: 
+
+two:
+  transaction: 
+  case_type: MyString
+  status: MyString
+  source: MyString
+  sourceable_type: MyString
+  sourceable_id: 
+  picked_up_at: 2023-09-08 15:28:54
+  created_by: 
+  updated_by: 
+  picked_up_by: 
+  is_legacy: false
+  trans_id: MyString
+  legacy_id: 
+  medical_appeal_id: 
+  xray_retake_id: 

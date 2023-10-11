@@ -1,0 +1,125 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  title_id: 1
+  clinic_name: MyString
+  icno: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  mobile: MyString
+  email: MyString
+  email_payment: MyString
+  qualification: MyString
+  apc_year: 1
+  apc_number: MyString
+  renewal_agreement_date: 2023-08-25 13:35:11
+  district_health_office_id: 1
+  has_xray: false
+  fp_device: 1
+  quota: 1
+  quota_used: 1
+  quota_modifier: 1
+  solo_clinic: false
+  group_clinic: false
+  xray_facility_id: 1
+  laboratory_id: 1
+  comment: MyText
+  pairing_options: MyString
+  service_provider_group_id: 1
+  male_rate: 1
+  female_rate: 1
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: 1
+  status: MyString
+  status_reason: MyString
+  registration_approved_at: 2023-08-25 13:35:11
+  activated_at: 2023-08-25 13:35:11
+  approval_status: MyString
+  approval_remark: MyText
+  created_by: MyString
+  updated_by: MyString
+  payment_method_id: 1
+  business_registration_number: MyString
+  status_comment: MyText
+  has_doctor_association: false
+  name_of_association: MyString
+  has_selected_re_medical: false
+  gender: MyString
+  nationality_id: 1
+  race_id: 1
+  associations: MyText
+  paid_biometric_device: false
+
+two:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  title_id: 1
+  clinic_name: MyString
+  icno: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  mobile: MyString
+  email: MyString
+  email_payment: MyString
+  qualification: MyString
+  apc_year: 1
+  apc_number: MyString
+  renewal_agreement_date: 2023-08-25 13:35:11
+  district_health_office_id: 1
+  has_xray: false
+  fp_device: 1
+  quota: 1
+  quota_used: 1
+  quota_modifier: 1
+  solo_clinic: false
+  group_clinic: false
+  xray_facility_id: 1
+  laboratory_id: 1
+  comment: MyText
+  pairing_options: MyString
+  service_provider_group_id: 1
+  male_rate: 1
+  female_rate: 1
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: 1
+  status: MyString
+  status_reason: MyString
+  registration_approved_at: 2023-08-25 13:35:11
+  activated_at: 2023-08-25 13:35:11
+  approval_status: MyString
+  approval_remark: MyText
+  created_by: MyString
+  updated_by: MyString
+  payment_method_id: 1
+  business_registration_number: MyString
+  status_comment: MyText
+  has_doctor_association: false
+  name_of_association: MyString
+  has_selected_re_medical: false
+  gender: MyString
+  nationality_id: 1
+  race_id: 1
+  associations: MyText
+  paid_biometric_device: false

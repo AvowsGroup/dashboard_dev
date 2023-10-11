@@ -1,0 +1,101 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  business_registration_number: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  email_payment: MyString
+  pic_name: MyString
+  pic_phone: MyString
+  qualification: MyString
+  pathologist_name: MyString
+  nsr_number: MyString
+  laboratory_type_id: 1
+  renewal_agreement_date: 2023-08-25
+  district_health_office_id: 1
+  samm_number: MyString
+  license: MyString
+  license_year: 1
+  web_service: MyString
+  web_service_passphrase: MyString
+  comment: MyText
+  service_provider_group_id: 1
+  male_rate: 1
+  female_rate: 1
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: MyString
+  status: MyString
+  status_reason: MyString
+  registration_approved_at: 2023-08-25 13:35:13
+  activated_at: 2023-08-25 13:35:13
+  approval_status: MyString
+  approval_remark: MyText
+  created_by: MyString
+  updated_by: MyString
+  payment_method_id: 1
+  samm_accredited_since: 2023-08-25
+  samm_expiry_date: 2023-08-25
+  status_comment: MyText
+
+two:
+  code: MyString
+  name: MyString
+  company_name: MyString
+  business_registration_number: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  address4: MyString
+  country_id: 1
+  state_id: 1
+  town_id: 1
+  postcode: MyString
+  phone: MyString
+  fax: MyString
+  email: MyString
+  email_payment: MyString
+  pic_name: MyString
+  pic_phone: MyString
+  qualification: MyString
+  pathologist_name: MyString
+  nsr_number: MyString
+  laboratory_type_id: 1
+  renewal_agreement_date: 2023-08-25
+  district_health_office_id: 1
+  samm_number: MyString
+  license: MyString
+  license_year: 1
+  web_service: MyString
+  web_service_passphrase: MyString
+  comment: MyText
+  service_provider_group_id: 1
+  male_rate: 1
+  female_rate: 1
+  bank_id: 1
+  bank_account_number: MyString
+  bank_payment_id: MyString
+  status: MyString
+  status_reason: MyString
+  registration_approved_at: 2023-08-25 13:35:13
+  activated_at: 2023-08-25 13:35:13
+  approval_status: MyString
+  approval_remark: MyText
+  created_by: MyString
+  updated_by: MyString
+  payment_method_id: 1
+  samm_accredited_since: 2023-08-25
+  samm_expiry_date: 2023-08-25
+  status_comment: MyText

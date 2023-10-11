@@ -1,0 +1,189 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  order_item_id: 1
+  foreign_worker_id: 1
+  employer_id: 1
+  doctor_id: 1
+  laboratory_id: 1
+  xray_facility_id: 1
+  radiologist_id: 1
+  transaction_date: 2023-08-25 13:35:18
+  medical_examination_date: 2023-08-25 13:35:18
+  doctor_transmit_date: 2023-08-25 13:35:18
+  laboratory_transmit_date: 2023-08-25 13:35:18
+  xray_transmit_date: 2023-08-25 13:35:18
+  expired_at: 2023-08-25 13:35:18
+  extended_at: 2023-08-25 13:35:18
+  certification_date: 2023-08-25 13:35:18
+  status: MyString
+  comment: MyText
+  worker_matched: false
+  worker_consented: false
+  worker_identity_confirmed: false
+  xray_worker_identity_confirmed: false
+  xray_film_type: MyString
+  xray_reporter_type: MyString
+  medical_tcupi: MyString
+  medical_status: false
+  medical_result: MyString
+  xray_status: false
+  xray_result: MyString
+  xray_pending_review_id: 1
+  final_result: 1
+  approval_status: 1
+  approval_remark: MyString
+  doctor_fp_result: false
+  xray_fp_result: false
+  doctor_fp: 1
+  xray_fp: 1
+  physical_exam_not_done: false
+  not_done_officer_id: 1
+  not_done_set_at: 2023-08-25 13:35:18
+  tcupi_date: 2023-08-25 13:35:18
+  ignore_expiry: false
+  fw_code: MyString
+  fw_name: MyString
+  fw_gender: MyString
+  fw_date_of_birth: 2023-08-25
+  fw_passport_number: MyString
+  fw_country_id: 1
+  fw_maid_online: MyString
+  fw_plks_number: MyString
+  organization_id: 1
+  fw_job_type_id: 1
+  is_special_renewal: false
+  doctor_fp_result_date: 2023-08-25 13:35:18
+  xray_fp_result_date: 2023-08-25 13:35:18
+  digital_xray_provider_id: 1
+  doctor_bypass_fingerprint_reason_id: 1
+  xray_bypass_fingerprint_reason_id: 1
+  ignore_merts_expiry_at: 2023-08-25 13:35:18
+  final_result_date: 2023-08-25 13:35:18
+  unsuitable_slip_download: false
+  pcr_review_id: 1
+  xray_retake_id: 1
+  special_renewal_rejected_at: 2023-08-25 13:35:18
+  registration_type: 1
+  xray_review_id: 1
+  reg_ind: false
+  medical_pr_source: false
+  med_ind_count: 1
+  xray_pending_decision_id: 1
+  doctor_bypass_fingerprint_date: 2023-08-25 13:35:18
+  xray_bypass_fingerprint_date: 2023-08-25 13:35:18
+  medical_quarantine_release_date: 2023-08-25 13:35:18
+  xray_quarantine_release_date: 2023-08-25 13:35:18
+  communicable_diseases: false
+  ignore_reprint_rule: false
+  unsuitable_slip_downloaded: false
+  fw_pati: false
+  ignore_cancellation_rule: false
+  is_imm_insert: false
+  is_imm_blocked: false
+  is_sp_transmit_blocked: false
+  is_blood_group_benchmark: false
+  ignore_renewal_rule: false
+  agency_id: 1
+  worker_image_confirmed: false
+  xray_worker_image_confirmed: false
+  transmission_expired_at: 2023-08-25 13:35:18
+  condition_amended_at: 2023-08-25 13:35:18
+  ignore_special_renewal_rule: false
+  medical_report_letter_download: false
+  is_next_transaction_re_medical: false
+
+two:
+  code: MyString
+  order_item_id: 1
+  foreign_worker_id: 1
+  employer_id: 1
+  doctor_id: 1
+  laboratory_id: 1
+  xray_facility_id: 1
+  radiologist_id: 1
+  transaction_date: 2023-08-25 13:35:18
+  medical_examination_date: 2023-08-25 13:35:18
+  doctor_transmit_date: 2023-08-25 13:35:18
+  laboratory_transmit_date: 2023-08-25 13:35:18
+  xray_transmit_date: 2023-08-25 13:35:18
+  expired_at: 2023-08-25 13:35:18
+  extended_at: 2023-08-25 13:35:18
+  certification_date: 2023-08-25 13:35:18
+  status: MyString
+  comment: MyText
+  worker_matched: false
+  worker_consented: false
+  worker_identity_confirmed: false
+  xray_worker_identity_confirmed: false
+  xray_film_type: MyString
+  xray_reporter_type: MyString
+  medical_tcupi: MyString
+  medical_status: false
+  medical_result: MyString
+  xray_status: false
+  xray_result: MyString
+  xray_pending_review_id: 1
+  final_result: 1
+  approval_status: 1
+  approval_remark: MyString
+  doctor_fp_result: false
+  xray_fp_result: false
+  doctor_fp: 1
+  xray_fp: 1
+  physical_exam_not_done: false
+  not_done_officer_id: 1
+  not_done_set_at: 2023-08-25 13:35:18
+  tcupi_date: 2023-08-25 13:35:18
+  ignore_expiry: false
+  fw_code: MyString
+  fw_name: MyString
+  fw_gender: MyString
+  fw_date_of_birth: 2023-08-25
+  fw_passport_number: MyString
+  fw_country_id: 1
+  fw_maid_online: MyString
+  fw_plks_number: MyString
+  organization_id: 1
+  fw_job_type_id: 1
+  is_special_renewal: false
+  doctor_fp_result_date: 2023-08-25 13:35:18
+  xray_fp_result_date: 2023-08-25 13:35:18
+  digital_xray_provider_id: 1
+  doctor_bypass_fingerprint_reason_id: 1
+  xray_bypass_fingerprint_reason_id: 1
+  ignore_merts_expiry_at: 2023-08-25 13:35:18
+  final_result_date: 2023-08-25 13:35:18
+  unsuitable_slip_download: false
+  pcr_review_id: 1
+  xray_retake_id: 1
+  special_renewal_rejected_at: 2023-08-25 13:35:18
+  registration_type: 1
+  xray_review_id: 1
+  reg_ind: false
+  medical_pr_source: false
+  med_ind_count: 1
+  xray_pending_decision_id: 1
+  doctor_bypass_fingerprint_date: 2023-08-25 13:35:18
+  xray_bypass_fingerprint_date: 2023-08-25 13:35:18
+  medical_quarantine_release_date: 2023-08-25 13:35:18
+  xray_quarantine_release_date: 2023-08-25 13:35:18
+  communicable_diseases: false
+  ignore_reprint_rule: false
+  unsuitable_slip_downloaded: false
+  fw_pati: false
+  ignore_cancellation_rule: false
+  is_imm_insert: false
+  is_imm_blocked: false
+  is_sp_transmit_blocked: false
+  is_blood_group_benchmark: false
+  ignore_renewal_rule: false
+  agency_id: 1
+  worker_image_confirmed: false
+  xray_worker_image_confirmed: false
+  transmission_expired_at: 2023-08-25 13:35:18
+  condition_amended_at: 2023-08-25 13:35:18
+  ignore_special_renewal_rule: false
+  medical_report_letter_download: false
+  is_next_transaction_re_medical: false

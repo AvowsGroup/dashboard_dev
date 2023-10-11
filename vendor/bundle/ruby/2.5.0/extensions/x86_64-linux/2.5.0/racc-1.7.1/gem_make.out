@@ -1,0 +1,17 @@
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/racc-1.7.1/ext/racc/cparse
+/home/digital/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/digital/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/racc-1.7.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-1coao7w sitelibdir\=./.gem.20230825-11755-1coao7w clean
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/racc-1.7.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-1coao7w sitelibdir\=./.gem.20230825-11755-1coao7w
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/digital/Desktop/avows_project/dashboard_plug/vendor/bundle/ruby/2.5.0/gems/racc-1.7.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230825-11755-1coao7w sitelibdir\=./.gem.20230825-11755-1coao7w install
+/usr/bin/install -m 0755 cparse.so ./.gem.20230825-11755-1coao7w/racc

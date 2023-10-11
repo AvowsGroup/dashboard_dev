@@ -1,0 +1,2 @@
+class DoctorExaminationDetail < ApplicationRecord
+end

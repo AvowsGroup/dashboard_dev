@@ -1,0 +1,223 @@
+<div id="sidebar">
+            <div class="filter_row">
+                <div class="filter_div mt-0">
+               <div class="filter">
+               <div class="filter-title">
+                 Filter By
+             
+               </div>
+               <div class="filter-body">
+                 <div id="main">
+                   <div class="filtereaccordion" id="filter">
+                     <div class="card">
+                         <div class="card-header" id="faqhead1">
+                             <a href="#" class="filter-link" data-toggle="collapse" data-target="#Sector"
+                             aria-expanded="true" aria-controls="Sector">
+                             
+             Sector</a>
+                         </div>
+             
+                         <div id="Sector" class="collapse show" aria-labelledby="faqhead1" data-parent="#filter">
+                             <div class="card-body">
+                                 <ul class="subment-li">
+                                     <li>
+                        <input type="checkbox" id="sectorcheckall" name="addcheck" value=""> Select All
+                      </li>
+                    <%@job_type.each do |job_type|%>
+                        <li>
+                          <input type="checkbox" name="sectorcheck"  value=<%=job_type.id%>> <%= job_type.name%>
+                        </li>
+                      <%end%>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card">
+                         <div class="card-header" id="filter2">
+                             <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#customer"
+                             aria-expanded="true" aria-controls="customer">Customer Type</a>
+                         </div>
+             
+                         <div id="customer" class="collapse" aria-labelledby="filter2" data-parent="#filter">
+                             <div class="card-body">
+                               <ul class="subment-li">
+                                <li>
+                        <input type="checkbox" id="customercheckall" name="addcheck" value=""> Select All
+                      </li>
+                            <li>
+                                     <input type="checkbox" name="customercheck" value="Individual Employer">  Individual Employer
+                                 </li>
+                                 <li>
+                                     <input type="checkbox" name="customercheck" value="Company Employer">  Company Employer
+                                 </li>    
+                                 <li>
+                                     <input type="checkbox" name="customercheck" value="Agent">  Agent
+                                 </li>    
+                               </ul>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card">
+                         <div class="card-header" id="filter3">
+                             <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#Reg"
+                             aria-expanded="true" aria-controls="Reg">Registration Medium</a>
+                         </div>
+             
+                         <div id="Reg" class="collapse" aria-labelledby="filter3" data-parent="#filter">
+                             <div class="card-body">
+                               <ul class="subment-li">
+                                   <li>
+                        <input type="checkbox" id="regcheckall" name="addcheck" value=""> Select All
+                      </li>
+                                <li>
+                                     <input type="checkbox" name="regcheck" value="Web Portal"> Web Portal
+                                 </li>
+                                 <li>
+                                     <input type="checkbox" name="regcheck" value="Regional Office"> Regional Office
+                                 </li>
+                               </ul>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card">
+                       <div class="card-header" id="filter4">
+                           <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#age"
+                           aria-expanded="true" aria-controls="age">Age Group</a>
+                       </div>
+             
+                       <div id="age" class="collapse" aria-labelledby="filter4" data-parent="#filter">
+                           <div class="card-body">
+                             <ul class="subment-li">
+                                 <li>
+                        <input type="checkbox" id="agecheckall" name="addcheck" value=""> Select All
+                      </li>
+                                 <li>
+                                     <input type="checkbox" name="agecheck" value="18-24">  18 to 24
+                                 </li>
+                                 <li>
+                                     <input type="checkbox" name="agecheck" value="25-34">  25-34
+                                 </li>
+                                 <li>
+                                   <input type="checkbox" name="agecheck" value="35-44">  35-44
+                               </li>
+                               <li>
+                                   <input type="checkbox" name="agecheck" value="45-54">  45-54
+                               </li>
+                               <li>
+                                   <input type="checkbox" name="agecheck" value="55-65">  55-65
+                               </li>
+                               <li>
+                                   <input type="checkbox" name="agecheck" value="More than 65">  65+
+                               </li>
+                             </ul>
+                           </div>
+                       </div>
+                   </div>
+                   
+                   <div class="card">
+                       <div class="card-header" id="filter5">
+                           <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#gender"
+                           aria-expanded="true" aria-controls="gender">Gender</a>
+                       </div>
+             
+                       <div id="gender" class="collapse" aria-labelledby="filter5" data-parent="#filter">
+                           <div class="card-body">
+                             <ul class="subment-li">
+                                 <li>
+                                     <input type="checkbox" name="gendercheck" value="Male">   Male
+                                 </li>
+                                 <li>
+                                     <input type="checkbox" name="gendercheck" value="Female">  Female
+                                 </li>
+                             </ul>
+                           </div>
+                       </div>
+                   </div> 
+             
+                   <div class="filter-btn mb-2"> 
+                     <button class="btn-apply" data-toggle="collapse" data-target="#tag_demo" onclick="apply_filter()" > Apply</button>  
+                     <button class="btn-clear" onclick="clear_filter()">Clear</button>
+                   </div>
+                 </div>
+                      </div>
+                 <!-- <ul class="list">
+                   <li>
+                     Time Period</li>
+             <li>Sector</li>
+             <li>State</li>
+             <li>Country</li>
+             <li>Age</li>
+             <li>Gender</li>
+             <li>Registration at</li>
+             <li>Foregin Worker Type</li>
+                 </ul> -->
+               </div> 
+             
+             </div>
+              
+             <div>
+             </div>
+               </div> 
+             
+             </div>
+          </div>
+<script>
+    function apply_filter() {
+        debugger;
+    var selectedValues = JSON.stringify(getCheckedValues());
+    $.ajax({
+      type: 'GET',
+      url: '/customer_satisfaction/index.js',//ReplacewithyourRails route
+      data: selectedValues
+    });
+  }
+   function clearAllInputs() {
+  // Clear checkboxes
+  $('input[type="checkbox"]').prop('checked', false);
+  
+  // Clear input fields
+  $('input[type="text"]').val('');
+  
+  // Clear date range picker (if you're using a library like 'daterangepicker')
+  $('#date-range').val('');
+
+  }
+   function clear_filter() {
+    var selectedValues = JSON.stringify({value: false});
+    clearAllInputs();
+    $.ajax({
+      type: 'GET',
+      url: '/customer_satisfaction/index.js', // Replace with your Rails route
+      data: selectedValues
+    });
+  }
+   function getCheckedValues() {
+  var checkedValues = {};
+  
+ 
+  
+  // Retrieve values from Sector
+  checkedValues['Sector'] = $('#Sector input[type="checkbox"]:checked').map(function() {
+    return parseInt($(this).val());
+  }).get().join(',');
+   checkedValues['customer_type'] = $('#customer input[type="checkbox"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
+   checkedValues['reg'] = $('#Reg input[type="checkbox"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
+    checkedValues['agegroup'] = $('#age input[type="checkbox"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
+ 
+ checkedValues['gender'] = $('#gender input[type="checkbox"]:checked').map(function() {
+    return $(this).val();
+  }).get().join(',');
+
+  
+
+  // Add even more divs as needed
+
+  return checkedValues;
+}
+</script>
