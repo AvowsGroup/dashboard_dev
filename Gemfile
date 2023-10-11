@@ -19,8 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'will_paginate'
 gem 'rubyzip', '>= 1.2.1'
-gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
-gem 'axlsx_rails'
+#gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+#gem 'axlsx_rails'
 
 # ajax calls
 # gem 'jquery-rails'
