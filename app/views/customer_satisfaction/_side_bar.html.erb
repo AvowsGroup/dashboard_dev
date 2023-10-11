@@ -215,7 +215,7 @@
     var selectedValues = JSON.stringify(getCheckedValues());
     $.ajax({
       type: 'GET',
-      url: '/customer_satisfication/index.js',//ReplacewithyourRails route
+      url: '/customer_satisfaction/index.js',//ReplacewithyourRails route
       data: selectedValues
     });
   }
@@ -235,7 +235,7 @@
     clearAllInputs();
     $.ajax({
       type: 'GET',
-      url: '/first_dashboard/index.js', // Replace with your Rails route
+      url: '/customer_satisfaction/index.js', // Replace with your Rails route
       data: selectedValues
     });
   }
