@@ -10,6 +10,52 @@
                  <div id="main">
                    <div class="filtereaccordion" id="filter">
                      <div class="card">
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="filter-link" data-toggle="collapse" data-target="#time-period"
+                                    aria-expanded="true" aria-controls="time-period">
+                                    Time Period</a>
+                                </div>
+        
+                                <div id="time-period" class="collapse show" aria-labelledby="faqhead1" data-parent="#filter">
+                                   <div class="card-body">
+                                    
+                             
+                             <script>
+                             $(document).ready(function() {
+                             $('#date-range').daterangepicker({
+                             opens: 'left',
+                             drops: 'down',
+                             autoApply: true,
+                             locale: {
+                             format: 'YYYY-MM-DD',
+                             separator: ' - ',
+                             applyLabel: 'Apply',
+                             cancelLabel: 'Cancel',
+                             fromLabel: 'From',
+                             toLabel: 'To',
+                             customRangeLabel: 'Custom',
+                             daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                             monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                             firstDay: 0
+                             }
+                             });
+                             });
+                             </script>
+                                     <div class="input-group date-range">
+                                       <input type="text" class="form-control date-range" id="date-range" placeholder="Select Date Range">
+                                       <div class="input-group-append">
+                                         <span class="input-group-text">
+                                           <i class="fa fa-calendar"></i>
+                                         </span>
+                                       </div>
+                                     </div>
+                                 
+   
+                                     </div>
+                                    
+                                 </div>
+                            </div>
+                     <div class="card">
                          <div class="card-header" id="faqhead1">
                              <a href="#" class="filter-link" data-toggle="collapse" data-target="#Sector"
                              aria-expanded="true" aria-controls="Sector">
@@ -17,7 +63,7 @@
              Sector</a>
                          </div>
              
-                         <div id="Sector" class="collapse show" aria-labelledby="faqhead1" data-parent="#filter">
+                         <div id="Sector" class="collapse" aria-labelledby="faqhead1" data-parent="#filter">
                              <div class="card-body">
                                  <ul class="subment-li">
                                      <li>
@@ -25,7 +71,7 @@
                       </li>
                     <%@job_type.each do |job_type|%>
                         <li>
-                          <input type="checkbox" name="sectorcheck"  value=<%=job_type.id%>> <%= job_type.name%>
+                          <input type="checkbox" name="sectorcheck"  value=<%=job_type%>> <%= job_type%>
                         </li>
                       <%end%>
                                  </ul>
@@ -163,11 +209,13 @@
           </div>
 <script>
     function apply_filter() {
-        debugger;
+        
+            $('#sidebar').toggleClass('active');
+      
     var selectedValues = JSON.stringify(getCheckedValues());
     $.ajax({
       type: 'GET',
-      url: '/customer_satisfaction/index.js',//ReplacewithyourRails route
+      url: '/customer_satisfication/index.js',//ReplacewithyourRails route
       data: selectedValues
     });
   }
@@ -187,7 +235,7 @@
     clearAllInputs();
     $.ajax({
       type: 'GET',
-      url: '/customer_satisfaction/index.js', // Replace with your Rails route
+      url: '/first_dashboard/index.js', // Replace with your Rails route
       data: selectedValues
     });
   }
@@ -195,10 +243,10 @@
   var checkedValues = {};
   
  
-  
+  checkedValues['DateRange'] = $('#date-range').val();
   // Retrieve values from Sector
   checkedValues['Sector'] = $('#Sector input[type="checkbox"]:checked').map(function() {
-    return parseInt($(this).val());
+    return $(this).val();
   }).get().join(',');
    checkedValues['customer_type'] = $('#customer input[type="checkbox"]:checked').map(function() {
     return $(this).val();
