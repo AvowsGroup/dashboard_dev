@@ -1,0 +1,172 @@
+ <div id="sidebar">
+                 
+                   <div class="filter_row">
+                       <div class="filter_div mt-0">
+                      <div class="filter">
+                      <div class="filter-title">
+                        Filter By
+                    
+                      </div>
+                      <div class="filter-body">
+                        <div id="main">
+                          <div class="filtereaccordion" id="filter">
+                            <div class="card">
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="filter-link" data-toggle="collapse" data-target="#time-period"
+                                    aria-expanded="true" aria-controls="time-period">
+                                    Time Period</a>
+                                </div>
+        
+                                <div id="time-period" class="collapse show" aria-labelledby="faqhead1" data-parent="#filter">
+                                   <div class="card-body">
+                                    
+                             
+                             <script>
+                             $(document).ready(function() {
+                             $('#date-range').daterangepicker({
+                             opens: 'left',
+                             drops: 'down',
+                             autoApply: true,
+                             locale: {
+                             format: 'YYYY-MM-DD',
+                             separator: ' - ',
+                             applyLabel: 'Apply',
+                             cancelLabel: 'Cancel',
+                             fromLabel: 'From',
+                             toLabel: 'To',
+                             customRangeLabel: 'Custom',
+                             daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                             monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                             firstDay: 0
+                             }
+                             });
+                             });
+                             </script>
+                                     <div class="input-group date-range">
+                                       <input type="text" class="form-control date-range" id="date-range" placeholder="Select Date Range">
+                                       <div class="input-group-append">
+                                         <span class="input-group-text">
+                                           <i class="fa fa-calendar"></i>
+                                         </span>
+                                       </div>
+                                     </div>
+                                 
+   
+                                     </div>
+                                    
+                                 </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="filter2">
+                                    <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#doctorcode" aria-expanded="true" aria-controls="doctorcode">Doctor Code</a>
+                                </div>
+                    
+                                <div id="doctorcode" class="collapse" aria-labelledby="filter2" data-parent="#filter">
+                                    <div class="card-body">
+                                      <ul class="subment-li">
+                                          <li>
+                                              <input type="text" class="form-control" id='txtdoctor'>  
+                                          </li>
+                                      </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="filter3">
+                                    <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#xray" aria-expanded="true" aria-controls="xray">X-ray Facility Code</a>
+                                </div>
+                    
+                                <div id="xray" class="collapse" aria-labelledby="filter3" data-parent="#filter">
+                                    <div class="card-body">
+                                        <ul class="subment-li">
+                                            <li>
+                                                <input type="text" class="form-control" id='txtxray'>  
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="filter4">
+                                  <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#laboratory" aria-expanded="true" aria-controls="laboratory">Laboratory Code</a>
+                              </div>
+                    
+                              <div id="laboratory" class="collapse" aria-labelledby="filter4" data-parent="#filter">
+                                  <div class="card-body">
+                                    <ul class="subment-li">
+                                        <li>
+                                            <input type="text" class="form-control" id='txtlab'>  
+                                        </li>
+                                    </ul>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="filter-btn mb-2"> 
+                            <a class="btn-apply" data-toggle="collapse" data-target="#tag_demo" onclick="apply_filter()"> Apply</a>  
+                            <button class="btn-clear" onclick="clear_filter()">Clear</button>
+                          </div>
+                        </div>
+                             </div>
+                        <!-- <ul class="list">
+                          <li>
+                            Time Period</li>
+                    <li>Sector</li>
+                    <li>State</li>
+                    <li>Country</li>
+                    <li>Age</li>
+                    <li>Gender</li>
+                    <li>Registration at</li>
+                    <li>Foregin Worker Type</li>
+                        </ul> -->
+                      </div> 
+                    
+                    </div>
+                     
+                    <div>
+                    </div>
+                      </div> 
+                    
+                    </div>
+       
+                    
+               </div>
+<script type="text/javascript">
+     function clearAllInputs() {
+  
+  // Clear input fields
+  $('input[type="text"]').val('');
+  
+  // Clear date range picker (if you're using a library like 'daterangepicker')
+  $('#date-range').val('');
+
+  }
+   function clear_filter() {
+    var selectedValues = JSON.stringify({value: false});
+    clearAllInputs();
+    $.ajax({
+      type: 'GET',
+      url: '/service_provider/index.js', // Replace with your Rails route
+      data: selectedValues
+    });
+  }
+  function getCheckedValues() {
+  var checkedValues = {};  
+  
+  // Retrieve values from Sector
+  checkedValues['DateRange'] = $('#date-range').val();
+  checkedValues['doctor'] = $('#txtdoctor').val();
+  checkedValues['xray'] = $('#txtxray').val();
+  checkedValues['lab'] = $('#txtlab').val();
+   
+    return checkedValues;
+}
+ function apply_filter() {
+        debugger;
+    var selectedValues = JSON.stringify(getCheckedValues());
+    $.ajax({
+      type: 'GET',
+      url: '/service_provider/index.js',//ReplacewithyourRails route
+      data: selectedValues
+    });
+  }
+</script>

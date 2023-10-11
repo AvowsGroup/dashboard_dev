@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_09_24_013323) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+   enable_extension "plpgsql"
 
   create_table "agencies", force: :cascade do |t|
     t.bigint "organization_id"
@@ -103,6 +103,11 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.datetime "updated_at", null: false
     t.string "created_by"
     t.string "updated_by"
+  end
+
+  create_table "customer_surveys", force: :cascade do |t|
+    t.string "respondent_id"
+    t.string "collector_id"
   end
 
   create_table "doctor_examination_details", force: :cascade do |t|
@@ -414,6 +419,26 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "laboratory_examinations", force: :cascade do |t|
+    t.bigint "transaction_id"
+    t.bigint "laboratory_id"
+    t.string "laboratory_test_not_done"
+    t.datetime "specimen_taken_date"
+    t.datetime "specimen_received_date"
+    t.string "blood_specimen_barcode"
+    t.string "urine_specimen_barcode"
+    t.string "blood_group"
+    t.string "blood_group_rhesus"
+    t.string "result"
+    t.datetime "transmitted_at"
+    t.bigint "created_by"
+    t.bigint "updated_by"
+    t.boolean "web_service_indicator"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "medical_appeals", force: :cascade do |t|
     t.integer "transaction_id"
     t.string "registered_by_type"
@@ -589,6 +614,51 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "radiologists", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "xray_facility_name"
+    t.string "string"
+    t.bigint "title_id"
+    t.string "icno"
+    t.string "address1"
+    t.string "address2"
+    t.string "address3"
+    t.string "address4"
+    t.bigint "country_id"
+    t.bigint "state_id"
+    t.bigint "town_id"
+    t.string "postcode"
+    t.string "phone"
+    t.string "fax"
+    t.string "mobile"
+    t.string "email"
+    t.string "qualification"
+    t.boolean "is_panel_xray_facility"
+    t.bigint "district_health_office_id"
+    t.boolean "is_pcr"
+    t.integer "apc_year"
+    t.string "apc_number"
+    t.string "nsr_number"
+    t.date "renewal_agreement_date"
+    t.text "comment"
+    t.string "status"
+    t.string "status_reason"
+    t.datetime "registration_approved_at"
+    t.datetime "activated_at"
+    t.string "approval_status"
+    t.string "approval_remark"
+    t.bigint "created_by"
+    t.bigint "updated_by"
+    t.text "status_comment"
+    t.bigint "user_id"
+    t.string "gender"
+    t.bigint "nationality_id"
+    t.bigint "race_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -597,6 +667,95 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.datetime "updated_at", null: false
     t.integer "created_by"
     t.integer "updated_by"
+  end
+
+  create_table "status_schedules", force: :cascade do |t|
+    t.string "status_scheduleable_type"
+    t.bigint "status_scheduleable_id"
+    t.date "from"
+    t.date "to"
+    t.string "status"
+    t.string "status_reason"
+    t.text "comment"
+    t.string "previous_status"
+    t.string "previous_status_reason"
+    t.bigint "created_by"
+    t.bigint "updated_by"
+    t.text "previous_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "survey_monkey_customers", force: :cascade do |t|
+    t.string "respondent_id"
+    t.string "collector_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "ip_address"
+    t.string "email_address"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "custom_data"
+    t.string "what_is_your_email_address"
+    t.string "what_is_your_gender"
+    t.string "what_is_your_age"
+    t.string "what_is_customer_suits_you"
+    t.string "which_sector_below_represents"
+    t.string "where_did_you_register_your_worker"
+    t.string "process_emp_reg"
+    t.string "process_worker_reg"
+    t.string "panel_clinic_xray_facilities"
+    t.string "overall_experience_reg_process"
+    t.string "other"
+    t.string "location_panel_clinics"
+    t.string "Fomema_medical_examincation_are_understandable"
+    t.string "medical_Examinations_are_easy_toobtain"
+    t.string "Overall_rate_experience_medical_examination"
+    t.string "Other_medical"
+    t.string "worker_status_found_medical_unsuitable"
+    t.string "undergo_fomema_appeal_process"
+    t.string "tell_experience_appeal_process"
+    t.string "other_appealprocess"
+    t.string "recommend_fomema_friend_collegue"
+    t.string "announcement_business_operator"
+    t.string "delivering_health"
+    t.string "aligned_info_moh_MOHA"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "telegram"
+    t.string "other_social"
+    t.string "what_tochange_fomema_socialmedia"
+    t.string "how_do_you_reachus"
+    t.string "how_long_did_you_wait"
+    t.string "is_this_issue_or_problem"
+    t.string "how_would_you_rate"
+    t.string "overall_how_satisfied_are_you"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "survey_monkeys", force: :cascade do |t|
+    t.string "respondent_id"
+    t.string "collector_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "ip_address"
+    t.string "email_address"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "custom_data"
+    t.string "what_is_your_email_address"
+    t.string "what_is_your_gender"
+    t.string "what_is_your_age"
+    t.string "what_is_customer_suits_you"
+    t.string "how_do_you_reachus"
+    t.string "how_long_did_you_wait"
+    t.string "is_this_issue_or_problem"
+    t.string "how_would_you_rate"
+    t.string "overall_how_satisfied_are_you"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "towns", force: :cascade do |t|
@@ -608,6 +767,19 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.integer "created_by"
     t.integer "updated_by"
     t.index ["state_id"], name: "index_towns_on_state_id"
+  end
+
+  create_table "transaction_result_updates", force: :cascade do |t|
+    t.bigint "transaction_id"
+    t.integer "created_by"
+    t.text "amendment_reason"
+    t.boolean "wrong_transmission_doctor"
+    t.boolean "wrong_transmission_lab"
+    t.boolean "wrong_transmission_xray"
+    t.bigint "updated_by"
+    t.jsonb "medical_conditions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -763,6 +935,30 @@ ActiveRecord::Schema.define(version: 2023_09_24_013323) do
     t.integer "trans_id"
     t.integer "legacy_id"
     t.integer "reserved_by"
+  end
+
+  create_table "xray_examinations", force: :cascade do |t|
+    t.bigint "sourceable_id"
+    t.string "xray_examination_not_done"
+    t.date "xray_taken_date"
+    t.string "xray_ref_number"
+    t.string "result"
+    t.datetime "transmitted_at"
+    t.integer "upload_status"
+    t.bigint "created_by"
+    t.bigint "updated_by"
+    t.datetime "radiologist_saved_at"
+    t.datetime "radiologist_started_at"
+    t.datetime "radiologist_transmitted_at"
+    t.datetime "radiologist_aborted_at"
+    t.datetime "radiologist_assigned_at"
+    t.string "sourceable_type"
+    t.bigint "transaction_id"
+    t.string "xray_api_error"
+    t.boolean "xray_viewed"
+    t.boolean "digital_xray_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "xray_facilities", force: :cascade do |t|

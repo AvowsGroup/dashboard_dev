@@ -13,7 +13,10 @@ class Transaction < ApplicationRecord
   has_many :myimms_transactions
   belongs_to :foreign_worker,class_name: "ForeignWorker",foreign_key: "foreign_worker_id"
   has_many :xray_pending_review,class_name: "XrayPendingReview"
-
+belongs_to :laboratory_examination, foreign_key: 'id'
+ belongs_to :xray_examination, foreign_key: 'id'
+ belongs_to :xray_facility, foreign_key: 'xray_facility_id'
+ belongs_to :transaction_result_update, foreign_key: 'id'
   enum registration_type: { new_registration: 0, renewal: 1}
   # Define a method to retrieve transaction data for the last 5 years
  def self.transaction_data_last_5_years
