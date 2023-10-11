@@ -54,11 +54,15 @@ class ServiceProviderController < ApplicationController
         
         if(@certifydoctoroverallcount!=nil)
 	        @ceritifydoctorperyestotal=(@certifydoctorwithin24hours)
+	        if(@certifydoctoroverallcount.count>0)
 	        if(@certifydoctorbeyond24hours*100/@certifydoctoroverallcount.count<15)
 	          @ceritifydoctorperyestotal=@ceritifydoctorperyestotal+1
 	        else
 	          @ceritifydoctorperyestotal=@ceritifydoctorperyestotal+0
             end
+        else
+        	@ceritifydoctorperyestotal=0
+        end
         else
     	    @ceritifydoctorperyestotal=0
     	    @ceritifydoctorpernototal=0
