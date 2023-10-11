@@ -219,8 +219,8 @@ class ServiceProviderController < ApplicationController
         @laboratorydemised=Laboratory.joins(:status_schedule).where('laboratories.status=? and status_schedules.status_reason IN(?) and code=?','INACTIVE','07',param_value).count
         @laboratorynoncomp=Laboratory.joins(:status_schedule).where('laboratories.status=? and status_schedules.status_reason IN(?) and code=?','INACTIVE',["06","03"],param_value).count
         @laboratoriesstates=Laboratory.joins(:state).where('laboratories.status=? and laboratories.code=?','ACTIVE',param_value).group('states.name').count 
-         @laboratorydonutwithin48=Transaction.joins(:laboratory_examination).where("transactions.status not in ('CANCELLED','REJECTED') and specimen_taken_date is not null and  DATE_PART('Day',laboratory_transmit_date - specimen_taken_date) < 2 and laboratories.code IN(?) ",param_value).count
-        @laboratorydonutbeyond48=Transaction.joins(:laboratory_examination).where("transactions.status not in ('CANCELLED','REJECTED') and specimen_taken_date is not null and  DATE_PART('Day',laboratory_transmit_date - specimen_taken_date) > 2 and laboratories.code IN(?)",param_value).count
+         @laboratorydonutwithin48=Transaction.joins(:laboratory_examination)joins(:laboratory).where("transactions.status not in ('CANCELLED','REJECTED') and specimen_taken_date is not null and  DATE_PART('Day',laboratory_transmit_date - specimen_taken_date) < 2 and laboratories.code IN(?) ",param_value).count
+        @laboratorydonutbeyond48=Transaction.joins(:laboratory_examination).joins(:laboratory).where("transactions.status not in ('CANCELLED','REJECTED') and specimen_taken_date is not null and  DATE_PART('Day',laboratory_transmit_date - specimen_taken_date) > 2 and laboratories.code IN(?)",param_value).count
         
       end
       end
