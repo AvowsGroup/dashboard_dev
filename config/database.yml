@@ -3,12 +3,12 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
-  password: Avows@2023
+  password: postgres
   host: localhost
 
 development:
   <<: *default
-  database: fomema_dashboard_development
+  database: fomema_dashboard_development_1
 
 test:
   <<: *default
