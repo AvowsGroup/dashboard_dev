@@ -38,8 +38,8 @@ end
 100.times {Employer.create(state_id: State.ids.shuffle.first,town_id: Town.ids.shuffle.first)}
 
 100.times 
-XrayReview.create(created_at: (Date.today - (rand(1.1000)).days) + rand(1..10).days)
-end 
+{XrayReview.create(created_at: (Date.today - (rand(1.1000)).days) + rand(1..10).days)}
+ 
 
 #pcr review creation
 100.times do |i|
