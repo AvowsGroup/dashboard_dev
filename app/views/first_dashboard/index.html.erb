@@ -148,10 +148,47 @@
   </body>
 </html>
 <script type="text/javascript">
+   var checkedValues = {};
   $(document).ready(function() {
-    $('#sidebarCollapse').on('click', function() {
-      $('#sidebar').toggleClass('active');
-    });
+    $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+        $('#sectorcheckall').on("click", function () {
+            $('input[name="sectorcheck"]').click();
+        });
+
+        $('#statecheckall').on("click", function () {
+            $('input[name="statecheck"]').click();
+        });
+
+        $('#countrycheckall').on("click", function () {
+            var countryCheckboxes = $('input[name="countrycheck"]');
+            countryCheckboxes.prop('checked', this.checked);
+
+            // Check or uncheck the "Others" checkbox as well
+            $('#Country input[name="countrycheck"][value="Others"]').prop('checked', this.checked);
+
+            // Add "Others" and all countries to the selected values
+            var allCountries = <%= @countries.to_json.html_safe %>;
+            checkedValues['Country'] = ['Others'].concat(allCountries);
+        });
+
+        $('#agecheckall').on("click", function () {
+            $('input[name="agecheck"]').click();
+        });
+
+        $('#gendercheckall').on("click", function () {
+            $('input[name="gendercheck"]').click();
+        });
+
+        $('#registrationcheckall').on("click", function () {
+            $('input[name="registrationcheck"]').click();
+        });
+
+        $('#foreignworkercheckall').on("click", function () {
+            $('input[name="foreignworkercheck"]').click();
+        });
     //     $('input[type="radio"]').click(function(){
     //     var inputValue = $(this).attr("value");
     //     var targetBox = $("." + inputValue);
@@ -159,6 +196,59 @@
     //     $(targetBox).show();
     // });
   });
+  function filtervalues() {
+        var checkedValues = {};
+
+        checkedValues['Sector'] = $('input[name="sectorcheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['Country'] = $('input[name="countrycheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['State'] = $('input[name="statecheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['Gender'] = $('input[name="gendercheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['age'] = $('input[name="agecheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['ForeginWorker'] = $('input[name="foreignworkercheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        checkedValues['Registration'] = $('input[name="registrationcheck"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(' ');
+
+        $.ajax({
+            type: 'GET',
+            url: '/first_dashboard/filterapply',
+
+            data: checkedValues,
+            error: function (jqXHR, textStatus, errorThrown) {
+            },
+
+            success: function (data, textStatus, jqXHR) {
+
+            }
+
+        });
+
+
+    }
+
+    function clear_filter() {
+        location.reload();
+    }
+
+
 </script>
 <style>
   .filter {
