@@ -402,14 +402,14 @@ google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
 
       var data = google.visualization.arrayToDataTable([
-        ['', '','',],
+        ['', 'Yes','No',],
         ['Did you Undergo your Worker through appeal Process', <%=@appealworkerstatus%>,<%=@appealworkerstatusNo%>],
         ['Did you know that you may apply for an appeal for your Worker?', <%=@appealundergostatus%>,<%=@appealundergostatusNo%>],
         ['Over Appeal Process', <%=@appealoverallsum%>,0]
       ]);
-
-      var options = {
  
+      var options = {
+ legend: 'bottom',
         chartArea: {width: '90%'},
         hAxis: {
           title: 'Appeal Process',
@@ -701,7 +701,7 @@ Telegram
 // Data which need to be fetched
 var name = "";
 var value = <%=@NPSoverallpercentage%>;                // My Desired Value To Show
-var gaugeMaxValue = 200;
+var gaugeMaxValue = 100;
 
 // Data of calculation
 var percentValue = value / gaugeMaxValue;
@@ -935,7 +935,7 @@ setTimeout(displayValue, 1350);
                 // Data which need to be fetched
                 var name = "Server Response";
                 var value = <%=@NPSregoverallpercentage%>;             // My Desired Value To Show
-                var gaugeMaxValue = 200;
+                var gaugeMaxValue = 100;
                 
                 // Data of calculation
                 var percentValue = value / gaugeMaxValue;
@@ -1171,7 +1171,7 @@ setTimeout(displayValue, 1350);
 // Data which need to be fetched
 var name = "";
 var value = <%=@NPSExsoverallpercentage%>;                // My Desired Value To Show
-var gaugeMaxValue = 200;
+var gaugeMaxValue = 100;
 
 // Data of calculation
 var percentValue = value / gaugeMaxValue;
@@ -1409,7 +1409,7 @@ setTimeout(displayValue, 1350);
 // Data which need to be fetched
 var name = "";
 var value = <%=@NPSappealoverallpercentage%>;                // My Desired Value To Show
-var gaugeMaxValue = 200;
+var gaugeMaxValue = 100;
 
 // Data of calculation
 var percentValue = value / gaugeMaxValue;
@@ -1648,7 +1648,7 @@ setTimeout(displayValue, 1350);
 // Data which need to be fetched
 var name = "";
 var value = <%=@NPSavgscore%>;                // My Desired Value To Show
-var gaugeMaxValue = 200;
+var gaugeMaxValue = 100;
 
 // Data of calculation
 var percentValue = value / gaugeMaxValue;
