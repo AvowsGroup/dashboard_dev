@@ -48,7 +48,7 @@
               </div>
             </div>
           </li>
-           <li class="nav-item dropdown mx-2">
+          <li class="nav-item dropdown mx-2">
             <a class="nav-link admin-name dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span>Dashboard</span>
             </a>
@@ -56,29 +56,43 @@
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
               <ul class="li-profile">
                 <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                  <a class="dropdown-item" href="/first_dashboard/index">
+                  <a class="dropdown-item" href="dashboard-1.html">
                     <i class="fa fa-dashboard mx-2"></i>Dashboard 1 </a>
                 </li>
                 <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                  <a class="dropdown-item" href="/second_dashboard/index">
+                  <a class="dropdown-item" href="dashboard-2.html">
                     <i class="fa fa-dashboard mx-2"></i>Dashboard 2 </a>
                 </li>
                 <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                  <a class="dropdown-item" href="/third_dashboard/index">
+                  <a class="dropdown-item" href="dashboard-3.html">
                     <i class="fa fa-dashboard mx-2"></i>Dashboard 3 </a>
                 </li>
                 <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                  <a class="dropdown-item" href="/customer_satisfaction/index">
+                  <a class="dropdown-item" href="dashboard-4.html">
                     <i class="fa fa-dashboard mx-2"></i>Dashbaord 4 </a>
                 </li>
                 <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                  <a class="dropdown-item" href="/service_provider/index">
+                  <a class="dropdown-item" href="dashboard-5.html">
                     <i class="fa fa-dashboard mx-2"></i>Dashboard 5 </a>
                 </li>
               </ul>
             </div>
           </li>
-         
+          <li class="nav-item dropdown">
+            <a class="nav-link admin-name dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span>Admin </span>
+              <img class="img-profile rounded-circle" src="/assets//undraw_profile.svg">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
+              <ul class="li-profile">
+                <li class="dropdown-item">
+                  <a href="#">
+                    <i class="fa fa-sign-out fa-sm"></i> Logout </a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -177,6 +191,7 @@
                   <div class="map-title"><%= image_tag asset_path('Malaysia.png') %> Malaysia </div>
                   <div class="svg-malasyamap">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-24.848 497.5 585.126 267" enable-background="new -24.848 497.5 585.126 267" xml:space="preserve">
+                      <a onclick="districtsabah_map('SABAH')">
                       <path id="area-eleven-zoom" fill="#7BEA05" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M533.25,612.457
                l-1.361-2.116l1.134-0.101l2.646,0.453l0.264,1.058l-2.154,0.202L533.25,612.457z M526.485,604.296l0.604,0.453l1.398-0.555
                l1.814,0.806l-0.869,0.555l-0.113,0.957l-0.869-0.756l-0.454,0.756l-3.099-1.461l-3.703-1.008l2.834-0.251l1.813-0.655
@@ -214,6 +229,8 @@
                l-1.549-0.806l-2.23-0.303l-1.246-1.36l-0.794,1.663l-0.151,2.268l-2.191,2.116l-0.869-0.604l-3.363,3.376l-0.454-1.361l0.227-1.764
                l1.059-1.46l0.491-1.41l-1.437-2.066l-1.397-0.453l-0.567-2.771l-0.718-1.411l-0.038-3.325l1.21-2.015l0.718-3.326l0.717-0.705
                l0.945-2.569l-0.794-4.182l-0.491-0.655l-3.892,0.201L416.184,593.412z" />
+             </a>
+              <a onclick="districtsarawak_map('SARAWAK')">
                       <path id="area-twelve-zoom" fill="#8CD5F7" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M271.381,686.421
                l-1.55,1.008l-0.982-1.965l-1.247-1.41l0.378-3.023l-0.642-6.096l0.075-1.814l0.53-1.159l1.246,0.454l1.096,2.67v6.399l0.303,2.721
                L271.381,686.421z M416.184,593.412l3.325,0.353l3.893-0.201l0.491,0.655l0.793,4.182l-0.945,2.569l-0.717,0.705l-0.718,3.326
@@ -250,14 +267,16 @@
                l0.416-2.418l-1.512-0.302l-0.831-2.368l-0.188-4.232l-1.247-3.577l0.378-0.907l4.533-2.67l2.532-0.252l0.378-1.713l2.04-1.813
                l0.491,3.476l-0.264,2.872l0.454,4.384l1.586,4.232l0.416,3.577l0.756,0.856l2.796,0.957l1.096-0.101l3.703,1.612l1.322-0.503
                l-0.604-1.563l-2.117-2.317l-0.453-1.41l-0.189-2.973l0.227-2.922l-2.343-6.852l-2.153-2.218l-0.038-0.806l1.549-0.303l0.34-1.209
-               l0.907-0.252l0.717,0.806l1.777,0.353l0.377,0.705l1.965,0.151L416.184,593.412z" />
+               l0.907-0.252l0.717,0.806l1.777,0.353l0.377,0.705l1.965,0.151L416.184,593.412z" /></a>
+               <a onclick="districtlabuan_map('LABUAN')">
                       <path fill="#FF0066" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M410.364,581.472l-0.605,0.655l-1.059-0.454
-               l-1.927,1.209l1.095-3.375l1.891-1.562L410.364,581.472z" />
-                      <path id="area-thirteen-zoom" fill="#7BEA05" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M24.352,571.281
+               l-1.927,1.209l1.095-3.375l1.891-1.562L410.364,581.472z" /></a>
+                   <a onclick="districtpinang_map('PULAU PINANG')">
+                       <path id="area-thirteen-zoom" fill="#7BEA05" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M24.352,571.281
                l1.4,1.471l-0.764,1.472l-0.381,2.433l-1.232,2.717l-4.626-0.679l0.722-0.963l-0.085-4.244l-0.594-1.188l0.552-1.527l1.103,0.735
                l0.721-0.793l1.655-0.17L24.352,571.281z M28.214,585.541l1.188-2.999l-0.509-2.491l0.509-2.319l-1.909-3.226l-0.255-1.585
                l0.297-3.622l-1.273-2.999l6.196,0.396l1.401,0.452l-0.381,3.452l0.678,8.828l0.636,4.979l-1.019,0.794l-1.315-0.283l-0.976-0.113
-               L28.214,585.541z" />
+               L28.214,585.541z" /></a><a onclick="districtkedah_map('KEDAH')">
                       <path id="area-nine-zoom" fill="#55B6D7" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M7.885,530.876
                l-0.552,1.132l0.637,1.415l-2.843,1.302l-0.17-1.076l-1.57,0.341l-1.273,1.471l-2.08,0.906l-0.552-2.15l0.17-1.812l-2.546-0.452
                l-0.552-1.358v-1.754l1.018,0.339l2.207-0.283l0.637,0.453l2.08,0.056l1.23-1.302l1.57-0.509l0.637,1.584L7.885,530.876z
@@ -269,7 +288,7 @@
                l-2.376,0.905l-2.164,4.527l0.296,0.793l-0.722,0.339l1.231,1.868l-0.636,2.716l-1.613,1.642l0.721,1.471l-0.127,1.472l-1.23,2.206
                l-0.806-0.056l-1.062,1.584l-0.552,3.961l-0.934,1.358l-3.267,0.792l-0.849,1.585l-1.698,1.472l-0.722,1.754l-3.013,2.716
                l-0.425,0.962l-2.08,1.698l-1.655-0.793l-0.594-1.528l1.316,0.283l1.018-0.792l-0.636-4.98l-0.678-8.828l0.381-3.452l-1.401-0.452
-               L26.262,566.301z" />
+               L26.262,566.301z" /></a><a onclick="districtselangor_map('SELANGOR')">
                       <path id="area-seven-zoom" fill="#ED8080" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M64.077,675.234
                l-0.679,0.17l0.042-0.963l1.146,0.114L64.077,675.234z M64.756,677.951l-0.34-0.623l1.655-3.508l1.272-0.057l-0.042,2.377
                L64.756,677.951z M83.643,693.908l-2.037-1.358l-2.335-0.452l-3.226-1.019l-1.698-1.188l-3.056-4.415l-1.316-1.188l-3.734-0.623
@@ -283,7 +302,7 @@
                l-1.316,1.301l-0.509,2.265l-1.189,1.019l-3.268-0.339l-1.019,0.112l0.552,5.319l-1.485,3.056L83.643,693.908z M81.52,675.065
                l1.699-0.114l0.891,0.397l0.892-1.19l-0.382-3.224l0.85-1.868l-1.019-1.697l-1.273,0.34l-1.824-1.021l-0.976,0.623l-0.849,1.472
                l0.086,1.642l1.103,1.131l0.637,1.528l-0.425,1.074L81.52,675.065z M81.775,681.911l1.104-0.566l1.188-1.695l-0.721-2.265
-               l-1.698,0.679L81.775,681.911z" />
+               l-1.698,0.679L81.775,681.911z" /></a><a onclick="districtpahang_map('PAHANG')">
                       <path id="divtotal_statesbtn" fill="#C7A27B" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M185.672,686.325
                l1.485-1.754l-0.296-1.98l0.722-1.132l0.637,0.227l1.57,4.3l0.085,2.095l-0.595,0.905l-2.249,0.056l-1.146-1.413L185.672,686.325z
                 M156.812,626.794l-2.038,2.264l0.255,2.095l1.57,3.962l-0.17,1.074l-0.976-0.622l-1.146,3.111l-0.255,3.793h-0.721l-0.977,1.866
@@ -302,10 +321,11 @@
                l0.296,1.584l1.57,1.755l2.589,0.623l0.722-0.906l1.825,1.415l0.679,1.867l-0.594,2.716l-1.104-0.057l-1.061,0.736l-1.146,2.038
                l-0.722,4.752l-0.594,1.02l1.528,1.245l2.292-1.019l3.097,0.849l2.08,1.075l2.589,2.207l1.019-0.17l0.552,1.075l0.976-0.17
                l1.783,2.829v0.962l1.02,1.696l1.485-1.583l0.212-1.245l-0.85-2.376l0.042-1.584l-0.722-0.68l0.042-1.867l0.721-1.754l-0.169-1.867
-               l1.06,0.622l3.099,0.113L156.812,626.794z" />
+               l1.06,0.622l3.099,0.113L156.812,626.794z" /></a>
+               <a onclick="district_map('KUALA LUMPUR')">
                       <path id="area-ten-zoom" fill="#FF0066" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M19.937,536.535
                l-1.018-1.245l-1.528-3.904l-0.425-2.66l0.722-1.584l0.085-2.547l0.935-1.132l-0.467-2.32l0.509-3.226l0.891-0.565l1.019,0.849
-               l1.316-0.452l1.57,0.509l1.528,4.811l1.316,1.527l1.188,0.622l-0.509,3.056l-1.74,1.358l-4.711,5.319L19.937,536.535z" />
+               l1.316-0.452l1.57,0.509l1.528,4.811l1.316,1.527l1.188,0.622l-0.509,3.056l-1.74,1.358l-4.711,5.319L19.937,536.535z" /></a><a onclick="districtjohor_map('JOHOR')">
                       <path id="area-two-zoom" fill="#FF0066" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M165.088,690.853
                l1.909,0.341l1.698,0.848l1.698-0.282l0.085,1.075l1.952,1.812l1.104,2.433l-0.381,1.811l0.296,0.792l3.14,4.018l1.57,1.303
                l0.297,1.753l1.188,1.924l-0.637,1.755l0.297,0.848l1.995,2.491l1.104,2.658l3.056,5.038l-0.085,2.717l0.679,1.81l1.358,0.056
@@ -318,7 +338,7 @@
                l0.212-2.037l-2.037-0.793l-0.255-0.96l0.849-0.906l0.042-1.642l0.807-2.264l-0.085-1.075l1.485-2.037l1.909-1.019l0.892-2.717
                l0.085-3.622l0.849-1.641l-0.34-1.076l2.801-7.47l0.212-1.302l4.668,1.867l5.984,7.301l1.528,1.301l7.046,2.774l6.367-2.377
                l2.376-0.34l3.48,1.528l0.891,1.019l6.027,3.622l1.018-1.131l0.042-1.075l-1.272-1.075l0.255-2.207l0.551-1.132l-0.976-1.019
-               L165.088,690.853z" />
+               L165.088,690.853z" /></a><a onclick="districtperak_map('PERAK')">
                       <path id="area-six-zoom" fill="#71C2B2" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M46.421,640.376
                l-0.255-0.51l-2.122,0.622l-2.717-1.244l-0.806-2.095v-2.148l0.764-0.962h3.522l0.679-0.906l2.292-0.283l-0.425-0.962l-2.461,0.905
                l-1.103-0.057l-0.042-2.828l-0.424-0.566l-3.735-2.829l-1.91,0.396l-0.849-2.265l-0.891-3.903l-1.061-0.849l0.976-3.961l0.807-0.623
@@ -336,7 +356,7 @@
                v3.169l1.061,0.905l-0.764,0.226l-1.91,2.435l-1.655,1.413l-2.588-1.583l-1.019-1.529l-1.995-0.849l-0.509-0.849l-1.358-0.169
                l-1.019,1.074l0.934,2.717l-1.315,1.131l-2.546,0.17l-0.255-1.642l-1.315,0.114l-0.764-0.566l-1.23,0.226l-1.91-1.527l-0.722,0.793
                h-1.273l0.976-0.68l-0.424-1.188l-1.231,1.019l-0.127-1.244l-1.57-0.734l-1.103,0.169l-0.893,1.017v-1.527l-1.316-1.075
-               l-0.127-1.188L46.421,640.376z" />
+               l-0.127-1.188L46.421,640.376z" /></a><a onclick="districtkelantan_map('KELANTAN')">
                       <path id="area-seven-zoom_1_" fill="#BCD26D" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M69.425,607.497
                l-1.486-2.942l0.509-0.792l1.273-0.226l0.085-2.094l1.316-1.472l-0.297-1.811l1.74-1.188l0.509-1.754l-0.297-1.697l-0.891-1.472
                l0.934-0.85l0.552-2.886l0.935-2.716l0.254-2.547l0.806-1.245l0.722-2.603h0.806l1.274-2.264l1.655-1.358l2.249,1.076l3.141-1.132
@@ -348,18 +368,18 @@
                l2.802,2.037l1.018,2.83l-0.255,0.565l-1.909-0.509l-0.721,1.697v2.038l-2.122-0.566l-1.358,1.302l-1.146-0.171l-1.655-1.356
                l-1.995-0.283l-1.315,0.623v0.791l-1.231,1.699l-2.546-0.736l-3.523,0.792l-1.357-2.094l-1.528-1.131l-0.637-1.755l-2.673,1.076
                l-2.207-1.245l-1.57,0.113l-0.85,3.678l-1.824,2.15l-0.594-2.207l-2.801-2.206l-0.126-1.189l-1.231-0.282l-0.509,1.019l-0.296,4.075
-               l-1.825,0.792l-2.844,2.321l-1.74,0.509l-1.146-0.17l-2.165-1.528l-2.25,0.223l-1.145,0.735l-1.273-1.076L69.425,607.497z" />
+               l-1.825,0.792l-2.844,2.321l-1.74,0.509l-1.146-0.17l-2.165-1.528l-2.25,0.223l-1.145,0.735l-1.273-1.076L69.425,607.497z" /></a><a onclick="districtmelaka_map('MELAKA')">
                       <path id="area-five-zoom" fill="#FAE273" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M120.906,701.436
                l-1.909,1.019l-1.485,2.037l0.085,1.075l-0.807,2.264l-0.042,1.642l-0.849,0.905l0.255,0.96l2.037,0.794l-0.212,2.037l-1.061,0.112
                l-0.721,1.189l-12.774-5.263l-2.59-1.812l-3.182-3.564l-1.401-0.396l-1.359-1.133l0.085-0.622l1.358-0.735l1.103-1.246l0.594,0.454
-               l0.594-1.359l1.401,0.114l1.783-0.454l1.443-1.073l1.825,0.848l2.08,0.397l2.885-1.02l1.699-0.056l3.098,1.414L120.906,701.436z" />
+               l0.594-1.359l1.401,0.114l1.783-0.454l1.443-1.073l1.825,0.848l2.08,0.397l2.885-1.02l1.699-0.056l3.098,1.414L120.906,701.436z" /></a><a onclick="districtsembilan_map('NEGERI SEMBILAN')">
                       <path id="area-four-zoom" fill="#F4A7DE" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M125.405,683.61
                l-0.212,1.301l-2.801,7.47l0.34,1.076l-0.848,1.641l-0.085,3.622l-0.892,2.718l-6.069-1.473l-3.097-1.414l-1.699,0.056l-2.885,1.02
                l-2.08-0.397l-1.825-0.848l-1.443,1.073l-1.783,0.454l-1.4-0.114l-0.594,1.359l-0.594-0.454l-1.104,1.246l-1.358,0.735l-2.631-1.301
                l-2.08,0.566l-0.552,0.565l-0.595-3.622l-1.995-1.642l-0.848-2.489l-0.934-0.679l-1.698-0.17l0.722-3.056l1.485-3.057l-0.552-5.318
                l1.019-0.113l3.267,0.34l1.189-1.02l0.51-2.264l1.315-1.302l0.34-1.98l1.061-1.075l-0.34-2.265l0.255-1.925l-0.764-2.264
                l0.127-1.131l-0.722-1.754l-0.552-0.227l0.722-1.019l3.226,2.489l1.995,0.566l0.382,1.698l2.504-0.906l2.334,0.963l5.306,1.753
-               l3.565,0.622l3.268,3.735l8.573,5.941l0.806-0.169L125.405,683.61z" />
+               l3.565,0.622l3.268,3.735l8.573,5.941l0.806-0.169L125.405,683.61z" /></a><a onclick="districtterengganu_map('TERENGGANU')">
                       <path id="area-eight-zoom" fill="#55B6D7" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M123.75,601.047
                l0.255-0.566l-1.019-2.829l-2.802-2.038l-2.037-0.227l-0.679-0.622l0.127-1.131l-0.552-2.717l0.594-0.679l-0.51-2.094l1.104-1.527
                l-3.014-2.49l-1.783-0.679l0.34-5.771l0.764-2.321l-1.868-2.263l0.17-1.528l-0.297-2.49l0.509-0.962l0.042-2.999l-0.806-3.281
@@ -369,28 +389,30 @@
                l-1.06-0.623l0.17,1.867l-0.721,1.755l-0.042,1.866l0.722,0.68l-0.042,1.584l0.849,2.376l-0.212,1.245l-1.486,1.584l-1.019-1.697
                v-0.962l-1.783-2.829l-0.976,0.17l-0.552-1.075l-1.019,0.17l-2.589-2.206l-2.08-1.076l-3.097-0.849l-2.292,1.019l-1.528-1.245
                l0.593-1.019l0.722-4.753l1.146-2.038l1.061-0.735l1.104,0.057l0.594-2.717l-0.679-1.867l-1.825-1.415l-0.722,0.906l-2.589-0.623
-               l-1.57-1.754l-0.296-1.585l0.976-0.905l0.594-1.867l-0.381-1.528l-1.146-1.188l-3.31-0.227l-3.184-1.585L123.75,601.047z" />
+               l-1.57-1.754l-0.296-1.585l0.976-0.905l0.594-1.867l-0.381-1.528l-1.146-1.188l-3.31-0.227l-3.184-1.585L123.75,601.047z" /></a>
                       <path fill="#F5FC98" stroke="#000000" stroke-width="0.3636" stroke-miterlimit="10" d="M-37.798,457.651" />
                       <path fill="none" d="M552.125,691.187h8.153v8.153h-8.153V691.187z" />
                       <path fill="none" d="M-33.667,467.648" />
-                      <text transform="matrix(1 0 0 1 470.5977 585.8105)" font-family="'Tahoma'" font-size="4.9959">Sabah</text>
-                      <text transform="matrix(1 0 0 1 335.7646 679.8711)" font-family="'Tahoma'" font-size="4.9959">Sarawak</text>
-                      <text transform="matrix(1 0 0 1 384.7148 577.9453)" font-family="'Tahoma'" font-size="4.9959">Labuan</text>
-                      <text transform="matrix(1 0 0 1 -8.8477 585.542)" font-family="'Tahoma'" font-size="4.9959">Pulau Pinang</text>
-                      <text transform="matrix(1 0 0 1 25.7524 549.1641)" font-family="'Tahoma'" font-size="4.9959">Kedah</text>
-                      <text transform="matrix(1 0 0 1 31.6543 660.2656)" font-family="'Tahoma'" font-size="4.9959">Selangor</text>
-                      <text transform="matrix(1 0 0 1 109.3853 650.4219)" font-family="'Tahoma'" font-size="4.9959">Pahang</text>
-                      <text transform="matrix(1 0 0 1 26.6016 673.7637)" font-family="'Tahoma'" font-size="4.9959">Kuala Lumpur</text>
-                      <text transform="matrix(1 0 0 1 11.6543 514.6211)" font-family="'Tahoma'" font-size="4.9959">Perlis</text>
-                      <text transform="matrix(1 0 0 1 142.2988 724.793)" font-family="'Tahoma'" font-size="4.9959">Johor</text>
-                      <text transform="matrix(1 0 0 1 38.8467 594.8223)" font-family="'Tahoma'" font-size="4.9959">Perak</text>
-                      <text transform="matrix(1 0 0 1 79.5264 594.8223)" font-family="'Tahoma'" font-size="4.9959">Kelantan</text>
-                      <text transform="matrix(0.6473 -0.7622 0.7622 0.6473 99.1406 726.7529)" font-family="'Tahoma'" font-size="4.9958">Melaka</text>
-                      <text transform="matrix(0.7276 -0.686 0.686 0.7276 64.1689 730.916)" font-family="'Tahoma'" font-size="4.9959">Negeri Sembilan</text>
-                      <text transform="matrix(0.4765 0.8792 -0.8792 0.4765 127.4526 581.0391)" font-family="'Tahoma'" font-size="4.996">Terengganu</text>
+                      <text transform="matrix(1 0 0 1 470.5977 585.8105)" font-family="'Tahoma'" font-size="4.9959">SABAH</text>
+                      <text transform="matrix(1 0 0 1 335.7646 679.8711)" font-family="'Tahoma'" font-size="4.9959">SARAWAK</text>
+                      <text transform="matrix(1 0 0 1 384.7148 577.9453)" font-family="'Tahoma'" font-size="4.9959">LABUAN</text>
+                      <text transform="matrix(1 0 0 1 -8.8477 585.542)" font-family="'Tahoma'" font-size="4.9959">PULAU PINANG</text>
+                      <text transform="matrix(1 0 0 1 25.7524 549.1641)" font-family="'Tahoma'" font-size="4.9959">KEDAH</text>
+                      <text transform="matrix(1 0 0 1 31.6543 660.2656)" font-family="'Tahoma'" font-size="4.9959">SELANGOR</text>
+                      <text transform="matrix(1 0 0 1 109.3853 650.4219)" font-family="'Tahoma'" font-size="4.9959">PAHANG</text>
+                      <text transform="matrix(1 0 0 1 26.6016 673.7637)" font-family="'Tahoma'" font-size="4.9959">KUALA LUMPUR</text>
+
+                      <text transform="matrix(1 0 0 1 11.6543 514.6211)" font-family="'Tahoma'" font-size="4.9959">PERLIS</text>
+                      <text transform="matrix(1 0 0 1 142.2988 724.793)" font-family="'Tahoma'" font-size="4.9959">JOHOR</text>
+                      <text transform="matrix(1 0 0 1 38.8467 594.8223)" font-family="'Tahoma'" font-size="4.9959">PERAK</text>
+                      <text transform="matrix(1 0 0 1 79.5264 594.8223)" font-family="'Tahoma'" font-size="4.9959">KELANTAN</text>
+                      <text transform="matrix(0.6473 -0.7622 0.7622 0.6473 99.1406 726.7529)" font-family="'Tahoma'" font-size="4.9958">MELAKA</text>
+                      <text transform="matrix(0.7276 -0.686 0.686 0.7276 64.1689 730.916)" font-family="'Tahoma'" font-size="4.9959">NEGERI SEMBILAN</text>
+                      <text transform="matrix(0.4765 0.8792 -0.8792 0.4765 127.4526 581.0391)" font-family="'Tahoma'" font-size="4.996">TERENGGANU</text>
+
                     </svg>
                     <div id = "data_box">
-                    	<%= render 'data_box_d2'%>
+                      <%= render 'data_box_d2'%>
                     </div>
                   </div>
                   <div class="map-link">
@@ -406,11 +428,20 @@
          <%=render 'state_perlis'%>
          <%=render 'state_perak'%>
          <%=render 'state_sabah'%>
+         <%=render 'state_johor'%>
+         <%=render 'state_selangor'%>
+         <%=render 'state_pinang'%>
+         <%=render 'state_sembilan'%>
          <%=render 'state_negeri'%>
          <%=render 'state_putrajaya'%>
          <%=render 'state_labuan'%>
-         <%=render 'state_kedash'%>
+         <%=render 'state_kedah'%>
          <%=render 'state_kuala_lampur'%>
+         <%=render 'state_melaka'%>
+         <%=render 'state_sarawak'%>
+         <%=render 'state_terengganu'%>
+           
+       
 
       </div>
     </div>
@@ -425,46 +456,49 @@
 </style>
 
 <script>
-	function towns_collect(){
-		const stateSelect = $('#state-select');
-		const townsList = $('#towns-list');
-		const selectedStateId = stateSelect.val();
-	    id = JSON.stringify({id: selectedStateId})	
-	 	$.ajax({
-		  url: 'towns.js',
-		  type: "GET",
-		  data: id
-		})
-	}
+  function towns_collect(){
+    debugger
+    const stateSelect = $('#state-select');
+    const townsList = $('#towns-list');
+    const selectedStateId = stateSelect.val();
+      id = JSON.stringify({id: selectedStateId})  
+    $.ajax({
+      url: 'towns.js',
+      type: "GET",
+      data: id
+    })
+  }
+  
 
-	function filter_geo(){
-		const selectedState = $('#state-select').val();
+  
+  function filter_geo(){
+    const selectedState = $('#state-select').val();
 
-		// Collect data from the date range input
-		const dateRange = $('input[name="daterange"]').val();
+    // Collect data from the date range input
+    const dateRange = $('input[name="daterange"]').val();
 
-		// Collect data from the district dropdown
-		const selectedDistrict = $('#district-select').val();
+    // Collect data from the district dropdown
+    const selectedDistrict = $('#district-select').val();
 
-		// Create a JSON object
-		const formData = {
-		  state: selectedState,
-		  dateRange: dateRange,
-		  district: selectedDistrict
-		};
-	    
-	    data = JSON.stringify(formData)
+    // Create a JSON object
+    const formData = {
+      state: selectedState,
+      dateRange: dateRange,
+      district: selectedDistrict
+    };
+      
+      data = JSON.stringify(formData)
 
-	    $.ajax({
-		  url: 'index.js',
-		  type: "GET",
-		  data: data
-		})
-	}	
+      $.ajax({
+      url: 'index.js',
+      type: "GET",
+      data: data
+    })
+  } 
 
 
   function dist_data(stateId,districtId){
-
+debugger;
     // Create a JSON object
     const formData = {
       state: stateId,

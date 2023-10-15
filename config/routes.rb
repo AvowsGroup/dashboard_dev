@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'second_dashboard/filter'
   get 'customer_satisfaction/index'
   get 'customer_satisfaction/filterapply'
-   get 'service_provider/index'
+  get 'service_provider/index'
+  get 'districts/:districtname' => 'second_dashboard#statevalues'
+  get 'districtname/:districtvalue' => 'second_dashboard#districtvalues'
   resources :first_dashboard ,only: [:index] do 
     collection do
       match 'excel_generate', to: 'first_dashboard#excel_generate', via: [:get, :post], defaults: { format: :xlsx }
