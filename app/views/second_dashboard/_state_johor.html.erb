@@ -519,10 +519,11 @@
     $('#div_johor_states').show()
 
     $('#state-select').val(dist)
-     $.ajax({
-    url: "/districts/" + dist,
-    dataType: "json",
-    success:function(data){
+    towns_collect();
+     //$.ajax({
+    //url: "/districts/" + dist,
+    //dataType: "json",
+    //success:function(data){
       
      $('#divnoofjohordoctors')[0].innerHTML=Math.floor((Math.random() * 100) + 1);//data.noofdoctors
      $('#divnoofjohorxray')[0].innerHTML=Math.floor((Math.random() * 50) + 1);//data.noofxray
@@ -552,17 +553,17 @@
      $('#divjohorulcer')[0].innerHTML=Math.floor((Math.random() * 60) + 1);//data.ulcer
      $('#divjohorasthama')[0].innerHTML=Math.floor((Math.random() * 70) + 1);//data.asthama
      $('#divjohorothers')[0].innerHTML=Math.floor((Math.random() * 80) + 1);//data.others
-    }
-    })
+   // }
+    //})
 
   }
   function district_johor(dist){  
   $('#district-select option:selected').text(dist)  
    $('#divjohorheader')[0].innerHTML=dist;
-     $.ajax({
-    url: "/districtname/" + dist,
-    dataType: "json",
-    success:function(data){
+    // $.ajax({
+    //url: "/districtname/" + dist,
+    //dataType: "json",
+    //success:function(data){
       
  $('#divnoofjohordoctors')[0].innerHTML=Math.floor((Math.random() * 100) + 1);//data.noofdoctors
      $('#divnoofjohorxray')[0].innerHTML=Math.floor((Math.random() * 50) + 1);//data.noofxray
@@ -592,8 +593,8 @@
      $('#divjohorulcer')[0].innerHTML=Math.floor((Math.random() * 60) + 1);//data.ulcer
      $('#divjohorasthama')[0].innerHTML=Math.floor((Math.random() * 70) + 1);//data.asthama
      $('#divjohorothers')[0].innerHTML=Math.floor((Math.random() * 80) + 1);//data.others
-    }
-    })
+   // }
+    //})
   }
   function closejohoricon(){
      $("#divtotal_malaysialist").show();
