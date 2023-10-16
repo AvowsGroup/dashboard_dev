@@ -1800,10 +1800,10 @@
     $('#divsarawakheader')[0].innerHTML=dist;
      $("#divtotal_malaysialist").hide();
     $('#div_sarawak_states').show()
-     $.ajax({
-    url: "/districts/" + dist,
-    dataType: "json",
-    success:function(data){
+    // $.ajax({
+    //url: "/districts/" + dist,
+    //dataType: "json",
+    //success:function(data){
       
      $('#divnoofsarawakdoctors')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.noofdoctors
      $('#divnoofsarawakxray')[0].innerHTML=Math.floor((Math.random() * 16) + 1);//data.noofxray
@@ -1833,16 +1833,16 @@
      $('#divsarawakulcer')[0].innerHTML=Math.floor((Math.random() * 90) + 1);//data.ulcer
      $('#divsarawakasthama')[0].innerHTML=Math.floor((Math.random() * 150) + 1);//data.asthama
      $('#divsarawakothers')[0].innerHTML=Math.floor((Math.random() * 200) + 1);//data.others
-    }
-    })
+    //}
+   // })
 
   }
   function district_sarawak(dist){    
    $('#divsarawakheader')[0].innerHTML=dist;
-     $.ajax({
-    url: "/districtname/" + dist,
-    dataType: "json",
-    success:function(data){
+   //  $.ajax({
+   // url: "/districtname/" + dist,
+   // dataType: "json",
+    //success:function(data){
       
      $('#divnoofsarawakdoctors')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.noofdoctors
      $('#divnoofsarawakxray')[0].innerHTML=Math.floor((Math.random() * 16) + 1);//data.noofxray
@@ -1872,8 +1872,8 @@
      $('#divsarawakulcer')[0].innerHTML=Math.floor((Math.random() * 90) + 1);//data.ulcer
      $('#divsarawakasthama')[0].innerHTML=Math.floor((Math.random() * 150) + 1);//data.asthama
      $('#divsarawakothers')[0].innerHTML=Math.floor((Math.random() * 200) + 1);//data.others
-    }
-    })
+    //}
+   // })
   }
   function closesarawakicon(){
      $("#divtotal_malaysialist").show();

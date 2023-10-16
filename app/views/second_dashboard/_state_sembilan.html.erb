@@ -1565,10 +1565,10 @@
     $('#divsembilanheader')[0].innerHTML=dist;
      $("#divtotal_malaysialist").hide();
     $('#div_sembilan_states').show()
-     $.ajax({
-    url: "/districts/" + dist,
-    dataType: "json",
-    success:function(data){
+    // $.ajax({
+   // url: "/districts/" + dist,
+   // dataType: "json",
+   // success:function(data){
       
      $('#divnoofsembilandoctors')[0].innerHTML=Math.floor((Math.random() * 18) + 1);//data.noofdoctors
      $('#divnoofsembilanxray')[0].innerHTML=Math.floor((Math.random() * 19) + 1);//data.noofxray
@@ -1598,17 +1598,17 @@
      $('#divsembilanulcer')[0].innerHTML=Math.floor((Math.random() * 65) + 1);//data.ulcer
      $('#divsembilanasthama')[0].innerHTML=Math.floor((Math.random() * 75) + 1);//data.asthama
      $('#divsembilanothers')[0].innerHTML=Math.floor((Math.random() * 58) + 1);//data.others
-    }
-    })
+    //}
+   // })
 
   }
   function district_sembilan(dist){   
   
    $('#divsembilanheader')[0].innerHTML=dist;
-     $.ajax({
-    url: "/districtname/" + dist,
-    dataType: "json",
-    success:function(data){
+   //  $.ajax({
+   // url: "/districtname/" + dist,
+   // dataType: "json",
+   // success:function(data){
       
         $('#divnoofsembilandoctors')[0].innerHTML=Math.floor((Math.random() * 18) + 1);//data.noofdoctors
      $('#divnoofsembilanxray')[0].innerHTML=Math.floor((Math.random() * 19) + 1);//data.noofxray
@@ -1638,8 +1638,8 @@
      $('#divsembilanulcer')[0].innerHTML=Math.floor((Math.random() * 65) + 1);//data.ulcer
      $('#divsembilanasthama')[0].innerHTML=Math.floor((Math.random() * 75) + 1);//data.asthama
      $('#divsembilanothers')[0].innerHTML=Math.floor((Math.random() * 58) + 1);//data.others
-    }
-    })
+   // }
+   // })
   }
   function closesembilanicon(){
      $("#divtotal_malaysialist").show();

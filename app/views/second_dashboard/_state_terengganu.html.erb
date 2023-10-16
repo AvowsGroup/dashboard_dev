@@ -425,10 +425,10 @@
     $('#divterengganuheader')[0].innerHTML=dist;
      $("#divtotal_malaysialist").hide();
     $('#div_terengganu_states').show()
-     $.ajax({
-    url: "/districts/" + dist,
-    dataType: "json",
-    success:function(data){
+    // $.ajax({
+    //url: "/districts/" + dist,
+    //dataType: "json",
+    //success:function(data){
       
      $('#divnoofterengganudoctors')[0].innerHTML=Math.floor((Math.random() * 18) + 1);//data.noofdoctors
      $('#divnoofterengganuxray')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.noofxray
@@ -458,16 +458,16 @@
      $('#divterengganuulcer')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.ulcer
      $('#divterengganuasthama')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.asthama
      $('#divterengganuothers')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.others
-    }
-    })
+    //}
+    //})
 
   }
   function district_terengganu(dist){    
    $('#divterengganuheader')[0].innerHTML=dist;
-     $.ajax({
-    url: "/districtname/" + dist,
-    dataType: "json",
-    success:function(data){
+   //  $.ajax({
+   // url: "/districtname/" + dist,
+   // dataType: "json",
+   // success:function(data){
       
           $('#divnoofterengganudoctors')[0].innerHTML=Math.floor((Math.random() * 18) + 1);//data.noofdoctors
      $('#divnoofterengganuxray')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.noofxray
@@ -497,8 +497,8 @@
      $('#divterengganuulcer')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.ulcer
      $('#divterengganuasthama')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.asthama
      $('#divterengganuothers')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.others
-    }
-    })
+   // }
+   // })
   }
   function closeterengganuicon(){
      $("#divtotal_malaysialist").show();
