@@ -24,32 +24,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -61,24 +61,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:management].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:management].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -90,8 +90,6 @@
         </div>
       </div>
     </div>
-
-
 
 
     <div class="modal" id="myModal1">
@@ -118,32 +116,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -155,24 +153,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:human_capital].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:human_capital].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -186,8 +184,6 @@
     </div>
 
 
-
-          
     <div class="modal" id="myModal2">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -212,32 +208,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -249,24 +245,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:inspectorate].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:inspectorate].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -280,7 +276,6 @@
     </div>
 
 
-    
     <div class="modal" id="myModal3">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -305,32 +300,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -342,24 +337,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:xray_quality].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:xray_quality].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -373,8 +368,6 @@
     </div>
 
 
-
-    
     <div class="modal" id="myModal4">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -399,32 +392,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -436,24 +429,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:medical_review].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:medical_review].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -467,11 +460,6 @@
     </div>
 
 
-    
-    
-
-
-    
     <div class="modal" id="myModal5">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -496,32 +484,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -533,24 +521,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:finance_admin].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:finance_admin].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -564,10 +552,6 @@
     </div>
 
 
-
-
-
-    
     <div class="modal" id="myModal6">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -592,32 +576,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -629,24 +613,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:regional_office].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:regional_office].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -660,10 +644,6 @@
     </div>
 
 
-
-
-
-    
     <div class="modal" id="myModal7">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -688,32 +668,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -725,24 +705,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:customer_service].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:customer_service].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -756,11 +736,6 @@
     </div>
 
 
-
-
-
-
-    
     <div class="modal" id="myModal8">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -785,32 +760,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -822,24 +797,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:laboratory_quality].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:laboratory_quality].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -853,10 +828,6 @@
     </div>
 
 
-
-
-
-    
     <div class="modal" id="myModal9">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -881,32 +852,32 @@
                   <div class="table-responsive">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th style="width:30%"> Staff Name</th>
-                          <th style="width:20%"> Designation</th>
-                          <th style="width:12%"> Grade</th>
-                          <th style="width:23%">
-                            <select class="form-control thselect">
-                              <option> Type of Leave </option>
-                              <option>Annual Leave</option>
-                              <option>Emergency Leave</option>
-                            </select>
-                          </th>
-                          <th style="width:20%"> Medical Leave </th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th style="width:30%"> Staff Name</th>
+                        <th style="width:20%"> Designation</th>
+                        <th style="width:12%"> Grade</th>
+                        <th style="width:23%">
+                          <select class="form-control thselect">
+                            <option> Type of Leave</option>
+                            <option>Annual Leave</option>
+                            <option>Emergency Leave</option>
+                          </select>
+                        </th>
+                        <th style="width:20%"> Medical Leave</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@users.each_with_index do |user,index|%> 
-                          <tr>
-                            <td><%= index+1 %></td>
-                            <td><%= user.name%></td>
-                            <td><%= user.designation%></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        <%end%>
+                      <% @users.each_with_index do |user, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= user.name %></td>
+                          <td><%= user.designation %></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
                       </tbody>
                       <tfooter>
                         <%= will_paginate @users %>
@@ -918,24 +889,24 @@
                   <div class="table-responsive" style="height:100%; overflow-y:auto;">
                     <table class="table table-bordered table-data">
                       <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Task</th>
-                          <th>TAT</th>
-                          <th> Target</th>
-                          <th> KPI(%)</th>
-                        </tr>
+                      <tr>
+                        <th>No</th>
+                        <th>Task</th>
+                        <th>TAT</th>
+                        <th> Target</th>
+                        <th> KPI(%)</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <%@kpi_data[:support_service].each_with_index do |task,index|%>
-                          <tr>
-                            <td><%= index+1%></td>
-                            <td><%= task[:task]%></td>
-                            <td><%= task[:TAT]%></td>
-                            <td>><%= task[:target]%></td>
-                            <td><%= task[:KPI]%>%</td>
-                          </tr>
-                        <%end%>
+                      <% @kpi_data[:support_service].each_with_index do |task, index| %>
+                        <tr>
+                          <td><%= index + 1 %></td>
+                          <td><%= task[:task] %></td>
+                          <td><%= task[:TAT] %></td>
+                          <td>><%= task[:target] %></td>
+                          <td><%= task[:KPI].round(1) %>%</td>
+                        </tr>
+                      <% end %>
                       </tbody>
                     </table>
                   </div>
@@ -953,7 +924,7 @@
         <li>
           <div class="svg-title">
             <img class="management-img" src="/assets/svg2/1.svg">
-            <div class="svg-cardtitle">Management of Service Provider </div>
+            <div class="svg-cardtitle">Management of Service Provider</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal">
                 <span class="progress-left">
@@ -962,7 +933,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:management].map{|i| i[:KPI]}.sum)/3%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:management].map { |i| i[:KPI] }.sum / 3).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -970,7 +941,7 @@
         <li>
           <div class="svg-title">
             <img class="capital-img" src="/assets/svg2/2.svg">
-            <div class="svg-cardtitle">Human Capital Management </div>
+            <div class="svg-cardtitle">Human Capital Management</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal1">
                 <span class="progress-left">
@@ -979,7 +950,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:human_capital].map{|i| i[:KPI]}.sum)/1%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:human_capital].map { |i| i[:KPI] }.sum / 1).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -987,7 +958,7 @@
         <li>
           <div class="svg-title">
             <img class="inspectorate-img" src="/assets/svg2/3.svg">
-            <div class="svg-cardtitle">Inspectorate </div>
+            <div class="svg-cardtitle">Inspectorate</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal2">
                 <span class="progress-left">
@@ -996,7 +967,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:inspectorate].map{|i| i[:KPI]}.sum)/2%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:inspectorate].map { |i| i[:KPI] }.sum / 2).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1004,7 +975,7 @@
         <li>
           <div class="svg-title">
             <img class="xray-img" src="/assets/svg2/4.svg">
-            <div class="svg-cardtitle">X- Ray Quality Control Center </div>
+            <div class="svg-cardtitle">X- Ray Quality Control Center</div>
             <div class="svg-count">
               <div class="progress red" data-toggle="modal" data-target="#myModal3">
                 <span class="progress-left">
@@ -1013,7 +984,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:xray_quality].map{|i| i[:KPI]}.sum)/3%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:xray_quality].map { |i| i[:KPI] }.sum / 3).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1021,7 +992,7 @@
         <li>
           <div class="svg-title">
             <img class="medical-img" src="/assets/svg2/5.svg">
-            <div class="svg-cardtitle">Medical Review & Appeal </div>
+            <div class="svg-cardtitle">Medical Review & Appeal</div>
             <div class="svg-count">
               <div class="progress red" data-toggle="modal" data-target="#myModal4">
                 <span class="progress-left">
@@ -1030,7 +1001,8 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:medical_review].map{|i| i[:KPI]}.sum)/4%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:medical_review].map { |i| i[:KPI] }.sum / 4).round(1) %>%
+                </div>
               </div>
             </div>
           </div>
@@ -1038,7 +1010,7 @@
         <li>
           <div class="svg-title">
             <img class="finance-svg" src="/assets/svg2/6.svg">
-            <div class="svg-cardtitle">Finance & Administration </div>
+            <div class="svg-cardtitle">Finance & Administration</div>
             <div class="svg-count">
               <div class="progress red" data-toggle="modal" data-target="#myModal5">
                 <span class="progress-left">
@@ -1047,7 +1019,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:finance_admin].map{|i| i[:KPI]}.sum)/3%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:finance_admin].map { |i| i[:KPI] }.sum / 3).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1055,7 +1027,7 @@
         <li>
           <div class="svg-title">
             <img class="regiopnal-img" src="/assets/svg2/7.svg">
-            <div class="svg-cardtitle">Regional Office </div>
+            <div class="svg-cardtitle">Regional Office</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal6">
                 <span class="progress-left">
@@ -1064,7 +1036,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:regional_office].map{|i| i[:KPI]}.sum)/5%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:regional_office].map { |i| i[:KPI] }.sum / 5).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1072,7 +1044,7 @@
         <li>
           <div class="svg-title">
             <img class="support-img" src="/assets/svg2/8.svg">
-            <div class="svg-cardtitle">Customer Service & Support </div>
+            <div class="svg-cardtitle">Customer Service & Support</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal7">
                 <span class="progress-left">
@@ -1081,7 +1053,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:customer_service].map{|i| i[:KPI]}.sum)/2%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:customer_service].map { |i| i[:KPI] }.sum / 2).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1089,7 +1061,7 @@
         <li>
           <div class="svg-title">
             <img class="laboratory-svg" src="/assets/svg2/9.svg">
-            <div class="svg-cardtitle">Laboratory Quality Control Center </div>
+            <div class="svg-cardtitle">Laboratory Quality Control Center</div>
             <div class="svg-count">
               <div class="progress red" data-toggle="modal" data-target="#myModal8">
                 <span class="progress-left">
@@ -1098,7 +1070,7 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:laboratory_quality].map{|i| i[:KPI]}.sum)/1%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:laboratory_quality].map { |i| i[:KPI] }.sum / 1).round(1) %>%</div>
               </div>
             </div>
           </div>
@@ -1106,7 +1078,7 @@
         <li>
           <div class="svg-title">
             <img class="supportservice-img" src="/assets/svg2/10.svg">
-            <div class="svg-cardtitle">Support Service </div>
+            <div class="svg-cardtitle">Support Service</div>
             <div class="svg-count">
               <div class="progress blue" data-toggle="modal" data-target="#myModal9">
                 <span class="progress-left">
@@ -1115,11 +1087,12 @@
                 <span class="progress-right">
                   <span class="progress-bar"></span>
                 </span>
-                <div class="progress-value"><%= (@kpi_data[:support_service].map{|i| i[:KPI]}.sum)/6%>% </div>
+                <div class="progress-value"><%= (@kpi_data[:support_service].map { |i| i[:KPI] }.sum / 6).round(1) %>%</div>
               </div>
             </div>
           </div>
         </li>
       </ul>
     </div>
-
+  </div>
+</div>

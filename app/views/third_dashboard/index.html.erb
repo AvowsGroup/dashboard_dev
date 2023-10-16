@@ -239,16 +239,17 @@
     // href="/first_dashboard/excel_generate"
 
     function five_min_reload() {
-        setTimeout(function () {
+        setInterval(function () {
             location.reload();
-        }, 300000);
+        }, 300000); // 5 minutes in milliseconds
     }
 
     function ten_min_reload() {
-        setTimeout(function () {
+        setInterval(function () {
             location.reload();
-        }, 600000);
+        }, 600000); // 10 minutes in milliseconds
     }
+
 </script>
 
 <script>
