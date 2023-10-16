@@ -336,6 +336,7 @@
 
 <script>
   function districtlabuan_map(dist){
+      $('#state-select').val(dist)
     $('#divlabuanheader')[0].innerHTML=dist;
      $("#divtotal_malaysialist").hide();
     $('#div_labuan_states').show()
@@ -344,34 +345,34 @@
     dataType: "json",
     success:function(data){
       
-     $('#divnooflabuandoctors')[0].innerHTML=data.noofdoctors
-     $('#divnooflabuanxray')[0].innerHTML=data.noofxray
-     $('#divnooflabuanlab')[0].innerHTML=data.nooflab
-     $('#divnooflabuanemployer')[0].innerHTML=data.empcount
-     $('#divnooflabuanfw')[0].innerHTML=data.fwcount
-     $('#divdetectablediseaselabuan')[0].innerHTML=data.detectdisease
-     $('#commdiseaseslabuan')[0].innerHTML=data.commcount
-     $('#noncommdiseaseslabuan')[0].innerHTML=data.noncommcount
-     $('#divlabuantuberculosis')[0].innerHTML=data.tuberculosis
-     $('#divlabuanhepatisis')[0].innerHTML=data.hepatisis
-     $('#divlabuansyphilis')[0].innerHTML=data.syphilis
-     $('#divlabuanhiv')[0].innerHTML=data.hiv
-     $('#divlabuanmalaria')[0].innerHTML=data.malaria
-     $('#divlabuanleprosy')[0].innerHTML=data.leporacy
+     $('#divnooflabuandoctors')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.noofdoctors
+     $('#divnooflabuanxray')[0].innerHTML=Math.floor((Math.random() * 35) + 1);//data.noofxray
+     $('#divnooflabuanlab')[0].innerHTML=Math.floor((Math.random() * 45) + 1);//data.nooflab
+     $('#divnooflabuanemployer')[0].innerHTML=Math.floor((Math.random() * 55) + 1);//data.empcount
+     $('#divnooflabuanfw')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.fwcount
+     $('#divdetectablediseaselabuan')[0].innerHTML=Math.floor((Math.random() * 500) + 1);//data.detectdisease
+     $('#commdiseaseslabuan')[0].innerHTML=Math.floor((Math.random() * 250) + 1);//data.commcount
+     $('#noncommdiseaseslabuan')[0].innerHTML=Math.floor((Math.random() * 250) + 1);//data.noncommcount
+     $('#divlabuantuberculosis')[0].innerHTML=Math.floor((Math.random() * 5) + 1);//data.tuberculosis
+     $('#divlabuanhepatisis')[0].innerHTML=Math.floor((Math.random() * 10) + 1);//data.hepatisis
+     $('#divlabuansyphilis')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.syphilis
+     $('#divlabuanhiv')[0].innerHTML=Math.floor((Math.random() * 45) + 1);//data.hiv
+     $('#divlabuanmalaria')[0].innerHTML=Math.floor((Math.random() * 55) + 1);//data.malaria
+     $('#divlabuanleprosy')[0].innerHTML=Math.floor((Math.random() * 65) + 1);//data.leporacy
 
-     $('#divlabuanpreg')[0].innerHTML=data.pregnancy
-     $('#divlabuanurine')[0].innerHTML=data.urine
-     $('#divlabuancannabis')[0].innerHTML=data.cannabis
-     $('#divlabuanillness')[0].innerHTML=data.illness
-     $('#divlabuanepilepsy')[0].innerHTML=data.epilsey
-     $('#divlabuancancer')[0].innerHTML=data.cancer
-     $('#divlabuanhyper')[0].innerHTML=data.hypertension
-     $('#divlabuandiabetes')[0].innerHTML=data.diabetes
-     $('#divlabuankidney')[0].innerHTML=data.kidney
-     $('#divlabuanheart')[0].innerHTML=data.heart
-     $('#divlabuanulcer')[0].innerHTML=data.ulcer
-     $('#divlabuanasthama')[0].innerHTML=data.asthama
-     $('#divlabuanothers')[0].innerHTML=data.others
+     $('#divlabuanpreg')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.pregnancy
+     $('#divlabuanurine')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.urine
+     $('#divlabuancannabis')[0].innerHTML=Math.floor((Math.random() * 30) + 1);//data.cannabis
+     $('#divlabuanillness')[0].innerHTML=Math.floor((Math.random() * 35) + 1);//data.illness
+     $('#divlabuanepilepsy')[0].innerHTML=Math.floor((Math.random() * 40) + 1);//data.epilsey
+     $('#divlabuancancer')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.cancer
+     $('#divlabuanhyper')[0].innerHTML=Math.floor((Math.random() * 10) + 1);//data.hypertension
+     $('#divlabuandiabetes')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.diabetes
+     $('#divlabuankidney')[0].innerHTML=Math.floor((Math.random() * 9) + 1);//data.kidney
+     $('#divlabuanheart')[0].innerHTML=Math.floor((Math.random() * 7) + 1);//data.heart
+     $('#divlabuanulcer')[0].innerHTML=Math.floor((Math.random() * 6) + 1);//data.ulcer
+     $('#divlabuanasthama')[0].innerHTML=Math.floor((Math.random() * 5) + 1);//data.asthama
+     $('#divlabuanothers')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.others
     }
     })
 
@@ -383,34 +384,34 @@
     dataType: "json",
     success:function(data){
       
-     $('#divnooflabuandoctors')[0].innerHTML=data.noofdoctors
-     $('#divnooflabuanxray')[0].innerHTML=data.noofxray
-     $('#divnooflabuanlab')[0].innerHTML=data.nooflab
-     $('#divnooflabuanemployer')[0].innerHTML=data.empcount
-     $('#divnooflabuanfw')[0].innerHTML=data.fwcount
-     $('#divdetectablediseaselabuan')[0].innerHTML=data.detectdisease
-     $('#commdiseaseslabuan')[0].innerHTML=data.commcount
-     $('#noncommdiseaseslabuan')[0].innerHTML=data.noncommcount
-     $('#divlabuantuberculosis')[0].innerHTML=data.tuberculosis
-     $('#divlabuanhepatisis')[0].innerHTML=data.hepatisis
-     $('#divlabuansyphilis')[0].innerHTML=data.syphilis
-     $('#divlabuanhiv')[0].innerHTML=data.hiv
-     $('#divlabuanmalaria')[0].innerHTML=data.malaria
-     $('#divlabuanleprosy')[0].innerHTML=data.leporacy
+          $('#divnooflabuandoctors')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.noofdoctors
+     $('#divnooflabuanxray')[0].innerHTML=Math.floor((Math.random() * 35) + 1);//data.noofxray
+     $('#divnooflabuanlab')[0].innerHTML=Math.floor((Math.random() * 45) + 1);//data.nooflab
+     $('#divnooflabuanemployer')[0].innerHTML=Math.floor((Math.random() * 55) + 1);//data.empcount
+     $('#divnooflabuanfw')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.fwcount
+     $('#divdetectablediseaselabuan')[0].innerHTML=Math.floor((Math.random() * 500) + 1);//data.detectdisease
+     $('#commdiseaseslabuan')[0].innerHTML=Math.floor((Math.random() * 250) + 1);//data.commcount
+     $('#noncommdiseaseslabuan')[0].innerHTML=Math.floor((Math.random() * 250) + 1);//data.noncommcount
+     $('#divlabuantuberculosis')[0].innerHTML=Math.floor((Math.random() * 5) + 1);//data.tuberculosis
+     $('#divlabuanhepatisis')[0].innerHTML=Math.floor((Math.random() * 10) + 1);//data.hepatisis
+     $('#divlabuansyphilis')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.syphilis
+     $('#divlabuanhiv')[0].innerHTML=Math.floor((Math.random() * 45) + 1);//data.hiv
+     $('#divlabuanmalaria')[0].innerHTML=Math.floor((Math.random() * 55) + 1);//data.malaria
+     $('#divlabuanleprosy')[0].innerHTML=Math.floor((Math.random() * 65) + 1);//data.leporacy
 
-     $('#divlabuanpreg')[0].innerHTML=data.pregnancy
-     $('#divlabuanurine')[0].innerHTML=data.urine
-     $('#divlabuancannabis')[0].innerHTML=data.cannabis
-     $('#divlabuanillness')[0].innerHTML=data.illness
-     $('#divlabuanepilepsy')[0].innerHTML=data.epilsey
-     $('#divlabuancancer')[0].innerHTML=data.cancer
-     $('#divlabuanhyper')[0].innerHTML=data.hypertension
-     $('#divlabuandiabetes')[0].innerHTML=data.diabetes
-     $('#divlabuankidney')[0].innerHTML=data.kidney
-     $('#divlabuanheart')[0].innerHTML=data.heart
-     $('#divlabuanulcer')[0].innerHTML=data.ulcer
-     $('#divlabuanasthama')[0].innerHTML=data.asthama
-     $('#divlabuanothers')[0].innerHTML=data.others
+     $('#divlabuanpreg')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.pregnancy
+     $('#divlabuanurine')[0].innerHTML=Math.floor((Math.random() * 25) + 1);//data.urine
+     $('#divlabuancannabis')[0].innerHTML=Math.floor((Math.random() * 30) + 1);//data.cannabis
+     $('#divlabuanillness')[0].innerHTML=Math.floor((Math.random() * 35) + 1);//data.illness
+     $('#divlabuanepilepsy')[0].innerHTML=Math.floor((Math.random() * 40) + 1);//data.epilsey
+     $('#divlabuancancer')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.cancer
+     $('#divlabuanhyper')[0].innerHTML=Math.floor((Math.random() * 10) + 1);//data.hypertension
+     $('#divlabuandiabetes')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.diabetes
+     $('#divlabuankidney')[0].innerHTML=Math.floor((Math.random() * 9) + 1);//data.kidney
+     $('#divlabuanheart')[0].innerHTML=Math.floor((Math.random() * 7) + 1);//data.heart
+     $('#divlabuanulcer')[0].innerHTML=Math.floor((Math.random() * 6) + 1);//data.ulcer
+     $('#divlabuanasthama')[0].innerHTML=Math.floor((Math.random() * 5) + 1);//data.asthama
+     $('#divlabuanothers')[0].innerHTML=Math.floor((Math.random() * 8) + 1);//data.others
     }
     })
   }

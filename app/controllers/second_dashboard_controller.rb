@@ -9,9 +9,11 @@ class SecondDashboardController < ApplicationController
   end 
   
   def towns
+    
     id = JSON.parse( params.keys.first)["id"]
-    state = State.find_by_id(id) rescue nil
-    @towns = state.nil? ? Town.pluck(:name) : state.towns.pluck(:name,:id) 
+    state = State.where('name=?',id).pluck(:id) rescue nil
+    
+    @towns = Town.where("state_id=?",state).pluck(:name,:id)
   end 
   
   def filter
