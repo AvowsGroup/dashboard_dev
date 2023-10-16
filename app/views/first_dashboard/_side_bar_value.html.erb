@@ -1,112 +1,192 @@
-                                 <div class="card-filter " id = "checkbox_side_bar">
-                                    <div class="dropdown dropleft m-0 p-0">
-                                       <i class="fa fa-refresh" data-toggle="dropdown" ></i>
-                                       <div class="dropdown-menu sidefilter">
-                                          <ul>
-                                             <li><a class="dropdown-item" style="    font-size: 14px;
-                                                padding: 4px 6px; background-color: #d9d8d8;"><input type="checkbox" class="mx-1">Select All</a></li>
-                                             <li>
-                                                <div class="card-lifilter">
-                                                   <span>XQCC Pool </span>
-                                                   <ul>
-                                                      <li  data-toggle="collapse" data-target="#Radiographer"><a class="dropdown-item"><input type="checkbox">Received</a></li>
-                                                      <li data-toggle="collapse" data-target="#Radiographer1"><a class="dropdown-item"><input type="checkbox">Reviewed</a></li>
-                                                   </ul>
-                                                </div>
-                                                <div class="card-lifilter">
-                                                   <span>PCR Pool </span>
-                                                   <ul>
-                                                      <li data-toggle="collapse" data-target="#PCR"><a class="dropdown-item"><input type="checkbox">Received</a></li>
-                                                      <li  data-toggle="collapse" data-target="#PCR1"><a class="dropdown-item"><input type="checkbox">Reviewed</a></li>
-                                                   </ul>
-                                                </div>
-                                                <div class="card-lifilter">
-                                                   <span>X-ray Pending Review </span>
-                                                   <ul>
-                                                      <li data-toggle="collapse" data-target="#XQCC"><a class="dropdown-item"><input type="checkbox">Received</a></li>
-                                                      <li data-toggle="collapse" data-target="#XQCC1"><a class="dropdown-item"><input type="checkbox">Reviewed</a></li>
-                                                   </ul>
-                                                </div>
-                                                <div class="card-lifilter">
-                                                   <span>X-Ray Pending Decision</span>
-                                                   <ul>
-                                                      <li data-toggle="collapse" data-target="#X-raypending"><a class="dropdown-item"><input type="checkbox">Received</a></li>
-                                                      <li data-toggle="collapse" data-target="#X-raypending1"><a class="dropdown-item"><input type="checkbox">Reviewed</a></li>
-                                                   </ul>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="card-lifilter">
-                                                   <span>Medical Review</span>
-                                                   <ul>
-                                                      <li data-toggle="collapse" data-target="#Medicalr"> <a class="dropdown-item"><input type="checkbox">Received</a></li>
-                                                      <li data-toggle="collapse" data-target="#Medicalr1"><a class="dropdown-item"><input type="checkbox">Reviewed</a></li>
-                                                   </ul>
-                                                </div>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="list-group-icon circle4"> </div>
-                                 <div class="list-body" id="pending-view">
-                                    <h6>FOMEMA Pending to View
-                                    </h6>
-                                 </div>
-                                 <div class="list-visit"><%= @block_fw["YET TO PROCEED"] rescue 0%>
-                                 </div>
-                                 <!-- <div class="pending-box">
-                                    <span>
-                                    <input type="radio"  name="Pending" value="Received"> Received </span>
-                                    <span>
-                                        <input type="radio" name="Pending" value="Reviewed"> Reviewed </span>
-                                    </div>
-                                    <div class="Received listcard-box"> -->
-                                 <div class="Received listcard-box">
-                                    <ul class="sub-ulcard">
-                                       <li >
-                                          <div class="collapse" id="Radiographer" >
-                                             <div class="sub-licard-header ">X-Ray Review <span> <%= @fw_pending_view[:xqcc_pool]  rescue 0%></span></div>
-                                             <div class="sub-licard-body">
-                                                <span> XQCC Pool Pool </span> 
-                                                <span><%= @fw_pending_view[:xqcc_pool]  rescue 0%></span>
-                                             </div>
-                                          </div>
-                                          <div class="sub-licard-body collapse" id="PCR">
-                                             <span> PCR Pool </span> 
-                                             <span>205,009</span>
-                                          </div>
-                                          <div class="sub-licard-body collapse" id="XQCC"> 
-                                             <span> X-ray Pending Review</span> 
-                                             <span><%= @fw_pending_view[:xray_pending_review]  rescue 0%></span>
-                                          </div>
-                                       </li>
-                                       <li class="collapse" id="Medicalr">
-                                          <div class="sub-licard-header">Medical Review  <span>105,070</span></div>
-                                       </li>
-                                    </ul>
-                                 </div>
-                                 <div class="Reviewed listcard-box">
-                                    <ul class="sub-ulcard">
-                                       <li>
-                                          <div class="collapse" id="Radiographer1">
-                                             <div class="sub-licard-header">X-Ray Review <span> 700,009</span></div>
-                                             <div class="sub-licard-body"> 
-                                                <span> XQCC Pool</span> 
-                                                <span>805,071</span>
-                                             </div>
-                                          </div>
-                                          <div class="sub-licard-body collapse" id="PCR1"> 
-                                             <span> PCR Pool </span> 
-                                             <span>805,072</span>
-                                          </div>
-                                          <div class="sub-licard-body collapse" id="XQCC1"> 
-                                             <span> X-ray Pending Review</span> 
-                                             <span>805,075</span>
-                                          </div>
-                                       </li>
-                                       <li class="collapse" id="Medicalr1">
-                                          <div class="sub-licard-header">Medical Review  <span>800,079</span></div>
-                                       </li>
-                                    </ul>
-                                 </div>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<div class="card-filter" id="checkbox_side_bar">
+  <div class="dropdown dropleft m-0 p-0">
+    <i class="fa fa-refresh" data-toggle="dropdown"></i>
+    <div class="dropdown-menu sidefilter">
+      <ul>
+        <li>
+          <a class="dropdown-item" style="font-size: 14px; padding: 4px 6px; background-color: #d9d8d8;">
+            <input type="checkbox" class="mx-1" id="select-all"> Select All
+          </a>
+        </li>
+        <li>
+          <div class="card-lifilter">
+            <span>XQCC Pool </span>
+            <ul>
+              <li data-toggle="collapse" data-target="#Radiographer">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="XQCC-Pool-Received"> Received
+                </a>
+              </li>
+              <li data-toggle="collapse" data-target="#Radiographer1">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="XQCC-Pool-Reviewed"> Reviewed
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-lifilter">
+            <span>PCR Pool </span>
+            <ul>
+              <li data-toggle="collapse" data-target="#PCR">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="PCR-Pool-Received"> Received
+                </a>
+              </li>
+              <li data-toggle="collapse" data-target="#PCR1">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="PCR-Pool-Reviewed"> Reviewed
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-lifilter">
+            <span>X-ray Pending Review </span>
+            <ul>
+              <li data-toggle="collapse" data-target="#XQCC">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="X-ray-Pending-Received"> Received
+                </a>
+              </li>
+              <li data-toggle="collapse" data-target="#XQCC1">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="X-ray-Pending-Reviewed"> Reviewed
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-lifilter">
+            <span>X-Ray Pending Decision</span>
+            <ul>
+              <li data-toggle="collapse" data-target="#X-raypending">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="X-ray-Pending-Decision-Received"> Received
+                </a>
+              </li>
+              <li data-toggle="collapse" data-target="#X-raypending1">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="X-ray-Pending-Decision-Reviewed"> Reviewed
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="card-lifilter">
+            <span>Medical Review</span>
+            <ul>
+              <li data-toggle="collapse" data-target="#Medicalr">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="Medical-Review-Received"> Received
+                </a>
+              </li>
+              <li data-toggle="collapse" data-target="#Medicalr1">
+                <a class="dropdown-item">
+                  <input type="checkbox" data-target="Medical-Review-Reviewed"> Reviewed
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="list-group-icon circle4"></div>
+<div class="list-body" id="pending-view">
+  <h6>FOMEMA Pending to View</h6>
+</div>
+
+<div class="list-visit"><%= @block_fw["YET TO PROCEED"] rescue 0 %></div>
+
+<div class="Received listcard-box">
+  <ul class="sub-ulcard">
+    <li>
+      <div class="collapse" id="Radiographer">
+        <div class="sub-licard-header" id="XQCC-Pool-Received">X-Ray Review
+          <span><%= @fw_pending_view[:xqcc_pool] rescue 0 %></span></div>
+        <div class="sub-licard-body">
+          <span> XQCC Pool </span>
+          <span><%= @fw_pending_view[:xqcc_pool] rescue 0 %></span>
+        </div>
+      </div>
+      <div class="sub-licard-body collapse" id="PCR">
+        <span> PCR Pool </span>
+        <span>205,009</span>
+      </div>
+      <div class="sub-licard-body collapse" id="XQCC">
+        <span id="X-ray-Pending-Received"> X-ray Pending Review</span>
+        <span><%= @fw_pending_view[:xray_pending_review] rescue 0 %></span>
+      </div>
+    </li>
+    <li class="collapse" id="Medicalr">
+      <div class="sub-licard-header" id="Medical-Review-Received">Medical Review
+        <span>105,070</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="Reviewed listcard-box">
+  <ul class="sub-ulcard">
+    <li>
+      <div class="collapse" id="Radiographer1">
+        <div class="sub-licard-header" id="XQCC-Pool-Reviewed">X-Ray Review
+          <span>700,009</span></div>
+        <div class="sub-licard-body">
+          <span> XQCC Pool</span>
+          <span>805,071</span>
+        </div>
+      </div>
+      <div class="sub-licard-body collapse" id="PCR1">
+        <span id="PCR-Pool-Reviewed"> PCR Pool </span>
+        <span>805,072</span>
+      </div>
+      <div class="sub-licard-body collapse" id="XQCC1">
+        <span id="X-ray-Pending-Reviewed"> X-ray Pending Review</span>
+        <span>805,075</span>
+      </div>
+    </li>
+    <li class="collapse" id="Medicalr1">
+      <div class="sub-licard-header" id="Medical-Review-Reviewed">Medical Review
+        <span>800,079</span></div>
+    </li>
+  </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get a reference to the "Select All" checkbox
+        const selectAllCheckbox = document.getElementById('select-all');
+
+        // Get a reference to all checkboxes and sections
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const sections = document.querySelectorAll('.collapse');
+
+        // Add an event listener to the "Select All" checkbox
+        selectAllCheckbox.addEventListener('change', function () {
+            // Check or uncheck all checkboxes
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+
+            // Expand or collapse all sections based on the "Select All" checkbox's state
+            sections.forEach(function (section) {
+                if (selectAllCheckbox.checked) {
+                    section.classList.add('show'); // Add 'show' class to expand sections
+                } else {
+                    section.classList.remove('show'); // Remove 'show' class to collapse sections
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
