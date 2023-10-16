@@ -459,7 +459,8 @@
     //})
 
   }
-  function district_kelantan(dist){    
+  function district_kelantan(dist){  
+   $('#district-select option:selected').text(dist)    
    $('#divkelantanheader')[0].innerHTML=dist;
      //$.ajax({
     //url: "/districtname/" + dist,

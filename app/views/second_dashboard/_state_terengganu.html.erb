@@ -462,7 +462,8 @@
     //})
 
   }
-  function district_terengganu(dist){    
+  function district_terengganu(dist){   
+   $('#district-select option:selected').text(dist)   
    $('#divterengganuheader')[0].innerHTML=dist;
    //  $.ajax({
    // url: "/districtname/" + dist,

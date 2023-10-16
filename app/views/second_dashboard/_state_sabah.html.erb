@@ -2863,11 +2863,12 @@
 
   }
   function district_sabah(dist){    
+     $('#district-select option:selected').text(dist)  
    $('#divsabahheader')[0].innerHTML=dist;
-     $.ajax({
-    url: "/districtname/" + dist,
-    dataType: "json",
-    success:function(data){
+  //   $.ajax({
+   // url: "/districtname/" + dist,
+   // dataType: "json",
+    //success:function(data){
       
      $('#divnoofsabahdoctors')[0].innerHTML=Math.floor((Math.random() * 15) + 1);//data.noofdoctors
      $('#divnoofsabahxray')[0].innerHTML=Math.floor((Math.random() * 20) + 1);//data.noofxray
@@ -2897,8 +2898,8 @@
      $('#divsabahulcer')[0].innerHTML=Math.floor((Math.random() * 44) + 1);//data.ulcer
      $('#divsabahasthama')[0].innerHTML=Math.floor((Math.random() * 54) + 1);//data.asthama
      $('#divsabahothers')[0].innerHTML=Math.floor((Math.random() * 64) + 1);//data.others
-    }
-    })
+    //}
+    //})
   }
   function closesabahicon(){
      $("#divtotal_malaysialist").show();

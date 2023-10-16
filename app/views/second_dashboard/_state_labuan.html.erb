@@ -377,7 +377,8 @@
     //})
 
   }
-  function district_labuan(dist){    
+  function district_labuan(dist){  
+   $('#district-select option:selected').text(dist)    
    $('#divlabuanheader')[0].innerHTML=dist;
     // $.ajax({
     //url: "/districtname/" + dist,

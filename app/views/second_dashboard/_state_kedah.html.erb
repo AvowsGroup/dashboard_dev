@@ -1485,7 +1485,7 @@
 
 <script>
   function districtkedah_map(dist){
-     
+
       $('#state-select').val(dist)
     $('#divkedahheader')[0].innerHTML=dist;
      $("#divtotal_malaysialist").hide();
@@ -1527,7 +1527,8 @@
     //})
 
   }
-  function district_kedah(dist){    
+  function district_kedah(dist){  
+   $('#district-select option:selected').text(dist)    
    $('#divkedahheader')[0].innerHTML=dist;
     // $.ajax({
     //url: "/districtname/" + dist,
