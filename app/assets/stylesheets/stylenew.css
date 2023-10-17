@@ -130,7 +130,7 @@ border-bottom: solid 1px #c2c2c2;
     #sidebar {
         transition: all 0.3s;
         padding: 0px 8px 20px 15px;
-        margin-left: -360px;
+        margin-left: -560px;
         position: absolute;
         z-index: 1;
         width: calc(100vw - 75.8%);
@@ -652,6 +652,7 @@ padding: 0px 25px;}
 }
 .svg-map>.sub-map{ 
 position:relative;
+padding-top: 30px;
 }
 .svg-map>.svg-map>svg{
   width: 100%;
@@ -998,6 +999,7 @@ float: left;
     transform-origin: center right;
     animation: loading-1 1.8s linear forwards;
 }
+
 .progress .progress-value{
     width: 90%;
     height: 90%;
@@ -1215,19 +1217,19 @@ float: left;
             padding: 1.7%;
         }
         .management-img {
-            width: 270px;
+            width: 272px;
         }
         .capital-img {
-            width: 190px;
+            width: 191px;
         }
         .inspectorate-img {
-            width: 124px;
+            width: 125px;
         }
         .xray-img {
-            width: 163px;
+            width: 164px;
         }
         .medical-img {
-            width: 174px;
+            width: 175px;
         }
         .finance-svg {
             width: 134px;
@@ -1610,8 +1612,9 @@ float: left;
     float: left;
         }
         .mobile-filter>li, .mobile-filter {
-            width: 100%;
-            float: left;
+            width: 100%!important;
+            float: left!important;
+            display: block;
             padding: 0px 6px;
         }
         .tx-numeric>span{
@@ -1786,7 +1789,7 @@ height: 100%;
     .nav-tabs .nav-link {
     margin-bottom: -1px;
     background-color: transparent;
-    border: 1px solid #5f5f5f;
+    border: 1px solid #5f5f5f12;
     border-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
     color: #545454;
@@ -1973,3 +1976,35 @@ height: 100%;
             overflow-y: hidden;
         }
     }
+    svg > g > g.google-visualization-tooltip {
+        pointer-events: none;
+    }
+   /* dashboard--5 */
+   .progressbar_wrap{
+    width: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 6px;
+    padding:14px 14px 2px 14px;
+  }
+  .progressbar_div{
+    margin-bottom: 5px;
+  }
+  .progressbar_div>label{
+    margin: 0px;
+color: #626262;
+  }
+  .progressbar_div,.progressbar_div>label{
+    font-size: 11px;
+    float: left;
+    width: 100%;
+  }
+ .newprogress {
+    background-color: #ececec;
+    border-radius: 10px;
+ }
+ 
+  .newprogress > .progress-bar {
+    border-radius: 10px 0px 0px 10px;
+  }
