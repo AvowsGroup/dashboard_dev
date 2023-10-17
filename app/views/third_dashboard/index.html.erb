@@ -74,9 +74,10 @@
                   <a class="dropdown-item" href="/service_provider/index">
                     <i class="fa fa-dashboard mx-2"></i>Dashboard 5 </a>
                 </li>
-          </ul>
-        </div>
-      </li>
+              </ul>
+            </div>
+          </li>         
+
       <li class="nav-item dropdown">
         <a class="nav-link admin-name dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span>Admin </span>
@@ -120,26 +121,6 @@
               <option value="October">October</option>
               <option value="November">November</option>
               <option value="December">December</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="month-filter">
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fa fa-calendar-o"></i>
-                  </span>
-            </div>
-            <select id="week" class="form-control" aria-label="Filter select">
-              <option value="Select Week"> Select Week</option>
-              <option value=1>Week 1</option>
-              <option value=2>Week 2</option>
-              <option value=3>Week 3</option>
-              <option value=4>Week 4</option>
             </select>
           </div>
         </div>
@@ -259,12 +240,12 @@
 
     $(document).ready(function () {
         // Function to update the date range based on month and week selection
-        function updateDateRange(month, week) {
-            if (month && week && controlsActive) {
+        function updateDateRange(month) {
+            if (month && controlsActive) {
                 var year = new Date().getFullYear();
                 var startDate = moment(year + "-" + month + "-" + 1, "YYYY-MMM-D");
-                startDate.add((week - 1) * 7, 'days');
-                var endDate = moment(startDate).add(6, 'days');
+                // Calculate the last day of the month
+                var endDate = moment(startDate).endOf('month');
 
                 // Update the date range input
                 $('input[name="daterange"]').data('daterangepicker').setStartDate(startDate);
@@ -275,13 +256,12 @@
             }
         }
 
-        // Event handler for month and week dropdown changes
-        $('#month, #week').change(function () {
+        // Event handler for month dropdown change
+        $('#month').change(function () {
             var selectedMonth = $('#month').val();
-            var selectedWeek = $('#week').val();
 
             if (controlsActive) {
-                updateDateRange(selectedMonth, selectedWeek);
+                updateDateRange(selectedMonth);
             }
         });
 
@@ -291,19 +271,15 @@
             var startDate = picker.startDate;
             var endDate = picker.endDate;
 
-            // Determine the corresponding month and week
+            // Determine the corresponding month
             var month = startDate.format('MMMM');
-            var weekStart = startDate.date();
-            var weekEnd = endDate.date();
-            var week = Math.ceil(weekStart / 7);
 
-            // Update the month and week dropdowns
-            $('#month').val(month);
-            $('#week').val(week).trigger('change');
+            // Update the month dropdown
+            $('#month').val(month).trigger('change');
 
-            // Disable the dropdowns
-            $('#month, #week').prop('disabled', true);
-            controlsActive = true; // Re-enable dropdowns
+            // Disable the dropdown
+            $('#month').prop('disabled', true);
+            controlsActive = true; // Re-enable dropdown
 
             // Enable the date range input
             $('input[name="daterange"]').prop('disabled', false);
@@ -315,23 +291,22 @@
         });
 
         function resetFilterControls() {
-            // Reset month and week dropdowns to their default values
+            // Reset month dropdown to its default value
             $('#month').val('Select Monthly');
-            $('#week').val('Select Week');
 
             // Reset the date range input to its default value
             $('input[name="daterange"]').data('daterangepicker').setStartDate("18/08/2023");
             $('input[name="daterange"]').data('daterangepicker').setEndDate("28/08/2023");
 
-            // Enable the controls
-            $('#month, #week').prop('disabled', false);
+            // Enable the control
+            $('#month').prop('disabled', false);
             $('input[name="daterange"]').prop('disabled', false);
-            controlsActive = true; // Re-enable controls
+            controlsActive = true; // Re-enable control
         }
 
         function cancel_filter() {
             resetFilterControls();
         }
-
     });
+
 </script>
