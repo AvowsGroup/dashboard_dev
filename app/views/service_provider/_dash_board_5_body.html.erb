@@ -1,3 +1,13 @@
+ <style type="text/css">
+     /* dashboard-5 */
+    .listcard-ul {
+        height: 105px;
+        overflow-y: auto;
+        font-size: 12px;
+        padding: 0px;
+        width: 100%;
+    }
+ </style>
  <div id="content">
                             <div class="dashboard-body">
  <div class="container-fluid"> 
@@ -136,65 +146,77 @@
                 <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
                 <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
                 <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-                
-                <div id="container" style="width: 100%; height: 218px;"></div>
+                <div id="chart_div"></div>
+               <!-- <div id="container" style="width: 100%; height: 218px;"></div>-->
                 
             </div>
         </div>
              
             
-              <script>
-            
-                anychart.onDocumentReady(function () {
-                  // create column chart
-                  var chart = anychart.column3d();
-            
-                  // turn on chart animation
-                  chart.animation(true);
-            
-                  // set chart title text settings
-             
-                  // create area series with passed data
-                  chart.column([
-                    ['< 1 ', '<%=@doctorquotausagezero%>'],
-                    ['1 - 100', '<%=@doctorquotausage1to100%>'],
-                    ['101 - 200', '<%=@doctorquotausage101to200%>'],
-                    ['201 - 300', '<%=@doctorquotausage201to300%>'],
-                    ['301 - 400', '<%=@doctorquotausage301to400%>'],
-                    ['401 - 500', '<%=@doctorquotausage401to500%>'],
-                    ['501 - 600', '<%=@doctorquotausage501to600%>'],
-                    ['601 - 700', '<%=@doctorquotausage601to700%>'],
-                    ['701 - 800', '<%=@doctorquotausage701to800%>']
-                  ]);
-            
-                  chart
-                    .tooltip()
-                    .position('center-top')
-                    .anchor('center-bottom')
-                    .offsetX(0)
-                    .offsetY(5)
-                    .format('{%Value}');
-            
-                  // set scale minimum
-                  chart.yScale().minimum(0);
-            
-                  // set yAxis labels formatter
-                  chart.yAxis().labels().format('{%Value}{groupsSeparator: }');
-            
-                  chart.tooltip().positionMode('point');
-                  chart.interactivity().hoverMode('by-x');
-            
-                  chart.xAxis().title('Quote Use');
-                  chart.yAxis().title('#of Doctor');
-            
-                  // set container id for the chart
-                  chart.container('container');
-            
-                  // initiate chart drawing
-                  chart.draw();
-                });
-              
-            </script>
+             <script type="text/javascript">
+        //load the Google Visualization API and the chart
+        google.load('visualization', '1', {'packages':['columnchart']});
+
+        //set callback
+        google.setOnLoadCallback (createChart);
+
+        //callback function
+        function createChart() {
+
+                        var data = new google.visualization.DataTable(
+                                   {
+                                  "cols": [
+                                        {"id":"a","label":"Topping","pattern":"","type":"string"},
+                                        {"id":"v","label":"Promedio","pattern":"","type":"number"}
+                                      ],
+                                  "rows": [
+                                        {"c":[{"v":"<1", "f":null},{"v":<%=@doctorquotausagezero%>,"f":null}]},
+                                        {"c":[{"v":"1-100", "f":null},{"v":<%=@doctorquotausage1to100%>,"f":null}]},
+                                        {"c":[{"v":"101-200", "f":null},{"v":<%=@doctorquotausage101to200%>,"f":null}]},
+                                        {"c":[{"v":"201-300", "f":null},{"v":<%=@doctorquotausage201to300%>,"f":null}]},
+                                        {"c":[{"v":"301-400", "f":null},{"v":<%=@doctorquotausage301to400%>,"f":null}]},
+                                                 {"c":[{"v":"401-500", "f":null},{"v":<%=@doctorquotausage401to500%>,"f":null}]},
+                                                 {"c":[{"v":"501-600", "f":null},{"v":<%=@doctorquotausage501to600%>,"f":null}]},
+                                                 {"c":[{"v":"601-700", "f":null},{"v":<%=@doctorquotausage601to700%>,"f":null}]},
+                                                 {"c":[{"v":"701-800", "f":null},{"v":<%=@doctorquotausage701to800%>,"f":null}]},                                              
+                                
+                                      ]
+                                }
+                        )
+
+            //instantiate our chart objects
+            var chart = new google.visualization.ColumnChart (document.getElementById('chart_div'));
+                        
+                        
+            //define options for visualization
+            var options = {
+               
+                                width: 350,
+                height: 218,
+                is3D: true,
+                legend: 'none',                        
+                                title: '',
+
+                                 hAxis: {
+                                        title: 'hAxis Title',
+                                        titleTextStyle: {color: 'red'},
+                                        textPosition: 'out'
+                                },
+                                                
+                                vAxis: {
+                                        title: 'vAxis Title',
+                                        minValue: 0,
+                                        maxValue: 10
+                                
+                                }
+            };
+
+            //draw my chart
+           chart.draw(data, options);
+
+        }
+
+    </script>
                          
     </div>
     <div class="col-12 col-sm-6 col-md-8"> <div class="card">
