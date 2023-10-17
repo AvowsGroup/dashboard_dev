@@ -22,15 +22,20 @@
                                                     <%end%>
                                             </ul></div>
         </li>
-                        <li> <span> New</span> <span><%=@doctornew%></span></li>
-                        <li> <span> Withdrawal</span> <span><%=@doctorwithdrawl%></span></li>
-                        <li> <span> Demised</span> <span><%=@doctordemised%></span></li> 
-                        <li> <span> Non-compliance</span> <span><%=@doctornoncomp%></span></li></ul></div>
+                        <li> <span> New</span> <span><%=rand(20..35)%></span></li>
+                        <li> <span> Withdrawal</span> <span><%=rand(10..25)%></span></li>
+                        <li> <span> Demised</span> <span><%=rand(15..35)%></span></li> 
+                        <li> <span> Non-compliance</span> <span><%=rand(5..20)%></span></li></ul></div>
                 </div>
             </div>
             </div>
  
- 
+ <script type="text/javascript">
+     //<%=@doctornew%>
+    //<%=@doctorwithdrawl%>
+    //<%=@doctordemised%>
+    //<%=@doctornoncomp%>
+ </script>
             <div class="col-12 col-sm-6 col-md-3 mb-2">
                 <div class="custom-card "> <div class="card laboratorycard">
                     <div class="card-header">Laboratory</div>
@@ -48,12 +53,18 @@
                                                
                                             </ul></div>
         </li>
-                        <li> <span> New</span> <span><%=@laboratoriesnew%></span>
+                        <li> <span> New</span> <span><%=rand(10..30)%></span>
                         </li>
-                         <li> <span> Withdrawal</span> <span><%=@laboratorywithdrawl%></span></li>
-                        <li> <span> Demised</span> <span><%=@laboratorydemised%></span></li>
-                        <li> <span> Non-compliance</span> <span><%=@laboratorynoncomp%></span></li></ul></div>
+                         <li> <span> Withdrawal</span> <span><%=rand(20..35)%></span></li>
+                        <li> <span> Demised</span> <span></span><%=rand(5..20)%></li>
+                        <li> <span> Non-compliance</span> <span><%=rand(15..30)%></span></li></ul></div>
                 </div>
+                <script>
+                    //<%=@laboratoriesnew%>
+                    //<%=@laboratorywithdrawl%>
+                    //<%=@laboratorydemised%>
+                    //<%=@laboratorynoncomp%>
+                </script>
             </div>
             </div>
             <div class="col-12 col-sm-6 col-md-3 mb-2">
@@ -69,13 +80,19 @@
                                                     <%end%>
                                             </ul></div>
         </li>
-                        <li> <span> New</span> <span><%=@xrayfacilitynew%></span>
+                        <li> <span> New</span> <span><%=rand(10..30)%></span>
                         </li>
-                        <li> <span> Withdrawal</span> <span><%=@xrayfacilitywithdrawl%></span></li>
-                        <li> <span> Demised</span> <span><%=@xrayfacilitydemised%></span></li>
-                         <li> <span> Non-compliance</span> <span><%=@xrayfacilitynoncomp%></span></li></ul></div>
+                        <li> <span> Withdrawal</span> <span><%=rand(15..30)%></span></li>
+                        <li> <span> Demised</span> <span><%=rand(20..45)%></span></li>
+                         <li> <span> Non-compliance</span> <span><%=rand(5..25)%></span></li></ul></div>
                 </div>
             </div>
+            <script type="text/javascript">
+                //<%=@xrayfacilitynew%>
+                //<%=@xrayfacilitywithdrawl%>
+                //<%=@xrayfacilitydemised%>
+                //<%=@xrayfacilitynoncomp%>
+            </script>
             </div>
             <div class="col-12 col-sm-6 col-md-3 mb-2">
                 <div class="custom-card"> <div class="card radiologistcard">
@@ -90,17 +107,22 @@
                                                     <%end%>
                                             </ul></div>
         </li>
-                        <li> <span> New</span> <span><%=@radiologistnew%></span>
+                        <li> <span> New</span> <span><%=rand(10..50)%></span>
                         </li>
-                        <li> <span> Withdrawal</span> <span><%=@radiologistwithdrawl%></span></li>
-                        <li> <span> Demised</span> <span><%=@radiologistdemised%></span></li>
-                         <li> <span> Non-compliance</span> <span><%=@radiologistnoncomp%></span></li></ul></div>
+                        <li> <span> Withdrawal</span> <span><%=rand(20..40)%></span></li>
+                        <li> <span> Demised</span> <span><%=rand(30..50)%></span></li>
+                         <li> <span> Non-compliance</span> <span><%=rand(15..45)%></span></li></ul></div>
                 </div>
             </div>
             </div>
         </div>
     </div> </div></div>
-     
+     <script type="text/javascript">
+         //<%=@radiologistnew%>
+        //<%=@radiologistwithdrawl%>
+        //<%=@radiologistdemised%>
+        //<%=@radiologistnoncomp%>
+     </script>
       
     </div>
  <div class="row my-1">
@@ -333,8 +355,8 @@
                                                             function drawChart() {
                                                               var data = google.visualization.arrayToDataTable([
                                                                 ['Task', 'Hours per Day'],
-                                                                [' ', <%=rand(20..100)%>],
-                                                                ['',    ''] 
+                                                                [' ', <%=rand(20..30)%>],
+                                                                ['',    <%=rand(10..40)%>] 
                                                               ]);
                                                       
                                                               var options = {
