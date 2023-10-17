@@ -187,13 +187,14 @@
                         <div class="card-body p-0">  
                             <div id="donutchart1"></div></div>
                             <script type="text/javascript">
+                                //<%=@ceritifydoctorperyestotal%>
                                 google.charts.load("current", {packages:["corechart"]});
                                 google.charts.setOnLoadCallback(drawChart);
                                 function drawChart() {
                                   var data = google.visualization.arrayToDataTable([
                                     ['Task', 'Hours per Day'],
-                                    [' ', <%=@ceritifydoctorperyestotal%>],
-                                    ['',   '']
+                                    [' ', <%=rand(10..30)%>],
+                                    ['',   <%=rand(20..50)%>]
                                   ]);
                           
                                   var options = {
@@ -219,13 +220,15 @@
                                     <div class="card-header">Laboratory Result Transmission <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
                                     <div class="card-body p-0">    
                                         <script type="text/javascript">
+                                            //<%=@laboratorydonutwithin48%>
+                                            //<%=@laboratorydonutbeyond48%>
                                             google.charts.load("current", {packages:["corechart"]});
                                             google.charts.setOnLoadCallback(drawChart);
                                             function drawChart() {
                                               var data = google.visualization.arrayToDataTable([
                                                 ['Task', 'Hours per Day'],
-                                                ['', <%=@laboratorydonutwithin48%>],
-                                                ['', <%=@laboratorydonutbeyond48%>]
+                                                ['', <%=rand(10..30)%>],
+                                                ['', <%=rand(20..40)%>]
                                               ]);
                                       
                                               var options = {
@@ -253,13 +256,14 @@
                                             <div class="card-header">X-Ray Transmission <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
                                             <div class="card-body p-0">   
                                                 <script type="text/javascript">
+                                                    //<%=@xraytransmissionpercentagetotal%>
                                                     google.charts.load("current", {packages:["corechart"]});
                                                     google.charts.setOnLoadCallback(drawChart);
                                                     function drawChart() {
                                                       var data = google.visualization.arrayToDataTable([
                                                         ['Task', 'Hours per Day'],
-                                                        ['', <%=@xraytransmissionpercentagetotal%>],
-                                                        ['', '']
+                                                        ['', <%=rand(10..40)%>],
+                                                        ['', <%=rand(20..30)%>]
                                                       ]);
                                               
                                                       var options = {
@@ -292,8 +296,8 @@
                                                         function drawChart() {
                                                           var data = google.visualization.arrayToDataTable([
                                                             ['Task', 'Hours per Day'],
-                                                            [' ', 7],
-                                                            ['',    2]
+                                                            [' ', <%=rand(20..50)%>],
+                                                            ['',    <%=rand(10..40)%>]
                                                           ]);
                                                   
                                                           var options = {
@@ -323,13 +327,14 @@
                                                     <div class="card-body p-0">   
                                                         <div id="donutchart5"></div>
                                                         <script type="text/javascript">
+                                                            //<%=@doctoraccuracytransmissiontotal%>
                                                             google.charts.load("current", {packages:["corechart"]});
                                                             google.charts.setOnLoadCallback(drawChart);
                                                             function drawChart() {
                                                               var data = google.visualization.arrayToDataTable([
                                                                 ['Task', 'Hours per Day'],
-                                                                [' ', <%=@doctoraccuracytransmissiontotal%>],
-                                                                ['',    '']
+                                                                [' ', <%=rand(20..100)%>],
+                                                                ['',    ''] 
                                                               ]);
                                                       
                                                               var options = {
