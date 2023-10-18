@@ -9,14 +9,16 @@
     <i class="fa fa-refresh" data-toggle="dropdown"></i>
     <div class="dropdown-menu sidefilter">
       <ul>
+
         <li>
           <a class="dropdown-item" style="font-size: 14px; padding: 4px 6px; background-color: #d9d8d8;">
             <input type="checkbox" class="mx-1" id="select-all"> Select All
           </a>
         </li>
+
         <li>
           <div class="card-lifilter">
-            <span>XQCC Pool </span>
+            <span>XQCC Pool</span>
             <ul>
               <li data-toggle="collapse" data-target="#Radiographer">
                 <a class="dropdown-item">
@@ -30,8 +32,12 @@
               </li>
             </ul>
           </div>
+        </li>
+
+
+        <li>
           <div class="card-lifilter">
-            <span>PCR Pool </span>
+            <span>PCR Pool</span>
             <ul>
               <li data-toggle="collapse" data-target="#PCR">
                 <a class="dropdown-item">
@@ -45,8 +51,11 @@
               </li>
             </ul>
           </div>
+        </li>
+
+        <li>
           <div class="card-lifilter">
-            <span>X-ray Pending Review </span>
+            <span>X-ray Pending Review</span>
             <ul>
               <li data-toggle="collapse" data-target="#XQCC">
                 <a class="dropdown-item">
@@ -60,8 +69,12 @@
               </li>
             </ul>
           </div>
+        </li>
+
+
+        <li>
           <div class="card-lifilter">
-            <span>X-Ray Pending Decision</span>
+            <span>X-ray Pending Decision</span>
             <ul>
               <li data-toggle="collapse" data-target="#X-raypending">
                 <a class="dropdown-item">
@@ -76,6 +89,8 @@
             </ul>
           </div>
         </li>
+
+
         <li>
           <div class="card-lifilter">
             <span>Medical Review</span>
@@ -93,6 +108,8 @@
             </ul>
           </div>
         </li>
+
+
       </ul>
     </div>
   </div>
@@ -107,59 +124,75 @@
 
 <div class="Received listcard-box">
   <ul class="sub-ulcard">
+
     <li>
       <div class="collapse" id="Radiographer">
-        <div class="sub-licard-header" id="XQCC-Pool-Received">X-Ray Review
-          <span><%= @fw_pending_view[:xqcc_pool] rescue 0 %></span></div>
-        <div class="sub-licard-body">
-          <span> XQCC Pool </span>
+        <div class="sub-licard-header" id="XQCC-Pool-Received">XQCC Received
           <span><%= @fw_pending_view[:xqcc_pool] rescue 0 %></span>
         </div>
       </div>
-      <div class="sub-licard-body collapse" id="PCR">
-        <span> PCR Pool </span>
-        <span>205,009</span>
-      </div>
-      <div class="sub-licard-body collapse" id="XQCC">
-        <span id="X-ray-Pending-Received"> X-ray Pending Review</span>
-        <span><%= @fw_pending_view[:xray_pending_review] rescue 0 %></span>
-      </div>
-    </li>
-    <li class="collapse" id="Medicalr">
-      <div class="sub-licard-header" id="Medical-Review-Received">Medical Review
-        <span>105,070</span>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div class="Reviewed listcard-box">
-  <ul class="sub-ulcard">
-    <li>
       <div class="collapse" id="Radiographer1">
-        <div class="sub-licard-header" id="XQCC-Pool-Reviewed">X-Ray Review
-          <span>700,009</span></div>
-        <div class="sub-licard-body">
-          <span> XQCC Pool</span>
-          <span>805,071</span>
+        <div class="sub-licard-body" id="XQCC-Pool-Reviewed">XQCC Reviewed
+          <span><%= @fw_pending_view[:xqcc_pool] rescue 0 %></span>
         </div>
       </div>
-      <div class="sub-licard-body collapse" id="PCR1">
-        <span id="PCR-Pool-Reviewed"> PCR Pool </span>
-        <span>805,072</span>
+    </li>
+
+    <li>
+      <div class="collapse" id="PCR">
+        <div class="sub-licard-header" id="PCR-Pool-Received">PCR Received
+          <span><%= @fw_pending_view[:pcr_pool] rescue 0 %></span>
+        </div>
       </div>
-      <div class="sub-licard-body collapse" id="XQCC1">
-        <span id="X-ray-Pending-Reviewed"> X-ray Pending Review</span>
-        <span>805,075</span>
+      <div class="collapse" id="PCR1">
+        <div class="sub-licard-body" id="PCR-Pool-Reviewed">PCR Reviewed
+          <span><%= @fw_pending_view[:pcr_pool] rescue 0 %></span>
+        </div>
       </div>
     </li>
-    <li class="collapse" id="Medicalr1">
-      <div class="sub-licard-header" id="Medical-Review-Reviewed">Medical Review
-        <span>800,079</span></div>
+
+    <li>
+      <div class="collapse" id="XQCC">
+        <div class="sub-licard-header" id="X-ray-Pending-Received">X-Ray Pending Received
+          <span><%= @fw_pending_view[:x_ray_pending_review] rescue 0 %></span>
+        </div>
+      </div>
+      <div class="collapse" id="XQCC1">
+        <div class="sub-licard-body" id="X-ray-Pending-Reviewed">X-Ray Pending Reviewed
+          <span><%= @fw_pending_view[:x_ray_pending_review] rescue 0 %></span>
+        </div>
+      </div>
     </li>
+
+    <li>
+      <div class="collapse" id="X-raypending">
+        <div class="sub-licard-header" id="X-ray-Pending-Decision-Received">X-Ray Pending Decision Received
+          <span><%= @fw_pending_view[:x_ray_pending_decision] rescue 0 %></span>
+        </div>
+      </div>
+      <div class="collapse" id="X-raypending1">
+        <div class="sub-licard-body" id="X-ray-Pending-Decision-Reviewed">X-Ray Pending Decision Reviewed
+          <span><%= @fw_pending_view[:x_ray_pending_decision] rescue 0 %></span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="collapse" id="Medicalr">
+        <div class="sub-licard-header" id="Medical-Review-Received">Medical Review Received
+          <span><%= @fw_pending_view[:medical_review] rescue 0 %></span>
+        </div>
+      </div>
+      <div class="collapse" id="Medicalr1">
+        <div class="sub-licard-body" id="Medical-Review-Reviewed">Medical Review Reviewed
+          <span><%= @fw_pending_view[:medical_review] rescue 0 %></span>
+        </div>
+      </div>
+    </li>
+
+
   </ul>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Get a reference to the "Select All" checkbox
