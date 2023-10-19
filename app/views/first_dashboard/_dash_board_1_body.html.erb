@@ -95,6 +95,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-12 col-sm-12 col-md-9">
           <div class="row">
             <div class="col-12 col-sm-6 col-md-4 mb-2">
@@ -108,11 +109,22 @@
                         google.charts.load('current', {packages: ['corechart', 'bar']});
                         google.charts.setOnLoadCallback(drawStacked);
 
-                        function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                        function drawStacked() {
+                            var chartData = <%= @fw_reg_by_states.to_json.html_safe %>;
+
+                            // Check if chartData is empty
+                            if (chartData.length === 0) {
+                                // Use dummy data
+                                chartData = [
+                                    ['No Data Available', 0]
+                                    // Add more dummy data as needed
+                                ];
+                            }
+
                             var data = new google.visualization.DataTable();
                             data.addColumn('string', 'Total ');
                             data.addColumn('number', 'Total');
-                            data.addRows(<%= @fw_reg_by_states.to_json.html_safe%>);
+                            data.addRows(chartData);
 
                             var options = {
                                 hAxis: {
@@ -127,8 +139,8 @@
                                     title: 'Kits'
                                 },
                                 'chartArea': {'width': '100%'},
-
                             };
+
                             var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
                             chart.draw(data, options);
                         }
@@ -138,6 +150,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-12 col-sm-6 col-md-4 mb-2">
               <div class="chard-card">
                 <div class="card">
@@ -150,34 +163,51 @@
                         google.charts.setOnLoadCallback(drawChart);
 
                         function drawChart() {
-                            var data = google.visualization.arrayToDataTable(<%= @pi_chart_data.to_json.html_safe%>);
+                            var chartData = <%= @pi_chart_data.to_json.html_safe %>;
 
-                            var options = {
-                                legend: {
-                                    position: 'right',
-                                    alignment: 'center',
-                                },
-                                'chartArea': {'width': '120%', 'height': '120%'},
-                                vAxis: {minValue: 0},
-                                pieSliceText: 'percentage',
-                                pieSliceTextStyle: {
-                                    fontSize: 12, // Default font size
-                                },
-                            };
+                            if (chartData.length === 0) {
+                                // If there is no data, display a message or placeholder here
+                                var placeholderDiv = document.getElementById('piechart');
+                                placeholderDiv.innerHTML = "No Data to Display";
+                            } else {
+                                var data = google.visualization.arrayToDataTable(chartData);
 
-                            // Loop through the data to adjust font size for small values
-                            for (var row = 0; row < data.getNumberOfRows(); row++) {
-                                var value = data.getValue(row, 1);
-                                if (value < 7) {
-                                    options.pieSliceTextStyle.fontSize = 6; // Decrease font size for values less than 5
+                                var options = {
+                                    legend: {
+                                        position: 'right',
+                                        alignment: 'center',
+                                    },
+                                    'chartArea': {'width': '120%', 'height': '120%'},
+                                    vAxis: {minValue: 0},
+                                    pieSliceText: 'percentage',
+                                    pieSliceTextStyle: {
+                                        fontSize: 12, // Default font size
+                                    },
+                                };
+
+                                var maxFontSize = 12; // Default font size
+
+                                // Loop through the data to adjust font size for small values
+                                for (var row = 0; row < data.getNumberOfRows(); row++) {
+                                    var value = data.getValue(row, 1);
+                                    var fontSize = maxFontSize; // Set to default
+
+                                    if (value < 7) {
+                                        fontSize = 7; // Decrease font size for values less than 7
+                                    }
+                                    if (value < 3) {
+                                        fontSize = 5; // Further decrease font size for values less than 3
+                                    }
+
+                                    options.pieSliceTextStyle.fontSize = fontSize;
+
+                                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                    chart.draw(data, options);
                                 }
                             }
-
-                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                            chart.draw(data, options);
                         }
-
                     </script>
+
                     <div id="piechart" style="width: 100%; height:100%;"></div>
                   </div>
                 </div>
@@ -191,14 +221,23 @@
                   </div>
                   <div class="card-body p-1">
                     <script type="text/javascript">
-                        google.charts.load('current', {packages: ['corechart', 'bar']});
+                        google.charts.load('current', {'packages': ['corechart']});
                         google.charts.setOnLoadCallback(drawStacked);
 
-                        function drawStacked() {/* w  w w  . j  a  v a  2  s  .  c  om*/
+                        function drawStacked() {
+                            var chartData = <%= @fw_Reg_by_countries.to_json.html_safe %>;
+
+                            if (chartData.length === 0) {
+                                // If there is no data, create a placeholder data point with the message
+                                chartData = [
+                                    ['No Data', 0],
+                                ];
+                            }
+
                             var data = new google.visualization.DataTable();
-                            data.addColumn('string', ' Total');
+                            data.addColumn('string', 'Total');
                             data.addColumn('number', 'Total');
-                            data.addRows(<%= @fw_Reg_by_countries.to_json.html_safe%>);
+                            data.addRows(chartData);
 
                             var options = {
                                 hAxis: {
@@ -213,12 +252,13 @@
                                     title: 'Kits'
                                 },
                                 'chartArea': {'width': '100%'},
-
                             };
+
                             var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values1'));
                             chart.draw(data, options);
                         }
                     </script>
+
                     <div id="columnchart_values1" style="width: 100%; height:100%;"></div>
                   </div>
                 </div>
@@ -311,66 +351,79 @@
                             2023: year2023Data
                         };
 
+                        // Check if all data sets are empty
+                        var allDataEmpty = Object.keys(yearData).every(function (year) {
+                            return yearData[year].length === 0;
+                        });
+
                         // Create a function to initialize the chart
                         function initializeChart() {
-                            // Define an array of fixed colors
-                            var fixedColors = ['#FF5733', '#33FF57', '#5733FF', '#33FFFF', '#FFFF33'];
+                            if (allDataEmpty) {
+                                // If all data sets are empty, display a message
+                                var canvas = document.getElementById('canvas');
+                                var noDataMessage = document.createElement('div');
+                                noDataMessage.textContent = "No Data to Display";
+                                canvas.parentNode.replaceChild(noDataMessage, canvas);
+                            } else {
+                                // Define an array of fixed colors
+                                var fixedColors = ['#FF5733', '#33FF57', '#5733FF', '#33FFFF', '#FFFF33'];
 
-                            var datasets = Object.keys(yearData).map(function (year, index) {
-                                return {
-                                    label: 'Year ' + year,
-                                    backgroundColor: fixedColors[index % fixedColors.length], // Use fixed colors
-                                    borderColor: fixedColors[index % fixedColors.length], // Use fixed colors
-                                    fill: false,
-                                    data: yearData[year]
-                                };
-                            });
+                                var datasets = Object.keys(yearData).map(function (year, index) {
+                                    return {
+                                        label: 'Year ' + year,
+                                        backgroundColor: fixedColors[index % fixedColors.length], // Use fixed colors
+                                        borderColor: fixedColors[index % fixedColors.length], // Use fixed colors
+                                        fill: false,
+                                        data: yearData[year]
+                                    };
+                                });
 
-                            var config = {
-                                type: 'line',
-                                data: {
-                                    labels: yearLabels,
-                                    datasets: datasets
-                                },
-                                options: {
-                                    responsive: true,
-                                    maintainAspectRatio: false,
-                                    title: {
-                                        display: false,
-                                        text: 'Chart.js Line Chart - Logarithmic'
+                                var config = {
+                                    type: 'line',
+                                    data: {
+                                        labels: yearLabels,
+                                        datasets: datasets
                                     },
-                                    scales: {
-                                        xAxes: [{
-                                            display: true,
-                                            scaleLabel: {
-                                                display: false,
-                                                labelString: 'Date'
-                                            },
-                                        }],
-                                        yAxes: [{
-                                            display: true,
-                                            scaleLabel: {
-                                                display: false,
-                                                labelString: 'Index Returns'
-                                            },
-                                            ticks: {
-                                                min: 0,
-                                                max: 1000,
-                                                stepSize: 100
-                                            }
-                                        }]
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        title: {
+                                            display: false,
+                                            text: 'Chart.js Line Chart - Logarithmic'
+                                        },
+                                        scales: {
+                                            xAxes: [{
+                                                display: true,
+                                                scaleLabel: {
+                                                    display: false,
+                                                    labelString: 'Date'
+                                                },
+                                            }],
+                                            yAxes: [{
+                                                display: true,
+                                                scaleLabel: {
+                                                    display: false,
+                                                    labelString: 'Index Returns'
+                                                },
+                                                ticks: {
+                                                    min: 0,
+                                                    max: 1000,
+                                                    stepSize: 100
+                                                }
+                                            }]
+                                        }
                                     }
-                                }
-                            };
+                                };
 
-                            var ctx = document.getElementById('canvas').getContext('2d');
-                            window.myLine = new Chart(ctx, config);
+                                var ctx = document.getElementById('canvas').getContext('2d');
+                                window.myLine = new Chart(ctx, config);
+                            }
                         }
 
                         // Call the initialization function
                         initializeChart();
-
                     </script>
+
                   </div>
                 </div>
               </div>

@@ -47,8 +47,8 @@
 </span> 
 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
     <ul class="li-profile">
-      <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a onclick="five_min_reload()" class="dropdown-item"> 5 Min </a></li>
-      <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item" onclick="ten_min_reload()">10 Min</a></li>
+      <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a onclick="setReloadInterval(5*60)" class="dropdown-item"> 5 Min </a></li>
+      <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item" onclick="setReloadInterval(10*60)">10 Min</a></li>
   
   </ul>
 </div>
@@ -121,6 +121,18 @@
             $('#sidebar').toggleClass('active');
         });
     });
+    var count = 0;
+
+  function setReloadInterval(interval) {
+        clearInterval(myInterval); // Clear any previously set intervals
+        myInterval = setInterval(function () {
+            count++; // Increment the count
+            console.log("Count: " + count); // Display count in the console
+            window.location.reload(); // Refresh the page
+        }, interval * 1000); // Convert seconds to milliseconds
+    }
+
+    var myInterval; // Declare a variable to store the interval
     function five_min_reload(){
     setTimeout(function() {
       location.reload();

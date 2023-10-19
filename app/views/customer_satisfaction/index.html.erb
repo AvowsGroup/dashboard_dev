@@ -47,9 +47,9 @@
 </span> 
 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
     <ul class="li-profile">
-      <li onclick = "five_min_reload()" style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item"> 5 Min </a></li>
-      <li onclick = "ten_min_reload()" style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item">10 Min</a></li>
-      
+      <li onclick = "setReloadInterval(5*60)" style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item"> 5 Min </a></li>
+      <li onclick = "setReloadInterval(10*60)" style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;"><a class="dropdown-item">10 Min</a></li>
+
   
   </ul>
 </div>
@@ -132,6 +132,18 @@
            $('#regcheckall').on("click", function(){ $('input[name="regcheck"]').click(); });
            $('#agecheckall').on("click", function(){ $('input[name="agecheck"]').click(); });
     });
+    var count = 0;
+
+    function setReloadInterval(interval) {
+        clearInterval(myInterval); // Clear any previously set intervals
+        myInterval = setInterval(function () {
+            count++; // Increment the count
+            console.log("Count: " + count); // Display count in the console
+            window.location.reload(); // Refresh the page
+        }, interval * 1000); // Convert seconds to milliseconds
+    }
+
+    var myInterval; // Declare a variable to store the interval
      
     
     

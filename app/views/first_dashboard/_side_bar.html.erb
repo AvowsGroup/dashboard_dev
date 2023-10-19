@@ -361,7 +361,17 @@
 
 
     function getCheckedValues() {
-        var checkedValues = {};
+        var checkedValues = {
+            'DateRange': '',
+            'Sector': '',
+            'Country': '',
+            'State': '',
+            'Gender': '',
+            'Age': '',
+            'Registration': '',
+            'ForeginWorker': ''
+        };
+
 
         checkedValues['DateRange'] = $('#date-range').val();
 
