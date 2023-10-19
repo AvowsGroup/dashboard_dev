@@ -8,10 +8,10 @@
             <div class="filtereaccordion" id="filter">
               <div class="card">
                 <div class="card-header" id="faqhead1">
-                  <a href="#" class="filter-link" data-toggle="collapse" data-target="#time-period" aria-expanded="true" aria-controls="time-period">Time
+                  <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#time-period" aria-expanded="false" aria-controls="time-period">Time
                     Period</a>
                 </div>
-                <div id="time-period" class="collapse show" aria-labelledby="faqhead1" data-parent="#filter">
+                <div id="time-period" class="collapse" aria-labelledby="faqhead1" data-parent="#filter">
                   <div class="card-body">
                     <script>
                         $(document).ready(function () {
@@ -150,9 +150,9 @@
 
               <div class="card">
                 <div class="card-header" id="filter5">
-                  <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#age" aria-expanded="true" aria-controls="age">Age</a>
+                  <a href="#" class="filter-link collapsed" data-toggle="collapse" data-target="#age" aria-expanded="false" aria-controls="age">Age</a>
                 </div>
-                <div id="age" class a="collapse" aria-labelledby="filter5" data-parent="#filter">
+                <div id="age" class="collapse" aria-labelledby="filter5" data-parent="#filter">
                   <div class="card-body">
                     <ul class="subment-li">
                       <li>
@@ -244,15 +244,8 @@
               </div>
               <div class="filter-btn">
                 <button id="applyFilter" class="btn-apply" data-toggle="collapse" data-target="#tag_demo" onclick="apply_filter()">Apply</button>
-                <button class="btn-clear" onclick="clear_filter()" id="sidebarCollapse">Clear</button>
+                <button id="clearButton" class="btn-clear" onclick="clear_filter()" id="sidebarCollapse">Clear</button>
               </div>
-              <style>
-                  .filter-btn {
-                      position: sticky;
-                      bottom: 0;
-                      z-index: 999; /* Ensure it's on top of other content */
-                  }
-              </style>
             </div>
           </div>
           <div id="result"></div>
@@ -310,6 +303,24 @@
   </div>
 </div>
 
+<style>
+    #sidebar {
+        height: 600px; /* Adjust the height as needed */
+    }
+
+    /* Maintain proper alignment for filter and buttons */
+    .filter-btn {
+        position: sticky;
+        bottom: 0;
+        z-index: 999;
+    }
+
+    .collapse.show {
+        margin-bottom: 0; /* Adjust as needed */
+    }
+</style>
+
+
 <script type="text/javascript">
     // app/assets/javascripts/filter.js
     function apply_filter() {
@@ -330,6 +341,7 @@
             data: selectedValues
         });
     }
+
 
     function clearAllInputs() {
         // Clear checkboxes
@@ -357,6 +369,8 @@
         checkedValues['Sector'] = $('#Sector input[type="checkbox"]:checked').map(function () {
             return $(this).val();
         }).get().join(' ');
+
+        // console.log('Sector:', checkedValues['Sector'])
 
         // Retrieve values from Country
         checkedValues['Country'] = [];
@@ -401,6 +415,8 @@
             return $(this).val();
         }).get().join(' ');
 
+        // console.log('State:', checkedValues['State'])
+
         // Retrieve values from Gender
         checkedValues['Gender'] = $('#Gender input[type="checkbox"]:checked').map(function () {
             return $(this).val();
@@ -421,7 +437,7 @@
             return $(this).val();
         }).get().join(' ');
 
-        console.log('Registration:', checkedValues['Registration']);
+        // console.log('Registration:', checkedValues['Registration']);
         // Add even more divs as needed
 
 

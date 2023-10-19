@@ -150,21 +150,33 @@
                         google.charts.setOnLoadCallback(drawChart);
 
                         function drawChart() {
-
                             var data = google.visualization.arrayToDataTable(<%= @pi_chart_data.to_json.html_safe%>);
 
                             var options = {
-
-                                legend: {position: 'right'},
+                                legend: {
+                                    position: 'right',
+                                    alignment: 'center',
+                                },
                                 'chartArea': {'width': '120%', 'height': '120%'},
                                 vAxis: {minValue: 0},
                                 pieSliceText: 'percentage',
+                                pieSliceTextStyle: {
+                                    fontSize: 12, // Default font size
+                                },
                             };
 
-                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            // Loop through the data to adjust font size for small values
+                            for (var row = 0; row < data.getNumberOfRows(); row++) {
+                                var value = data.getValue(row, 1);
+                                if (value < 7) {
+                                    options.pieSliceTextStyle.fontSize = 6; // Decrease font size for values less than 5
+                                }
+                            }
 
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                             chart.draw(data, options);
                         }
+
                     </script>
                     <div id="piechart" style="width: 100%; height:100%;"></div>
                   </div>
