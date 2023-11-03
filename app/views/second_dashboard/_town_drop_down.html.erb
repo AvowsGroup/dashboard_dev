@@ -1,6 +1,6 @@
    <select  id="district-select" class="form-control" aria-label="Filter select">
     <option> Select District</option>
-    <option value="">All</option>
+    <option value="0">All</option>
     <%= @towns.each do |town|%>
       <option value=<%=town.second%>><%= town.first%></option> 
     <% end %>
