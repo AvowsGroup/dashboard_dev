@@ -23,11 +23,13 @@
                              <script>
                              $(document).ready(function() {
                              $('#date-range').daterangepicker({
+                             "startDate": "01/01/2023",
+                             "endDate": "31/12/2023",
                              opens: 'left',
                              drops: 'down',
                              autoApply: true,
                              locale: {
-                             format: 'YYYY-MM-DD',
+                             format: 'DD/MM/YYYY',
                              separator: ' - ',
                              applyLabel: 'Apply',
                              cancelLabel: 'Cancel',
