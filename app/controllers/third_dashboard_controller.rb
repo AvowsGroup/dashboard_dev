@@ -127,14 +127,14 @@ class ThirdDashboardController < ApplicationController
       {
         KPI: 10,
         task: 'Payment to service providers (Doctor, X-ray, Laboratory)',
-        TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.\n\nThe payments will be generated into 5 batches based on the certification dates:\n\na) 1st - 6th\nb) 7th - 12th\nc) 13th -18th\nd) 19th -24th\ne) 25th -30th',
+        TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '100%'
       },
       {
         KPI: 10,
         task: 'Refund to Employers',
         TAT: '80%',
-        target: ''
+        target: '80%'
       },
       {
         KPI: 10,

@@ -109,7 +109,7 @@
                 </div>
                 <select id="state-select" class="form-control" aria-label="Filter select" onchange="towns_collect()">
                   <option>Select State</option>
-                  <option>All</option><% @states.each do |state| %> <option value="<%= state.second %>"><%= state.second %> </option><% end %>
+                  <option value="">All</option><% @states.each do |state| %> <option value="<%= state.second %>"><%= state.second %> </option><% end %>
                 </select>
               </div>
             </div>
@@ -155,8 +155,8 @@
             $(document).ready(function() {
               $(function() {
                 $('input[name="daterange"]').daterangepicker({
-                  "startDate": "18/08/2023",
-                  "endDate": "28/08/2023",
+                  "startDate": "01/01/2023",
+                  "endDate": "31/12/2023",
                   opens: 'center',
                   locale: {
                     format: 'DD/MM/YYYY'
