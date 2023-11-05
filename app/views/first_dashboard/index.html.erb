@@ -139,14 +139,16 @@
         });
 
         $('#sectorcheckall').on("click", function () {
+           $('input[name="sectorcheck"]').removeAttr('checked');
             $('input[name="sectorcheck"]').click();
         });
-
         $('#statecheckall').on("click", function () {
+            $('input[name="statecheck"]').removeAttr('checked');
             $('input[name="statecheck"]').click();
         });
 
         $('#countrycheckall').on("click", function () {
+           $('input[name="countrycheck"]').removeAttr('checked');
             var countryCheckboxes = $('input[name="countrycheck"]');
             countryCheckboxes.prop('checked', this.checked);
 
@@ -158,21 +160,22 @@
             checkedValues['Country'] = ['Others'].concat(allCountries);
         });
 
-        $('#agecheckall').on("click", function () {
+     $('#agecheckall').on("click", function () {
+           $('input[name="agecheck"]').removeAttr('checked');
             $('input[name="agecheck"]').click();
         });
-
         $('#gendercheckall').on("click", function () {
+           $('input[name="gendercheck"]').removeAttr('checked');
             $('input[name="gendercheck"]').click();
         });
-
         $('#registrationcheckall').on("click", function () {
+             $('input[name="registrationcheck"]').removeAttr('checked');
             $('input[name="registrationcheck"]').click();
         });
-
         $('#foreignworkercheckall').on("click", function () {
+           $('input[name="foreignworkercheck"]').removeAttr('checked');
             $('input[name="foreignworkercheck"]').click();
-        });
+        });   
     //     $('input[type="radio"]').click(function(){
     //     var inputValue = $(this).attr("value");
     //     var targetBox = $("." + inputValue);
