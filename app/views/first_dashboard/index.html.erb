@@ -123,20 +123,23 @@
     </div>
     <div class="dashboard-body">
       <div class="chard-box">
-        <div class="container-fluid">
+         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
               <div class="tags collapse" id="tag_demo">
-                <span>Agriculture</span>
-                <span>Customer</span>
-                <span>Registration Medium </span>
-                <span>18 to 29</span>
-                <span>Men </span>
+                <span><div id="timeperiodselected"></div></span>
+                <span id="spansector"><div id="sectorselected"></div></span>
+                <span id="spanstate"><div id="stateselected"></div></span>
+                <span id="spancountry"><div id="countryselected"></div></span>
+                <span id="spanage"><div id="ageselected"></div> </span>
+                 <span id="spangender"><div id="genderselected"></div> </span>
+                  <span id="spanreg"><div id="regselected"></div> </span>
+                   <span id="spanfw"><div id="fwselected"></div> </span>
                 <a class="close" data-toggle="collapse" data-target="#tag_demo" style="font-size: 18px;">&times;</a>
               </div>
             </div>
           </div>
-        </div>
+        </div>        
         <div>
           <div class="wrapper">
             <!-- Sidebar  --><%= render 'side_bar'%>
