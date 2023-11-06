@@ -441,20 +441,14 @@
 
 <script type="text/javascript">
     function excel_generate() {
-        let ids =
-        <%= @transactions.ids%>
-        var jsonData = JSON.stringify(ids);
-        $.ajax({
-            type: 'POST',
-            url: '/first_dashboard/excel_generate',
-            data: jsonData,
-            success: function (data) {
-                var iframe = $('<iframe>', {
-                    src: '/first_dashboard/excel_generate', // Use the same URL as the Ajax request
-                    style: 'display: none'
-                });
-                $('body').append(iframe);
-            }
-        })
-    };
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+        var form = $('<form action="/first_dashboard/excel_generate" method="post"></form>');
+        $('body').append(form);
+
+        form.append('<input type="hidden" name="authenticity_token" value="' + csrfToken + '">');
+        form.submit();
+        form.remove();
+    }
+    
 </script>

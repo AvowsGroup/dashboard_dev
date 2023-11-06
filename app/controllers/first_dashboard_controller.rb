@@ -98,13 +98,147 @@ class FirstDashboardController < ApplicationController
   end
 
   def excel_generate
-    @data = Transaction.find(params.keys[0].split(",")) rescue Transaction.all # Fetch data from your model
+   @countries = Country.pluck(:name).compact.uniq
+      countries_with_ids = Country.where(name: @countries).pluck(:name, :id).to_h
+      @total_fw_registration = {}
+      @examination_count = {}
+      @certification_count = {}
+      @xqcc_pool_received = {}
+      @xqcc_pool_reviewed = {}
+      @pcr_pool_received = {}
+      @pcr_pool_reviewed ={}
+      @xray_pending_review_received = {}
+      @xray_pending_review_reviewed = {}
+      @xray_pending_decision_received = {}
+      @xray_pending_decision_reviewed = {}
+    @countries.each do |country|
+      country_id = countries_with_ids[country]
+
+      total_fw_registration_count = Transaction.where(fw_country_id: country_id)
+                                               .order(created_at: :desc)
+                                               .limit(50)
+                                               .count
+      @total_fw_registration[country] = total_fw_registration_count
+
+      examination_count =  Transaction.where(fw_country_id: country_id)
+                                      .where("EXTRACT(YEAR FROM medical_examination_date) = ? AND medical_examination_date < ?", Date.current.year, Date.current)
+                                      .order(created_at: :desc)
+                                      .limit(50)
+                                      .count
+      @examination_count[country] = examination_count
+
+      certification_count = Transaction.where(fw_country_id: country_id)
+                                       .where("EXTRACT(YEAR FROM medical_examination_date) = ? AND medical_examination_date < ?", Date.current.year, Date.current)
+                                       .order(created_at: :desc)
+                                       .limit(50)
+                                       .count
+      @certification_count[country] = certification_count
+
+      xqcc_pool_received = Transaction.joins("JOIN xqcc_pools ON xqcc_pools.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                      .limit(50)
+                                      .group('xqcc_pools.created_at, transactions.certification_date, transactions.created_at')
+                                      .count
+      @xqcc_pool_received[country] = xqcc_pool_received
+
+      xqcc_pool_reviewed = Transaction.joins("JOIN xray_reviews ON xray_reviews.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                      .limit(50)
+                                      .group('xray_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
+                                      .count
+      @xqcc_pool_reviewed[country] = xqcc_pool_reviewed
+
+      pcr_pool_received = Transaction.joins("JOIN pcr_pools ON pcr_pools.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                      .limit(50)
+                                      .group('pcr_pools.created_at, transactions.certification_date, transactions.created_at')
+                                      .count
+      @pcr_pool_received[country] = pcr_pool_received
+
+      pcr_pool_reviewed = Transaction.joins("JOIN pcr_reviews ON pcr_reviews.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                      .limit(50)
+                                      .group('pcr_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
+                                      .count
+      @pcr_pool_reviewed[country] = pcr_pool_reviewed
+
+      xray_pending_review_received = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                     .limit(50)
+                                     .group('xray_pending_reviews.created_at, transactions.certification_date, transactions.created_at')
+                                     .count
+      @xray_pending_review_received[country] = xray_pending_review_received
+
+      xray_pending_review_reviewed = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                                .limit(50)
+                                                .group('xray_pending_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
+                                                .count
+      @xray_pending_review_reviewed[country] = xray_pending_review_reviewed
+
+      xray_pending_decision_received = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                               .limit(50)
+                                               .group('xray_pending_decisions.created_at, transactions.certification_date, transactions.created_at')
+                                               .count
+      @xray_pending_decision_received[country] = xray_pending_decision_received
+
+      xray_pending_decision_reviewed = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id") .order('transactions.created_at DESC')
+                                               .limit(50)
+                                               .group('xray_pending_decisions.transmitted_at, transactions.certification_date, transactions.created_at')
+                                               .count
+      @xray_pending_decision_reviewed[country] = xray_pending_decision_reviewed
+
+    end
+    @states = State.pluck(:name).compact.uniq
+    @job_type = JobType.pluck(:name).compact.uniq
+    @organizations = Organization.pluck(:name).uniq
+    @sheet_data = {
+      'FW Reg. by Country' => [
+        'FW Registration by Country',
+        ['FW Registration by Country', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'FW Reg. by State' => [
+        'FW Registration by State',
+        ['FW Registration by State', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'FW Reg. by Sector' => [
+        'FW Registration by Sector',
+        ['FW Registration by Sector', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'FW Reg. by Gender' => [
+        'FW Registration by Gender',
+        ['FW Registration by Gender', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'FW Reg. by Registration at' => [
+        'FW Registration by Registration at',
+        ['FW Registration by Sector', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'FW Reg. by FW Type' => [
+        'FW Registration by FW Type',
+        ['FW Registration by FW Type', 'Total FW Registration', 'FW went for medical examination', 'Certification', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'Trend of FW Reg. by year' => [
+        'Trend of FW registration by Year',
+        ['Transaction date by Month', 'Transaction date by Day', '2019', '2020', '2021', '2022', '2023', 'Count'],
+      ],
+      'Raw Data 2023' => [
+        'Data 2023',
+        ['Transaction Date (Month)', 'Medical Examination Date (Month)', 'Certification Date (Month)', 'State', 'Country', 'Age', 'Gender', 'Registration at', 'Foreign Worker Type', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'Raw Data 2022' => [
+        'Data 2022',
+        ['Transaction Date (Month)', 'Medical Examination Date (Month)', 'Certification Date (Month)', 'State', 'Country', 'Age', 'Gender', 'Registration at', 'Foreign Worker Type', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'Raw Data 2021' => [
+        'Data 2021',
+        ['Transaction Date (Month)', 'Medical Examination Date (Month)', 'Certification Date (Month)', 'State', 'Country', 'Age', 'Gender', 'Registration at', 'Foreign Worker Type', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'Raw Data 2020' => [
+        'Data 2020',
+        ['Transaction Date (Month)', 'Medical Examination Date (Month)', 'Certification Date (Month)', 'State', 'Country', 'Age', 'Gender', 'Registration at', 'Foreign Worker Type', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ],
+      'Raw Data 2019' => [
+        'Data 2019',
+        ['Transaction Date (Month)', 'Medical Examination Date (Month)', 'Certification Date (Month)', 'State', 'Country', 'Age', 'Gender', 'Registration at', 'Foreign Worker Type', 'XQCC Pool (Film Received)', 'XQCC Pool (Film Reviewed)', 'PCR Pool (Film Received)', 'PCR Pool (Film Reviewed)', 'X-Ray Pending Review (Film Received)', 'X-Ray Pending Review (Film Reviewed)', 'X-Ray Pending Decision (Film Received)', 'X-Ray Pending Decision (Film Reviewed)', 'Medical Review (Received)', 'Medical Review (Reviewed)', 'Final Result Released', 'Result Transmitted to Immigration', 'Blocked FW', 'Appeal', 'FW Insured'],
+      ]
+    }
+
     respond_to do |format|
-      format.xlsx do
-        response.headers['Content-Disposition'] = 'attachment; filename="your_file.xlsx"'
-        # Set other headers if necessary
-        render xlsx: 'excel_generate', filename: 'your_file.xlsx'
-      end
+      format.xlsx { render xlsx: 'excel_generate', filename: 'Report.xlsx' }
     end
   end
 

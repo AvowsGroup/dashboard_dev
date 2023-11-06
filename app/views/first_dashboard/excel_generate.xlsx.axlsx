@@ -1,17 +1,54 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: 'YourModel Data') do |sheet|
-  # Add headers
-  sheet.add_row [
-    'Transaction ID', 'Code', 'Doctor ID', 'Medical Exam Date', 'Certification Date', 'FW Gender', 'FW Country ID', 'FW Job Type ID',
-    'Created At', 'Updated At'
-  ]
 
-  # Add data
-  @data.each do |record|
-    sheet.add_row [
-      record.id, record.code, record.doctor_id, record.medical_examination_date,
-      record.certification_date, record.fw_gender, record.fw_country_id, record.fw_job_type_id,
-      record.created_at, record.updated_at
-    ]
-  end
-end
+@sheet_data.each do |sheet_name, data|
+  wb.add_worksheet(name: sheet_name) do |sheet|
+    title = data[0] # Extract the title
+    headers = data[1] # Extract the headers
+
+    title_style = sheet.styles.add_style(b: true, alignment: { horizontal: :center }, sz: 15) # Bold and center the title
+    header_style = sheet.styles.add_style(b: true, sz: 13) # Bold the headers
+    data_style = sheet.styles.add_style # Regular style for data rows
+
+    # Add the title at the top in bold
+    sheet.add_row([title], style: title_style)
+
+    # Add the headers in a single row (in bold)
+    sheet.add_row(headers, style: header_style)
+
+     case sheet_name
+        when 'FW Reg. by Country'
+          @countries.each do |country|
+            total_registration = @total_fw_registration[country] || 0
+            examination_count = @examination_count[country] || 0
+            certification_count = @certification_count[country] || 0
+            xqcc_pool_received =@xqcc_pool_received[country].presence || 0
+            xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence  || 0
+            pcr_pool_received = @pcr_pool_received[country].presence  || 0
+            pcr_pool_reviewed = @pcr_pool_reviewed[country].presence  || 0
+            xray_pending_review_received = @xray_pending_review_received[country].presence  || 0
+            xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence  || 0
+            xray_pending_decision_received = @xray_pending_decision_received[country].presence  || 0
+            xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[country].presence  || 0
+            sheet.add_row([country, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, pcr_pool_reviewed, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+          end
+        when 'FW Reg. by State'
+            @states.each do |state|
+              sheet.add_row([state], style: data_style)
+            end
+         when 'FW Reg. by Sector'
+            @job_type.each do |job_type|
+              sheet.add_row([job_type], style: data_style)
+            end
+         when 'FW Reg. by Gender'
+             sheet.add_row(['Male'], style: data_style)
+             sheet.add_row(['Female'], style: data_style)
+         when 'FW Reg. by Registration at'
+             @organizations.each do |organization|
+               sheet.add_row([organization], style: data_style)
+             end
+         when 'FW Reg. by FW Type'
+              sheet.add_row(['New'], style: data_style)
+              sheet.add_row(['Renewal'], style: data_style)
+        end
+      end
+    end
