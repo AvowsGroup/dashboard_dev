@@ -178,12 +178,7 @@ class ThirdDashboardController < ApplicationController
         TAT: '3 WD',
         target: '80%'
       },
-      {
-        KPI: kpi_percentage("ApprovalRequest", "requested_at", "approved_at", 3, true, @params),
-        task: 'Special Renewal Approval (unfit)',
-        TAT: '3 WD',
-        target: '80%'
-      },
+      
       {
         KPI: 0, # kpi_percentage("ApprovalRequest","requested_at","approved_at",3,true,@params),
         task: 'Update employer details',
