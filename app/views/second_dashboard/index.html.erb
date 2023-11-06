@@ -108,8 +108,8 @@
                   </span>
                 </div>
                 <select id="state-select" class="form-control" aria-label="Filter select" onchange="towns_collect()">
-                  <option>Select State</option>
-                  <option value="">All</option><% @states.each do |state| %> <option value="<%= state.second %>"><%= state.second %> </option><% end %>
+                  <option value="">Select State</option>
+                  <option >All</option><% @states.each do |state| %> <option value="<%= state.second %>"><%= state.second %> </option><% end %>
                 </select>
               </div>
             </div>
