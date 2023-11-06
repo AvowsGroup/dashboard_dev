@@ -327,6 +327,54 @@
     // app/assets/javascripts/filter.js
     function apply_filter() {
         var selectedValues = JSON.stringify(getCheckedValues());
+        $('#timeperiodselected')[0].innerHTML=JSON.parse(selectedValues).DateRange;
+        if(JSON.parse(selectedValues).Sector!=""){
+            $('#spansector').css("display","block")
+         $('#sectorselected')[0].innerHTML=JSON.parse(selectedValues).Sector;
+        }
+        else
+          $('#spansector').css("display","none")
+        if(JSON.parse(selectedValues).State!=""){
+           $('#spanstate').css("display","block")
+           $('#stateselected')[0].innerHTML=JSON.parse(selectedValues).State;
+        }
+        else{
+          $('#spanstate').css("display","none")
+        }
+        if(JSON.parse(selectedValues).Country!=""){
+         $('#spancountry').css("display","block")
+         $('#countryselected')[0].innerHTML=JSON.parse(selectedValues).Country;
+        }
+        else
+          $('#spancountry').css("display","none")
+       if(JSON.parse(selectedValues).age!=""){
+        $('#spanage').css("display","block")
+         $('#ageselected')[0].innerHTML=JSON.parse(selectedValues).age;
+       }
+       else{
+        $('#spanage').css("display","none")
+       }
+       if(JSON.parse(selectedValues).Gender!=""){
+         $('#spangender').css("display","block")
+         $('#genderselected')[0].innerHTML=JSON.parse(selectedValues).Gender;
+       }
+       else{
+         $('#spangender').css("display","none")
+       }
+       if(JSON.parse(selectedValues).Registration!=""){
+         $('#spanreg').css("display","block")
+         $('#regselected')[0].innerHTML=JSON.parse(selectedValues).Registration;
+       }
+       else{
+        $('#spanreg').css("display","none")
+       }
+       if(JSON.parse(selectedValues).ForeginWorker!=""){
+         $('#spanfw').css("display","block")
+         $('#fwselected')[0].innerHTML=JSON.parse(selectedValues).ForeginWorker;
+       }
+       else{
+         $('#spanfw').css("display","none")
+       }
         $.ajax({
             type: 'GET',
             url: '/first_dashboard/index.js', // Replace with your Rails route
