@@ -154,43 +154,39 @@
             $('#sidebar').toggleClass('active');
         });
 
-        $('#sectorcheckall').on("click", function () {
+      $('#sectorcheckall').on("click", function () {
            $('input[name="sectorcheck"]').prop('checked',false);
-            $('input[name="sectorcheck"]').click();
+            $('input[name="sectorcheck"]').prop('checked',this.checked);
         });
         $('#statecheckall').on("click", function () {
             $('input[name="statecheck"]').prop('checked',false);
-            $('input[name="statecheck"]').click();
+            $('input[name="statecheck"]').prop('checked',this.checked);
         });
-
         $('#countrycheckall').on("click", function () {
-           $('input[name="countrycheck"]').prop('checked',false);
+          $('input[name="countrycheck"]').prop('checked',false);
             var countryCheckboxes = $('input[name="countrycheck"]');
             countryCheckboxes.prop('checked', this.checked);
-
             // Check or uncheck the "Others" checkbox as well
             $('#Country input[name="countrycheck"][value="Others"]').prop('checked', this.checked);
-
             // Add "Others" and all countries to the selected values
             var allCountries = <%= @countries.to_json.html_safe %>;
             checkedValues['Country'] = ['Others'].concat(allCountries);
         });
-
-     $('#agecheckall').on("click", function () {
+        $('#agecheckall').on("click", function () {
            $('input[name="agecheck"]').prop('checked',false);
-            $('input[name="agecheck"]').click();
+            $('input[name="agecheck"]').prop('checked',this.checked);
         });
         $('#gendercheckall').on("click", function () {
            $('input[name="gendercheck"]').prop('checked',false);
-            $('input[name="gendercheck"]').click();
+            $('input[name="gendercheck"]').prop('checked',this.checked);
         });
         $('#registrationcheckall').on("click", function () {
              $('input[name="registrationcheck"]').prop('checked',false);
-            $('input[name="registrationcheck"]').click();
+             $('input[name="registrationcheck"]').prop('checked',this.checked);
         });
         $('#foreignworkercheckall').on("click", function () {
            $('input[name="foreignworkercheck"]').prop('checked',false);
-            $('input[name="foreignworkercheck"]').click();
+            $('input[name="foreignworkercheck"]').prop('checked',this.checked);
         });   
     //     $('input[type="radio"]').click(function(){
     //     var inputValue = $(this).attr("value");
