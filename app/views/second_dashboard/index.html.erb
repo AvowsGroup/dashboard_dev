@@ -641,10 +641,17 @@
       data: data
     })
   }
-  function closejohoricon(){
-     $("#divtotal_malaysialist").show();
-    $('#div_johor_states').hide()
-    clearvalues();
-   
-  } 
+  function clearvalues(){
+    $('#state-select').val("")
+    $('#district-select').val("")
+    $('input[name="daterange"]').daterangepicker({
+                  "startDate": "01/01/2023",
+                  "endDate": "31/12/2023",
+                  opens: 'center',
+                  locale: {
+                    format: 'DD/MM/YYYY'
+                  }
+     });
+
+  }
 </script>
