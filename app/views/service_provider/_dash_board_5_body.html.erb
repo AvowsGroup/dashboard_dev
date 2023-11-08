@@ -210,6 +210,13 @@
                                 
                                 }
             };
+             chart
+                    .tooltip()
+                    .position('center-top')
+                    .anchor('center-bottom')
+                    .offsetX(0)
+                    .offsetY(5)
+                    .format('{%Value}');
 
             //draw my chart
            chart.draw(data, options);

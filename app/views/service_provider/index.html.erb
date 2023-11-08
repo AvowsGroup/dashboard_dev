@@ -143,5 +143,32 @@ function ten_min_reload(){
       location.reload();
     }, 600000); 
 }  
+function updateDisplayedValues(checkedValues) {
+        // Doctor Value
+        if (checkedValues['doctor']) {
+            $('#doctorValue').text(checkedValues['doctor']);
+            $('.doctorBlock').show(); // Show the entire Doctor block
+            $('.doctorImage').show(); // Show the Doctor image
+        } else {
+            $('.doctorBlock').hide(); // Hide the entire Doctor block
+        }
+
+        if (checkedValues['xray']) {
+            $('#xrayValue').text(checkedValues['xray']);
+            $('.xrayBlock').show(); // Show the entire Doctor block
+            $('.xrayImage').show(); // Show the Doctor image
+        } else {
+            $('.xrayBlock').hide(); // Hide the entire Doctor block
+        }
+        // Laboratory Value
+        if (checkedValues['lab']) {
+            $('#laboratoryValue').text(checkedValues['lab']);
+            $('.laboratoryBlock').show(); // Show the entire Laboratory block
+            $('.laboratoryImage').show(); // Show the Laboratory image
+        } else {
+            $('.laboratoryBlock').hide(); // Hide the entire Laboratory block
+        }
+    }
+
 </script>
  
