@@ -152,6 +152,10 @@
       data: selectedValues
     });
   }
+  function closeSidebar() {
+        // Close the sidebar by removing the 'active' class
+        $('#sidebar').removeClass('active');
+    }
   function getCheckedValues() {
   var checkedValues = {};  
   
@@ -165,12 +169,48 @@
         return checkedValues;
 }
  function apply_filter() {
-        debugger;
+       if ($('#txtdoctor').val() != "") {
+            $('#divcertdoctor').css("display", "block");
+            $('#divdoctortransm').css("display", "block");
+            $('#divlabtrans').css("display", "none");
+            $('#divxrayquality').css("display", "none");
+            $('#divxraytrans').css("display", "none");
+        } else if ($('#txtxray').val() != "") {
+            $('#divcertdoctor').css("display", "none");
+            $('#divdoctortransm').css("display", "none");
+            $('#divlabtrans').css("display", "none");
+            $('#divxrayquality').css("display", "block");
+            $('#divxraytrans').css("display", "block");
+        } else if ($('#txtlab').val() != "") {
+            $('#divcertdoctor').css("display", "none");
+            $('#divdoctortransm').css("display", "none");
+            $('#divlabtrans').css("display", "block");
+            $('#divxrayquality').css("display", "none");
+            $('#divxraytrans').css("display", "none");
+        }
+        if ($('#txtdoctor').val() != "" && $('#txtxray').val() != "") {
+            $('#divcertdoctor').css("display", "block");
+            $('#divdoctortransm').css("display", "block");
+            $('#divlabtrans').css("display", "none");
+            $('#divxrayquality').css("display", "block");
+            $('#divxraytrans').css("display", "block");
+        }
+        if ($('#txtdoctor').val() != "" && $('#txtxray').val() != "" && $('#txtlab').val() != "") {
+            $('#divcertdoctor').css("display", "block");
+            $('#divdoctortransm').css("display", "block");
+            $('#divlabtrans').css("display", "block");
+            $('#divxrayquality').css("display", "block");
+            $('#divxraytrans').css("display", "block");
+        }
     var selectedValues = JSON.stringify(getCheckedValues());
     $.ajax({
       type: 'GET',
       url: '/service_provider/index.js',//ReplacewithyourRails route
-      data: selectedValues
+      data: selectedValues,
+      success: function () {
+                closeSidebar();
+            }
     });
+    closeSidebar();
   }
 </script>
