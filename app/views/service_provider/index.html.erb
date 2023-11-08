@@ -101,11 +101,11 @@
             </div>
             <div class="xrayBlock">
                 <span class="allcode_tagright"><b id="xrayValue"><%=@xray_grade%></b><i>Xray Code</i></span>
-                <span class="allcode_tagleft"><img class="xrayImage" src="images/grade.jpg"></span>
+                <span class="allcode_tagleft"><%= image_tag 'grade.jpg', class: 'doctorImage' %></span>
             </div>
             <div class="laboratoryBlock">
                 <span class="allcode_tagright"><b id="laboratoryValue"><%=@laboratory_grade%></b><i>Laboratory Code</i></span>
-                <span class="allcode_tagleft"><img class="labImage" src="images/grade.jpg"></span>
+                <span class="allcode_tagleft"><%= image_tag 'grade.jpg', class: 'doctorImage' %></span>
             </div>
           </div>
           <a class="close" data-toggle="collapse" data-target="#tag_demo" style="font-size: 18px;">&times;</a>
