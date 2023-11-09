@@ -1,4 +1,4 @@
-class Dashboards::DepInformationController < ApplicationController
+class ThirdDashboardController < ApplicationController
   before_action :initialize_date_range, only: [:index, :kpi_percentage, :review_xray, :pcr_xray]
 
   def index
