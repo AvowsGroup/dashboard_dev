@@ -62,7 +62,7 @@ class ThirdDashboardController < ApplicationController
         target: '80%'
       },
       {
-        KPI: kpi_percentage("Employer", 2),
+        KPI: kpi_round_off,
         task: 'Employer Registration',
         TAT: '2wd',
         target: '80%'
@@ -80,14 +80,14 @@ class ThirdDashboardController < ApplicationController
         target: '80%'
       },
       {
-        KPI: kpi_percentage("FwChangeEmployer", 3),
+        KPI: kpi_round_off,
         task: 'Change Employer (transfer worker)',
         TAT: '3wd',
         target: '80%'
       },
       
       {
-        KPI: kpi_percentage("ApprovalRequest", 3),
+        KPI: kpi_round_off,
         task: 'Update Employer Detail Approval (Employer)',
         TAT: '3wd',
         target: '80%'
@@ -99,7 +99,7 @@ class ThirdDashboardController < ApplicationController
         target: '80%'
       },
       {
-        KPI: pcr_xray,
+        KPI: kpi_round_off,
         task: 'Audit - Abnormal chest X-ray',
         TAT: '48 hours from the date of certification',
         target: '80%'
@@ -111,7 +111,7 @@ class ThirdDashboardController < ApplicationController
         target: '80%'
       },
       {
-        KPI: kpi_percentage("Laboratory", nil),
+        KPI: kpi_round_off,
         task: 'Laboratory',
         TAT: 'Calendar year',
         target: '100%'
@@ -171,31 +171,31 @@ class ThirdDashboardController < ApplicationController
         target: '100%'
       },
       {
-        KPI: kpi_percentage("FwChangeEmployer", 3),
+        KPI: kpi_round_off,
         task: 'Change of employer (transfer)',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", 3),
+        KPI: kpi_round_off,
         task: 'Amendment of Foreign worker info',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", 3),
+        KPI: kpi_round_off,
         task: 'Special Renewal Approval (unfit)',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", 3),
+        KPI: kpi_round_off,
         task: 'Update employer details',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", 3),
+        KPI: kpi_round_off,
         task: 'Employer Registration Approval',
         TAT: '2wd',
         target: '80%'
@@ -207,13 +207,13 @@ class ThirdDashboardController < ApplicationController
         target: '90%'
       },
       {
-        KPI: kpi_percentage("ApprovalandActivation", 14),
+        KPI: kpi_round_off,
         task: 'Approval for registration of service provider',
         TAT: '14wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalandActivation", 10),
+        KPI: kpi_round_off,
         task: 'Activating new service provider',
         TAT: '10wd',
         target: '80%'
