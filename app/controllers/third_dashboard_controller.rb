@@ -274,7 +274,7 @@ class ThirdDashboardController < ApplicationController
     end
 
     if model_name == "Laboratory" || model_name == "DoctorVisit" || model_name == "XrayFacility"
-      achieved_count = total_visit
+      #achieved_count = total_visit
       total_count = total_active
     else
       total_count = achieved_count + not_achieved_count
