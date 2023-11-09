@@ -133,13 +133,13 @@ class ThirdDashboardController < ApplicationController
       {
         KPI: 10,
         task: 'Refund to Employers',
-        TAT: '80%',
+        TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '80%'
       },
       {
         KPI: 10,
         task: 'Insurance payment to Fomema Global Sdn Bhd',
-        TAT: '100%',
+        TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '80%'
       },
       {
