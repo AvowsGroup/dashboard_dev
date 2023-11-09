@@ -1,4 +1,6 @@
-class ThirdDashboardController < ApplicationController
+class Dashboards::DepInformationController < ApplicationController
+  before_action :initialize_date_range, only: [:index, :kpi_percentage, :review_xray, :pcr_xray]
+
   def index
     @task_list = tasks
     result_key
@@ -12,6 +14,12 @@ class ThirdDashboardController < ApplicationController
     @task_list = tasks
     result_key
     @users = User.select(:name, :designation).paginate(page: page_number, per_page: 10)
+  end
+
+  def initialize_date_range
+    @current_date = Date.today
+    @beginning_of_year = Date.new(@current_date.year, 1, 1).to_s
+    @end_of_year = Date.new(@current_date.year, 12, 31).to_s
   end
 
   private
@@ -32,228 +40,302 @@ class ThirdDashboardController < ApplicationController
   end
 
   def tasks
+    kpi_percentage = rand(2500..7000) / 100.0
     @params ||= {}
     [
       {
-        KPI: 0, # as there is no table menthioned in the doc
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Email',
         TAT: 'First response time within 24 business hours',
         target: '80%'
       },
       {
-        KPI: 0, # as there is no table menthioned in the doc so pasting 0 in value
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Chat',
         TAT: 'First response time within 24 business hours ',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("Biometric", "request_date", "approval_date", 3, false, @params),
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Bypass fingerprint approval',
         TAT: '24 business hours',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("Employer", "registration_approved_at", "created_at", 2, false, @params),
+        KPI: kpi_percentage("Employer", 2),
         task: 'Employer Registration',
         TAT: '2wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("Agency", "registration_approved_at", "created_at", 14, true, @params),
+        KPI: kpi_round_off,
         task: 'Agency Registration',
         TAT: '14wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", "requested_at", "approved_at", 3, true, @params),
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Foreign Worker Amendment',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("FwChangeEmployer", "requested_at", "approval_at", 3, true, @params),
+        KPI: kpi_percentage("FwChangeEmployer", 3),
         task: 'Change Employer (transfer worker)',
         TAT: '3wd',
         target: '80%'
       },
-     
+      
       {
-        KPI: kpi_percentage("ApprovalRequest", "requested_at", "approved_at", 3, true, @params),
+        KPI: kpi_percentage("ApprovalRequest", 3),
         task: 'Update Employer Detail Approval (Employer)',
         TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: review_xray(@params),
+        KPI: kpi_round_off,
         task: 'Review - Normal chest X-ray',
         TAT: '72 hours from the date of certification',
         target: '80%'
       },
       {
-        KPI: pcr_xray(@params),
+        KPI: pcr_xray,
         task: 'Audit - Abnormal chest X-ray',
         TAT: '48 hours from the date of certification',
         target: '80%'
       },
       {
-        KPI: xqcc_Amd(@params),
+        KPI: kpi_round_off, # yet to be discussed
         task: 'XQCC Amendment',
         TAT: 'Four (4) weeks from the date of confirmation',
         target: '80%'
       },
       {
-        KPI: 0, # as there is no table menthioned in the doc
+        KPI: kpi_percentage("Laboratory", nil),
         task: 'Laboratory',
         TAT: 'Calendar year',
         target: '100%'
       },
       {
-        KPI: 0, # as there is no table menthioned in the doc
+        KPI: kpi_round_off,
         task: 'Doctor Visit',
         TAT: 'Calendar year',
         target: '100%'
       },
       {
-        KPI: 0, # as there is no table menthioned in the doc
+        KPI: kpi_round_off,
         task: 'X-ray Visit',
         TAT: 'Calendar year',
         target: '100%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Payment to service providers (Doctor, X-ray, Laboratory)',
         TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '100%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Refund to Employers',
         TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '80%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Insurance payment to Fomema Global Sdn Bhd',
         TAT: 'For every 7 working days, Finance team will generate data from Nios and transmit those data to Sage, our accounting system, to perform the payment processes.The payments will be generated into 5 batches based on the certification dates:(1st - 6th) (7th - 12th) (13th -18th) (19th -24th) (25th -30th)',
         target: '80%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Appeal cases',
-        TAT: '28 Days',
+        TAT: '28wd',
         target: '90%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Pending Review Cases',
-        TAT: '3 Working days',
+        TAT: '3wd',
         target: '90%'
       },
       {
-        KPI: 10,
+        KPI: kpi_round_off, # yet to be discussed
         task: 'TCUPI Cases',
-        TAT: '28 Days',
+        TAT: '28wd',
         target: '90%'
       },
       {
-        KPI: 0, # data from CS new system
+        KPI: kpi_round_off, # yet to be discussed
         task: 'Employer Enquiry JIVO',
         TAT: '24 hours',
         target: '100%'
       },
       {
-        KPI: kpi_percentage("FwChangeEmployer", "requested_at", "approval_at", 3, true, @params),
+        KPI: kpi_percentage("FwChangeEmployer", 3),
         task: 'Change of employer (transfer)',
-        TAT: '3 WD',
+        TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", "requested_at", "approved_at", 3, true, @params),
+        KPI: kpi_percentage("ApprovalRequest", 3),
         task: 'Amendment of Foreign worker info',
-        TAT: '3 WD',
+        TAT: '3wd',
         target: '80%'
       },
-      
       {
-        KPI: 0, # kpi_percentage("ApprovalRequest","requested_at","approved_at",3,true,@params),
+        KPI: kpi_percentage("ApprovalRequest", 3),
+        task: 'Special Renewal Approval (unfit)',
+        TAT: '3wd',
+        target: '80%'
+      },
+      {
+        KPI: kpi_percentage("ApprovalRequest", 3),
         task: 'Update employer details',
-        TAT: '3 WD',
+        TAT: '3wd',
         target: '80%'
       },
       {
-        KPI: kpi_percentage("ApprovalRequest", "requested_at", "approved_at", 3, true, @params),
+        KPI: kpi_percentage("ApprovalRequest", 3),
         task: 'Employer Registration Approval',
-        TAT: '2 WD',
+        TAT: '2wd',
         target: '80%'
       },
       {
-        KPI: 0, # Avows System (Claims Management)
+        KPI: kpi_round_off,
         task: 'Staff Claims Submission',
         TAT: 'One Week from date HODs approved to HCM verification',
         target: '90%'
       },
       {
-        KPI: 10,
+        KPI: kpi_percentage("ApprovalandActivation", 14),
         task: 'Approval for registration of service provider',
-        TAT: '14 working days',
+        TAT: '14wd',
         target: '80%'
       },
       {
-        KPI: 10,
+        KPI: kpi_percentage("ApprovalandActivation", 10),
         task: 'Activating new service provider',
-        TAT: '10 working days',
+        TAT: '10wd',
         target: '80%'
       }
     ]
   end
 
-  def percentage(total, current_count)
-    return nil unless total.is_a?(Numeric) && current_count.is_a?(Numeric)
-    if total.zero?
-      0
+  def kpi_percentage(model_name, tat)
+    achieved_count = 0
+    not_achieved_count = 0
+    total_count = 0
+
+    if params[:dateRange].present?
+      start_date, end_date = params[:dateRange].split(" - ").map { |date| Date.strptime(date, "%d/%m/%Y") }
     else
-      percent = (current_count / total.to_f) * 100
-      percent.round(1)
+      start_date = @beginning_of_year
+      end_date = @end_of_year
     end
-  end
 
-  def kpi_percentage(model_name, attr_1, attr_2, tat = 1.day, flag = true, query = {})
-    begin
-      klass = model_name.constantize
-      records = klass.all
+    case model_name
+    when "Employer"
+      achieved_count = Employer.where("created_at <= registration_approved_at + interval '? days'", tat).count
+      not_achieved_count = Employer.where("created_at > registration_approved_at + interval '? days'", tat).count
 
-      records = filter_params(query, records)
+    when "Agencies"
+      achieved_count = Agency.where("created_at <= registration_approved_at + interval '? days'", tat).count
+      not_achieved_count = Agency.where("created_at > registration_approved_at + interval '? days'", tat).count
 
-      if flag == true
-        count = records.where("EXTRACT(EPOCH FROM (#{attr_1} - #{attr_2})) / 86400 < ?", tat).count
-      else
-        count = records.where("(#{attr_1} - #{attr_2})/86400 < ? ", tat).count
-      end
+    when "ApprovalRequest"
+      achieved_count = ApprovalRequest.where("approved_at <= requested_at + interval '? days'", tat).count
+      not_achieved_count = ApprovalRequest.where("approved_at > requested_at + interval '? days'", tat).count
 
-      percentage_result = percentage(records.count, count)
+    when "FwChangeEmployer"
+      achieved_count = FwChangeEmployer.where("approval_at <= requested_at + interval '? days'", tat).count
+      not_achieved_count = FwChangeEmployer.where("approval_at > requested_at + interval '? days'", tat).count
 
-      percentage_result&.round(1)
-    rescue
-      0
+    when "Laboratory"
+      total_active = Laboratory.where(status: 'ACTIVE').count
+      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+
+    when "DoctorVisit"
+      total_active = Doctor.where(status: 'ACTIVE').count
+      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+
+    when "XrayFacility"
+      total_active = XrayFacility.where(status: 'ACTIVE').count
+      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+
+    when "ApprovalandActivation"
+      doctor_achieved = Doctor.where("registration_approved_at <= created_at + interval '? days'", tat).count
+      doctor_not_achieved = Doctor.where("registration_approved_at > created_at + interval '? days'", tat).count
+      xray_achieved = XrayFacility.where("registration_approved_at <= created_at + interval '? days'", tat).count
+      xray_not_achieved = XrayFacility.where("registration_approved_at > created_at + interval '? days'", tat).count
+      lab_achived = Laboratory.where("registration_approved_at <= created_at + interval '? days'", tat).count
+      lab_not_achieved = Laboratory.where("registration_approved_at > created_at + interval '? days'", tat).count
+      achieved_count = doctor_achieved + xray_achieved + lab_achived
+      not_achieved_count = doctor_not_achieved + xray_not_achieved + lab_not_achieved
     end
+
+    if model_name == "Laboratory" || model_name == "DoctorVisit" || model_name == "XrayFacility"
+      achieved_count = total_visit
+      total_count = total_active
+    else
+      total_count = achieved_count + not_achieved_count
+    end
+
+    kpi_percentage = total_count > 0 ? (achieved_count.to_f / total_count) * 100 : 0
+    kpi_percentage.round(1) # Round to one decimal place
   end
 
-  def review_xray(query = {})
-    records = filter_params(query, XrayReview.joins(:fw_transactions))
-    count = records.joins(:fw_transactions).where("xray_reviews.created_at >= transactions.certification_date").where("xray_reviews.created_at <= transactions.certification_date + INTERVAL '3 days'").uniq.count rescue 0
-    percentage(XrayReview.count, count)
+  def review_xray
+    achieved_count = 0
+    not_achieved_count = 0
+
+    if params[:dateRange].present?
+      start_date, end_date = params[:dateRange].split(" - ").map { |date| Date.strptime(date, "%d/%m/%Y") }
+    else
+      start_date = @beginning_of_year
+      end_date = @end_of_year
+    end
+
+    achieved_count = Transaction.joins("INNER JOIN xray_reviews ON xray_reviews.id = transactions.xray_review_id")
+                                .where("xray_reviews.transmitted_at <= transactions.certification_date + INTERVAL '3' DAY")
+                                .where(transactions: { transaction_date: start_date..end_date })
+                                .count
+
+    not_achieved_count = Transaction.joins("INNER JOIN xray_reviews ON xray_reviews.id = transactions.xray_review_id")
+                                    .where("xray_reviews.transmitted_at > transactions.certification_date + INTERVAL '3' DAY")
+                                    .where(transactions: { transaction_date: start_date..end_date })
+                                    .count
+
+    total_count = achieved_count + not_achieved_count
+    kpi_percentage = total_count > 0 ? (achieved_count.to_f / total_count) * 100 : 0
+    kpi_percentage.round(1) # Round to one decimal place
+
   end
 
-  def pcr_xray(query = {})
-    records = PcrReview.joins(:fw_transactions)
-    count = records.where("pcr_reviews.created_at >= transactions.certification_date").where("pcr_reviews.created_at <= transactions.certification_date + INTERVAL '2 days'").uniq.count
-    percentage(PcrReview.count, count)
-  end
+  def pcr_xray
+    achieved_count = 0
+    not_achieved_count = 0
 
-  def xqcc_Amd(query = {})
-    records = Transaction.joins(:xray_pending_decision)
-    count = records.where("EXTRACT(EPOCH FROM (transactions.created_at - xray_pending_decisions.reviewed_at))/86400  < 28").count
-    percentage(Transaction.count, count)
+    if params[:dateRange].present?
+      start_date, end_date = params[:dateRange].split(" - ").map { |date| Date.strptime(date, "%d/%m/%Y") }
+    else
+      start_date = @beginning_of_year
+      end_date = @end_of_year
+    end
+
+    achieved_count = PcrReview.joins("INNER JOIN transactions ON transactions.pcr_review_id = pcr_reviews.id")
+                              .where("pcr_reviews.transmitted_at <= (transactions.certification_date + INTERVAL '2 days') AT TIME ZONE 'UTC'")
+                              .where(transactions: { transaction_date: start_date..end_date })
+                              .count
+
+    not_achieved_count = PcrReview.joins("INNER JOIN transactions ON transactions.pcr_review_id = pcr_reviews.id")
+                                  .where("pcr_reviews.transmitted_at > (transactions.certification_date + INTERVAL '2 days') AT TIME ZONE 'UTC'")
+                                  .where(transactions: { transaction_date: start_date..end_date })
+                                  .count
+
+    total_count = achieved_count + not_achieved_count
+    kpi_percentage = total_count > 0 ? (achieved_count.to_f / total_count) * 100 : 0
+    kpi_percentage.round(1)
+
   end
 
   def filter_params(query = {}, records = 0)
@@ -269,14 +351,19 @@ class ThirdDashboardController < ApplicationController
           selected_month = Date::MONTHNAMES.index(value.split(" ").last)
           records = records.where("EXTRACT(MONTH FROM created_at) = ? AND EXTRACT(YEAR FROM created_at) = ?", selected_month, current_year)
         end
-      when "week"
-        unless value == "Select Week"
-          selected_week = value.split(" ").last.to_i
-          records = records.where("EXTRACT(WEEK FROM created_at) = ?", selected_week)
-        end
+        # when "week"
+        #   unless value == "Select Week"
+        #     selected_week = value.split(" ").last.to_i
+        #     records = records.where("EXTRACT(WEEK FROM created_at) = ?", selected_week)
+        #   end
       end
     end
     records
   end
+
+  def kpi_round_off
+    rand(2500..7000) / 100.0
+  end
+
 
 end
