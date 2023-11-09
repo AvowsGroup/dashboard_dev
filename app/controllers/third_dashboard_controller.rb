@@ -252,15 +252,15 @@ class ThirdDashboardController < ApplicationController
 
     when "Laboratory"
       total_active = Laboratory.where(status: 'ACTIVE').count
-      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+      #total_visit = VisitReport.where(visit_date: start_date..end_date).count
 
     when "DoctorVisit"
       total_active = Doctor.where(status: 'ACTIVE').count
-      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+      #total_visit = VisitReport.where(visit_date: start_date..end_date).count
 
     when "XrayFacility"
       total_active = XrayFacility.where(status: 'ACTIVE').count
-      total_visit = VisitReport.where(visit_date: start_date..end_date).count
+      #total_visit = VisitReport.where(visit_date: start_date..end_date).count
 
     when "ApprovalandActivation"
       doctor_achieved = Doctor.where("registration_approved_at <= created_at + interval '? days'", tat).count
