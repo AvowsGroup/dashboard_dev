@@ -2076,3 +2076,24 @@ color: #626262;
   a>path{
     cursor: pointer;
   }
+  
+.allcode_tagright{
+    width: 80px; float: left; color: #000; padding: 2px; text-align: center; font-size: 8px;
+}
+.allcode_tagleft{
+    float: right;width: 20px;
+}
+.allcode_tagright>b{
+    float: left;width: 100%;
+}
+.allcode_tagright>i{
+    float: left;width: 100%;
+}
+
+.doctorBlock,
+.xrayBlock,
+.laboratoryBlock {
+    display: inline-block;
+    margin-right: 10px;
+    width: 110px;background-color:#FFF4DE!important;padding: 4px!important; float: left;color:#000!important; /* additional styles if needed */
+}
