@@ -146,6 +146,7 @@
    function clear_filter() {
     var selectedValues = JSON.stringify({value: false});
     clearAllInputs();
+    location.reload();
     $.ajax({
       type: 'GET',
       url: '/service_provider/index.js', // Replace with your Rails route
