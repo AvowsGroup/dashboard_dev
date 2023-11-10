@@ -234,8 +234,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSregweb5 = SurveyMonkeyCustomer.where("process_emp_reg=? and process_worker_reg=? and panel_clinic_xray_facilities=? and overall_experience_reg_process=? and where_did_you_register_your_worker=?", '5', '5', '5', '5', 'Web Portal').count
 
     @NPSregweball = (@NPSregweb1 * 1) + (@NPSregweb2 * 2) + (@NPSregweb3 * 3) + (@NPSregweb4 * 4) + (@NPSregweb5 * 5)
-    @NPSregwebpromoters = @NPSregweb4 + @NPSregweb5
-    @NPSregwebdectoters = @NPSregweb1 + @NPSregweb2
+    @NPSregwebpromoters = (@NPSregweb4*4) + (@NPSregweb5*5)
+    @NPSregwebdectoters = (@NPSregweb1*1) + (@NPSregweb2*2)
     if (@NPSregweball > 0)
       @NPSwebpercentagepromoters = (@NPSregwebpromoters.to_f / @NPSregweball) * 100
       @NPSwebpercentagedectaters = (@NPSregwebdectoters.to_f  / @NPSregweball) * 100
@@ -251,8 +251,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSregreg5 = SurveyMonkeyCustomer.where("process_emp_reg=? and process_worker_reg=? and panel_clinic_xray_facilities=? and overall_experience_reg_process=? and where_did_you_register_your_worker=?", '5', '5', '5', '5', 'Regional Office').count
 
     @NPSregregall = (@NPSregreg1 * 1) + (@NPSregreg2 * 2) + (@NPSregreg3 * 3) + (@NPSregreg4 * 4) + (@NPSregreg5 * 5)
-    @NPSregregpromoters = @NPSregreg4 + @NPSregreg5
-    @NPSregregdectoters = @NPSregreg1 + @NPSregreg2
+    @NPSregregpromoters = (@NPSregreg4*4) + (@NPSregreg5*5)
+    @NPSregregdectoters = (@NPSregreg1*1) + (@NPSregreg2*2)
     if (@NPSregregall > 0)
       @NPSregpercentagepromoters = (@NPSregregpromoters.to_f / @NPSregregall) * 100
       @NPSregpercentagedectaters = (@NPSregregdectoters.to_f / @NPSregregall) * 100
@@ -268,8 +268,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSExs5 = SurveyMonkeyCustomer.where("location_panel_clinics=? and 'Fomema_medical_examincation_are_understandable'=? and 'medical_Examinations_are_easy_toobtain'=? and 'Overall_rate_experience_medical_examination'=? ", '5', '5', '5', '5').count
 
     @NPSExsall = (@NPSExs1 * 1) + (@NPSExs2 * 2) + (@NPSExs3 * 3) + (@NPSExs4 * 4) + (@NPSExs5 * 5)
-    @NPSExspromoters = @NPSExs4 + @NPSExs5
-    @NPSExsdectoters = @NPSExs1 + @NPSExs2
+    @NPSExspromoters = (@NPSExs4*4) + (@NPSExs5*5)
+    @NPSExsdectoters = (@NPSExs1*1) + (@NPSExs2*2)
     if (@NPSExsall > 0)
       @NPSExspercentagepromoters = (@NPSExspromoters.to_f / @NPSExsall) * 100
       @NPSExspercentagedectaters = (@NPSExsdectoters.to_f / @NPSExsall) * 100
@@ -286,8 +286,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSappeal5 = SurveyMonkeyCustomer.where("tell_experience_appeal_process=?", '5').count
 
     @NPSappealall = (@NPSappeal1 * 1) + (@NPSappeal2 * 2) + (@NPSappeal3 * 3) + (@NPSappeal4 * 4) + (@NPSappeal5 * 5)
-    @NPSappealpromoters = @NPSappeal4 + @NPSappeal5
-    @NPSappealdectoters = @NPSappeal1 + @NPSappeal2
+    @NPSappealpromoters = (@NPSappeal4*4) + (@NPSappeal5*5)
+    @NPSappealdectoters = (@NPSappeal1*1) + (@NPSappeal2*2)
     if (@NPSappealall > 0)
       @NPSappealpercentagepromoters = (@NPSappealpromoters.to_f / @NPSappealall) * 100
       @NPSappealpercentagedectaters = (@NPSappealdectoters.to_f / @NPSappealall) * 100
