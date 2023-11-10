@@ -48,11 +48,11 @@ class CustomerSatisfactionController < ApplicationController
       @panelclinics = 0
     end
 
-    @understantable1 = SurveyMonkeyCustomer.where("'Fomema_medical_examincation_are_understandable'=?", '1').count
-    @understantable2 = SurveyMonkeyCustomer.where("'Fomema_medical_examincation_are_understandable'=?", '2').count
-    @understantable3 = SurveyMonkeyCustomer.where("'Fomema_medical_examincation_are_understandable'=?", '3').count
-    @understantable4 = SurveyMonkeyCustomer.where("'Fomema_medical_examincation_are_understandable'=?", '4').count
-    @understantable5 = SurveyMonkeyCustomer.where("'Fomema_medical_examincation_are_understandable'=?", '5').count
+    @understantable1 = SurveyMonkeyCustomer.where('"Fomema_medical_examincation_are_understandable"=?', '1').count
+    @understantable2 = SurveyMonkeyCustomer.where('"Fomema_medical_examincation_are_understandable"=?', '2').count
+    @understantable3 = SurveyMonkeyCustomer.where('"Fomema_medical_examincation_are_understandable"=?', '3').count
+    @understantable4 = SurveyMonkeyCustomer.where('"Fomema_medical_examincation_are_understandable"=?', '4').count
+    @understantable5 = SurveyMonkeyCustomer.where('"Fomema_medical_examincation_are_understandable"=?', '5').count
 
     @understantableall = (@understantable1 * 1) + (@understantable2 * 2) + (@understantable3 * 3) + (@understantable4 * 4) + (@understantable5 * 5)
     @understantablecount = @understantable1 + @understantable2 + @understantable3 + @understantable4 + @understantable5
