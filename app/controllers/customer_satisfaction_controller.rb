@@ -1,6 +1,6 @@
 class CustomerSatisfactionController < ApplicationController
   def index
-    @job_type = JobType.all
+     @job_type = SurveyMonkeyCustomer.pluck(:which_sector_below_represents).uniq
     @gendermale = SurveyMonkeyCustomer.where(what_is_your_gender: 'Male').pluck(:what_is_your_gender).count
     @genderfemale = SurveyMonkeyCustomer.where(what_is_your_gender: 'Female').pluck(:what_is_your_gender).count
     @individual = SurveyMonkeyCustomer.where(what_is_customer_suits_you: 'Individual Employer').pluck(:what_is_customer_suits_you).count
@@ -9,7 +9,7 @@ class CustomerSatisfactionController < ApplicationController
     @company = SurveyMonkeyCustomer.where(what_is_customer_suits_you: 'Company Employer').pluck(:what_is_customer_suits_you).count
     @agent = SurveyMonkeyCustomer.where(what_is_customer_suits_you: 'Agent').pluck(:what_is_customer_suits_you).count
     #@pi_chart_data = [['Task', 'Hours per Day']]
-
+    
     #@linechart_data= Transaction.joins(:job_type).group('job_types.name').count.to_a
     @respondentsagegroup1824 = SurveyMonkeyCustomer.where(what_is_your_age: '18-24').pluck(:what_is_your_age).count
 
@@ -317,11 +317,9 @@ class CustomerSatisfactionController < ApplicationController
 
       end
     else
-      @transaction_line_cahrt = SurveyMonkeyCustomer.transaction_data_1_year
-      @current_year = Date.today.year
-      @respondentsyear = SurveyMonkeyCustomer.where("extract(year from start_date) = ?", @current_year)
-      @linechart_data = Transaction.joins(:job_type).group('job_types.name').count.to_a
-    end
+    @current_year = Date.today.year
+      @respondentsyear=SurveyMonkeyCustomer.where("extract(year from start_date) = ?", @current_year) 
+      @linechart_data=SurveyMonkeyCustomer.group('which_sector_below_represents').count.to_a    end
   end
 
   def convert_values_to_arrays(hash)

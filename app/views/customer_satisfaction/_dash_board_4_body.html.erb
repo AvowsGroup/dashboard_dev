@@ -54,7 +54,7 @@ https://d3js.org/d3.v3.min.js"
                 backgroundColor: window.chartColors.blue,
                 borderColor: window.chartColors.blue,
                 fill: false,
-                data: <%=@transaction_line_cahrt[@current_year].to_json.html_safe%>
+                data: <%=@linechart_data[@current_year].to_json.html_safe%>
         
             }]
         },
