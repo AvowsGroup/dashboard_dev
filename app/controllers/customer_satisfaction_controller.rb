@@ -1801,7 +1801,7 @@ class CustomerSatisfactionController < ApplicationController
     @employeeregweball= (@employeeregweb1*1)+(@employeeregweb2*2)+(@employeeregweb3*3)+(@employeeregweb4*4)+(@employeeregweb5*5)
     @employeeregweballcount=@employeeregweb1+@employeeregweb2+@employeeregweb3+@employeeregweb4+@employeeregweb5
     if(@employeeregweballcount>0)
-    @employeeregweballsum=@employeeregweball/@employeeregweballcount
+    @employeeregweballsum=(@employeeregweball.to_f/@employeeregweballcount).round(1)
     else
     @employeeregweballsum=0
     end
@@ -1815,7 +1815,7 @@ class CustomerSatisfactionController < ApplicationController
      @employeeregregall= (@employeeregreg1*1)+(@employeeregreg2*2)+(@employeeregreg3*3)+(@employeeregreg4*4)+(@employeeregreg5*5)
      @employeeregregcount=@employeeregreg1+@employeeregreg2+@employeeregreg3+@employeeregreg4+@employeeregreg5
      if(@employeeregregcount>0)
-     @employeeregregsum=@employeeregregall/@employeeregregcount
+     @employeeregregsum=(@employeeregregall.to_f/@employeeregregcount).round(1)
      else
      @employeeregregsum=0
      end
@@ -1829,7 +1829,7 @@ class CustomerSatisfactionController < ApplicationController
      @workerregweball= (@workerregweb1*1)+(@workerregweb2*2)+(@workerregweb3*3)+(@workerregweb4*4)+(@workerregweb5*5)
      @workerregweballcount=@workerregweb1+@workerregweb2+@workerregweb3+@workerregweb4+@workerregweb5
      if(@workerregweballcount>0)
-     @workerregweballsum=@workerregweball/@workerregweballcount
+     @workerregweballsum=(@workerregweball.to_f/@workerregweballcount).round(1)
      else
      @workerregweballsum=0
      end
@@ -1842,7 +1842,7 @@ class CustomerSatisfactionController < ApplicationController
      @workerregregall= (@workerregreg1*1)+(@workerregreg2*2)+(@workerregreg3*3)+(@workerregreg4*4)+(@workerregreg5*5)
      @workerregregcount=@workerregreg1+@workerregreg2+@workerregreg3+@workerregreg4+@workerregreg5
      if(@workerregregcount>0)
-     @workerregregsum=@workerregregall/@workerregregcount
+     @workerregregsum=(@workerregregall.to_f/@workerregregcount).round(1)
      else
      @workerregregsum=0
      end
@@ -1856,7 +1856,7 @@ class CustomerSatisfactionController < ApplicationController
      @panelregweball= (@panelregweb1*1)+(@panelregweb2*2)+(@panelregweb3*3)+(@panelregweb4*4)+(@panelregweb5*5)
      @panelregweballcount=@panelregweb1+@panelregweb2+@panelregweb3+@panelregweb4+@panelregweb5
      if(@panelregweballcount>0)
-     @panelregweballsum=@panelregweball/@panelregweballcount
+     @panelregweballsum=(@panelregweball.to_f/@panelregweballcount).round(1)
      else
      @panelregweballsum=0
      end
@@ -1870,7 +1870,7 @@ class CustomerSatisfactionController < ApplicationController
       @panelregregall= (@panelregreg1*1)+(@panelregreg2*2)+(@panelregreg3*3)+(@panelregreg4*4)+(@panelregreg5*5)
       @panelregregcount=@panelregreg1+@panelregreg2+@panelregreg3+@panelregreg4+@panelregreg5
       if(@panelregregcount>0)
-      @panelregregsum=@panelregregall/@panelregregcount
+      @panelregregsum=(@panelregregall.to_f/@panelregregcount).round(1)
       else
       @panelregregsum=0
       end
@@ -1884,7 +1884,7 @@ class CustomerSatisfactionController < ApplicationController
       @overallregweball= (@overallregweb1*1)+(@overallregweb2*2)+(@overallregweb3*3)+(@overallregweb4*4)+(@overallregweb5*5)
       @overallregweballcount=@overallregweb1+@overallregweb2+@overallregweb3+@overallregweb4+@overallregweb5
       if(@overallregweballcount>0)
-      @overallregweballsum=@overallregweball/@overallregweballcount
+      @overallregweballsum=(@overallregweball.to_f/@overallregweballcount).round(1)
       else
       @overallregweballsum=0
       end
@@ -1898,7 +1898,7 @@ class CustomerSatisfactionController < ApplicationController
        @overallregregall= (@overallregreg1*1)+(@overallregreg2*2)+(@overallregreg3*3)+(@overallregreg4*4)+(@overallregreg5*5)
        @overallregregcount=@overallregreg1+@overallregreg2+@overallregreg3+@overallregreg4+@overallregreg5
        if(@overallregregcount>0)
-       @overallregregsum=@overallregregall/@overallregregcount
+       @overallregregsum=(@overallregregall.to_f/@overallregregcount).round(1)
        else
        @overallregregsum=0
        end
@@ -1916,7 +1916,7 @@ class CustomerSatisfactionController < ApplicationController
         @appealoverall= (@appealoverall1*1)+(@appealoverall2*2)+(@appealoverall3*3)+(@appealoverall4*4)+(@appealoverall5*5)
         @appealoverallcount=@appealoverall1+@appealoverall2+@appealoverall3+@appealoverall4+@appealoverall5
         if(@appealoverallcount>0)
-        @appealoverallsum=@appealoverall/@appealoverallcount
+        @appealoverallsum=(@appealoverall.to_f/@appealoverallcount).round(1)
         else
            @appealoverallsum=0
         end
@@ -1931,8 +1931,8 @@ class CustomerSatisfactionController < ApplicationController
         @NPSregwebpromoters=@NPSregweb4+@NPSregweb5
         @NPSregwebdectoters=@NPSregweb1+@NPSregweb2
         if(@NPSregweball>0)
-        @NPSwebpercentagepromoters=(@NPSregwebpromoters*100/@NPSregweball)
-        @NPSwebpercentagedectaters=(@NPSregwebdectoters*100/@NPSregweball)
+        @NPSwebpercentagepromoters=(@NPSregwebpromoters.to_f/@NPSregweball)*100
+        @NPSwebpercentagedectaters=(@NPSregwebdectoters.to_f/@NPSregweball)*100
         @NPSoverallpercentage=@NPSwebpercentagepromoters-@NPSwebpercentagedectaters
         else
            @NPSoverallpercentage=0
@@ -1948,8 +1948,8 @@ class CustomerSatisfactionController < ApplicationController
         @NPSregregpromoters=@NPSregreg4+@NPSregreg5
         @NPSregregdectoters=@NPSregreg1+@NPSregreg2
         if(@NPSregregall>0)
-        @NPSregpercentagepromoters=(@NPSregregpromoters*100/@NPSregregall)
-        @NPSregpercentagedectaters=(@NPSregregdectoters*100/@NPSregregall)
+        @NPSregpercentagepromoters=(@NPSregregpromoters.to_f/@NPSregregall)*100
+        @NPSregpercentagedectaters=(@NPSregregdectoters.to_f/@NPSregregall)*100
         @NPSregoverallpercentage=@NPSregpercentagepromoters-@NPSregpercentagedectaters
          else
            @NPSregoverallpercentage=0
@@ -1964,8 +1964,8 @@ class CustomerSatisfactionController < ApplicationController
         @NPSExspromoters=@NPSExs4+@NPSExs5
         @NPSExsdectoters=@NPSExs1+@NPSExs2
         if(@NPSExsall>0)
-           @NPSExspercentagepromoters=(@NPSExspromoters*100/@NPSExsall)
-           @NPSExspercentagedectaters=(@NPSExsdectoters*100/@NPSExsall)
+           @NPSExspercentagepromoters=(@NPSExspromoters.to_f/@NPSExsall)*100
+           @NPSExspercentagedectaters=(@NPSExsdectoters.to_f/@NPSExsall)*100
            @NPSExsoverallpercentage=@NPSExspercentagepromoters-@NPSExspercentagedectaters
         else
            @NPSExsoverallpercentage=0
@@ -1981,8 +1981,8 @@ class CustomerSatisfactionController < ApplicationController
         @NPSappealpromoters=@NPSappeal4+@NPSappeal5
         @NPSappealdectoters=@NPSappeal1+@NPSappeal2
         if(@NPSappealall>0)
-           @NPSappealpercentagepromoters=(@NPSappealpromoters*100/@NPSappealall)
-           @NPSappealpercentagedectaters=(@NPSappealdectoters*100/@NPSappealall)
+           @NPSappealpercentagepromoters=(@NPSappealpromoters.to_f/@NPSappealall)*100
+           @NPSappealpercentagedectaters=(@NPSappealdectoters.to_f/@NPSappealall)*100
            @NPSappealoverallpercentage=@NPSappealpercentagepromoters-@NPSappealpercentagedectaters
         else
            @NPSappealoverallpercentage=0
@@ -2004,7 +2004,7 @@ class CustomerSatisfactionController < ApplicationController
         @panelclinic1all= (@panelclinic1*1)+(@panelclinic2*2)+(@panelclinic3*3)+(@panelclinic4*4)+(@panelclinic5*5)
         @panelclinic1count=@panelclinic1+@panelclinic2+@panelclinic3+@panelclinic4+@panelclinic5
         if(@panelclinic1all>0)
-        @panelclinics=@panelclinic1all/@panelclinic1count
+        @panelclinics=(@panelclinic1all.to_f/@panelclinic1count).round(1)
         else
            @panelclinics=0
         end
@@ -2016,7 +2016,7 @@ class CustomerSatisfactionController < ApplicationController
           @understantableall= (@understantable1*1)+(@understantable2*2)+(@understantable3*3)+(@understantable4*4)+(@understantable5*5)
         @understantablecount=@understantable1+@understantable2+@understantable3+@understantable4+@understantable5
         if(@understantableall>0)
-        @understantable=@understantableall/@understantablecount
+        @understantable=(@understantableall.to_f/@understantablecount).round(1)
         else
            @understantable=0
         end
@@ -2028,7 +2028,7 @@ class CustomerSatisfactionController < ApplicationController
         @obtainableall= (@obtainable1*1)+(@obtainable2*2)+(@obtainable3*3)+(@obtainable4*4)+(@obtainable5*5)
         @obtainablecount=@obtainable1+@obtainable2+@obtainable3+@obtainable4+@obtainable5
         if(@obtainableall>0)
-        @obtainable=@obtainableall/@obtainablecount
+        @obtainable=(@obtainableall.to_f/@obtainablecount).round(1)
         else
            @obtainable=0
         end
@@ -2041,7 +2041,7 @@ class CustomerSatisfactionController < ApplicationController
         @overallexpall= (@overallexp1*1)+(@overallexp2*2)+(@overallexp3*3)+(@overallexp4*4)+(@overallexp5*5)
         @overallexpcount=@overallexp1+@overallexp2+@overallexp3+@overallexp4+@overallexp5
         if(@overallexpall>0)
-        @overallexp=@overallexpall/@overallexpcount
+        @overallexp=(@overallexpall.to_f/@overallexpcount).round(1)
         else
            @overallexp=0
         end
