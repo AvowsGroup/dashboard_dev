@@ -348,7 +348,7 @@ class CustomerSatisfactionController < ApplicationController
       case param_key 
       when "DateRange"
           if param_value.present?
-            start_date, end_date = param_value.split(" / ")
+            start_date, end_date = param_value.split("/")
             @daterange=@surveymonkeyfilter.where("start_date>=? and start_date<=?",start_date,end_date)
             @respondentsagegroup1824=@daterange.where('what_is_your_age=?','18-24').all
             @respondentsagegroup2534=@daterange.where('what_is_your_age=?','25-34').all
