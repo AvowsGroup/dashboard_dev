@@ -237,8 +237,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSregwebpromoters = (@NPSregweb4*4) + (@NPSregweb5*5)
     @NPSregwebdectoters = (@NPSregweb1*1) + (@NPSregweb2*2)
     if (@NPSregweball > 0)
-      @NPSwebpercentagepromoters = (@NPSregwebpromoters.to_f / @NPSregweball) * 100
-      @NPSwebpercentagedectaters = (@NPSregwebdectoters.to_f  / @NPSregweball) * 100
+      @NPSwebpercentagepromoters = (@NPSregwebpromoters.to_f / @NPSregweball) 
+      @NPSwebpercentagedectaters = (@NPSregwebdectoters.to_f  / @NPSregweball) 
       @NPSoverallpercentage = @NPSwebpercentagepromoters - @NPSwebpercentagedectaters
     else
       @NPSoverallpercentage = 0
@@ -254,8 +254,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSregregpromoters = (@NPSregreg4*4) + (@NPSregreg5*5)
     @NPSregregdectoters = (@NPSregreg1*1) + (@NPSregreg2*2)
     if (@NPSregregall > 0)
-      @NPSregpercentagepromoters = (@NPSregregpromoters.to_f / @NPSregregall) * 100
-      @NPSregpercentagedectaters = (@NPSregregdectoters.to_f / @NPSregregall) * 100
+      @NPSregpercentagepromoters = (@NPSregregpromoters.to_f / @NPSregregall) 
+      @NPSregpercentagedectaters = (@NPSregregdectoters.to_f / @NPSregregall) 
       @NPSregoverallpercentage = @NPSregpercentagepromoters - @NPSregpercentagedectaters
     else
       @NPSregoverallpercentage = 0
@@ -271,8 +271,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSExspromoters = (@NPSExs4*4) + (@NPSExs5*5)
     @NPSExsdectoters = (@NPSExs1*1) + (@NPSExs2*2)
     if (@NPSExsall > 0)
-      @NPSExspercentagepromoters = (@NPSExspromoters.to_f / @NPSExsall) * 100
-      @NPSExspercentagedectaters = (@NPSExsdectoters.to_f / @NPSExsall) * 100
+      @NPSExspercentagepromoters = (@NPSExspromoters.to_f / @NPSExsall) 
+      @NPSExspercentagedectaters = (@NPSExsdectoters.to_f / @NPSExsall) 
       @NPSExsoverallpercentage = @NPSExspercentagepromoters - @NPSExspercentagedectaters
     else
       @NPSExsoverallpercentage = 0
@@ -289,8 +289,8 @@ class CustomerSatisfactionController < ApplicationController
     @NPSappealpromoters = (@NPSappeal4*4) + (@NPSappeal5*5)
     @NPSappealdectoters = (@NPSappeal1*1) + (@NPSappeal2*2)
     if (@NPSappealall > 0)
-      @NPSappealpercentagepromoters = (@NPSappealpromoters.to_f / @NPSappealall) * 100
-      @NPSappealpercentagedectaters = (@NPSappealdectoters.to_f / @NPSappealall) * 100
+      @NPSappealpercentagepromoters = (@NPSappealpromoters.to_f / @NPSappealall) 
+      @NPSappealpercentagedectaters = (@NPSappealdectoters.to_f / @NPSappealall) 
       @NPSappealoverallpercentage = @NPSappealpercentagepromoters - @NPSappealpercentagedectaters
     else
       @NPSappealoverallpercentage = 0
