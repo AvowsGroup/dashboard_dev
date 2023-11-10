@@ -73,7 +73,7 @@
                       </li>
                     <%@job_type.each do |job_type|%>
                         <li>
-                          <input type="checkbox" name="sectorcheck"  value=<%=job_type%>> <%= job_type%>
+                          <input type="checkbox" name="sectorcheck"  value=<%=job_type.id%>> <%= job_type.name%>
                         </li>
                       <%end%>
                                  </ul>
