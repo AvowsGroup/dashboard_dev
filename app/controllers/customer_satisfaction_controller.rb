@@ -317,7 +317,7 @@ class CustomerSatisfactionController < ApplicationController
 
       end
     else
-      @transaction_line_cahrt = Transaction.transaction_data_last_5_years
+      @transaction_line_cahrt = SurveyMonkeyCustomer.transaction_data_1_year
       @current_year = Date.today.year
       @respondentsyear = SurveyMonkeyCustomer.where("extract(year from start_date) = ?", @current_year)
       @linechart_data = Transaction.joins(:job_type).group('job_types.name').count.to_a
