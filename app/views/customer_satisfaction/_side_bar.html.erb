@@ -247,9 +247,11 @@
  
   checkedValues['DateRange'] = $('#date-range').val();
   // Retrieve values from Sector
-  checkedValues['Sector'] = $('#Sector input[type="checkbox"]:checked').map(function() {
+  checkedValues['Sector'] = $('#Sector input[type="checkbox"]:checked').map(function () {
     return $(this).val();
-  }).get().join(',');
+}).get().join(',');
+
+  checkedValues['Sector'] = encodeURIComponent(checkedValues['Sector']);
    checkedValues['customer_type'] = $('#customer input[type="checkbox"]:checked').map(function() {
     return $(this).val();
   }).get().join(',');
