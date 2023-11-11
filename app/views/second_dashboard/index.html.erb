@@ -38,10 +38,10 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
                   <ul class="li-profile">
                     <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                      <a onclick="setReloadInterval(5*60)" class="dropdown-item"> 5 Min </a>
+                      <a onclick="handleRefreshInterval(3000)" class="dropdown-item"> 5 Min </a>
                     </li>
                     <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                      <a onclick="setReloadInterval(10*60)" class="dropdown-item">10 Min</a>
+                      <a onclick="handleRefreshInterval(600000)" class="dropdown-item">10 Min</a>
                     </li>
                   </ul>
                 </div>
@@ -654,4 +654,64 @@
      });
 
   }
+  function getRefreshInterval() {
+    fetch('refresh_dashboards?dashboard_name=geographical', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      startAutoRefresh(data.interval);
+    })
+    .catch(error => {
+      console.error('Error getting refresh interval:', error);
+    });
+  }
+  function saveRefreshInterval(interval) {
+    const formData = {
+      dashboard_interval: interval,
+      dashboard_name: "geographical"
+    };
+
+    const data = JSON.stringify(formData);
+
+    fetch('refresh_dashboards', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+      startAutoRefresh(interval);
+    })
+    .catch(error => {
+      console.error('Error saving refresh interval:', error);
+    });
+  }
+  function handleRefreshInterval(interval) {
+    saveRefreshInterval(interval);
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(function (item) {
+      item.classList.remove('selected');
+    });
+
+    event.target.classList.add('selected');
+  }
+   function startAutoRefresh(interval) {
+    clearInterval(window.refreshInterval);
+
+    window.refreshInterval = setInterval(function() {
+      location.reload();
+    }, interval);
+  }
+   document.addEventListener('DOMContentLoaded', function() {
+    const savedInterval = getRefreshInterval()
+    if (savedInterval) {
+      handleRefreshInterval(parseInt(savedInterval, 10));
+    }
+  });
 </script>

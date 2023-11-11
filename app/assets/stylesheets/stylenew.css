@@ -2101,3 +2101,7 @@ color: #626262;
     width: 100%;
     position: relative;
 }
+ .dropdown-item.selected {
+    background-color: darkgrey;
+    color: white;
+  }
