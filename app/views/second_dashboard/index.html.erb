@@ -654,42 +654,37 @@
      });
 
   }
-  function getRefreshInterval() {
-    fetch('refresh_dashboards?dashboard_name=geographical', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      startAutoRefresh(data.interval);
-    })
-    .catch(error => {
-      console.error('Error getting refresh interval:', error);
-    });
+ function getRefreshInterval() {
+      $.ajax({
+          url: '/refresh_dashboards',
+          type: 'GET',
+          contentType: 'application/json',
+          data: { dashboard_name: 'geographical' },
+          success: function (data) {
+              startAutoRefresh(data.interval);
+          },
+          error: function (error) {
+              console.error('Error getting refresh interval:', error);
+          }
+      });
   }
   function saveRefreshInterval(interval) {
     const formData = {
-      dashboard_interval: interval,
-      dashboard_name: "geographical"
+        dashboard_interval: interval,
+        dashboard_name: "geographical"
     };
-
-    const data = JSON.stringify(formData);
-
-    fetch('refresh_dashboards', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: data
-    })
-    .then(response => response.json())
-    .then(data => {
-      startAutoRefresh(interval);
-    })
-    .catch(error => {
-      console.error('Error saving refresh interval:', error);
+ 
+    $.ajax({
+        url: '/refresh_dashboards',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function (data) {
+            startAutoRefresh(interval);
+        },
+        error: function (error) {
+            console.error('Error saving refresh interval:', error);
+        }
     });
   }
   function handleRefreshInterval(interval) {
