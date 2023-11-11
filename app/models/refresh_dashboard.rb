@@ -1,2 +1,0 @@
-class RefreshDashboard < ApplicationRecord
-end
