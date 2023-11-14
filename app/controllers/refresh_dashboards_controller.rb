@@ -26,8 +26,7 @@ class RefreshDashboardsController < ApplicationController
         return
       end
     end
-  end
- 
+  end 
   def get_interval
     dashboard_name = params[:dashboard_name]
     refresh_dashboard = RefreshDashboard.first
