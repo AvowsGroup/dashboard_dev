@@ -656,7 +656,7 @@
   }
  function getRefreshInterval() {
       $.ajax({
-          url: '/refresh_dashboards',
+          url: '/refresh_dashboards/get_interval',
           type: 'GET',
           contentType: 'application/json',
           data: { dashboard_name: 'geographical' },
