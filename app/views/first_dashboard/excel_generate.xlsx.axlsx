@@ -70,15 +70,15 @@ wb = xlsx_package.workbook
             female_rows = [['Female', @female_count, @female_examination_count, @female_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
             @countries.each do |country|
                 # Collect data for the specified columns
-                xqcc_pool_received = @xqcc_pool_received[country].presence || 0
-                xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
-                pcr_pool_received = @pcr_pool_received[country].presence || 0
-                pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
-                total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-                xray_pending_review_received = @xray_pending_review_received[country].presence || 0
-                xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
-                xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
-                xray_pending_decision_reviewed = @xray_pending_decision_reviewed[country].presence || 0
+               xqcc_pool_received = (@xqcc_pool_received[country] || {})[:value].to_i
+                    xqcc_pool_reviewed = (@xqcc_pool_reviewed[country] || {})[:value].to_i
+                    pcr_pool_received = (@pcr_pool_received[country] || {})[:value].to_i
+                    pcr_pool_reviewed_values = (@pcr_pool_reviewed[country] || {}).to_a.uniq
+                    total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+                    xray_pending_review_received = (@xray_pending_review_received[country] || {})[:value].to_i
+                    xray_pending_review_reviewed = (@xray_pending_review_reviewed[country] || {})[:value].to_i
+                    xray_pending_decision_received = (@xray_pending_decision_received[country] || {})[:value].to_i
+                    xray_pending_decision_reviewed = (@xray_pending_decision_reviewed[country] || {})[:value].to_i
 
                 # Update the existing rows with data for each country
                 male_rows[0][4] += xqcc_pool_received
@@ -126,15 +126,15 @@ wb = xlsx_package.workbook
                renewal_rows = [['New', @renewal_count, @renewal_examination_count, @renewal_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
               @countries.each do |country|
                   # Collect data for the specified columns
-                  xqcc_pool_received = @xqcc_pool_received[country].presence || 0
-                  xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
-                  pcr_pool_received = @pcr_pool_received[country].presence || 0
-                  pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
-                  total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-                  xray_pending_review_received = @xray_pending_review_received[country].presence || 0
-                  xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
-                  xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
-                  xray_pending_decision_reviewed = @xray_pending_decision_reviewed[country].presence || 0
+                 xqcc_pool_received = (@xqcc_pool_received[country] || {})[:value].to_i
+                 xqcc_pool_reviewed = (@xqcc_pool_reviewed[country] || {})[:value].to_i
+                 pcr_pool_received = (@pcr_pool_received[country] || {})[:value].to_i
+                 pcr_pool_reviewed_values = (@pcr_pool_reviewed[country] || {}).to_a.uniq
+                 total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+                 xray_pending_review_received = (@xray_pending_review_received[country] || {})[:value].to_i
+                 xray_pending_review_reviewed = (@xray_pending_review_reviewed[country] || {})[:value].to_i
+                 xray_pending_decision_received = (@xray_pending_decision_received[country] || {})[:value].to_i
+                 xray_pending_decision_reviewed = (@xray_pending_decision_reviewed[country] || {})[:value].to_i
 
                   # Update the existing rows with data for each country
                   new_rows[0][4] += xqcc_pool_received
