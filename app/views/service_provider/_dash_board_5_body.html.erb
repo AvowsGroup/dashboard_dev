@@ -8,325 +8,409 @@
         width: 100%;
     }
  </style>
- <div id="content">
-                            <div class="dashboard-body">
- <div class="container-fluid"> 
-    <div class="row">
-        <div class="col-12">  <div class="card"> <div class="card-header">Service Provider Split <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-    <div class="card-body p-1">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-3 mb-2">
-                <div class="custom-card"> <div class="card docotrcard">
-                    <div class="card-header"> Doctor</div>
-                    <div class="card-body p-0"> <ul class="card-ul"> 
-                        <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <span> Active</span> <span  style="font-weight: bold;"><%=@doctorsactive%></span>
-                                            <div  class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">
-                                                <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
-                                                    <span style="width: 50%;float: left;padding: 0px 7px;">State  </span> 
-                                                    <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span></div>
-                                                
-                                                <ul> 
-                                               
-                                                <%@doctorstates.each do |key,value|%>
-                                                     <li><span><%=key%> </span> <span> <%=value%></span></li>
-                                                    <%end%>
-                                            </ul></div>
-        </li>
-                        <li> <span> New</span> <span><%=rand(20..35)%></span></li>
-                        <li> <span> Withdrawal</span> <span><%=rand(10..25)%></span></li>
-                        <li> <span> Demised</span> <span><%=rand(15..35)%></span></li> 
-                        <li> <span> Non-compliance</span> <span><%=rand(5..20)%></span></li></ul></div>
-                </div>
-            </div>
-            </div>
- 
- <script type="text/javascript">
-     //<%=@doctornew%>
-    //<%=@doctorwithdrawl%>
-    //<%=@doctordemised%>
-    //<%=@doctornoncomp%>
- </script>
-            <div class="col-12 col-sm-6 col-md-3 mb-2">
-                <div class="custom-card "> <div class="card laboratorycard">
-                    <div class="card-header">Laboratory</div>
-                    <div class="card-body  p-0"> <ul class="card-ul"> 
-                        <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >  <span> Active</span> <span  style="font-weight: bold;"><%=@laboratoriesactive%></span>
-                                            <div  class="listcard-ul dropdown-menu" aria-labelledby="div_doctor"> 
- <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
-                                                    <span style="width: 50%;float: left;padding: 0px 7px;">State  </span> 
-                                                    <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span></div>
-                                                <ul> 
-                                                    <%@laboratoriesstates.each do |key,value|%>
-                                                     <li><span><%=key%> </span> <span> <%=value%></span></li>
-                                                    <%end%>
-                                               
-                                               
-                                            </ul></div>
-        </li>
-                        <li> <span> New</span> <span><%=rand(10..30)%></span>
-                        </li>
-                         <li> <span> Withdrawal</span> <span><%=rand(20..35)%></span></li>
-                        <li> <span> Demised</span> <span><%=rand(5..20)%></span></li>
-                        <li> <span> Non-compliance</span> <span><%=rand(15..30)%></span></li></ul></div>
-                </div>
-                <script>
-                    //<%=@laboratoriesnew%>
-                    //<%=@laboratorywithdrawl%>
-                    //<%=@laboratorydemised%>
-                    //<%=@laboratorynoncomp%>
-                </script>
-            </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 mb-2">
-                <div class="custom-card"> <div class="card x-raycard">
-                    <div class="card-header"> X-ray Facility</div>
-                    <div class="card-body  p-0"> <ul class="card-ul"> 
-                        <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <span> Active</span> <span  style="font-weight: bold;"><%=@xrayfacilityactive%></span>
-                                            <div  class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">  <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
-                                                    <span style="width: 50%;float: left;padding: 0px 7px;">State  </span> 
-                                                    <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span></div><ul> 
-                                                <%@xrayfacilitiesstates.each do |key,value|%>
-                                                     <li><span><%=key%> </span> <span> <%=value%></span></li>
-                                                    <%end%>
-                                            </ul></div>
-        </li>
-                        <li> <span> New</span> <span><%=rand(10..30)%></span>
-                        </li>
-                        <li> <span> Withdrawal</span> <span><%=rand(15..30)%></span></li>
-                        <li> <span> Demised</span> <span><%=rand(20..45)%></span></li>
-                         <li> <span> Non-compliance</span> <span><%=rand(5..25)%></span></li></ul></div>
-                </div>
-            </div>
-            <script type="text/javascript">
-                //<%=@xrayfacilitynew%>
-                //<%=@xrayfacilitywithdrawl%>
-                //<%=@xrayfacilitydemised%>
-                //<%=@xrayfacilitynoncomp%>
-            </script>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 mb-2">
-                <div class="custom-card"> <div class="card radiologistcard">
-                    <div class="card-header">Radiologist</div>
-                    <div class="card-body  p-0"> <ul class="card-ul"> 
-                        <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <span> Active</span> <span  style="font-weight: bold;"><%=@radiologistactive%></span>
-                            <div  class="listcard-ul dropdown-menu" aria-labelledby="div_doctor"> <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
-                                                    <span style="width: 50%;float: left;padding: 0px 7px;">State  </span> 
-                                                    <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span></div><ul> 
-                                               <%@radiologiststates.each do |key,value|%>
-                                                     <li><span><%=key%> </span> <span> <%=value%></span></li>
-                                                    <%end%>
-                                            </ul></div>
-        </li>
-                        <li> <span> New</span> <span><%=rand(10..50)%></span>
-                        </li>
-                        <li> <span> Withdrawal</span> <span><%=rand(20..40)%></span></li>
-                        <li> <span> Demised</span> <span><%=rand(30..50)%></span></li>
-                         <li> <span> Non-compliance</span> <span><%=rand(15..45)%></span></li></ul></div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div> </div></div>
-     <script type="text/javascript">
-         //<%=@radiologistnew%>
-        //<%=@radiologistwithdrawl%>
-        //<%=@radiologistdemised%>
-        //<%=@radiologistnoncomp%>
-     </script>
-      
-    </div>
- <div class="row my-1">
-    <div class="col-12 col-sm-6 col-md-4 my-2">
-        <div class="card">
-            <div class="card-header">Quota Usage by Doctor <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-            <div class="card-body p-0">
-                <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-                <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian-3d.min.js"></script>
-                <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
-                <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
-                <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
-                <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
-                <div id="chart_div"></div>
-               <!-- <div id="container" style="width: 100%; height: 218px;"></div>-->
-                
-            </div>
-        </div>
-             
-            
-             <script type="text/javascript">
-        //load the Google Visualization API and the chart
-        google.load('visualization', '1', {'packages':['columnchart']});
+<div id="content">
+  <div class="dashboard-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">Service Provider Split <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+            <div class="card-body p-1">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 mb-2">
+                  <div class="custom-card">
+                    <div class="card docotrcard">
+                      <div class="card-header"> Doctor</div>
+                      <div class="card-body p-0">
+                        <ul class="card-ul">
+                          <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span> Active</span> <span style="font-weight: bold;"><%= @doctorsactive %></span>
+                            <div class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">
+                              <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
+                                <span style="width: 50%;float: left;padding: 0px 7px;">State  </span>
+                                <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span>
+                              </div>
 
-        //set callback
-        google.setOnLoadCallback (createChart);
+                              <ul>
 
-        //callback function
-        function createChart() {
-
-                        var data = new google.visualization.DataTable(
-                                   {
-                                  "cols": [
-                                        {"id":"a","label":"Topping","pattern":"","type":"string"},
-                                        {"id":"v","label":"Promedio","pattern":"","type":"number"}
-                                      ],
-                                  "rows": [
-                                        {"c":[{"v":"<1", "f":null},{"v":<%=@doctorquotausagezero%>,"f":null}]},
-                                        {"c":[{"v":"1-100", "f":null},{"v":<%=@doctorquotausage1to100%>,"f":null}]},
-                                        {"c":[{"v":"101-200", "f":null},{"v":<%=@doctorquotausage101to200%>,"f":null}]},
-                                        {"c":[{"v":"201-300", "f":null},{"v":<%=@doctorquotausage201to300%>,"f":null}]},
-                                        {"c":[{"v":"301-400", "f":null},{"v":<%=@doctorquotausage301to400%>,"f":null}]},
-                                                 {"c":[{"v":"401-500", "f":null},{"v":<%=@doctorquotausage401to500%>,"f":null}]},
-                                                 {"c":[{"v":"501-600", "f":null},{"v":<%=@doctorquotausage501to600%>,"f":null}]},
-                                                 {"c":[{"v":"601-700", "f":null},{"v":<%=@doctorquotausage601to700%>,"f":null}]},
-                                                 {"c":[{"v":"701-800", "f":null},{"v":<%=@doctorquotausage701to800%>,"f":null}]},                                              
-                                
-                                      ]
-                                }
-                        )
-
-            //instantiate our chart objects
-            var chart = new google.visualization.ColumnChart (document.getElementById('chart_div'));
-                        
-                        
-            //define options for visualization
-            var options = {
-               
-                                width: 350,
-                height: 218,
-                is3D: true,
-                legend: 'none',                        
-                                title: '',
-
-                                 hAxis: {
-                                        title: 'Quota Use',
-                                        
-                                        textPosition: 'out'
-                                },
-                                                
-                                vAxis: {
-                                        title: 'Doctors',
-                                        minValue: 0,
-                                        maxValue: 10
-                                
-                                }
-            };
-
-
-            //draw my chart
-           chart.draw(data, options);
-
-        }
-
-    </script>
-                         
-    </div>
-    <div class="col-12 col-sm-6 col-md-8"> <div class="card">
-                    <div class="card-header">Service Provider’s Performance <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                    <div class="card-body p-1 card-height">
-        <div class="row">
-            <div class="col-6 col-sm-12 col-md-4">
-               
-                <div class="custompie-cardone" id="divcertdoctor">
-                    <div class="card">
-                        <div class="card-header">Certification by Doctor<i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                        <div class="card-body p-0">  
-                            <div id="donutchart1"></div></div>
-                            <script type="text/javascript">
-                                //<%=@ceritifydoctorperyestotal%>
-                                google.charts.load("current", {packages:["corechart"]});
-                                google.charts.setOnLoadCallback(drawChart);
-                                function drawChart() {
-                                  var data = google.visualization.arrayToDataTable([
-                                    ['Task', 'Hours per Day'],
-                                    [' ', <%=rand(10..30)%>],
-                                    ['',   <%=rand(20..50)%>]
-                                  ]);
-                          
-                                  var options = {
-                                    title: 'Doctor Transmit certification within TAT',
-                                    legend: 'none',
-                                        colors: ['#0e7dc1', '#99bed6'],
-                                    pieHole: 0.4,
-                                  };
-                          
-                                  var chart = new google.visualization.PieChart(document.getElementById('donutchart1'));
-                                  chart.draw(data, options);
-                                }
-                              </script>
-
-                          </div>
+                                <% @doctorstates.each do |key, value| %>
+                                  <li><span><%= key %> </span> <span> <%= value %></span></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><span> New</span> <span><%= @doctornew %></span></li>
+                          <li><span> Withdrawal</span> <span><%= @doctorwithdrawl %></span></li>
+                          <li><span> Demised</span> <span><%= @doctordemised %></span></li>
+                          <li><span> Non-compliance</span> <span><%= @doctornoncomp %></span></li>
+                        </ul>
+                      </div>
                     </div>
+                  </div>
                 </div>
-                       
-                       
-                        <div class="col-6 col-sm-12 col-md-4" id="divlabtrans">
-                            <div class="custompie-cardone" >
-                                <div class="card">
-                                    <div class="card-header">Laboratory Result Transmission <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                                    <div class="card-body p-0">    
-                                        <script type="text/javascript">
-                                            //<%=@laboratorydonutwithin48%>
-                                            //<%=@laboratorydonutbeyond48%>
-                                            google.charts.load("current", {packages:["corechart"]});
-                                            google.charts.setOnLoadCallback(drawChart);
-                                            function drawChart() {
-                                              var data = google.visualization.arrayToDataTable([
-                                                ['Task', 'Hours per Day'],
-                                                ['', <%=rand(10..30)%>],
-                                                ['', <%=rand(20..40)%>]
-                                              ]);
-                                      
-                                              var options = {
-                                                title: 'Lab Submit Results Within TAT',
-                                                legend: 'none',
-                                                
-                                            colors: ['#0e7dc1', '#99bed6'],
-                                                pieHole: 0.4,
-                                              };
-                                      
-                                              var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
-                                              chart.draw(data, options);
-                                            }
-                                          </script>
- 
-                                          <div id="donutchart2"></div>
-                                         
-                                      </div>
-                                </div>
+
+
+                <div class="col-12 col-sm-6 col-md-3 mb-2">
+                  <div class="custom-card ">
+                    <div class="card laboratorycard">
+                      <div class="card-header">Laboratory</div>
+                      <div class="card-body  p-0">
+                        <ul class="card-ul">
+                          <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span> Active</span> <span style="font-weight: bold;"><%= @laboratoriesactive %></span>
+                            <div class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">
+                              <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
+                                <span style="width: 50%;float: left;padding: 0px 7px;">State  </span>
+                                <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span>
+                              </div>
+                              <ul>
+                                <% @laboratoriesstates.each do |key, value| %>
+                                  <li><span><%= key %> </span> <span> <%= value %></span></li>
+                                <% end %>
+
+
+                              </ul>
                             </div>
+                          </li>
+                          <li><span> New</span> <span><%= @laboratoriesnew %></span>
+                          </li>
+                          <li><span> Withdrawal</span> <span><%= @laboratorywithdrawl %></span></li>
+                          <li><span> Demised</span> <span><%= @laboratorydemised %></span></li>
+                          <li><span> Non-compliance</span> <span><%= @laboratorynoncomp %></span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-2">
+                  <div class="custom-card">
+                    <div class="card x-raycard">
+                      <div class="card-header"> X-ray Facility</div>
+                      <div class="card-body  p-0">
+                        <ul class="card-ul">
+                          <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span> Active</span> <span style="font-weight: bold;"><%= @xrayfacilityactive %></span>
+                            <div class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">
+                              <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
+                                <span style="width: 50%;float: left;padding: 0px 7px;">State  </span>
+                                <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span>
+                              </div>
+                              <ul>
+                                <% @xrayfacilitiesstates.each do |key, value| %>
+                                  <li><span><%= key %> </span> <span> <%= value %></span></li>
+                                <% end %>
+                              </ul>
                             </div>
-                            <div class="col-6 col-sm-12 col-md-4" id="divxraytrans">
-                                <div class="custompie-cardone">
-                                    <div class="card">
-                                            <div class="card-header">X-Ray Transmission <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-                                            <div class="card-body p-0">   
-                                                <script type="text/javascript">
-                                                    //<%=@xraytransmissionpercentagetotal%>
-                                                    google.charts.load("current", {packages:["corechart"]});
-                                                    google.charts.setOnLoadCallback(drawChart);
-                                                    function drawChart() {
-                                                      var data = google.visualization.arrayToDataTable([
-                                                        ['Task', 'Hours per Day'],
-                                                        ['', <%=rand(10..40)%>],
-                                                        ['', <%=rand(20..30)%>]
-                                                      ]);
-                                              
-                                                      var options = {
-                                                        title: 'X-Ray Submit Results Within TAT',
-                                                        legend: 'none',
-                                                    colors: ['#0e7dc1', '#99bed6'],
-                                                        pieHole: 0.4,
-                                                      };
-                                              
-                                                      var chart = new google.visualization.PieChart(document.getElementById('donutchart3'));
-                                                      chart.draw(data, options);
-                                                    }
-                                                  </script>
-                                                     <div id="donutchart3"></div>
-                                                      <div class="w-100" style="float: left;height: 100px;">
+                          </li>
+                          <li><span> New</span> <span><%= @xrayfacilitynew %></span>
+                          </li>
+                          <li><span> Withdrawal</span> <span><%= @xrayfacilitywithdrawl %></span></li>
+                          <li><span> Demised</span> <span><%= @xrayfacilitydemised %></span></li>
+                          <li><span> Non-compliance</span> <span><%= @xrayfacilitynoncomp %></span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 mb-2">
+                  <div class="custom-card">
+                    <div class="card radiologistcard">
+                      <div class="card-header">Radiologist</div>
+                      <div class="card-body  p-0">
+                        <ul class="card-ul">
+                          <li class="card-li dropdown-toggle" type="button" id="div_doctor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span> Active</span> <span style="font-weight: bold;"><%= @radiologistactive %></span>
+                            <div class="listcard-ul dropdown-menu" aria-labelledby="div_doctor">
+                              <div style="background: #0032AB; color: #DDE7FF;width: 100%; float: left;">
+                                <span style="width: 50%;float: left;padding: 0px 7px;">State  </span>
+                                <span style="width: 50%;float: left;text-align: center;padding: 0px 10px 0px 37px;">Doctor</span>
+                              </div>
+                              <ul>
+                                <% @radiologiststates.each do |key, value| %>
+                                  <li><span><%= key %> </span> <span> <%= value %></span></li>
+                                <% end %>
+                              </ul>
+                            </div>
+                          </li>
+                          <li><span> New</span> <span><%= @radiologistnew %></span>
+                          </li>
+                          <li><span> Withdrawal</span> <span><%= @radiologistwithdrawl %></span></li>
+                          <li><span> Demised</span> <span><%= @radiologistdemised %></span></li>
+                          <li><span> Non-compliance</span> <span><%= @radiologistnoncomp %></span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="card-header">Quote Usage by Doctor <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+            <div class="card-body p-1">
+              <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+              <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian-3d.min.js"></script>
+              <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+              <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+              <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+              <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+              <div id="container" style="width: 100%; height: 218px;"></div>
+
+            </div>
+          </div>
+
+
+          <script>
+
+              anychart.onDocumentReady(function () {
+                  // create column chart
+                  var chart = anychart.column3d();
+
+                  // turn on chart animation
+                  chart.animation(true);
+
+                  // set chart title text settings
+
+                  // create area series with passed data
+                  chart.column([
+                      ['< 1 ', '<%=@doctorquotausagezero%>'],
+                      ['1 - 100', '<%=@doctorquotausage1to100%>'],
+                      ['101 - 200', '<%=@doctorquotausage101to200%>'],
+                      ['201 - 300', '<%=@doctorquotausage201to300%>'],
+                      ['301 - 400', '<%=@doctorquotausage301to400%>'],
+                      ['401 - 500', '<%=@doctorquotausage401to500%>'],
+                      ['501 - 600', '<%=@doctorquotausage501to600%>'],
+                      ['601 - 700', '<%=@doctorquotausage601to700%>'],
+                      ['701 - 800', '<%=@doctorquotausage701to800%>']
+                  ]);
+
+                  chart
+                      .tooltip()
+                      .position('center-top')
+                      .anchor('center-bottom')
+                      .offsetX(0)
+                      .offsetY(5)
+                      .format('{%Value}');
+
+                  // set scale minimum
+                  chart.yScale().minimum(0);
+
+                  // set yAxis labels formatter
+                  chart.yAxis().labels().format('{%Value}{groupsSeparator: }');
+
+                  chart.tooltip().positionMode('point');
+                  chart.interactivity().hoverMode('by-x');
+
+                  chart.xAxis().title('Quote Use');
+                  chart.yAxis().title('#of Doctor');
+
+                  // set container id for the chart
+                  chart.container('container');
+
+                  // initiate chart drawing
+                  chart.draw();
+              });
+
+          </script>
+
+        </div>
+        <div class="col-12 col-sm-6 col-md-8">
+          <div class="card">
+            <div class="card-header">Service Provider’s Performance <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </div>
+            <div class="card-body p-1 card-height">
+              <div class="row">
+                <div class="col-6 col-sm-12 col-md-4">
+                  <div class="custompie-cardone" id="divcertdoctor">
+                    <div class="card">
+                      <div class="card-header">Certification by
+                        Doctor<i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                      <div class="card-body p-0">
+                        <div id="donutchart1"></div>
+                      </div>
+                      <script type="text/javascript">
+                          google.charts.load("current", {packages: ["corechart"]});
+                          google.charts.setOnLoadCallback(drawChart);
+
+                          function drawChart() {
+                              var data = google.visualization.arrayToDataTable([
+                                  ['Task', 'Hours per Day'],
+                                  [' ', <%=@ceritifydoctorperyestotal%>],
+                                  ['', '']
+                              ]);
+
+                              var options = {
+                                  title: 'Doctor Transmit certification within TAT',
+                                  legend: 'none',
+                                  colors: ['#0e7dc1', '#99bed6'],
+                                  pieHole: 0.4,
+                              };
+
+                              var chart = new google.visualization.PieChart(document.getElementById('donutchart1'));
+                              chart.draw(data, options);
+                          }
+                      </script>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-sm-12 col-md-4" id="divdoctortransm">
+                  <div class="custompie-cardone">
+                    <div class="card">
+                      <div class="card-header">Accuracy Result Transmission By Doctor
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+
+                      </div>
+                      <div class="card-body p-0">
+                        <div id="donutchart5"></div>
+                        <script type="text/javascript">
+                            google.charts.load("current", {packages: ["corechart"]});
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Task', 'Hours per Day'],
+                                    [' ', 7],
+                                    ['', 2]
+                                ]);
+
+                                var options = {
+                                    title: 'Doctor Transmit Accurately',
+                                    pieHole: 0.4,
+                                    legend: 'none',
+                                    colors: ['#0e7dc1', '#99bed6'],
+
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById('donutchart5'));
+                                chart.draw(data, options);
+                            }
+                        </script>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-6 col-sm-12 col-md-4" id="divlabtrans">
+                  <div class="custompie-cardone">
+                    <div class="card">
+                      <div class="card-header">Laboratory Result Transmission
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                      <div class="card-body p-0">
+                        <script type="text/javascript">
+                            google.charts.load("current", {packages: ["corechart"]});
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Task', 'Hours per Day'],
+                                    ['', <%=@laboratorydonutwithin48%>],
+                                    ['', <%=@laboratorydonutbeyond48%>]
+                                ]);
+
+                                var options = {
+                                    title: 'Lab Submit Results Within TAT',
+                                    legend: 'none',
+
+                                    colors: ['#0e7dc1', '#99bed6'],
+                                    pieHole: 0.4,
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
+                                chart.draw(data, options);
+                            }
+                        </script>
+
+                        <div id="donutchart2"></div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-sm-12 col-md-4" id="divxrayquality">
+                  <div class="custompie-cardone">
+                    <div class="card">
+                      <div class="card-header">X-Ray Quality Compliance
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+
+                      </div>
+                      <div class="card-body p-0">
+                        <div id="donutchart"></div>
+                        <script type="text/javascript">
+                            google.charts.load("current", {packages: ["corechart"]});
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Task', 'Hours per Day'],
+                                    [' ', 7],
+                                    ['', 2]
+                                ]);
+
+                                var options = {
+                                    title: 'X-ray Facility Achieve Quality Compliance',
+                                    pieHole: 0.4,
+                                    legend: 'none',
+                                    colors: ['#0e7dc1', '#99bed6'],
+
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                                chart.draw(data, options);
+                            }
+                        </script>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-sm-12 col-md-4" id="divxraytrans">
+                  <div class="custompie-cardone">
+                    <div class="card">
+                      <div class="card-header pr-0">
+                        X-rayTransmission
+                      </div>
+                      <div class="card-body p-0">
+                        <script type="text/javascript">
+                            google.charts.load("current", {packages: ["corechart"]});
+                            google.charts.setOnLoadCallback(drawChart);
+
+                            function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Task', 'Hours per Day'],
+                                    ['', 10],
+                                    ['', 10]
+                                ]);
+
+                                var options = {
+                                    title: 'X-Ray Submit Results Within TAT',
+                                    legend: 'none',
+
+                                    colors: ['#0e7dc1', '#99bed6'],
+                                    pieHole: 0.4,
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById('div_self'));
+                                chart.draw(data, options);
+                            }
+                        </script>
+                        <div class="w-100" style="float: left;height: 250px;">
                           <div id="div_self"></div>
                         </div>
-                                                      <div class="progressbar_wrap" >
+                        <div class="progressbar_wrap">
                           <div class="progressbar_div">
                             <label> Self Reporting</label>
                             <div class="newprogress w-100 float-left">
@@ -340,91 +424,60 @@
                             </div>
                           </div>
                         </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    <div class="col-6 col-sm-12 col-md-4" id="divxrayquality">
-                                        <div class="custompie-cardone">
-                                            <div class="card">
-                                                <div class="card-header">X-Ray Quality Compliance <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-            
-                                                </div>
-                                                <div class="card-body p-0">   
-                                                    <div id="donutchart"></div>
-                                                    <script type="text/javascript">
-                                                        google.charts.load("current", {packages:["corechart"]});
-                                                        google.charts.setOnLoadCallback(drawChart);
-                                                        function drawChart() {
-                                                          var data = google.visualization.arrayToDataTable([
-                                                            ['Task', 'Hours per Day'],
-                                                            [' ', <%=rand(20..50)%>],
-                                                            ['',    <%=rand(10..40)%>]
-                                                          ]);
-                                                  
-                                                          var options = {
-                                                            title: 'X-ray Facility Achieve Quality Compliance',
-                                                            pieHole: 0.4,
-                                                            legend: 'none',
-                                                            colors: ['#0e7dc1', '#99bed6'],
-            
-                                                          };
-                                                  
-                                                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                                                          chart.draw(data, options);
-                                                        }
-                                                      </script>
-                 
-                                                  </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-6 col-sm-12 col-md-4" id="divdoctortransm">
-                                            <div class="custompie-cardone" >
-                                                <div class="card">
-                                                    <div class="card-header">Accuracy Result Transmission By Doctor
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                
-                                                    </div>
-                                                    <div class="card-body p-0">   
-                                                        <div id="donutchart5"></div>
-                                                        <script type="text/javascript">
-                                                            //<%=@doctoraccuracytransmissiontotal%>
-                                                            google.charts.load("current", {packages:["corechart"]});
-                                                            google.charts.setOnLoadCallback(drawChart);
-                                                            function drawChart() {
-                                                              var data = google.visualization.arrayToDataTable([
-                                                                ['Task', 'Hours per Day'],
-                                                                [' ', <%=rand(20..30)%>],
-                                                                ['',    <%=rand(10..40)%>] 
-                                                              ]);
-                                                      
-                                                              var options = {
-                                                                title: 'Doctor Transmit Accurately',
-                                                                pieHole: 0.4,
-                                                                legend: 'none',
-                                                                colors: ['#0e7dc1', '#99bed6'],
-                
-                                                              };
-                                                      
-                                                              var chart = new google.visualization.PieChart(document.getElementById('donutchart5'));
-                                                              chart.draw(data, options);
-                                                            }
-                                                          </script>
-                      
-                       
-                                                      </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            
-         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-       
- </div>
-        
-                       </div>
-               </div>
-       </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+    .progressbar_wrap {
+        width: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        margin: 6px;
+        padding: 14px 14px 2px 14px;
+    }
+
+    .progressbar_div {
+        margin-bottom: 5px;
+    }
+
+    .progressbar_div > label {
+        margin: 0px;
+        color: #626262;
+    }
+
+    .progressbar_div, .progressbar_div > label {
+        font-size: 11px;
+        float: left;
+        width: 100%;
+    }
+
+    .newprogress {
+        background-color: #ececec;
+        border-radius: 10px;
+    }
+
+    .newprogress > .progress-bar {
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    .svg-font > tspan, .svg-font {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+    }
+</style>
