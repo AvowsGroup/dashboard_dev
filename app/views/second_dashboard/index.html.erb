@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/assets/moment.min.js"></script>
     <script type="text/javascript" src="/assets/daterangepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -38,10 +39,10 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in m-0 p-0" aria-labelledby="userDropdown">
                   <ul class="li-profile">
                     <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                      <a onclick="handleRefreshInterval(3000)" class="dropdown-item"> 5 Min </a>
+                      <a id="div2min" onclick="handleRefreshInterval(120000)" class="dropdown-item"> 5 Min </a>
                     </li>
                     <li style="border-bottom: dotted 1px #c2c2c2; font-size: 12px;">
-                      <a onclick="handleRefreshInterval(600000)" class="dropdown-item">10 Min</a>
+                      <a id="div10min" onclick="handleRefreshInterval(600000)" class="dropdown-item">10 Min</a>
                     </li>
                   </ul>
                 </div>
@@ -654,21 +655,7 @@
      });
 
   }
- function getRefreshInterval() {
-      $.ajax({
-          url: '/refresh_dashboards/get_interval',
-          type: 'GET',
-          contentType: 'application/json',
-          data: { dashboard_name: 'geographical' },
-          success: function (data) {
-              startAutoRefresh(data.interval);
-          },
-          error: function (error) {
-              console.error('Error getting refresh interval:', error);
-          }
-      });
-  }
-  function saveRefreshInterval(interval) {
+ function saveRefreshInterval(interval) {
     const formData = {
         dashboard_interval: interval,
         dashboard_name: "geographical"
@@ -684,29 +671,61 @@
         },
         error: function (error) {
             console.error('Error saving refresh interval:', error);
+            
         }
     });
   }
+ 
+  function getRefreshInterval() {
+      $.ajax({
+          url: '/refresh_dashboards',
+          type: 'GET',
+          contentType: 'application/json',
+          data: { dashboard_name: 'geographical' },
+          success: function (data) {
+              startAutoRefresh(data.interval);
+              setDropdownItemByInterval(data.interval)
+          },
+          error: function (error) {
+              console.error('Error getting refresh interval:', error);
+          }
+      });
+  }
+ 
+  function startAutoRefresh(interval) {
+    clearInterval(window.refreshInterval);
+ 
+    window.refreshInterval = setInterval(function() {
+      location.reload();
+    }, interval);
+  }
+ 
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedInterval = getRefreshInterval()
+    if (savedInterval) {
+      handleRefreshInterval(parseInt(savedInterval, 10));
+    }
+  });
+ 
   function handleRefreshInterval(interval) {
     saveRefreshInterval(interval);
     var dropdownItems = document.querySelectorAll('.dropdown-item');
     dropdownItems.forEach(function (item) {
       item.classList.remove('selected');
     });
-
+ 
     event.target.classList.add('selected');
+    setDropdownItemByInterval(interval);
   }
-   function startAutoRefresh(interval) {
-    clearInterval(window.refreshInterval);
-
-    window.refreshInterval = setInterval(function() {
-      location.reload();
-    }, interval);
+  function setDropdownItemByInterval(interval) {
+      var dropdownItems = document.querySelectorAll('.dropdown-item');
+      dropdownItems.forEach(function (item) {
+          item.classList.remove('selected');
+      });
+ 
+     var selectedDropdownItem = document.querySelector(`#div${interval / 60000}min`);
+      if (selectedDropdownItem) {
+          selectedDropdownItem.classList.add('selected');
+      }
   }
-   document.addEventListener('DOMContentLoaded', function() {
-    const savedInterval = getRefreshInterval()
-    if (savedInterval) {
-      handleRefreshInterval(parseInt(savedInterval, 10));
-    }
-  });
 </script>

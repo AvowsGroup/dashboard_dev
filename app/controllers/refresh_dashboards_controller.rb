@@ -1,5 +1,5 @@
 class RefreshDashboardsController < ApplicationController
-  
+  protect_from_forgery
   def create
     dashboard_name = params[:dashboard_name]
     dashboard_interval = params[:dashboard_interval]
@@ -27,7 +27,7 @@ class RefreshDashboardsController < ApplicationController
       end
     end
   end
-
+ 
   def get_interval
     dashboard_name = params[:dashboard_name]
     refresh_dashboard = RefreshDashboard.first
