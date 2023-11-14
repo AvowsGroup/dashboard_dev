@@ -257,6 +257,44 @@
                           </div>
                     </div>
                 </div>
+                    <div class="col-6 col-sm-12 col-md-4" id="divdoctortransm">
+                                            <div class="custompie-cardone" >
+                                                <div class="card">
+                                                    <div class="card-header">Accuracy Result Transmission By Doctor
+                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                
+                                                    </div>
+                                                    <div class="card-body p-0">   
+                                                        <div id="donutchart5"></div>
+                                                        <script type="text/javascript">
+                                                            //<%=@doctoraccuracytransmissiontotal%>
+                                                            google.charts.load("current", {packages:["corechart"]});
+                                                            google.charts.setOnLoadCallback(drawChart);
+                                                            function drawChart() {
+                                                              var data = google.visualization.arrayToDataTable([
+                                                                ['Task', 'Hours per Day'],
+                                                                [' ', <%=rand(20..30)%>],
+                                                                ['',    <%=rand(10..40)%>] 
+                                                              ]);
+                                                      
+                                                              var options = {
+                                                                title: 'Doctor Transmit Accurately',
+                                                                pieHole: 0.4,
+                                                                legend: 'none',
+                                                                colors: ['#0e7dc1', '#99bed6'],
+                
+                                                              };
+                                                      
+                                                              var chart = new google.visualization.PieChart(document.getElementById('donutchart5'));
+                                                              chart.draw(data, options);
+                                                            }
+                                                          </script>
+                      
+                       
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            </div>
                        
                        
                         <div class="col-6 col-sm-12 col-md-4" id="divlabtrans">
@@ -295,6 +333,41 @@
                                 </div>
                             </div>
                             </div>
+                               <div class="col-6 col-sm-12 col-md-4" id="divxrayquality">
+                                        <div class="custompie-cardone">
+                                            <div class="card">
+                                                <div class="card-header">X-Ray Quality Compliance <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            
+                                                </div>
+                                                <div class="card-body p-0">   
+                                                    <div id="donutchart"></div>
+                                                    <script type="text/javascript">
+                                                        google.charts.load("current", {packages:["corechart"]});
+                                                        google.charts.setOnLoadCallback(drawChart);
+                                                        function drawChart() {
+                                                          var data = google.visualization.arrayToDataTable([
+                                                            ['Task', 'Hours per Day'],
+                                                            [' ', <%=rand(20..50)%>],
+                                                            ['',    <%=rand(10..40)%>]
+                                                          ]);
+                                                  
+                                                          var options = {
+                                                            title: 'X-ray Facility Achieve Quality Compliance',
+                                                            pieHole: 0.4,
+                                                            legend: 'none',
+                                                            colors: ['#0e7dc1', '#99bed6'],
+            
+                                                          };
+                                                  
+                                                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                                                          chart.draw(data, options);
+                                                        }
+                                                      </script>
+                 
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        </div>
   <div class="col-6 col-sm-12 col-md-4" id="divxraytrans">
                   <div class="custompie-cardone">
                     <div class="card">
@@ -346,79 +419,8 @@
                     </div>
                   </div>
                 </div>
-                                    <div class="col-6 col-sm-12 col-md-4" id="divxrayquality">
-                                        <div class="custompie-cardone">
-                                            <div class="card">
-                                                <div class="card-header">X-Ray Quality Compliance <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-            
-                                                </div>
-                                                <div class="card-body p-0">   
-                                                    <div id="donutchart"></div>
-                                                    <script type="text/javascript">
-                                                        google.charts.load("current", {packages:["corechart"]});
-                                                        google.charts.setOnLoadCallback(drawChart);
-                                                        function drawChart() {
-                                                          var data = google.visualization.arrayToDataTable([
-                                                            ['Task', 'Hours per Day'],
-                                                            [' ', <%=rand(20..50)%>],
-                                                            ['',    <%=rand(10..40)%>]
-                                                          ]);
-                                                  
-                                                          var options = {
-                                                            title: 'X-ray Facility Achieve Quality Compliance',
-                                                            pieHole: 0.4,
-                                                            legend: 'none',
-                                                            colors: ['#0e7dc1', '#99bed6'],
-            
-                                                          };
-                                                  
-                                                          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-                                                          chart.draw(data, options);
-                                                        }
-                                                      </script>
-                 
-                                                  </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-6 col-sm-12 col-md-4" id="divdoctortransm">
-                                            <div class="custompie-cardone" >
-                                                <div class="card">
-                                                    <div class="card-header">Accuracy Result Transmission By Doctor
-                                                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                
-                                                    </div>
-                                                    <div class="card-body p-0">   
-                                                        <div id="donutchart5"></div>
-                                                        <script type="text/javascript">
-                                                            //<%=@doctoraccuracytransmissiontotal%>
-                                                            google.charts.load("current", {packages:["corechart"]});
-                                                            google.charts.setOnLoadCallback(drawChart);
-                                                            function drawChart() {
-                                                              var data = google.visualization.arrayToDataTable([
-                                                                ['Task', 'Hours per Day'],
-                                                                [' ', <%=rand(20..30)%>],
-                                                                ['',    <%=rand(10..40)%>] 
-                                                              ]);
-                                                      
-                                                              var options = {
-                                                                title: 'Doctor Transmit Accurately',
-                                                                pieHole: 0.4,
-                                                                legend: 'none',
-                                                                colors: ['#0e7dc1', '#99bed6'],
-                
-                                                              };
-                                                      
-                                                              var chart = new google.visualization.PieChart(document.getElementById('donutchart5'));
-                                                              chart.draw(data, options);
-                                                            }
-                                                          </script>
-                      
-                       
-                                                      </div>
-                                                </div>
-                                            </div>
-                                            </div>
+                                 
+                                    
                                             
          </div>
             </div>
