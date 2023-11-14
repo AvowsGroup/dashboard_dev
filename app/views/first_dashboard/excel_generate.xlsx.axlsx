@@ -22,33 +22,173 @@ wb = xlsx_package.workbook
             examination_count = @examination_count[country] || 0
             certification_count = @certification_count[country] || 0
             xqcc_pool_received =@xqcc_pool_received[country].presence || 0
-            xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence  || 0
-            pcr_pool_received = @pcr_pool_received[country].presence  || 0
-            pcr_pool_reviewed = @pcr_pool_reviewed[country].presence  || 0
-            xray_pending_review_received = @xray_pending_review_received[country].presence  || 0
-            xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence  || 0
-            xray_pending_decision_received = @xray_pending_decision_received[country].presence  || 0
+            xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
+            pcr_pool_received = @pcr_pool_received[country].presence || 0
+            pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
+            total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+            xray_pending_review_received = @xray_pending_review_received[country].presence || 0
+            xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
+            xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
             xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[country].presence  || 0
-            sheet.add_row([country, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, pcr_pool_reviewed, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+            sheet.add_row([country, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
           end
         when 'FW Reg. by State'
             @states.each do |state|
-              sheet.add_row([state], style: data_style)
+              total_registration = @total_fw_registration[state] || 0
+              examination_count = @examination_count[state] || 0
+              certification_count = @certification_count[state] || 0
+              xqcc_pool_received =@xqcc_pool_received[state].presence || 0
+              xqcc_pool_reviewed = @xqcc_pool_reviewed[state].presence || 0
+              pcr_pool_received = @pcr_pool_received[state].presence || 0
+              pcr_pool_reviewed_values = @pcr_pool_reviewed[state].to_a.uniq
+              total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+              xray_pending_review_received = @xray_pending_review_received[state].presence || 0
+              xray_pending_review_reviewed = @xray_pending_review_reviewed[state].presence || 0
+              xray_pending_decision_received = @xray_pending_decision_received[state].presence || 0
+              xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[state].presence  || 0
+              sheet.add_row([state, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
             end
          when 'FW Reg. by Sector'
-            @job_type.each do |job_type|
-              sheet.add_row([job_type], style: data_style)
-            end
+            @job_type.each do |job|
+              total_registration = @total_fw_registration[job] || 0
+              examination_count = @examination_count[job] || 0
+              certification_count = @certification_count[job] || 0
+              xqcc_pool_received =@xqcc_pool_received[job].presence || 0
+              xqcc_pool_reviewed = @xqcc_pool_reviewed[job].presence || 0
+              pcr_pool_received = @pcr_pool_received[job].presence || 0
+              pcr_pool_reviewed_values = @pcr_pool_reviewed[job].to_a.uniq
+              total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+              xray_pending_review_received = @xray_pending_review_received[job].presence || 0
+              xray_pending_review_reviewed = @xray_pending_review_reviewed[job].presence || 0
+              xray_pending_decision_received = @xray_pending_decision_received[job].presence || 0
+              xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[job].presence  || 0
+              sheet.add_row([job, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+              end
          when 'FW Reg. by Gender'
-             sheet.add_row(['Male'], style: data_style)
-             sheet.add_row(['Female'], style: data_style)
+            # Initialize rows arrays outside the loop
+            male_rows = [['Male', @male_count, @male_examination_count, @male_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
+            female_rows = [['Female', @female_count, @female_examination_count, @female_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
+            @countries.each do |country|
+                # Collect data for the specified columns
+                xqcc_pool_received = @xqcc_pool_received[country].presence || 0
+                xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
+                pcr_pool_received = @pcr_pool_received[country].presence || 0
+                pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
+                total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+                xray_pending_review_received = @xray_pending_review_received[country].presence || 0
+                xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
+                xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
+                xray_pending_decision_reviewed = @xray_pending_decision_reviewed[country].presence || 0
+
+                # Update the existing rows with data for each country
+                male_rows[0][4] += xqcc_pool_received
+                male_rows[0][5] += xqcc_pool_reviewed
+                male_rows[0][6] += pcr_pool_received
+                male_rows[0][7] += total_pcr_reviewed_count
+                male_rows[0][8] += xray_pending_review_received
+                male_rows[0][9] += xray_pending_review_reviewed
+                male_rows[0][10] += xray_pending_decision_received
+                male_rows[0][11] += xray_pending_decision_reviewed
+
+                female_rows[0][4] += xqcc_pool_received
+                female_rows[0][5] += xqcc_pool_reviewed
+                female_rows[0][6] += pcr_pool_received
+                female_rows[0][7] += total_pcr_reviewed_count
+                female_rows[0][8] += xray_pending_review_received
+                female_rows[0][9] += xray_pending_review_reviewed
+                female_rows[0][10] += xray_pending_decision_received
+                female_rows[0][11] += xray_pending_decision_reviewed
+            end
+
+            # Add male and female rows to the sheet
+            sheet.add_row(male_rows.flatten, style: data_style)
+            sheet.add_row(female_rows.flatten, style: data_style)
+
          when 'FW Reg. by Registration at'
              @organizations.each do |organization|
-               sheet.add_row([organization], style: data_style)
+               total_registration = @total_fw_registration[organization] || 0
+               examination_count = @examination_count[organization] || 0
+               certification_count = @certification_count[organization] || 0
+               xqcc_pool_received =@xqcc_pool_received[organization].presence || 0
+               xqcc_pool_reviewed = @xqcc_pool_reviewed[organization].presence || 0
+               pcr_pool_received = @pcr_pool_received[organization].presence || 0
+               pcr_pool_reviewed_values = @pcr_pool_reviewed[organization].to_a.uniq
+               total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+               xray_pending_review_received = @xray_pending_review_received[organization].presence || 0
+               xray_pending_review_reviewed = @xray_pending_review_reviewed[organization].presence || 0
+               xray_pending_decision_received = @xray_pending_decision_received[organization].presence || 0
+               xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[organization].presence  || 0
+               sheet.add_row([organization, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
              end
          when 'FW Reg. by FW Type'
-              sheet.add_row(['New'], style: data_style)
-              sheet.add_row(['Renewal'], style: data_style)
+              # Initialize rows arrays outside the loop
+               new_rows = [['New', @new_count, @new_examination_count, @new_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
+               renewal_rows = [['New', @renewal_count, @renewal_examination_count, @renewal_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
+              @countries.each do |country|
+                  # Collect data for the specified columns
+                  xqcc_pool_received = @xqcc_pool_received[country].presence || 0
+                  xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
+                  pcr_pool_received = @pcr_pool_received[country].presence || 0
+                  pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
+                  total_pcr_reviewed_count = pcr_pool_reviewed_values.count
+                  xray_pending_review_received = @xray_pending_review_received[country].presence || 0
+                  xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
+                  xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
+                  xray_pending_decision_reviewed = @xray_pending_decision_reviewed[country].presence || 0
+
+                  # Update the existing rows with data for each country
+                  new_rows[0][4] += xqcc_pool_received
+                  new_rows[0][5] += xqcc_pool_reviewed
+                  new_rows[0][6] += pcr_pool_received
+                  new_rows[0][7] += total_pcr_reviewed_count
+                  new_rows[0][8] += xray_pending_review_received
+                  new_rows[0][9] += xray_pending_review_reviewed
+                  new_rows[0][10] += xray_pending_decision_received
+                  new_rows[0][11] += xray_pending_decision_reviewed
+
+                  renewal_rows[0][4] += xqcc_pool_received
+                  renewal_rows[0][5] += xqcc_pool_reviewed
+                  renewal_rows[0][6] += pcr_pool_received
+                  renewal_rows[0][7] += total_pcr_reviewed_count
+                  renewal_rows[0][8] += xray_pending_review_received
+                  renewal_rows[0][9] += xray_pending_review_reviewed
+                  renewal_rows[0][10] += xray_pending_decision_received
+                  renewal_rows[0][11] += xray_pending_decision_reviewed
+              end
+
+              # Add male and female rows to the sheet
+              sheet.add_row(new_rows.flatten, style: data_style)
+              sheet.add_row(renewal_rows.flatten, style: data_style)
+
+         when 'Trend of FW Reg. by year'
+          @latest_transactions.each_with_index do |date, index|
+            sheet.add_row([date, date, 0, 0, 0, 0, 1, 1], style: data_style, row_offset: index)
+          end
+
+         when 'Raw Data 2023'
+             @raw_data_2023.each do |record|
+               sheet.add_row([record[0], record[1], record[2] ], style: data_style)
+             end
+
+          when 'Raw Data 2022'
+              @raw_data_2022.each do |record|
+                sheet.add_row([record[0], record[1], record[2] ], style: data_style)
+              end
+
+           when 'Raw Data 2021'
+               @raw_data_2021.each do |record|
+                 sheet.add_row([record[0], record[1], record[2] ], style: data_style)
+               end
+
+            when 'Raw Data 2020'
+                @raw_data_2020.each do |record|
+                  sheet.add_row([record[0], record[1], record[2] ], style: data_style)
+                end
+
+             when 'Raw Data 2019'
+                 @raw_data_2019.each do |record|
+                   sheet.add_row([record[0], record[1], record[2] ], style: data_style)
+                 end
         end
       end
     end
