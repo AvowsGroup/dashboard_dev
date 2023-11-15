@@ -138,19 +138,19 @@ class FirstDashboardController < ApplicationController
       xqcc_pool_received = Transaction.joins("JOIN xqcc_pools ON xqcc_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xqcc_pools.created_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_received[country] = xqcc_pool_received
 
       xqcc_pool_reviewed = Transaction.joins("JOIN xray_reviews ON xray_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xray_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_reviewed[country] = xqcc_pool_reviewed
 
       pcr_pool_received = Transaction.joins("JOIN pcr_pools ON pcr_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                      .limit(50)
                                      .group('pcr_pools.created_at, transactions.certification_date, transactions.created_at')
-                                     .count
+                                     .count.values
       @pcr_pool_received[country] = pcr_pool_received
 
       pcr_pool_reviewed = Transaction.joins("JOIN pcr_reviews ON pcr_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
@@ -162,25 +162,25 @@ class FirstDashboardController < ApplicationController
       xray_pending_review_received = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                 .limit(50)
                                                 .group('xray_pending_reviews.created_at, transactions.certification_date, transactions.created_at')
-                                                .count
+                                                .count.values
       @xray_pending_review_received[country] = xray_pending_review_received
 
       xray_pending_review_reviewed = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                 .limit(50)
                                                 .group('xray_pending_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                                .count
+                                                .count.values
       @xray_pending_review_reviewed[country] = xray_pending_review_reviewed
 
       xray_pending_decision_received = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                   .limit(50)
                                                   .group('xray_pending_decisions.created_at, transactions.certification_date, transactions.created_at')
-                                                  .count
+                                                  .count.values
       @xray_pending_decision_received[country] = xray_pending_decision_received
 
       xray_pending_decision_reviewed = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                   .limit(50)
                                                   .group('xray_pending_decisions.transmitted_at, transactions.certification_date, transactions.created_at')
-                                                  .count
+                                                  .count.values
       @xray_pending_decision_reviewed[country] = xray_pending_decision_reviewed
 
     end
@@ -214,19 +214,19 @@ class FirstDashboardController < ApplicationController
       xqcc_pool_received = Transaction.joins("JOIN xqcc_pools ON xqcc_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xqcc_pools.created_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_received[state] = xqcc_pool_received
 
       xqcc_pool_reviewed = Transaction.joins("JOIN xray_reviews ON xray_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xray_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_reviewed[state] = xqcc_pool_reviewed
 
       pcr_pool_received = Transaction.joins("JOIN pcr_pools ON pcr_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                      .limit(50)
                                      .group('pcr_pools.created_at, transactions.certification_date, transactions.created_at')
-                                     .count
+                                     .count.values
       @pcr_pool_received[state] = pcr_pool_received
 
       pcr_pool_reviewed = Transaction.joins("JOIN pcr_reviews ON pcr_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
@@ -250,7 +250,7 @@ class FirstDashboardController < ApplicationController
       xray_pending_decision_received = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                   .limit(50)
                                                   .group('xray_pending_decisions.created_at, transactions.certification_date, transactions.created_at')
-                                                  .count
+                                                  .count.values
       @xray_pending_decision_received[state] = xray_pending_decision_received
 
       xray_pending_decision_reviewed = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
@@ -289,13 +289,13 @@ class FirstDashboardController < ApplicationController
       xqcc_pool_received = Transaction.joins("JOIN xqcc_pools ON xqcc_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xqcc_pools.created_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_received[job] = xqcc_pool_received
 
       xqcc_pool_reviewed = Transaction.joins("JOIN xray_reviews ON xray_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xray_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_reviewed[job] = xqcc_pool_reviewed
 
       pcr_pool_received = Transaction.joins("JOIN pcr_pools ON pcr_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
@@ -313,25 +313,25 @@ class FirstDashboardController < ApplicationController
       xray_pending_review_received = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                 .limit(50)
                                                 .group('xray_pending_reviews.created_at, transactions.certification_date, transactions.created_at')
-                                                .count
+                                                .count.values
       @xray_pending_review_received[job] = xray_pending_review_received
 
       xray_pending_review_reviewed = Transaction.joins("JOIN xray_pending_reviews ON xray_pending_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                 .limit(50)
                                                 .group('xray_pending_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                                .count
+                                                .count.values
       @xray_pending_review_reviewed[job] = xray_pending_review_reviewed
 
       xray_pending_decision_received = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                   .limit(50)
                                                   .group('xray_pending_decisions.created_at, transactions.certification_date, transactions.created_at')
-                                                  .count
+                                                  .count.values
       @xray_pending_decision_received[job] = xray_pending_decision_received
 
       xray_pending_decision_reviewed = Transaction.joins("JOIN xray_pending_decisions ON xray_pending_decisions.transaction_id = transactions.id").order('transactions.created_at DESC')
                                                   .limit(50)
                                                   .group('xray_pending_decisions.transmitted_at, transactions.certification_date, transactions.created_at')
-                                                  .count
+                                                  .count.values
       @xray_pending_decision_reviewed[job] = xray_pending_decision_reviewed
 
     end
@@ -398,19 +398,19 @@ class FirstDashboardController < ApplicationController
       xqcc_pool_received = Transaction.joins("JOIN xqcc_pools ON xqcc_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xqcc_pools.created_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_received[organization] = xqcc_pool_received
 
       xqcc_pool_reviewed = Transaction.joins("JOIN xray_reviews ON xray_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')
                                       .limit(50)
                                       .group('xray_reviews.transmitted_at, transactions.certification_date, transactions.created_at')
-                                      .count
+                                      .count.values
       @xqcc_pool_reviewed[organization] = xqcc_pool_reviewed
 
       pcr_pool_received = Transaction.joins("JOIN pcr_pools ON pcr_pools.transaction_id = transactions.id").order('transactions.created_at DESC')
                                      .limit(50)
                                      .group('pcr_pools.created_at, transactions.certification_date, transactions.created_at')
-                                     .count
+                                     .count.values
       @pcr_pool_received[organization] = pcr_pool_received
 
       pcr_pool_reviewed = Transaction.joins("JOIN pcr_reviews ON pcr_reviews.transaction_id = transactions.id").order('transactions.created_at DESC')

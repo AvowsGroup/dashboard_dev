@@ -21,83 +21,110 @@ wb = xlsx_package.workbook
             total_registration = @total_fw_registration[country] || 0
             examination_count = @examination_count[country] || 0
             certification_count = @certification_count[country] || 0
-            xqcc_pool_received =@xqcc_pool_received[country].presence || 0
-            xqcc_pool_reviewed = @xqcc_pool_reviewed[country].presence || 0
-            pcr_pool_received = @pcr_pool_received[country].presence || 0
+            xqcc_pool_received_values = @xqcc_pool_received[country].to_a.uniq
+            total_xqcc_pool_received_count = xqcc_pool_received_values.count
+            xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[country].to_a.uniq
+            total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+            pcr_pool_received_values = @pcr_pool_received[country].to_a.uniq
+            total_pcr_pool_received_count = pcr_pool_received_values.count
             pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
-            total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-            xray_pending_review_received = @xray_pending_review_received[country].presence || 0
-            xray_pending_review_reviewed = @xray_pending_review_reviewed[country].presence || 0
-            xray_pending_decision_received = @xray_pending_decision_received[country].presence || 0
-            xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[country].presence  || 0
-            sheet.add_row([country, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+            total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+            xray_pending_review_received_values =  @xray_pending_review_received[country].to_a.uniq
+            total_xray_pending_review_received_count = xray_pending_review_received_values.count
+            xray_pending_review_reviewed_values = @xray_pending_review_reviewed[country].to_a.uniq
+            total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+            xray_pending_decision_received_values = @xray_pending_decision_received[country].to_a.uniq
+            total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+            xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[country].to_a.uniq
+            total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
+            sheet.add_row([country, total_registration, examination_count, certification_count, total_xqcc_pool_received_count, total_xqcc_pool_reviewed_count, total_pcr_pool_received_count, total_pcr_pool_reviewed_count, total_xray_pending_review_received_count, total_xray_pending_review_reviewed_count, total_xray_pending_decision_received_count, total_xray_pending_decision_reviewed_count], style: data_style)
           end
         when 'FW Reg. by State'
             @states.each do |state|
               total_registration = @total_fw_registration[state] || 0
               examination_count = @examination_count[state] || 0
               certification_count = @certification_count[state] || 0
-              xqcc_pool_received =@xqcc_pool_received[state].presence || 0
-              xqcc_pool_reviewed = @xqcc_pool_reviewed[state].presence || 0
-              pcr_pool_received = @pcr_pool_received[state].presence || 0
+              xqcc_pool_received_values = @xqcc_pool_received[state].to_a.uniq
+              total_xqcc_pool_received_count = xqcc_pool_received_values.count
+              xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[state].to_a.uniq
+              total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+              pcr_pool_received_values = @pcr_pool_received[state].to_a.uniq
+              total_pcr_pool_received_count = pcr_pool_received_values.count
               pcr_pool_reviewed_values = @pcr_pool_reviewed[state].to_a.uniq
-              total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-              xray_pending_review_received = @xray_pending_review_received[state].presence || 0
-              xray_pending_review_reviewed = @xray_pending_review_reviewed[state].presence || 0
-              xray_pending_decision_received = @xray_pending_decision_received[state].presence || 0
-              xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[state].presence  || 0
-              sheet.add_row([state, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+              total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+              xray_pending_review_received_values =  @xray_pending_review_received[state].to_a.uniq
+              total_xray_pending_review_received_count = xray_pending_review_received_values.count
+              xray_pending_review_reviewed_values = @xray_pending_review_reviewed[state].to_a.uniq
+              total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+              xray_pending_decision_received_values = @xray_pending_decision_received[state].to_a.uniq
+              total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+              xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[state].to_a.uniq
+              total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
+              sheet.add_row([state, total_registration, examination_count, certification_count, total_xqcc_pool_received_count, total_xqcc_pool_reviewed_count, total_pcr_pool_received_count, total_pcr_pool_reviewed_count, total_xray_pending_review_received_count, total_xray_pending_review_reviewed_count, total_xray_pending_decision_received_count, total_xray_pending_decision_reviewed_count], style: data_style)
             end
          when 'FW Reg. by Sector'
             @job_type.each do |job|
               total_registration = @total_fw_registration[job] || 0
               examination_count = @examination_count[job] || 0
               certification_count = @certification_count[job] || 0
-              xqcc_pool_received =@xqcc_pool_received[job].presence || 0
-              xqcc_pool_reviewed = @xqcc_pool_reviewed[job].presence || 0
-              pcr_pool_received = @pcr_pool_received[job].presence || 0
+              xqcc_pool_received_values = @xqcc_pool_received[job].to_a.uniq
+              total_xqcc_pool_received_count = xqcc_pool_received_values.count
+              xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[job].to_a.uniq
+              total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+              pcr_pool_received_values = @pcr_pool_received[job].to_a.uniq
+              total_pcr_pool_received_count = pcr_pool_received_values.count
               pcr_pool_reviewed_values = @pcr_pool_reviewed[job].to_a.uniq
-              total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-              xray_pending_review_received = @xray_pending_review_received[job].presence || 0
-              xray_pending_review_reviewed = @xray_pending_review_reviewed[job].presence || 0
-              xray_pending_decision_received = @xray_pending_decision_received[job].presence || 0
-              xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[job].presence  || 0
-              sheet.add_row([job, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+              total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+              xray_pending_review_received_values =  @xray_pending_review_received[job].to_a.uniq
+              total_xray_pending_review_received_count = xray_pending_review_received_values.count
+              xray_pending_review_reviewed_values = @xray_pending_review_reviewed[job].to_a.uniq
+              total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+              xray_pending_decision_received_values = @xray_pending_decision_received[job].to_a.uniq
+              total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+              xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[job].to_a.uniq
+              total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
+              sheet.add_row([job, total_registration, examination_count, certification_count, total_xqcc_pool_received_count, total_xqcc_pool_reviewed_count, total_pcr_pool_received_count, total_pcr_pool_reviewed_count, total_xray_pending_review_received_count, total_xray_pending_review_reviewed_count, total_xray_pending_decision_received_count, total_xray_pending_decision_reviewed_count], style: data_style)
               end
          when 'FW Reg. by Gender'
             # Initialize rows arrays outside the loop
             male_rows = [['Male', @male_count, @male_examination_count, @male_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
             female_rows = [['Female', @female_count, @female_examination_count, @female_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
             @countries.each do |country|
-                # Collect data for the specified columns
-               xqcc_pool_received = (@xqcc_pool_received[country] || {})[:value].to_i
-                    xqcc_pool_reviewed = (@xqcc_pool_reviewed[country] || {})[:value].to_i
-                    pcr_pool_received = (@pcr_pool_received[country] || {})[:value].to_i
-                    pcr_pool_reviewed_values = (@pcr_pool_reviewed[country] || {}).to_a.uniq
-                    total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-                    xray_pending_review_received = (@xray_pending_review_received[country] || {})[:value].to_i
-                    xray_pending_review_reviewed = (@xray_pending_review_reviewed[country] || {})[:value].to_i
-                    xray_pending_decision_received = (@xray_pending_decision_received[country] || {})[:value].to_i
-                    xray_pending_decision_reviewed = (@xray_pending_decision_reviewed[country] || {})[:value].to_i
+                xqcc_pool_received_values = @xqcc_pool_received[country].to_a.uniq
+                total_xqcc_pool_received_count = xqcc_pool_received_values.count
+                xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[country].to_a.uniq
+                total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+                pcr_pool_received_values = @pcr_pool_received[country].to_a.uniq
+                total_pcr_pool_received_count = pcr_pool_received_values.count
+                pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
+                total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+                xray_pending_review_received_values =  @xray_pending_review_received[country].to_a.uniq
+                total_xray_pending_review_received_count = xray_pending_review_received_values.count
+                xray_pending_review_reviewed_values = @xray_pending_review_reviewed[country].to_a.uniq
+                total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+                xray_pending_decision_received_values = @xray_pending_decision_received[country].to_a.uniq
+                total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+                xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[country].to_a.uniq
+                total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
 
                 # Update the existing rows with data for each country
-                male_rows[0][4] += xqcc_pool_received
-                male_rows[0][5] += xqcc_pool_reviewed
-                male_rows[0][6] += pcr_pool_received
-                male_rows[0][7] += total_pcr_reviewed_count
-                male_rows[0][8] += xray_pending_review_received
-                male_rows[0][9] += xray_pending_review_reviewed
-                male_rows[0][10] += xray_pending_decision_received
-                male_rows[0][11] += xray_pending_decision_reviewed
+                male_rows[0][4] += total_xqcc_pool_received_count
+                male_rows[0][5] += total_xqcc_pool_reviewed_count
+                male_rows[0][6] += total_pcr_pool_received_count
+                male_rows[0][7] += total_pcr_pool_reviewed_count
+                male_rows[0][8] += total_xray_pending_review_received_count
+                male_rows[0][9] += total_xray_pending_review_reviewed_count
+                male_rows[0][10] += total_xray_pending_decision_received_count
+                male_rows[0][11] += total_xray_pending_decision_reviewed_count
 
-                female_rows[0][4] += xqcc_pool_received
-                female_rows[0][5] += xqcc_pool_reviewed
-                female_rows[0][6] += pcr_pool_received
-                female_rows[0][7] += total_pcr_reviewed_count
-                female_rows[0][8] += xray_pending_review_received
-                female_rows[0][9] += xray_pending_review_reviewed
-                female_rows[0][10] += xray_pending_decision_received
-                female_rows[0][11] += xray_pending_decision_reviewed
+                female_rows[0][4] += total_xqcc_pool_received_count
+                female_rows[0][5] += total_xqcc_pool_reviewed_count
+                female_rows[0][6] += total_pcr_pool_received_count
+                female_rows[0][7] += total_pcr_pool_reviewed_count
+                female_rows[0][8] += total_xray_pending_review_received_count
+                female_rows[0][9] += total_xray_pending_review_reviewed_count
+                female_rows[0][10] += total_xray_pending_decision_received_count
+                female_rows[0][11] += total_xray_pending_decision_reviewed_count
             end
 
             # Add male and female rows to the sheet
@@ -109,51 +136,64 @@ wb = xlsx_package.workbook
                total_registration = @total_fw_registration[organization] || 0
                examination_count = @examination_count[organization] || 0
                certification_count = @certification_count[organization] || 0
-               xqcc_pool_received =@xqcc_pool_received[organization].presence || 0
-               xqcc_pool_reviewed = @xqcc_pool_reviewed[organization].presence || 0
-               pcr_pool_received = @pcr_pool_received[organization].presence || 0
+               xqcc_pool_received_values = @xqcc_pool_received[organization].to_a.uniq
+               total_xqcc_pool_received_count = xqcc_pool_received_values.count
+               xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[organization].to_a.uniq
+               total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+               pcr_pool_received_values = @pcr_pool_received[organization].to_a.uniq
+               total_pcr_pool_received_count = pcr_pool_received_values.count
                pcr_pool_reviewed_values = @pcr_pool_reviewed[organization].to_a.uniq
-               total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-               xray_pending_review_received = @xray_pending_review_received[organization].presence || 0
-               xray_pending_review_reviewed = @xray_pending_review_reviewed[organization].presence || 0
-               xray_pending_decision_received = @xray_pending_decision_received[organization].presence || 0
-               xray_pending_decision_reviewed =  @xray_pending_decision_reviewed[organization].presence  || 0
-               sheet.add_row([organization, total_registration, examination_count, certification_count, xqcc_pool_received, xqcc_pool_reviewed, pcr_pool_received, total_pcr_reviewed_count, xray_pending_review_received, xray_pending_review_reviewed, xray_pending_decision_received, xray_pending_decision_reviewed], style: data_style)
+               total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+               xray_pending_review_received_values =  @xray_pending_review_received[organization].to_a.uniq
+               total_xray_pending_review_received_count = xray_pending_review_received_values.count
+               xray_pending_review_reviewed_values = @xray_pending_review_reviewed[organization].to_a.uniq
+               total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+               xray_pending_decision_received_values = @xray_pending_decision_received[organization].to_a.uniq
+               total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+               xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[organization].to_a.uniq
+               total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
+               sheet.add_row([organization, total_registration, examination_count, certification_count, total_xqcc_pool_received_count, total_xqcc_pool_reviewed_count, total_pcr_pool_received_count, total_pcr_pool_reviewed_count, total_xray_pending_review_received_count, total_xray_pending_review_reviewed_count, total_xray_pending_decision_received_count, total_xray_pending_decision_reviewed_count], style: data_style)
              end
          when 'FW Reg. by FW Type'
               # Initialize rows arrays outside the loop
                new_rows = [['New', @new_count, @new_examination_count, @new_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
                renewal_rows = [['New', @renewal_count, @renewal_examination_count, @renewal_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
               @countries.each do |country|
-                  # Collect data for the specified columns
-                 xqcc_pool_received = (@xqcc_pool_received[country] || {})[:value].to_i
-                 xqcc_pool_reviewed = (@xqcc_pool_reviewed[country] || {})[:value].to_i
-                 pcr_pool_received = (@pcr_pool_received[country] || {})[:value].to_i
-                 pcr_pool_reviewed_values = (@pcr_pool_reviewed[country] || {}).to_a.uniq
-                 total_pcr_reviewed_count = pcr_pool_reviewed_values.count
-                 xray_pending_review_received = (@xray_pending_review_received[country] || {})[:value].to_i
-                 xray_pending_review_reviewed = (@xray_pending_review_reviewed[country] || {})[:value].to_i
-                 xray_pending_decision_received = (@xray_pending_decision_received[country] || {})[:value].to_i
-                 xray_pending_decision_reviewed = (@xray_pending_decision_reviewed[country] || {})[:value].to_i
+                 xqcc_pool_received_values = @xqcc_pool_received[country].to_a.uniq
+                 total_xqcc_pool_received_count = xqcc_pool_received_values.count
+                 xqcc_pool_reviewed_values =  @xqcc_pool_reviewed[country].to_a.uniq
+                 total_xqcc_pool_reviewed_count = xqcc_pool_reviewed_values.count
+                 pcr_pool_received_values = @pcr_pool_received[country].to_a.uniq
+                 total_pcr_pool_received_count = pcr_pool_received_values.count
+                 pcr_pool_reviewed_values = @pcr_pool_reviewed[country].to_a.uniq
+                 total_pcr_pool_reviewed_count = pcr_pool_reviewed_values.count
+                 xray_pending_review_received_values =  @xray_pending_review_received[country].to_a.uniq
+                 total_xray_pending_review_received_count = xray_pending_review_received_values.count
+                 xray_pending_review_reviewed_values = @xray_pending_review_reviewed[country].to_a.uniq
+                 total_xray_pending_review_reviewed_count = xray_pending_review_reviewed_values.count
+                 xray_pending_decision_received_values = @xray_pending_decision_received[country].to_a.uniq
+                 total_xray_pending_decision_received_count = xray_pending_decision_received_values.count
+                 xray_pending_decision_reviewed_values =  @xray_pending_decision_reviewed[country].to_a.uniq
+                 total_xray_pending_decision_reviewed_count = xray_pending_decision_reviewed_values.count
 
                   # Update the existing rows with data for each country
-                  new_rows[0][4] += xqcc_pool_received
-                  new_rows[0][5] += xqcc_pool_reviewed
-                  new_rows[0][6] += pcr_pool_received
-                  new_rows[0][7] += total_pcr_reviewed_count
-                  new_rows[0][8] += xray_pending_review_received
-                  new_rows[0][9] += xray_pending_review_reviewed
-                  new_rows[0][10] += xray_pending_decision_received
-                  new_rows[0][11] += xray_pending_decision_reviewed
+                  new_rows[0][4] += total_xqcc_pool_received_count
+                  new_rows[0][5] += total_xqcc_pool_reviewed_count
+                  new_rows[0][6] += total_pcr_pool_received_count
+                  new_rows[0][7] += total_pcr_pool_reviewed_count
+                  new_rows[0][8] += total_xray_pending_review_received_count
+                  new_rows[0][9] += total_xray_pending_review_reviewed_count
+                  new_rows[0][10] += total_xray_pending_decision_received_count
+                  new_rows[0][11] += total_xray_pending_decision_reviewed_count
 
-                  renewal_rows[0][4] += xqcc_pool_received
-                  renewal_rows[0][5] += xqcc_pool_reviewed
-                  renewal_rows[0][6] += pcr_pool_received
-                  renewal_rows[0][7] += total_pcr_reviewed_count
-                  renewal_rows[0][8] += xray_pending_review_received
-                  renewal_rows[0][9] += xray_pending_review_reviewed
-                  renewal_rows[0][10] += xray_pending_decision_received
-                  renewal_rows[0][11] += xray_pending_decision_reviewed
+                  renewal_rows[0][4] += total_xqcc_pool_received_count
+                  renewal_rows[0][5] += total_xqcc_pool_reviewed_count
+                  renewal_rows[0][6] += total_pcr_pool_received_count
+                  renewal_rows[0][7] += total_pcr_pool_reviewed_count
+                  renewal_rows[0][8] += total_xray_pending_review_received_count
+                  renewal_rows[0][9] += total_xray_pending_review_reviewed_count
+                  renewal_rows[0][10] += total_xray_pending_decision_received_count
+                  renewal_rows[0][11] += total_xray_pending_decision_reviewed_count
               end
 
               # Add male and female rows to the sheet
