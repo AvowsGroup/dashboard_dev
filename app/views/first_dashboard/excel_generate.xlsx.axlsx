@@ -157,7 +157,7 @@ wb = xlsx_package.workbook
          when 'FW Reg. by FW Type'
               # Initialize rows arrays outside the loop
                new_rows = [['New', @new_count, @new_examination_count, @new_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
-               renewal_rows = [['New', @renewal_count, @renewal_examination_count, @renewal_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
+               renewal_rows = [['Renewal', @renewal_count, @renewal_examination_count, @renewal_certification_count, 0, 0, 0, 0, 0, 0, 0, 0]]
               @countries.each do |country|
                  xqcc_pool_received_values = @xqcc_pool_received[country].to_a.uniq
                  total_xqcc_pool_received_count = xqcc_pool_received_values.count
