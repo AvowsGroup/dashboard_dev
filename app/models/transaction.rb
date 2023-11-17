@@ -24,37 +24,19 @@ belongs_to :laboratory_examination, foreign_key: 'id'
  belongs_to :doctor_examination, foreign_key: 'id'
   enum registration_type: { new_registration: 0, renewal: 1}
   # Define a method to retrieve transaction data for the last 5 years
- def self.transaction_data_last_5_years
-    # Get the current year
-    current_year = Time.now.year
-
-    # Initialize a hash to store the data
-    transaction_data_by_year = {}
-
-    # Loop through the last 5 years
-    (current_year - 4..current_year).each do |year|
-      # Initialize a hash to store transaction counts for each month of the current year
-      transactions_by_month = Hash.new(0)
-
-      # Query the database to get transactions for the current year
-      transactions = Transaction.where("EXTRACT(YEAR FROM created_at) = ?", year)
-
-      # Loop through the transactions and organize the data by month
-      transactions.each do |transaction|
-        month = transaction.created_at.month
-        transactions_by_month[month] += 1
-      end
-
-      # Create an array to store transaction counts for each month
-      transaction_counts_per_month = (1..12).map { |month| transactions_by_month[month] }
-
-      # Store the data in the hash
-      transaction_data_by_year[year] = transaction_counts_per_month
+  def self.transaction_data_last_5_years
+        current_year = Time.now.year
+        transaction_data_by_year = {}
+      
+        (current_year - 1..current_year).each do |year|
+          transactions = Transaction.where("EXTRACT(YEAR FROM created_at) = ?", year)
+                                   .group("EXTRACT(MONTH FROM created_at)")
+                                   .count
+          transaction_data_by_year[year] = transactions.values
+        end
+      
+        transaction_data_by_year
     end
-
-    # Return the transaction data as a hash
-    transaction_data_by_year
-  end
 end 
 
 

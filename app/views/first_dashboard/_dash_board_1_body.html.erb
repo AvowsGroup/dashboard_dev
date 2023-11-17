@@ -337,19 +337,26 @@
                     <script>
                         var yearLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-                        var year2019Data = <%=  @transaction_line_cahrt[2019].to_json.html_safe%>;
-                        var year2020Data = <%=  @transaction_line_cahrt[2020].to_json.html_safe%>;
-                        var year2021Data = <%=  @transaction_line_cahrt[2021].to_json.html_safe%>;
-                        var year2022Data = <%=  @transaction_line_cahrt[2022].to_json.html_safe%>;
-                        var year2023Data = <%=  @transaction_line_cahrt[2023].to_json.html_safe%>;
+                        console.log("Start Year:", <%= @start_year %>);
+                        console.log("End Year:", <%= @end_year %>);
+  
+                        <% (@start_year..@end_year).each do |year| %>
+                          yearData[<%= year %>] = <%= (year < @end_year - 1) ? 0 : @transaction_line_cahrt[year].to_json.html_safe %>;
+                        <% end %>
 
-                        var yearData = {
-                            2019: year2019Data,
-                            2020: year2020Data,
-                            2021: year2021Data,
-                            2022: year2022Data,
-                            2023: year2023Data
-                        };
+                        // var year2019Data = 0;
+                        // var year2020Data = 0;
+                        // var year2021Data = 0;
+                        // var year2022Data = <%=  @transaction_line_cahrt[2022].to_json.html_safe%>;
+                        // var year2023Data = <%=  @transaction_line_cahrt[2023].to_json.html_safe%>;
+
+                        // var yearData = {
+                        //     2019: year2019Data,
+                        //     2020: year2020Data,
+                        //     2021: year2021Data,
+                        //     2022: year2022Data,
+                        //     2023: year2023Data
+                        // };
 
                         // Check if all data sets are empty
                         var allDataEmpty = Object.keys(yearData).every(function (year) {

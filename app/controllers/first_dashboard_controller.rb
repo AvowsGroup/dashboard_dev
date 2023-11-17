@@ -56,15 +56,24 @@ class FirstDashboardController < ApplicationController
       @fw_Reg_by_countries = Transaction.joins(:country).group('countries.name').count.to_a
     end
 
-    if @transaction_line_cahrt == {} || @transaction_line_cahrt.nil?
-      @transaction_line_cahrt = {
-        2019 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2020 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2021 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2022 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2023 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      }
-    end
+      @start_year = Date.today.year - 4
+      @end_year = Date.today.year
+      # if @transaction_line_cahrt == {} || @transaction_line_cahrt.nil?
+      #    @transaction_line_cahrt = {
+      #       2019 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      #       2020 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      #       2021 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      #       2022 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      #       2023 => [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      #     }
+      # end 
+
+      if @transaction_line_cahrt == {} || @transaction_line_cahrt.nil?
+        @transaction_line_cahrt = {}
+        (@start_year..@end_year).each do |year|
+          @transaction_line_cahrt[year] = Array.new(12, 0)
+        end
+      end
     @fw_pending_view = {
       xqcc_pool: Transaction.joins(:xray_review, :xqcc_pool)
                             .where.not("transactions.certification_date": nil)
@@ -98,7 +107,7 @@ class FirstDashboardController < ApplicationController
   end
 
   def excel_generate
-   @total_fw_registration = {}
+    @total_fw_registration = {}
     @examination_count = {}
     @certification_count = {}
     @xqcc_pool_received = {}
