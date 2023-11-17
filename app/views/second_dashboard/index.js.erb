@@ -1,1 +1,14 @@
 $("#data_box").html("<%= j(render partial: 'data_box_d2') %>");
+
+$(document).ready(function() {
+$("a").mouseenter(function() {
+$(this).find("path").attr("fill", "#6fb6d7");
+});
+
+// $("a").click(function(){
+//     $("path").css("fill", "#389f8b");
+//   });
+$("a").mouseleave(function() {
+$(this).find("path").attr("fill", "#8CD5F7");
+});
+});
