@@ -112,14 +112,10 @@
                         function drawStacked() {
                             var chartData = <%= @fw_reg_by_states.to_json.html_safe %>;
 
-                            // Check if chartData is empty
-                            if (chartData.length === 0) {
-                                // Use dummy data
-                                chartData = [
-                                    ['No Data Available', 0]
-                                    // Add more dummy data as needed
-                                ];
-                            }
+                            if (!chartData.length) {
+                                var placeholderDiv = document.getElementById('columnchart_values');
+                                placeholderDiv.innerHTML = '<div class="center-message">No Data to Display</div>';
+                            } else {
 
                             var data = new google.visualization.DataTable();
                             data.addColumn('string', 'Total ');
@@ -143,6 +139,7 @@
 
                             var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
                             chart.draw(data, options);
+                         }
                         }
                     </script>
                     <div id="columnchart_values" style="width: 100%; height:100%;"></div>
@@ -227,12 +224,10 @@
                         function drawStacked() {
                             var chartData = <%= @fw_Reg_by_countries.to_json.html_safe %>;
 
-                            if (chartData.length === 0) {
-                                // If there is no data, create a placeholder data point with the message
-                                chartData = [
-                                    ['No Data', 0],
-                                ];
-                            }
+                           if (!chartData.length) {
+                                var placeholderDiv = document.getElementById('columnchart_values1');
+                                placeholderDiv.innerHTML = '<div class="center-message">No Data to Display</div>';
+                            } else {
 
                             var data = new google.visualization.DataTable();
                             data.addColumn('string', 'Total');
@@ -256,6 +251,7 @@
 
                             var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values1'));
                             chart.draw(data, options);
+                         }
                         }
                     </script>
 
